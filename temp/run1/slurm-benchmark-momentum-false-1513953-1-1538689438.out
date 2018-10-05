@@ -1,0 +1,1656 @@
+2018-10-04 17:44:06.414994: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2018-10-04 17:44:06.620242: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:03:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:06.761057: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 1 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:04:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:06.908032: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 2 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:82:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:07.056263: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 3 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:83:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:07.058867: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0, 1, 2, 3
+2018-10-04 17:44:08.187226: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-10-04 17:44:08.187282: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 1 2 3 
+2018-10-04 17:44:08.187291: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N Y N N 
+2018-10-04 17:44:08.187297: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 1:   Y N N N 
+2018-10-04 17:44:08.187303: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 2:   N N N Y 
+2018-10-04 17:44:08.187308: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 3:   N N Y N 
+2018-10-04 17:44:08.188439: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:0 with 15127 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:03:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.330576: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:1 with 15127 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:04:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.472706: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:2 with 15127 MB memory) -> physical GPU (device: 2, name: Tesla P100-PCIE-16GB, pci bus id: 0000:82:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.615128: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:3 with 15127 MB memory) -> physical GPU (device: 3, name: Tesla P100-PCIE-16GB, pci bus id: 0000:83:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.759476: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0, 1, 2, 3
+2018-10-04 17:44:08.759677: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-10-04 17:44:08.759689: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 1 2 3 
+2018-10-04 17:44:08.759696: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N Y N N 
+2018-10-04 17:44:08.759702: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 1:   Y N N N 
+2018-10-04 17:44:08.759707: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 2:   N N N Y 
+2018-10-04 17:44:08.759713: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 3:   N N Y N 
+2018-10-04 17:44:08.760124: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:0 with 15127 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:03:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.760247: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:1 with 15127 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:04:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.760330: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:2 with 15127 MB memory) -> physical GPU (device: 2, name: Tesla P100-PCIE-16GB, pci bus id: 0000:82:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.760406: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:3 with 15127 MB memory) -> physical GPU (device: 3, name: Tesla P100-PCIE-16GB, pci bus id: 0000:83:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.761844: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0, 1, 2, 3
+2018-10-04 17:44:08.761939: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-10-04 17:44:08.761950: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 1 2 3 
+2018-10-04 17:44:08.761956: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N Y N N 
+2018-10-04 17:44:08.761962: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 1:   Y N N N 
+2018-10-04 17:44:08.761967: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 2:   N N N Y 
+2018-10-04 17:44:08.761972: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 3:   N N Y N 
+2018-10-04 17:44:08.762325: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:0 with 15127 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:03:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.762402: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:1 with 15127 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:04:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.762482: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:2 with 15127 MB memory) -> physical GPU (device: 2, name: Tesla P100-PCIE-16GB, pci bus id: 0000:82:00.0, compute capability: 6.0)
+2018-10-04 17:44:08.762542: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/device:GPU:3 with 15127 MB memory) -> physical GPU (device: 3, name: Tesla P100-PCIE-16GB, pci bus id: 0000:83:00.0, compute capability: 6.0)
+Tensorflow version: 1.10.1
+All local devices:
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 13624053767220813739
+, name: "/device:GPU:0"
+device_type: "GPU"
+memory_limit: 15862523495
+locality {
+  bus_id: 1
+  links {
+    link {
+      device_id: 1
+      type: "StreamExecutor"
+      strength: 1
+    }
+  }
+}
+incarnation: 3924050129360446637
+physical_device_desc: "device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:03:00.0, compute capability: 6.0"
+, name: "/device:GPU:1"
+device_type: "GPU"
+memory_limit: 15862523495
+locality {
+  bus_id: 1
+  links {
+    link {
+      type: "StreamExecutor"
+      strength: 1
+    }
+  }
+}
+incarnation: 2729435266991372540
+physical_device_desc: "device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:04:00.0, compute capability: 6.0"
+, name: "/device:GPU:2"
+device_type: "GPU"
+memory_limit: 15862523495
+locality {
+  bus_id: 2
+  numa_node: 1
+  links {
+    link {
+      device_id: 3
+      type: "StreamExecutor"
+      strength: 1
+    }
+  }
+}
+incarnation: 9121996464402743054
+physical_device_desc: "device: 2, name: Tesla P100-PCIE-16GB, pci bus id: 0000:82:00.0, compute capability: 6.0"
+, name: "/device:GPU:3"
+device_type: "GPU"
+memory_limit: 15862523495
+locality {
+  bus_id: 2
+  numa_node: 1
+  links {
+    link {
+      device_id: 2
+      type: "StreamExecutor"
+      strength: 1
+    }
+  }
+}
+incarnation: 14792201437751089373
+physical_device_desc: "device: 3, name: Tesla P100-PCIE-16GB, pci bus id: 0000:83:00.0, compute capability: 6.0"
+]
+GPU is available? True
+GPU device name: /device:GPU:0
+CUDA_VISIBLE_DEVICES = 0,1,2,3
+==================================================
+|                                                |
+|        GPU devices detected. Success!          |
+|                                                |
+==================================================
+
+Running this commit: bd240ef Set up run environment for imagenet resnet50_v1.5
+I1004 17:44:18.647794 47334264659584 tf_logging.py:115] Params:
+
+Params(model='resnet50_v1.5', eval=False, eval_interval_secs=0, forward_only=False, freeze_when_forward_only=False, print_training_accuracy=True, batch_size=64, batch_group_size=1, num_batches=None, num_epochs=100.0, num_warmup_batches=None, autotune_threshold=None, num_gpus=4, gpu_indices='', display_every=10, data_dir='/tigress/haoyuz/imagenet-dataset/', data_name=None, resize_method='bilinear', distortions=True, use_datasets=True, input_preprocessor='default', gpu_thread_mode='gpu_shared', per_gpu_thread_count=0, hierarchical_copy=False, network_topology=<NetworkTopology.DGX1: 'dgx1'>, gradient_repacking=0, compact_gradient_transfer=True, variable_consistency='strong', cache_data=False, local_parameter_device='gpu', device='gpu', data_format='NCHW', num_intra_threads=None, num_inter_threads=0, trace_file='', use_chrome_trace_format=True, tfprof_file=None, graph_file=None, partitioned_graph_file_prefix=None, optimizer='momentum', init_learning_rate=None, piecewise_learning_rate_schedule=None, num_epochs_per_decay=0.0, learning_rate_decay_factor=0.0, num_learning_rate_warmup_epochs=0.0, minimum_learning_rate=0.0, momentum=0.9, rmsprop_decay=0.9, rmsprop_momentum=0.9, rmsprop_epsilon=1.0, ksync_num_replicas=4, ksync_mode='sync', ksync_scaling_duration=6500.0, gradient_clip=None, weight_decay=4e-05, gpu_memory_frac_for_testing=0.0, use_tf_layers=True, tf_random_seed=1234, debugger=None, use_python32_barrier=False, datasets_use_prefetch=True, datasets_prefetch_buffer_size=1, datasets_num_private_threads=None, use_multi_device_iterator=False, multi_device_iterator_max_buffer_size=1, winograd_nonfused=True, batchnorm_persistent=True, sync_on_finish=False, staged_vars=False, force_gpu_compatible=False, allow_growth=None, xla=False, fuse_decode_and_crop=True, distort_color_in_yiq=True, enable_optimizations=True, rewriter_config=None, loss_type_to_report='total_loss', single_l2_loss_op=False, use_resource_vars=False, mkl=False, kmp_blocktime=30, kmp_affinity='granularity=fine,verbose,compact,1,0', kmp_settings=1, use_fp16=True, fp16_loss_scale=None, fp16_vars=False, fp16_enable_auto_loss_scale=False, fp16_inc_loss_scale_every_n=1000, variable_update='parameter_server', all_reduce_spec=None, agg_small_grads_max_bytes=0, agg_small_grads_max_group=10, allreduce_merge_scope=1, job_name='worker', ps_hosts='tiger-i19g8:2222', worker_hosts='tiger-i20g6:2222,tiger-i20g7:2222,tiger-i20g12:2222,tiger-i20g15:2222', controller_host=None, task_index=0, server_protocol='grpc', cross_replica_sync=False, horovod_device='', summary_verbosity=0, save_summaries_steps=0, save_model_secs=0, max_ckpts_to_keep=5, train_dir='/tigress/andrewor/logs/resnet50_imagenet_1538689438', eval_dir='/tmp/tf_cnn_benchmarks/eval', benchmark_log_dir=None, benchmark_test_id=None)
+
+
+2018-10-04 17:44:18.650417: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2018-10-04 17:44:18.886036: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:03:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:19.024417: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 1 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:04:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:19.170425: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 2 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:82:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:19.320422: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 3 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:83:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-10-04 17:44:19.323042: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0, 1, 2, 3
+2018-10-04 17:44:20.444397: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-10-04 17:44:20.444457: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 1 2 3 
+2018-10-04 17:44:20.444466: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N Y N N 
+2018-10-04 17:44:20.444472: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 1:   Y N N N 
+2018-10-04 17:44:20.444478: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 2:   N N N Y 
+2018-10-04 17:44:20.444483: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 3:   N N Y N 
+2018-10-04 17:44:20.445565: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:worker/replica:0/task:0/device:GPU:0 with 15127 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:03:00.0, compute capability: 6.0)
+2018-10-04 17:44:20.586167: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:worker/replica:0/task:0/device:GPU:1 with 15127 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:04:00.0, compute capability: 6.0)
+2018-10-04 17:44:20.725887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:worker/replica:0/task:0/device:GPU:2 with 15127 MB memory) -> physical GPU (device: 2, name: Tesla P100-PCIE-16GB, pci bus id: 0000:82:00.0, compute capability: 6.0)
+2018-10-04 17:44:20.865772: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:worker/replica:0/task:0/device:GPU:3 with 15127 MB memory) -> physical GPU (device: 3, name: Tesla P100-PCIE-16GB, pci bus id: 0000:83:00.0, compute capability: 6.0)
+2018-10-04 17:44:21.007461: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job ps -> {0 -> tiger-i19g8:2222}
+2018-10-04 17:44:21.007503: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job worker -> {0 -> localhost:2222, 1 -> tiger-i20g7:2222, 2 -> tiger-i20g12:2222, 3 -> tiger-i20g15:2222}
+2018-10-04 17:44:21.009698: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:375] Started server with target: grpc://localhost:2222
+I1004 17:44:21.027078 47334264659584 tf_logging.py:115] TensorFlow:  1.10
+I1004 17:44:21.032116 47334264659584 tf_logging.py:115] Model:       resnet50_v1.5
+I1004 17:44:21.032189 47334264659584 tf_logging.py:115] Dataset:     imagenet
+I1004 17:44:21.032302 47334264659584 tf_logging.py:115] Mode:        training
+I1004 17:44:21.032358 47334264659584 tf_logging.py:115] SingleSess:  False
+I1004 17:44:21.032447 47334264659584 tf_logging.py:115] Batch size:  1024 global
+I1004 17:44:21.032505 47334264659584 tf_logging.py:115]              64.0 per device
+I1004 17:44:21.032555 47334264659584 tf_logging.py:115] Num batches: 125113
+I1004 17:44:21.032606 47334264659584 tf_logging.py:115] Num epochs:  100.00
+I1004 17:44:21.032876 47334264659584 tf_logging.py:115] Devices:     ['/job:worker/replica:0/task:0/gpu:0', '/job:worker/replica:0/task:0/gpu:1', '/job:worker/replica:0/task:0/gpu:2', '/job:worker/replica:0/task:0/gpu:3']
+I1004 17:44:21.033043 47334264659584 tf_logging.py:115] Data format: NCHW
+I1004 17:44:21.033142 47334264659584 tf_logging.py:115] Optimizer:   momentum
+I1004 17:44:21.033243 47334264659584 tf_logging.py:115] Variables:   parameter_server
+I1004 17:44:21.033339 47334264659584 tf_logging.py:115] Sync:        False
+I1004 17:44:21.033392 47334264659584 tf_logging.py:115] ==========
+I1004 17:44:21.036509 47334264659584 tf_logging.py:115] Generating model
+I1004 17:44:30.542107 47334264659584 tf_logging.py:115] ResnetModel: Learning rate boundaries = [150136, 300273, 400364, 450410], values = [0.016, 0.0016, 0.00016, 1.6e-05, 1.6000000000000001e-06], base = 0.016
+W1004 17:44:32.010394 47334264659584 tf_logging.py:125] From /home/andrewor/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:1901: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2018-10-04 17:44:33.550236: I tensorflow/core/distributed_runtime/master_session.cc:1165] Start master session b11e45d960b32f8a with config: intra_op_parallelism_threads: 1 inter_op_parallelism_threads: 20 gpu_options { } allow_soft_placement: true experimental { collective_group_leader: "/job:worker/replica:0/task:0" }
+I1004 17:44:35.352784 47334264659584 tf_logging.py:115] Running local_init_op.
+I1004 17:44:40.388585 47334264659584 tf_logging.py:115] Done running local_init_op.
+I1004 17:44:44.343190 47334264659584 tf_logging.py:115] Running warm up
+I1004 17:45:12.089868 47334264659584 tf_logging.py:115] Done warm up
+I1004 17:45:12.090276 47334264659584 tf_logging.py:115] Waiting for other replicas to finish warm up
+I1004 17:45:13.006309 47407805007616 tf_logging.py:115] Starting real work at step 40 at time Thu Oct  4 17:45:13 2018
+I1004 17:45:39.087460 47334264659584 tf_logging.py:115] Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+I1004 17:45:44.634064 47334264659584 tf_logging.py:115] 1	images/sec: 46.2 +/- 0.0 (jitter = 0.0)	8.198	0.000	0.008
+I1004 17:46:27.696716 47334264659584 tf_logging.py:115] 10	images/sec: 52.7 +/- 3.4 (jitter = 12.7)	8.119	0.004	0.004
+I1004 17:47:10.346831 47334264659584 tf_logging.py:115] 20	images/sec: 56.1 +/- 3.7 (jitter = 15.4)	8.117	0.000	0.004
+I1004 17:48:00.806664 47334264659584 tf_logging.py:115] 30	images/sec: 54.2 +/- 2.8 (jitter = 15.8)	8.021	0.000	0.012
+I1004 17:48:49.421002 47334264659584 tf_logging.py:115] 40	images/sec: 53.8 +/- 2.3 (jitter = 15.8)	7.992	0.004	0.012
+I1004 17:49:31.655737 47334264659584 tf_logging.py:115] 50	images/sec: 55.0 +/- 2.0 (jitter = 14.2)	7.870	0.008	0.016
+I1004 17:50:15.376039 47334264659584 tf_logging.py:115] 60	images/sec: 55.6 +/- 1.9 (jitter = 15.0)	7.759	0.000	0.004
+I1004 17:51:02.551964 47334264659584 tf_logging.py:115] 70	images/sec: 55.4 +/- 1.8 (jitter = 15.0)	7.788	0.000	0.023
+I1004 17:51:48.572941 47334264659584 tf_logging.py:115] 80	images/sec: 55.4 +/- 1.7 (jitter = 16.0)	7.786	0.004	0.012
+I1004 17:52:34.458344 47334264659584 tf_logging.py:115] 90	images/sec: 55.5 +/- 1.7 (jitter = 14.8)	7.792	0.000	0.012
+I1004 17:53:18.084810 47334264659584 tf_logging.py:115] 100	images/sec: 55.8 +/- 1.6 (jitter = 15.1)	7.793	0.000	0.012
+I1004 17:54:00.672137 47334264659584 tf_logging.py:115] 110	images/sec: 56.1 +/- 1.6 (jitter = 14.6)	7.829	0.004	0.012
+I1004 17:54:53.886127 47334264659584 tf_logging.py:115] 120	images/sec: 55.4 +/- 1.5 (jitter = 15.3)	7.749	0.004	0.012
+I1004 17:55:38.419147 47334264659584 tf_logging.py:115] 130	images/sec: 55.5 +/- 1.4 (jitter = 15.7)	7.772	0.004	0.016
+I1004 17:56:18.996104 47334264659584 tf_logging.py:115] 140	images/sec: 56.0 +/- 1.4 (jitter = 16.4)	7.762	0.000	0.016
+I1004 17:57:02.313338 47334264659584 tf_logging.py:115] 150	images/sec: 56.2 +/- 1.3 (jitter = 16.1)	7.700	0.000	0.016
+I1004 17:57:42.146852 47334264659584 tf_logging.py:115] 160	images/sec: 56.7 +/- 1.3 (jitter = 17.0)	7.789	0.008	0.020
+I1004 17:58:27.244301 47334264659584 tf_logging.py:115] 170	images/sec: 56.7 +/- 1.2 (jitter = 16.7)	7.801	0.004	0.012
+I1004 17:59:13.972391 47334264659584 tf_logging.py:115] 180	images/sec: 56.5 +/- 1.2 (jitter = 16.4)	7.778	0.004	0.016
+I1004 17:59:55.989575 47334264659584 tf_logging.py:115] 190	images/sec: 56.8 +/- 1.2 (jitter = 16.6)	7.845	0.000	0.016
+I1004 18:00:43.460752 47334264659584 tf_logging.py:115] 200	images/sec: 56.6 +/- 1.1 (jitter = 15.9)	7.794	0.000	0.000
+I1004 18:01:24.131456 47334264659584 tf_logging.py:115] 210	images/sec: 56.9 +/- 1.1 (jitter = 16.4)	7.796	0.004	0.012
+I1004 18:02:06.477298 47334264659584 tf_logging.py:115] 220	images/sec: 57.0 +/- 1.1 (jitter = 16.4)	7.752	0.008	0.020
+I1004 18:02:46.334080 47334264659584 tf_logging.py:115] 230	images/sec: 57.3 +/- 1.1 (jitter = 16.8)	7.750	0.000	0.012
+I1004 18:03:35.926961 47334264659584 tf_logging.py:115] 240	images/sec: 57.1 +/- 1.1 (jitter = 15.5)	7.782	0.000	0.000
+I1004 18:04:17.009596 47334264659584 tf_logging.py:115] 250	images/sec: 57.3 +/- 1.1 (jitter = 15.3)	7.794	0.000	0.016
+I1004 18:04:56.135144 47334264659584 tf_logging.py:115] 260	images/sec: 57.5 +/- 1.0 (jitter = 16.3)	7.764	0.004	0.012
+I1004 18:05:43.853100 47334264659584 tf_logging.py:115] 270	images/sec: 57.4 +/- 1.0 (jitter = 15.9)	7.755	0.008	0.012
+I1004 18:06:24.398581 47334264659584 tf_logging.py:115] 280	images/sec: 57.6 +/- 1.0 (jitter = 16.6)	7.804	0.004	0.012
+I1004 18:07:14.463435 47334264659584 tf_logging.py:115] 290	images/sec: 57.3 +/- 1.0 (jitter = 16.4)	7.689	0.008	0.039
+I1004 18:08:06.475275 47334264659584 tf_logging.py:115] 300	images/sec: 57.0 +/- 0.9 (jitter = 16.0)	7.802	0.000	0.004
+I1004 18:08:46.577903 47334264659584 tf_logging.py:115] 310	images/sec: 57.2 +/- 0.9 (jitter = 16.7)	7.714	0.004	0.031
+I1004 18:09:29.344433 47334264659584 tf_logging.py:115] 320	images/sec: 57.3 +/- 0.9 (jitter = 16.5)	7.762	0.008	0.027
+I1004 18:10:17.130002 47334264659584 tf_logging.py:115] 330	images/sec: 57.2 +/- 0.9 (jitter = 16.5)	7.747	0.004	0.031
+I1004 18:10:53.208354 47334264659584 tf_logging.py:115] 340	images/sec: 57.5 +/- 0.9 (jitter = 16.8)	7.680	0.004	0.023
+I1004 18:11:36.419292 47334264659584 tf_logging.py:115] 350	images/sec: 57.5 +/- 0.9 (jitter = 16.8)	7.704	0.004	0.020
+I1004 18:12:20.676242 47334264659584 tf_logging.py:115] 360	images/sec: 57.5 +/- 0.8 (jitter = 16.6)	7.683	0.004	0.016
+I1004 18:12:58.917288 47334264659584 tf_logging.py:115] 370	images/sec: 57.8 +/- 0.8 (jitter = 16.8)	7.687	0.000	0.004
+I1004 18:13:49.328445 47334264659584 tf_logging.py:115] 380	images/sec: 57.6 +/- 0.8 (jitter = 16.7)	7.683	0.012	0.027
+I1004 18:14:30.663713 47334264659584 tf_logging.py:115] 390	images/sec: 57.7 +/- 0.8 (jitter = 16.8)	7.667	0.004	0.016
+I1004 18:15:21.310176 47334264659584 tf_logging.py:115] 400	images/sec: 57.5 +/- 0.8 (jitter = 16.6)	7.688	0.004	0.012
+I1004 18:16:08.724848 47334264659584 tf_logging.py:115] 410	images/sec: 57.4 +/- 0.8 (jitter = 16.4)	7.668	0.008	0.020
+I1004 18:16:53.355325 47334264659584 tf_logging.py:115] 420	images/sec: 57.4 +/- 0.8 (jitter = 16.4)	7.624	0.004	0.008
+I1004 18:17:34.585262 47334264659584 tf_logging.py:115] 430	images/sec: 57.5 +/- 0.8 (jitter = 16.5)	7.638	0.012	0.035
+I1004 18:18:19.828972 47334264659584 tf_logging.py:115] 440	images/sec: 57.4 +/- 0.8 (jitter = 16.3)	7.505	0.004	0.016
+I1004 18:19:13.176560 47334264659584 tf_logging.py:115] 450	images/sec: 57.2 +/- 0.8 (jitter = 15.9)	7.572	0.004	0.012
+I1004 18:19:53.319123 47334264659584 tf_logging.py:115] 460	images/sec: 57.3 +/- 0.7 (jitter = 16.4)	7.595	0.008	0.023
+I1004 18:20:39.327702 47334264659584 tf_logging.py:115] 470	images/sec: 57.3 +/- 0.7 (jitter = 16.4)	7.447	0.004	0.027
+I1004 18:21:22.955065 47334264659584 tf_logging.py:115] 480	images/sec: 57.3 +/- 0.7 (jitter = 16.5)	7.537	0.016	0.047
+I1004 18:22:07.241837 47334264659584 tf_logging.py:115] 490	images/sec: 57.3 +/- 0.7 (jitter = 16.5)	7.551	0.016	0.035
+I1004 18:22:50.551452 47334264659584 tf_logging.py:115] 500	images/sec: 57.4 +/- 0.7 (jitter = 16.5)	7.632	0.008	0.016
+I1004 18:23:38.142275 47334264659584 tf_logging.py:115] 510	images/sec: 57.3 +/- 0.7 (jitter = 16.5)	7.559	0.012	0.031
+I1004 18:24:22.932123 47334264659584 tf_logging.py:115] 520	images/sec: 57.3 +/- 0.7 (jitter = 16.5)	7.491	0.000	0.016
+I1004 18:25:05.719799 47334264659584 tf_logging.py:115] 530	images/sec: 57.3 +/- 0.7 (jitter = 16.5)	7.372	0.004	0.039
+I1004 18:25:54.210092 47334264659584 tf_logging.py:115] 540	images/sec: 57.2 +/- 0.7 (jitter = 16.5)	7.378	0.016	0.055
+I1004 18:26:39.584346 47334264659584 tf_logging.py:115] 550	images/sec: 57.2 +/- 0.7 (jitter = 16.6)	7.518	0.004	0.020
+I1004 18:27:21.347085 47334264659584 tf_logging.py:115] 560	images/sec: 57.3 +/- 0.7 (jitter = 16.6)	7.408	0.012	0.043
+I1004 18:28:15.751507 47334264659584 tf_logging.py:115] 570	images/sec: 57.1 +/- 0.7 (jitter = 16.5)	7.324	0.012	0.059
+I1004 18:29:03.258470 47334264659584 tf_logging.py:115] 580	images/sec: 57.0 +/- 0.7 (jitter = 16.7)	7.417	0.012	0.035
+I1004 18:29:43.310637 47334264659584 tf_logging.py:115] 590	images/sec: 57.1 +/- 0.7 (jitter = 16.6)	7.481	0.012	0.051
+I1004 18:30:24.613810 47334264659584 tf_logging.py:115] 600	images/sec: 57.2 +/- 0.7 (jitter = 16.8)	7.420	0.008	0.039
+I1004 18:31:08.957850 47334264659584 tf_logging.py:115] 610	images/sec: 57.2 +/- 0.7 (jitter = 16.9)	7.293	0.004	0.043
+I1004 18:31:53.845289 47334264659584 tf_logging.py:115] 620	images/sec: 57.2 +/- 0.7 (jitter = 16.8)	7.230	0.016	0.055
+I1004 18:32:38.756494 47334264659584 tf_logging.py:115] 630	images/sec: 57.2 +/- 0.7 (jitter = 16.9)	7.430	0.008	0.043
+I1004 18:33:28.260333 47334264659584 tf_logging.py:115] 640	images/sec: 57.1 +/- 0.6 (jitter = 16.8)	7.350	0.008	0.039
+I1004 18:34:11.364353 47334264659584 tf_logging.py:115] 650	images/sec: 57.1 +/- 0.6 (jitter = 16.9)	7.244	0.012	0.039
+I1004 18:34:59.933192 47334264659584 tf_logging.py:115] 660	images/sec: 57.1 +/- 0.6 (jitter = 16.9)	7.165	0.008	0.055
+I1004 18:35:40.754647 47334264659584 tf_logging.py:115] 670	images/sec: 57.1 +/- 0.6 (jitter = 16.8)	7.270	0.016	0.059
+I1004 18:36:25.325000 47334264659584 tf_logging.py:115] 680	images/sec: 57.1 +/- 0.6 (jitter = 16.8)	7.169	0.012	0.070
+I1004 18:37:12.150678 47334264659584 tf_logging.py:115] 690	images/sec: 57.1 +/- 0.6 (jitter = 16.7)	7.301	0.016	0.039
+I1004 18:37:57.701406 47334264659584 tf_logging.py:115] 700	images/sec: 57.1 +/- 0.6 (jitter = 16.6)	7.261	0.008	0.047
+I1004 18:38:42.947696 47334264659584 tf_logging.py:115] 710	images/sec: 57.1 +/- 0.6 (jitter = 16.4)	7.165	0.027	0.051
+I1004 18:39:24.976982 47334264659584 tf_logging.py:115] 720	images/sec: 57.1 +/- 0.6 (jitter = 16.5)	7.258	0.008	0.074
+I1004 18:40:08.846937 47334264659584 tf_logging.py:115] 730	images/sec: 57.2 +/- 0.6 (jitter = 16.6)	7.199	0.016	0.062
+I1004 18:40:50.329432 47334264659584 tf_logging.py:115] 740	images/sec: 57.2 +/- 0.6 (jitter = 16.6)	7.170	0.000	0.039
+I1004 18:41:34.172496 47334264659584 tf_logging.py:115] 750	images/sec: 57.2 +/- 0.6 (jitter = 16.7)	7.200	0.008	0.051
+I1004 18:42:16.989786 47334264659584 tf_logging.py:115] 760	images/sec: 57.3 +/- 0.6 (jitter = 16.7)	7.109	0.020	0.062
+I1004 18:43:01.235217 47334264659584 tf_logging.py:115] 770	images/sec: 57.3 +/- 0.6 (jitter = 16.7)	7.228	0.016	0.062
+I1004 18:43:51.760717 47334264659584 tf_logging.py:115] 780	images/sec: 57.2 +/- 0.6 (jitter = 16.7)	6.950	0.023	0.094
+I1004 18:44:44.834454 47334264659584 tf_logging.py:115] 790	images/sec: 57.0 +/- 0.6 (jitter = 16.7)	7.097	0.008	0.074
+I1004 18:45:40.599585 47334264659584 tf_logging.py:115] 800	images/sec: 56.9 +/- 0.6 (jitter = 16.8)	7.222	0.012	0.051
+I1004 18:46:30.717159 47334264659584 tf_logging.py:115] 810	images/sec: 56.8 +/- 0.6 (jitter = 16.8)	7.069	0.012	0.078
+I1004 18:47:17.341164 47334264659584 tf_logging.py:115] 820	images/sec: 56.8 +/- 0.6 (jitter = 16.8)	7.016	0.008	0.090
+I1004 18:48:06.033854 47334264659584 tf_logging.py:115] 830	images/sec: 56.7 +/- 0.6 (jitter = 16.6)	6.924	0.031	0.086
+I1004 18:48:54.033982 47334264659584 tf_logging.py:115] 840	images/sec: 56.7 +/- 0.6 (jitter = 16.5)	7.012	0.027	0.074
+I1004 18:49:42.225457 47334264659584 tf_logging.py:115] 850	images/sec: 56.6 +/- 0.6 (jitter = 16.5)	6.889	0.047	0.105
+I1004 18:50:40.775177 47334264659584 tf_logging.py:115] 860	images/sec: 56.4 +/- 0.6 (jitter = 16.3)	7.003	0.023	0.105
+I1004 18:51:27.161704 47334264659584 tf_logging.py:115] 870	images/sec: 56.4 +/- 0.5 (jitter = 16.3)	6.956	0.016	0.062
+I1004 18:52:10.476059 47334264659584 tf_logging.py:115] 880	images/sec: 56.4 +/- 0.5 (jitter = 16.4)	7.099	0.023	0.070
+I1004 18:52:55.426076 47334264659584 tf_logging.py:115] 890	images/sec: 56.4 +/- 0.5 (jitter = 16.5)	6.986	0.020	0.066
+I1004 18:53:39.796794 47334264659584 tf_logging.py:115] 900	images/sec: 56.5 +/- 0.5 (jitter = 16.6)	7.099	0.012	0.070
+I1004 18:54:24.221055 47334264659584 tf_logging.py:115] 910	images/sec: 56.5 +/- 0.5 (jitter = 16.5)	6.769	0.027	0.094
+I1004 18:55:13.823474 47334264659584 tf_logging.py:115] 920	images/sec: 56.4 +/- 0.5 (jitter = 16.4)	6.994	0.027	0.070
+I1004 18:55:55.276156 47334264659584 tf_logging.py:115] 930	images/sec: 56.5 +/- 0.5 (jitter = 16.5)	7.070	0.023	0.047
+I1004 18:56:43.049656 47334264659584 tf_logging.py:115] 940	images/sec: 56.4 +/- 0.5 (jitter = 16.5)	6.764	0.035	0.121
+I1004 18:57:33.263826 47334264659584 tf_logging.py:115] 950	images/sec: 56.4 +/- 0.5 (jitter = 16.5)	6.957	0.027	0.078
+I1004 18:58:18.077251 47334264659584 tf_logging.py:115] 960	images/sec: 56.4 +/- 0.5 (jitter = 16.5)	6.927	0.039	0.121
+I1004 18:59:01.474290 47334264659584 tf_logging.py:115] 970	images/sec: 56.4 +/- 0.5 (jitter = 16.5)	6.877	0.020	0.082
+I1004 18:59:48.694756 47334264659584 tf_logging.py:115] 980	images/sec: 56.4 +/- 0.5 (jitter = 16.5)	6.955	0.020	0.109
+I1004 19:00:36.592350 47334264659584 tf_logging.py:115] 990	images/sec: 56.4 +/- 0.5 (jitter = 16.5)	6.837	0.027	0.090
+I1004 19:01:27.059157 47334264659584 tf_logging.py:115] 1000	images/sec: 56.3 +/- 0.5 (jitter = 16.4)	6.856	0.031	0.105
+I1004 19:02:19.345405 47334264659584 tf_logging.py:115] 1010	images/sec: 56.2 +/- 0.5 (jitter = 16.3)	6.920	0.027	0.109
+I1004 19:03:01.980367 47334264659584 tf_logging.py:115] 1020	images/sec: 56.2 +/- 0.5 (jitter = 16.1)	6.818	0.035	0.094
+I1004 19:03:45.783026 47334264659584 tf_logging.py:115] 1030	images/sec: 56.3 +/- 0.5 (jitter = 16.2)	6.672	0.020	0.129
+I1004 19:04:29.021851 47334264659584 tf_logging.py:115] 1040	images/sec: 56.3 +/- 0.5 (jitter = 16.1)	6.899	0.012	0.066
+I1004 19:05:11.581317 47334264659584 tf_logging.py:115] 1050	images/sec: 56.3 +/- 0.5 (jitter = 16.0)	6.922	0.047	0.078
+I1004 19:05:57.212047 47334264659584 tf_logging.py:115] 1060	images/sec: 56.3 +/- 0.5 (jitter = 15.8)	6.871	0.023	0.086
+I1004 19:06:40.001453 47334264659584 tf_logging.py:115] 1070	images/sec: 56.4 +/- 0.5 (jitter = 15.8)	6.628	0.051	0.148
+I1004 19:07:30.120388 47334264659584 tf_logging.py:115] 1080	images/sec: 56.3 +/- 0.5 (jitter = 15.9)	6.844	0.023	0.090
+I1004 19:08:14.802974 47334264659584 tf_logging.py:115] 1090	images/sec: 56.3 +/- 0.5 (jitter = 15.9)	6.756	0.031	0.125
+I1004 19:09:06.429975 47334264659584 tf_logging.py:115] 1100	images/sec: 56.2 +/- 0.5 (jitter = 15.9)	6.809	0.020	0.078
+I1004 19:09:51.302437 47334264659584 tf_logging.py:115] 1110	images/sec: 56.2 +/- 0.5 (jitter = 16.0)	6.736	0.023	0.133
+I1004 19:10:39.266876 47334264659584 tf_logging.py:115] 1120	images/sec: 56.2 +/- 0.5 (jitter = 16.0)	6.867	0.031	0.098
+I1004 19:11:29.366753 47334264659584 tf_logging.py:115] 1130	images/sec: 56.2 +/- 0.5 (jitter = 16.0)	6.878	0.047	0.094
+I1004 19:12:13.331781 47334264659584 tf_logging.py:115] 1140	images/sec: 56.2 +/- 0.5 (jitter = 16.0)	6.746	0.023	0.102
+I1004 19:12:57.322220 47334264659584 tf_logging.py:115] 1150	images/sec: 56.2 +/- 0.5 (jitter = 15.9)	6.783	0.055	0.109
+I1004 19:13:34.788788 47334264659584 tf_logging.py:115] 1160	images/sec: 56.3 +/- 0.5 (jitter = 15.9)	6.767	0.016	0.094
+I1004 19:14:22.102972 47334264659584 tf_logging.py:115] 1170	images/sec: 56.3 +/- 0.5 (jitter = 16.0)	6.942	0.012	0.070
+I1004 19:15:03.085842 47334264659584 tf_logging.py:115] 1180	images/sec: 56.3 +/- 0.5 (jitter = 16.1)	6.721	0.023	0.090
+I1004 19:15:47.968227 47334264659584 tf_logging.py:115] 1190	images/sec: 56.3 +/- 0.5 (jitter = 16.0)	6.761	0.059	0.125
+I1004 19:16:30.046915 47334264659584 tf_logging.py:115] 1200	images/sec: 56.4 +/- 0.5 (jitter = 16.1)	6.591	0.027	0.129
+I1004 19:17:12.699624 47334264659584 tf_logging.py:115] 1210	images/sec: 56.4 +/- 0.5 (jitter = 16.2)	6.679	0.043	0.156
+I1004 19:17:50.699535 47334264659584 tf_logging.py:115] 1220	images/sec: 56.5 +/- 0.5 (jitter = 16.3)	6.601	0.043	0.121
+I1004 19:18:39.670284 47334264659584 tf_logging.py:115] 1230	images/sec: 56.4 +/- 0.5 (jitter = 16.3)	6.653	0.043	0.113
+I1004 19:19:28.119643 47334264659584 tf_logging.py:115] 1240	images/sec: 56.4 +/- 0.5 (jitter = 16.4)	6.652	0.039	0.109
+I1004 19:20:06.760943 47334264659584 tf_logging.py:115] 1250	images/sec: 56.5 +/- 0.5 (jitter = 16.3)	6.508	0.035	0.148
+I1004 19:20:55.447833 47334264659584 tf_logging.py:115] 1260	images/sec: 56.4 +/- 0.5 (jitter = 16.4)	6.586	0.047	0.137
+I1004 19:21:43.714518 47334264659584 tf_logging.py:115] 1270	images/sec: 56.4 +/- 0.5 (jitter = 16.3)	6.600	0.035	0.133
+I1004 19:22:31.153876 47334264659584 tf_logging.py:115] 1280	images/sec: 56.4 +/- 0.5 (jitter = 16.2)	6.635	0.047	0.141
+I1004 19:23:20.652310 47334264659584 tf_logging.py:115] 1290	images/sec: 56.3 +/- 0.5 (jitter = 16.0)	6.585	0.062	0.137
+I1004 19:24:07.017436 47334264659584 tf_logging.py:115] 1300	images/sec: 56.3 +/- 0.4 (jitter = 16.0)	6.497	0.039	0.133
+I1004 19:24:52.057419 47334264659584 tf_logging.py:115] 1310	images/sec: 56.3 +/- 0.4 (jitter = 15.9)	6.415	0.066	0.137
+I1004 19:25:39.578409 47334264659584 tf_logging.py:115] 1320	images/sec: 56.3 +/- 0.4 (jitter = 15.9)	6.551	0.059	0.152
+I1004 19:26:23.385622 47334264659584 tf_logging.py:115] 1330	images/sec: 56.3 +/- 0.4 (jitter = 15.9)	6.555	0.039	0.121
+I1004 19:27:05.844615 47334264659584 tf_logging.py:115] 1340	images/sec: 56.4 +/- 0.4 (jitter = 15.9)	6.469	0.043	0.152
+I1004 19:27:53.964897 47334264659584 tf_logging.py:115] 1350	images/sec: 56.3 +/- 0.4 (jitter = 15.9)	6.402	0.066	0.133
+I1004 19:28:49.790274 47334264659584 tf_logging.py:115] 1360	images/sec: 56.2 +/- 0.4 (jitter = 15.8)	6.382	0.070	0.172
+I1004 19:29:29.494442 47334264659584 tf_logging.py:115] 1370	images/sec: 56.3 +/- 0.4 (jitter = 15.8)	6.470	0.066	0.160
+I1004 19:30:10.579000 47334264659584 tf_logging.py:115] 1380	images/sec: 56.3 +/- 0.4 (jitter = 15.8)	6.370	0.062	0.156
+I1004 19:30:49.331944 47334264659584 tf_logging.py:115] 1390	images/sec: 56.4 +/- 0.4 (jitter = 15.9)	6.370	0.055	0.164
+I1004 19:31:35.282624 47334264659584 tf_logging.py:115] 1400	images/sec: 56.4 +/- 0.4 (jitter = 15.8)	6.557	0.062	0.148
+I1004 19:32:19.879765 47334264659584 tf_logging.py:115] 1410	images/sec: 56.4 +/- 0.4 (jitter = 15.8)	6.368	0.062	0.172
+I1004 19:33:01.929783 47334264659584 tf_logging.py:115] 1420	images/sec: 56.4 +/- 0.4 (jitter = 15.8)	6.289	0.082	0.164
+I1004 19:33:42.269591 47334264659584 tf_logging.py:115] 1430	images/sec: 56.5 +/- 0.4 (jitter = 15.9)	6.326	0.027	0.141
+I1004 19:34:23.315416 47334264659584 tf_logging.py:115] 1440	images/sec: 56.5 +/- 0.4 (jitter = 15.9)	6.558	0.031	0.117
+I1004 19:35:03.210911 47334264659584 tf_logging.py:115] 1450	images/sec: 56.6 +/- 0.4 (jitter = 15.9)	6.353	0.062	0.160
+I1004 19:35:47.245391 47334264659584 tf_logging.py:115] 1460	images/sec: 56.6 +/- 0.4 (jitter = 15.9)	6.272	0.078	0.195
+I1004 19:36:26.431451 47334264659584 tf_logging.py:115] 1470	images/sec: 56.6 +/- 0.4 (jitter = 16.1)	6.281	0.070	0.184
+I1004 19:37:06.188925 47334264659584 tf_logging.py:115] 1480	images/sec: 56.7 +/- 0.4 (jitter = 16.0)	6.380	0.051	0.188
+I1004 19:37:56.678808 47334264659584 tf_logging.py:115] 1490	images/sec: 56.6 +/- 0.4 (jitter = 15.9)	6.347	0.066	0.164
+I1004 19:38:41.877578 47334264659584 tf_logging.py:115] 1500	images/sec: 56.6 +/- 0.4 (jitter = 15.9)	6.521	0.059	0.160
+I1004 19:39:23.010752 47334264659584 tf_logging.py:115] 1510	images/sec: 56.6 +/- 0.4 (jitter = 16.0)	6.336	0.051	0.164
+I1004 19:40:03.201645 47334264659584 tf_logging.py:115] 1520	images/sec: 56.7 +/- 0.4 (jitter = 16.1)	6.281	0.090	0.203
+I1004 19:40:44.960785 47334264659584 tf_logging.py:115] 1530	images/sec: 56.7 +/- 0.4 (jitter = 16.2)	6.292	0.074	0.176
+I1004 19:41:36.840495 47334264659584 tf_logging.py:115] 1540	images/sec: 56.7 +/- 0.4 (jitter = 16.1)	6.340	0.066	0.145
+I1004 19:42:18.409888 47334264659584 tf_logging.py:115] 1550	images/sec: 56.7 +/- 0.4 (jitter = 16.2)	6.223	0.070	0.184
+I1004 19:43:05.144302 47334264659584 tf_logging.py:115] 1560	images/sec: 56.7 +/- 0.4 (jitter = 16.2)	6.253	0.078	0.176
+I1004 19:43:53.236926 47334264659584 tf_logging.py:115] 1570	images/sec: 56.7 +/- 0.4 (jitter = 16.2)	6.252	0.074	0.180
+I1004 19:44:40.210708 47334264659584 tf_logging.py:115] 1580	images/sec: 56.6 +/- 0.4 (jitter = 16.2)	6.268	0.062	0.172
+I1004 19:45:24.672102 47334264659584 tf_logging.py:115] 1590	images/sec: 56.6 +/- 0.4 (jitter = 16.2)	6.557	0.055	0.152
+I1004 19:46:08.977797 47334264659584 tf_logging.py:115] 1600	images/sec: 56.7 +/- 0.4 (jitter = 16.2)	6.202	0.074	0.188
+I1004 19:46:47.189468 47334264659584 tf_logging.py:115] 1610	images/sec: 56.7 +/- 0.4 (jitter = 16.2)	6.253	0.043	0.207
+I1004 19:47:28.978594 47334264659584 tf_logging.py:115] 1620	images/sec: 56.7 +/- 0.4 (jitter = 16.3)	6.195	0.062	0.188
+I1004 19:48:07.607189 47334264659584 tf_logging.py:115] 1630	images/sec: 56.8 +/- 0.4 (jitter = 16.3)	6.166	0.078	0.195
+I1004 19:48:50.819957 47334264659584 tf_logging.py:115] 1640	images/sec: 56.8 +/- 0.4 (jitter = 16.3)	6.289	0.086	0.184
+I1004 19:49:30.417843 47334264659584 tf_logging.py:115] 1650	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	6.309	0.074	0.195
+I1004 19:50:11.000846 47334264659584 tf_logging.py:115] 1660	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	6.340	0.055	0.141
+I1004 19:50:55.170580 47334264659584 tf_logging.py:115] 1670	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	6.110	0.070	0.180
+I1004 19:51:37.568251 47334264659584 tf_logging.py:115] 1680	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	6.136	0.086	0.207
+I1004 19:52:10.519954 47334264659584 tf_logging.py:115] 1690	images/sec: 57.0 +/- 0.4 (jitter = 16.5)	5.963	0.082	0.250
+I1004 19:52:50.963663 47334264659584 tf_logging.py:115] 1700	images/sec: 57.0 +/- 0.4 (jitter = 16.4)	6.065	0.078	0.215
+I1004 19:53:39.690804 47334264659584 tf_logging.py:115] 1710	images/sec: 57.0 +/- 0.4 (jitter = 16.4)	5.941	0.098	0.242
+I1004 19:54:31.224456 47334264659584 tf_logging.py:115] 1720	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	6.073	0.074	0.199
+I1004 19:55:19.797869 47334264659584 tf_logging.py:115] 1730	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	5.926	0.137	0.246
+I1004 19:56:02.758296 47334264659584 tf_logging.py:115] 1740	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	5.913	0.074	0.246
+I1004 19:56:45.035170 47334264659584 tf_logging.py:115] 1750	images/sec: 57.0 +/- 0.4 (jitter = 16.3)	6.252	0.090	0.191
+I1004 19:57:36.995396 47334264659584 tf_logging.py:115] 1760	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	6.215	0.066	0.199
+I1004 19:58:26.244495 47334264659584 tf_logging.py:115] 1770	images/sec: 56.9 +/- 0.4 (jitter = 16.3)	6.043	0.094	0.246
+I1004 19:59:14.048455 47334264659584 tf_logging.py:115] 1780	images/sec: 56.9 +/- 0.4 (jitter = 16.4)	5.980	0.117	0.258
+I1004 19:59:54.788067 47334264659584 tf_logging.py:115] 1790	images/sec: 56.9 +/- 0.4 (jitter = 16.3)	6.147	0.074	0.195
+I1004 20:00:43.775544 47334264659584 tf_logging.py:115] 1800	images/sec: 56.9 +/- 0.4 (jitter = 16.3)	5.920	0.074	0.258
+I1004 20:01:31.569549 47334264659584 tf_logging.py:115] 1810	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.996	0.090	0.250
+I1004 20:02:16.409240 47334264659584 tf_logging.py:115] 1820	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.994	0.062	0.270
+I1004 20:03:06.802490 47334264659584 tf_logging.py:115] 1830	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.829	0.090	0.250
+I1004 20:03:49.395132 47334264659584 tf_logging.py:115] 1840	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	6.034	0.090	0.246
+I1004 20:04:37.729503 47334264659584 tf_logging.py:115] 1850	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.886	0.105	0.254
+I1004 20:05:28.352680 47334264659584 tf_logging.py:115] 1860	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.841	0.090	0.270
+I1004 20:06:16.411550 47334264659584 tf_logging.py:115] 1870	images/sec: 56.7 +/- 0.4 (jitter = 16.4)	5.694	0.070	0.250
+I1004 20:07:00.146353 47334264659584 tf_logging.py:115] 1880	images/sec: 56.7 +/- 0.4 (jitter = 16.4)	5.817	0.094	0.254
+I1004 20:07:39.619449 47334264659584 tf_logging.py:115] 1890	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.848	0.129	0.227
+I1004 20:08:30.820986 47334264659584 tf_logging.py:115] 1900	images/sec: 56.7 +/- 0.4 (jitter = 16.4)	5.903	0.105	0.223
+I1004 20:09:15.837536 47334264659584 tf_logging.py:115] 1910	images/sec: 56.7 +/- 0.4 (jitter = 16.4)	5.748	0.141	0.285
+I1004 20:09:56.971412 47334264659584 tf_logging.py:115] 1920	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.870	0.109	0.277
+I1004 20:10:36.937206 47334264659584 tf_logging.py:115] 1930	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.937	0.133	0.250
+I1004 20:11:16.896758 47334264659584 tf_logging.py:115] 1940	images/sec: 56.8 +/- 0.4 (jitter = 16.3)	5.883	0.113	0.258
+I1004 20:11:58.447625 47334264659584 tf_logging.py:115] 1950	images/sec: 56.9 +/- 0.4 (jitter = 16.3)	5.792	0.082	0.242
+I1004 20:12:41.313329 47334264659584 tf_logging.py:115] 1960	images/sec: 56.9 +/- 0.4 (jitter = 16.3)	5.821	0.105	0.254
+I1004 20:13:23.987202 47334264659584 tf_logging.py:115] 1970	images/sec: 56.9 +/- 0.4 (jitter = 16.3)	5.736	0.117	0.328
+I1004 20:14:16.580814 47334264659584 tf_logging.py:115] 1980	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.738	0.109	0.238
+I1004 20:15:07.915106 47334264659584 tf_logging.py:115] 1990	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.653	0.148	0.293
+I1004 20:15:59.709707 47334264659584 tf_logging.py:115] 2000	images/sec: 56.8 +/- 0.4 (jitter = 16.5)	5.811	0.102	0.234
+I1004 20:16:42.037713 47334264659584 tf_logging.py:115] 2010	images/sec: 56.8 +/- 0.4 (jitter = 16.5)	5.820	0.078	0.273
+I1004 20:17:25.417156 47334264659584 tf_logging.py:115] 2020	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.668	0.113	0.258
+I1004 20:18:08.957885 47334264659584 tf_logging.py:115] 2030	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.690	0.117	0.273
+I1004 20:18:47.050963 47334264659584 tf_logging.py:115] 2040	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.880	0.078	0.211
+I1004 20:19:40.689725 47334264659584 tf_logging.py:115] 2050	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.709	0.129	0.258
+I1004 20:20:22.242041 47334264659584 tf_logging.py:115] 2060	images/sec: 56.8 +/- 0.4 (jitter = 16.3)	5.716	0.086	0.289
+I1004 20:21:08.287471 47334264659584 tf_logging.py:115] 2070	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.555	0.121	0.289
+I1004 20:22:01.484226 47334264659584 tf_logging.py:115] 2080	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.755	0.121	0.281
+I1004 20:22:44.862442 47334264659584 tf_logging.py:115] 2090	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.638	0.086	0.285
+I1004 20:23:28.857075 47334264659584 tf_logging.py:115] 2100	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.952	0.098	0.234
+I1004 20:24:13.419575 47334264659584 tf_logging.py:115] 2110	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.814	0.098	0.246
+I1004 20:24:57.966644 47334264659584 tf_logging.py:115] 2120	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.586	0.137	0.281
+I1004 20:25:48.716039 47334264659584 tf_logging.py:115] 2130	images/sec: 56.7 +/- 0.4 (jitter = 16.4)	5.564	0.133	0.281
+I1004 20:26:29.999202 47334264659584 tf_logging.py:115] 2140	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.729	0.098	0.281
+I1004 20:27:17.790295 47334264659584 tf_logging.py:115] 2150	images/sec: 56.8 +/- 0.4 (jitter = 16.3)	5.734	0.094	0.230
+I1004 20:28:04.770791 47334264659584 tf_logging.py:115] 2160	images/sec: 56.7 +/- 0.4 (jitter = 16.4)	5.812	0.121	0.297
+I1004 20:28:42.638331 47334264659584 tf_logging.py:115] 2170	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.647	0.109	0.312
+I1004 20:29:30.827951 47334264659584 tf_logging.py:115] 2180	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.590	0.105	0.289
+I1004 20:30:10.201344 47334264659584 tf_logging.py:115] 2190	images/sec: 56.8 +/- 0.4 (jitter = 16.5)	5.395	0.164	0.348
+I1004 20:30:55.056031 47334264659584 tf_logging.py:115] 2200	images/sec: 56.8 +/- 0.4 (jitter = 16.5)	5.446	0.160	0.312
+I1004 20:31:38.805738 47334264659584 tf_logging.py:115] 2210	images/sec: 56.8 +/- 0.4 (jitter = 16.5)	5.492	0.113	0.285
+I1004 20:32:20.074530 47334264659584 tf_logging.py:115] 2220	images/sec: 56.8 +/- 0.4 (jitter = 16.4)	5.511	0.125	0.316
+I1004 20:32:57.491304 47334264659584 tf_logging.py:115] 2230	images/sec: 56.9 +/- 0.4 (jitter = 16.5)	5.616	0.164	0.312
+I1004 20:33:44.998144 47334264659584 tf_logging.py:115] 2240	images/sec: 56.9 +/- 0.4 (jitter = 16.5)	5.484	0.109	0.309
+I1004 20:34:36.814936 47334264659584 tf_logging.py:115] 2250	images/sec: 56.8 +/- 0.4 (jitter = 16.5)	5.682	0.121	0.273
+I1004 20:35:15.736629 47334264659584 tf_logging.py:115] 2260	images/sec: 56.9 +/- 0.4 (jitter = 16.5)	5.452	0.156	0.375
+I1004 20:35:53.323774 47334264659584 tf_logging.py:115] 2270	images/sec: 56.9 +/- 0.3 (jitter = 16.5)	5.598	0.160	0.309
+I1004 20:36:49.634165 47334264659584 tf_logging.py:115] 2280	images/sec: 56.8 +/- 0.3 (jitter = 16.5)	5.230	0.180	0.363
+I1004 20:37:29.736329 47334264659584 tf_logging.py:115] 2290	images/sec: 56.9 +/- 0.3 (jitter = 16.5)	5.574	0.117	0.301
+I1004 20:38:14.202157 47334264659584 tf_logging.py:115] 2300	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.491	0.121	0.309
+I1004 20:38:55.606554 47334264659584 tf_logging.py:115] 2310	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.501	0.156	0.309
+I1004 20:39:40.775070 47334264659584 tf_logging.py:115] 2320	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.389	0.148	0.332
+I1004 20:40:19.907222 47334264659584 tf_logging.py:115] 2330	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.709	0.105	0.254
+I1004 20:41:07.516329 47334264659584 tf_logging.py:115] 2340	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.447	0.125	0.316
+I1004 20:41:53.012056 47334264659584 tf_logging.py:115] 2350	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.306	0.145	0.324
+I1004 20:42:40.651464 47334264659584 tf_logging.py:115] 2360	images/sec: 56.9 +/- 0.3 (jitter = 16.3)	5.284	0.180	0.375
+I1004 20:43:21.919621 47334264659584 tf_logging.py:115] 2370	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.513	0.141	0.324
+I1004 20:44:06.253800 47334264659584 tf_logging.py:115] 2380	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.538	0.148	0.336
+I1004 20:44:50.121241 47334264659584 tf_logging.py:115] 2390	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.343	0.133	0.320
+I1004 20:45:36.881403 47334264659584 tf_logging.py:115] 2400	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.358	0.105	0.316
+I1004 20:46:25.662582 47334264659584 tf_logging.py:115] 2410	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.398	0.156	0.355
+I1004 20:47:19.555633 47334264659584 tf_logging.py:115] 2420	images/sec: 56.8 +/- 0.3 (jitter = 16.5)	5.180	0.156	0.336
+I1004 20:48:10.508319 47334264659584 tf_logging.py:115] 2430	images/sec: 56.8 +/- 0.3 (jitter = 16.5)	5.137	0.145	0.352
+I1004 20:48:50.926120 47334264659584 tf_logging.py:115] 2440	images/sec: 56.8 +/- 0.3 (jitter = 16.5)	5.347	0.113	0.332
+I1004 20:49:34.769446 47334264659584 tf_logging.py:115] 2450	images/sec: 56.8 +/- 0.3 (jitter = 16.4)	5.379	0.133	0.336
+I1004 20:50:12.933364 47334264659584 tf_logging.py:115] 2460	images/sec: 56.9 +/- 0.3 (jitter = 16.5)	5.402	0.160	0.328
+I1004 20:50:52.429249 47334264659584 tf_logging.py:115] 2470	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.302	0.141	0.375
+I1004 20:51:29.550971 47334264659584 tf_logging.py:115] 2480	images/sec: 56.9 +/- 0.3 (jitter = 16.4)	5.284	0.191	0.352
+I1004 20:52:10.031987 47334264659584 tf_logging.py:115] 2490	images/sec: 57.0 +/- 0.3 (jitter = 16.5)	5.216	0.152	0.359
+I1004 20:52:53.134491 47334264659584 tf_logging.py:115] 2500	images/sec: 57.0 +/- 0.3 (jitter = 16.5)	5.547	0.129	0.285
+I1004 20:53:38.259885 47334264659584 tf_logging.py:115] 2510	images/sec: 57.0 +/- 0.3 (jitter = 16.5)	5.266	0.168	0.340
+I1004 20:54:29.131821 47334264659584 tf_logging.py:115] 2520	images/sec: 56.9 +/- 0.3 (jitter = 16.5)	5.340	0.145	0.336
+I1004 20:55:09.349851 47334264659584 tf_logging.py:115] 2530	images/sec: 57.0 +/- 0.3 (jitter = 16.5)	5.267	0.164	0.363
+I1004 20:55:56.046584 47334264659584 tf_logging.py:115] 2540	images/sec: 57.0 +/- 0.3 (jitter = 16.4)	5.197	0.172	0.359
+I1004 20:56:34.382880 47334264659584 tf_logging.py:115] 2550	images/sec: 57.0 +/- 0.3 (jitter = 16.5)	5.618	0.109	0.289
+I1004 20:57:16.268809 47334264659584 tf_logging.py:115] 2560	images/sec: 57.0 +/- 0.3 (jitter = 16.5)	5.597	0.133	0.270
+I1004 20:57:52.349058 47334264659584 tf_logging.py:115] 2570	images/sec: 57.0 +/- 0.3 (jitter = 16.5)	5.367	0.125	0.309
+I1004 20:58:28.585924 47334264659584 tf_logging.py:115] 2580	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.570	0.137	0.293
+I1004 20:59:16.717896 47334264659584 tf_logging.py:115] 2590	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.012	0.172	0.391
+I1004 21:00:09.011087 47334264659584 tf_logging.py:115] 2600	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.097	0.203	0.406
+I1004 21:00:56.348787 47334264659584 tf_logging.py:115] 2610	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.245	0.172	0.367
+I1004 21:01:49.099354 47334264659584 tf_logging.py:115] 2620	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.265	0.156	0.328
+I1004 21:02:39.764457 47334264659584 tf_logging.py:115] 2630	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.297	0.141	0.355
+I1004 21:03:22.781301 47334264659584 tf_logging.py:115] 2640	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.556	0.117	0.312
+I1004 21:04:07.710771 47334264659584 tf_logging.py:115] 2650	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.159	0.195	0.402
+I1004 21:04:49.375074 47334264659584 tf_logging.py:115] 2660	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.273	0.156	0.391
+I1004 21:05:40.948855 47334264659584 tf_logging.py:115] 2670	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	5.370	0.172	0.328
+I1004 21:06:35.730360 47334264659584 tf_logging.py:115] 2680	images/sec: 56.9 +/- 0.3 (jitter = 16.7)	5.351	0.148	0.363
+I1004 21:07:18.336663 47334264659584 tf_logging.py:115] 2690	images/sec: 56.9 +/- 0.3 (jitter = 16.7)	5.323	0.184	0.348
+I1004 21:08:02.523090 47334264659584 tf_logging.py:115] 2700	images/sec: 56.9 +/- 0.3 (jitter = 16.7)	5.455	0.137	0.336
+I1004 21:08:46.680688 47334264659584 tf_logging.py:115] 2710	images/sec: 56.9 +/- 0.3 (jitter = 16.7)	5.182	0.180	0.359
+I1004 21:09:26.598375 47334264659584 tf_logging.py:115] 2720	images/sec: 56.9 +/- 0.3 (jitter = 16.7)	5.316	0.168	0.367
+I1004 21:10:06.138239 47334264659584 tf_logging.py:115] 2730	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	5.095	0.168	0.391
+I1004 21:10:49.890635 47334264659584 tf_logging.py:115] 2740	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.451	0.148	0.320
+I1004 21:11:29.888072 47334264659584 tf_logging.py:115] 2750	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.262	0.160	0.340
+I1004 21:12:17.045246 47334264659584 tf_logging.py:115] 2760	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.324	0.184	0.371
+I1004 21:13:00.356718 47334264659584 tf_logging.py:115] 2770	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.537	0.125	0.328
+I1004 21:13:46.311806 47334264659584 tf_logging.py:115] 2780	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.268	0.141	0.352
+I1004 21:14:29.327071 47334264659584 tf_logging.py:115] 2790	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	4.942	0.215	0.414
+I1004 21:15:19.975239 47334264659584 tf_logging.py:115] 2800	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.281	0.129	0.375
+I1004 21:15:57.021277 47334264659584 tf_logging.py:115] 2810	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.176	0.207	0.379
+I1004 21:16:36.751280 47334264659584 tf_logging.py:115] 2820	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.313	0.156	0.355
+I1004 21:17:19.593881 47334264659584 tf_logging.py:115] 2830	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.055	0.176	0.359
+I1004 21:18:09.882318 47334264659584 tf_logging.py:115] 2840	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.062	0.195	0.426
+I1004 21:18:52.343191 47334264659584 tf_logging.py:115] 2850	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	5.006	0.203	0.410
+I1004 21:19:35.964097 47334264659584 tf_logging.py:115] 2860	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.058	0.191	0.426
+I1004 21:20:20.339411 47334264659584 tf_logging.py:115] 2870	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.330	0.152	0.352
+I1004 21:21:02.177734 47334264659584 tf_logging.py:115] 2880	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.855	0.191	0.441
+I1004 21:21:46.188969 47334264659584 tf_logging.py:115] 2890	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.102	0.188	0.375
+I1004 21:22:35.683597 47334264659584 tf_logging.py:115] 2900	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.108	0.176	0.383
+I1004 21:23:19.815412 47334264659584 tf_logging.py:115] 2910	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.188	0.168	0.371
+I1004 21:24:00.993032 47334264659584 tf_logging.py:115] 2920	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.282	0.168	0.344
+I1004 21:24:46.594039 47334264659584 tf_logging.py:115] 2930	images/sec: 57.1 +/- 0.3 (jitter = 16.7)	5.244	0.160	0.355
+I1004 21:25:33.304872 47334264659584 tf_logging.py:115] 2940	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	5.089	0.180	0.359
+I1004 21:26:16.485359 47334264659584 tf_logging.py:115] 2950	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.182	0.184	0.387
+I1004 21:27:00.825686 47334264659584 tf_logging.py:115] 2960	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.133	0.172	0.379
+I1004 21:27:46.371084 47334264659584 tf_logging.py:115] 2970	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.982	0.203	0.383
+I1004 21:28:25.901276 47334264659584 tf_logging.py:115] 2980	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.042	0.191	0.402
+I1004 21:29:07.241519 47334264659584 tf_logging.py:115] 2990	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.946	0.219	0.438
+I1004 21:29:48.872684 47334264659584 tf_logging.py:115] 3000	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.853	0.191	0.445
+I1004 21:30:35.278718 47334264659584 tf_logging.py:115] 3010	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.768	0.180	0.445
+I1004 21:31:23.835080 47334264659584 tf_logging.py:115] 3020	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	5.101	0.207	0.402
+I1004 21:32:14.854389 47334264659584 tf_logging.py:115] 3030	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.892	0.215	0.414
+I1004 21:32:51.568662 47334264659584 tf_logging.py:115] 3040	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.980	0.199	0.426
+I1004 21:33:36.482532 47334264659584 tf_logging.py:115] 3050	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.790	0.180	0.414
+I1004 21:34:25.596409 47334264659584 tf_logging.py:115] 3060	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.815	0.203	0.441
+I1004 21:35:16.865696 47334264659584 tf_logging.py:115] 3070	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.959	0.191	0.402
+I1004 21:36:06.607382 47334264659584 tf_logging.py:115] 3080	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	5.045	0.188	0.383
+I1004 21:36:59.996156 47334264659584 tf_logging.py:115] 3090	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.968	0.223	0.430
+I1004 21:37:46.083821 47334264659584 tf_logging.py:115] 3100	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.641	0.262	0.449
+I1004 21:38:28.115270 47334264659584 tf_logging.py:115] 3110	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.903	0.180	0.398
+I1004 21:39:10.193447 47334264659584 tf_logging.py:115] 3120	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.982	0.188	0.402
+I1004 21:39:58.242899 47334264659584 tf_logging.py:115] 3130	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.775	0.227	0.480
+I1004 21:40:45.349494 47334264659584 tf_logging.py:115] 3140	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.890	0.223	0.402
+I1004 21:41:26.957516 47334264659584 tf_logging.py:115] 3150	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.684	0.273	0.488
+I1004 21:42:18.081920 47334264659584 tf_logging.py:115] 3160	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.615	0.254	0.496
+I1004 21:43:05.877915 47334264659584 tf_logging.py:115] 3170	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.793	0.211	0.438
+I1004 21:43:51.814280 47334264659584 tf_logging.py:115] 3180	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.658	0.262	0.457
+I1004 21:44:38.660384 47334264659584 tf_logging.py:115] 3190	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.815	0.230	0.418
+I1004 21:45:24.177307 47334264659584 tf_logging.py:115] 3200	images/sec: 56.9 +/- 0.3 (jitter = 16.7)	4.782	0.195	0.453
+I1004 21:46:10.771542 47334264659584 tf_logging.py:115] 3210	images/sec: 56.9 +/- 0.3 (jitter = 16.7)	4.756	0.227	0.461
+I1004 21:46:51.675059 47334264659584 tf_logging.py:115] 3220	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.854	0.219	0.449
+I1004 21:47:32.893942 47334264659584 tf_logging.py:115] 3230	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.909	0.172	0.398
+I1004 21:48:10.054253 47334264659584 tf_logging.py:115] 3240	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.584	0.254	0.449
+I1004 21:48:54.613924 47334264659584 tf_logging.py:115] 3250	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.959	0.207	0.426
+I1004 21:49:48.647027 47334264659584 tf_logging.py:115] 3260	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.886	0.203	0.434
+I1004 21:50:31.349385 47334264659584 tf_logging.py:115] 3270	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.711	0.250	0.461
+I1004 21:51:19.435155 47334264659584 tf_logging.py:115] 3280	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	4.561	0.250	0.512
+I1004 21:51:58.357038 47334264659584 tf_logging.py:115] 3290	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	4.678	0.223	0.496
+I1004 21:52:37.990640 47334264659584 tf_logging.py:115] 3300	images/sec: 57.0 +/- 0.3 (jitter = 16.7)	4.984	0.172	0.426
+I1004 21:53:22.013005 47334264659584 tf_logging.py:115] 3310	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	4.908	0.227	0.473
+I1004 21:54:02.977929 47334264659584 tf_logging.py:115] 3320	images/sec: 57.0 +/- 0.3 (jitter = 16.6)	4.700	0.195	0.461
+I1004 21:54:41.887895 47334264659584 tf_logging.py:115] 3330	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.627	0.242	0.469
+I1004 21:55:22.258165 47334264659584 tf_logging.py:115] 3340	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.955	0.223	0.383
+I1004 21:56:05.642097 47334264659584 tf_logging.py:115] 3350	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.710	0.242	0.461
+I1004 21:56:46.843392 47334264659584 tf_logging.py:115] 3360	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.688	0.230	0.449
+I1004 21:57:37.239094 47334264659584 tf_logging.py:115] 3370	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.737	0.184	0.449
+I1004 21:58:16.645317 47334264659584 tf_logging.py:115] 3380	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.764	0.270	0.449
+I1004 21:58:56.633659 47334264659584 tf_logging.py:115] 3390	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.626	0.277	0.457
+I1004 21:59:55.575560 47334264659584 tf_logging.py:115] 3400	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.983	0.191	0.418
+I1004 22:00:30.468217 47334264659584 tf_logging.py:115] 3410	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.770	0.234	0.465
+I1004 22:01:15.418699 47334264659584 tf_logging.py:115] 3420	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.874	0.227	0.457
+I1004 22:01:57.721981 47334264659584 tf_logging.py:115] 3430	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.808	0.242	0.457
+I1004 22:02:39.423482 47334264659584 tf_logging.py:115] 3440	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.640	0.266	0.445
+I1004 22:03:26.222455 47334264659584 tf_logging.py:115] 3450	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.641	0.246	0.457
+I1004 22:04:11.857013 47334264659584 tf_logging.py:115] 3460	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.395	0.309	0.527
+I1004 22:04:54.807351 47334264659584 tf_logging.py:115] 3470	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.671	0.227	0.422
+I1004 22:05:41.377901 47334264659584 tf_logging.py:115] 3480	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.711	0.285	0.484
+I1004 22:06:23.171189 47334264659584 tf_logging.py:115] 3490	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.574	0.254	0.465
+I1004 22:06:55.824314 47334264659584 tf_logging.py:115] 3500	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.740	0.227	0.473
+I1004 22:07:38.344251 47334264659584 tf_logging.py:115] 3510	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.589	0.254	0.477
+I1004 22:08:21.767878 47334264659584 tf_logging.py:115] 3520	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.618	0.227	0.488
+I1004 22:09:01.859159 47334264659584 tf_logging.py:115] 3530	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.632	0.250	0.438
+I1004 22:09:43.089153 47334264659584 tf_logging.py:115] 3540	images/sec: 57.2 +/- 0.3 (jitter = 16.7)	4.533	0.219	0.512
+I1004 22:10:22.125213 47334264659584 tf_logging.py:115] 3550	images/sec: 57.2 +/- 0.3 (jitter = 16.7)	4.702	0.219	0.457
+I1004 22:11:04.188602 47334264659584 tf_logging.py:115] 3560	images/sec: 57.2 +/- 0.3 (jitter = 16.7)	4.341	0.285	0.523
+I1004 22:11:53.342181 47334264659584 tf_logging.py:115] 3570	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.560	0.266	0.473
+I1004 22:12:38.600554 47334264659584 tf_logging.py:115] 3580	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.833	0.230	0.473
+I1004 22:13:24.538233 47334264659584 tf_logging.py:115] 3590	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.473	0.234	0.484
+I1004 22:14:03.113048 47334264659584 tf_logging.py:115] 3600	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.438	0.266	0.523
+I1004 22:14:53.128783 47334264659584 tf_logging.py:115] 3610	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.622	0.273	0.504
+I1004 22:15:36.526861 47334264659584 tf_logging.py:115] 3620	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.568	0.250	0.488
+I1004 22:16:28.089226 47334264659584 tf_logging.py:115] 3630	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.527	0.230	0.469
+I1004 22:17:07.743463 47334264659584 tf_logging.py:115] 3640	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.697	0.203	0.492
+I1004 22:17:54.161153 47334264659584 tf_logging.py:115] 3650	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.741	0.273	0.492
+I1004 22:18:36.249525 47334264659584 tf_logging.py:115] 3660	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.581	0.254	0.496
+I1004 22:19:20.427789 47334264659584 tf_logging.py:115] 3670	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.729	0.211	0.434
+I1004 22:20:00.165421 47334264659584 tf_logging.py:115] 3680	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.444	0.246	0.473
+I1004 22:20:41.290230 47334264659584 tf_logging.py:115] 3690	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.713	0.203	0.434
+I1004 22:21:19.099899 47334264659584 tf_logging.py:115] 3700	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.566	0.254	0.496
+I1004 22:22:02.589066 47334264659584 tf_logging.py:115] 3710	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.649	0.254	0.430
+I1004 22:22:43.926009 47334264659584 tf_logging.py:115] 3720	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.399	0.297	0.523
+I1004 22:23:26.343343 47334264659584 tf_logging.py:115] 3730	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.281	0.289	0.543
+I1004 22:24:08.839279 47334264659584 tf_logging.py:115] 3740	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.334	0.262	0.516
+I1004 22:24:48.208333 47334264659584 tf_logging.py:115] 3750	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.487	0.277	0.512
+I1004 22:25:36.554647 47334264659584 tf_logging.py:115] 3760	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.268	0.270	0.570
+I1004 22:26:23.302573 47334264659584 tf_logging.py:115] 3770	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.423	0.238	0.512
+I1004 22:27:14.658654 47334264659584 tf_logging.py:115] 3780	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.526	0.254	0.500
+I1004 22:28:11.183704 47334264659584 tf_logging.py:115] 3790	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.522	0.234	0.484
+I1004 22:28:53.003548 47334264659584 tf_logging.py:115] 3800	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.562	0.250	0.508
+I1004 22:29:27.641630 47334264659584 tf_logging.py:115] 3810	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.632	0.262	0.477
+I1004 22:30:12.812975 47334264659584 tf_logging.py:115] 3820	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.514	0.266	0.512
+I1004 22:30:59.838698 47334264659584 tf_logging.py:115] 3830	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.333	0.270	0.484
+I1004 22:31:41.416397 47334264659584 tf_logging.py:115] 3840	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.554	0.246	0.492
+I1004 22:32:30.229820 47334264659584 tf_logging.py:115] 3850	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.564	0.219	0.492
+I1004 22:33:16.877838 47334264659584 tf_logging.py:115] 3860	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.540	0.234	0.477
+I1004 22:34:10.175732 47334264659584 tf_logging.py:115] 3870	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.658	0.238	0.449
+I1004 22:34:55.854512 47334264659584 tf_logging.py:115] 3880	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.452	0.258	0.484
+I1004 22:35:40.396768 47334264659584 tf_logging.py:115] 3890	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.583	0.223	0.473
+I1004 22:36:22.681050 47334264659584 tf_logging.py:115] 3900	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.565	0.234	0.480
+I1004 22:37:02.064631 47334264659584 tf_logging.py:115] 3910	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.080	0.340	0.574
+I1004 22:37:47.185517 47334264659584 tf_logging.py:115] 3920	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.386	0.273	0.516
+I1004 22:38:29.075989 47334264659584 tf_logging.py:115] 3930	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.338	0.312	0.539
+I1004 22:39:10.925572 47334264659584 tf_logging.py:115] 3940	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.190	0.332	0.566
+I1004 22:39:53.876619 47334264659584 tf_logging.py:115] 3950	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.463	0.273	0.516
+I1004 22:40:41.421547 47334264659584 tf_logging.py:115] 3960	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.432	0.316	0.535
+I1004 22:41:19.734681 47334264659584 tf_logging.py:115] 3970	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.612	0.258	0.461
+I1004 22:42:02.022668 47334264659584 tf_logging.py:115] 3980	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.402	0.266	0.523
+I1004 22:42:49.544755 47334264659584 tf_logging.py:115] 3990	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.474	0.262	0.488
+I1004 22:43:32.585088 47334264659584 tf_logging.py:115] 4000	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.337	0.328	0.570
+I1004 22:44:25.781942 47334264659584 tf_logging.py:115] 4010	images/sec: 57.3 +/- 0.3 (jitter = 16.5)	4.388	0.250	0.527
+I1004 22:45:11.714283 47334264659584 tf_logging.py:115] 4020	images/sec: 57.3 +/- 0.3 (jitter = 16.5)	4.585	0.281	0.504
+I1004 22:45:47.762245 47334264659584 tf_logging.py:115] 4030	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.223	0.324	0.555
+I1004 22:46:35.782529 47334264659584 tf_logging.py:115] 4040	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.349	0.277	0.500
+I1004 22:47:16.064235 47334264659584 tf_logging.py:115] 4050	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.447	0.230	0.508
+I1004 22:48:07.877352 47334264659584 tf_logging.py:115] 4060	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.356	0.281	0.523
+I1004 22:48:49.574673 47334264659584 tf_logging.py:115] 4070	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.473	0.289	0.508
+I1004 22:49:33.313056 47334264659584 tf_logging.py:115] 4080	images/sec: 57.3 +/- 0.3 (jitter = 16.6)	4.524	0.250	0.488
+I1004 22:50:27.696155 47334264659584 tf_logging.py:115] 4090	images/sec: 57.3 +/- 0.3 (jitter = 16.5)	4.122	0.312	0.566
+I1004 22:51:16.743424 47334264659584 tf_logging.py:115] 4100	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.299	0.270	0.527
+I1004 22:52:02.447985 47334264659584 tf_logging.py:115] 4110	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.406	0.301	0.516
+I1004 22:52:53.699938 47334264659584 tf_logging.py:115] 4120	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.233	0.305	0.539
+I1004 22:53:47.783677 47334264659584 tf_logging.py:115] 4130	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.164	0.312	0.551
+I1004 22:54:34.183758 47334264659584 tf_logging.py:115] 4140	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.402	0.293	0.520
+I1004 22:55:22.927891 47334264659584 tf_logging.py:115] 4150	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.488	0.273	0.496
+I1004 22:56:03.655650 47334264659584 tf_logging.py:115] 4160	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.619	0.266	0.477
+I1004 22:56:46.077851 47334264659584 tf_logging.py:115] 4170	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.458	0.250	0.480
+I1004 22:57:27.000400 47334264659584 tf_logging.py:115] 4180	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.546	0.281	0.457
+I1004 22:58:08.570285 47334264659584 tf_logging.py:115] 4190	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.390	0.266	0.543
+I1004 22:58:52.142750 47334264659584 tf_logging.py:115] 4200	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.276	0.285	0.523
+I1004 22:59:34.748936 47334264659584 tf_logging.py:115] 4210	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.193	0.305	0.574
+I1004 23:00:25.042222 47334264659584 tf_logging.py:115] 4220	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.206	0.312	0.531
+I1004 23:01:12.881401 47334264659584 tf_logging.py:115] 4230	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.252	0.309	0.582
+I1004 23:02:07.728963 47334264659584 tf_logging.py:115] 4240	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.185	0.328	0.559
+I1004 23:02:49.190037 47334264659584 tf_logging.py:115] 4250	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.163	0.293	0.566
+I1004 23:03:28.408033 47334264659584 tf_logging.py:115] 4260	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.071	0.273	0.531
+I1004 23:04:14.275898 47334264659584 tf_logging.py:115] 4270	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.201	0.285	0.570
+I1004 23:05:00.125312 47334264659584 tf_logging.py:115] 4280	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.304	0.285	0.562
+I1004 23:05:46.486082 47334264659584 tf_logging.py:115] 4290	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.256	0.309	0.547
+I1004 23:06:29.558435 47334264659584 tf_logging.py:115] 4300	images/sec: 57.2 +/- 0.3 (jitter = 16.5)	4.068	0.355	0.582
+I1004 23:07:20.329222 47334264659584 tf_logging.py:115] 4310	images/sec: 57.2 +/- 0.3 (jitter = 16.6)	4.167	0.328	0.555
+I1004 23:08:12.076973 47334264659584 tf_logging.py:115] 4320	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.438	0.281	0.516
+I1004 23:09:07.881173 47334264659584 tf_logging.py:115] 4330	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.201	0.309	0.551
+I1004 23:09:54.802337 47334264659584 tf_logging.py:115] 4340	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	3.964	0.324	0.617
+I1004 23:10:33.790775 47334264659584 tf_logging.py:115] 4350	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.346	0.270	0.508
+I1004 23:11:29.125314 47334264659584 tf_logging.py:115] 4360	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	3.990	0.348	0.609
+I1004 23:12:10.699247 47334264659584 tf_logging.py:115] 4370	images/sec: 57.1 +/- 0.3 (jitter = 16.6)	4.348	0.305	0.523
+I1004 23:12:59.970875 47334264659584 tf_logging.py:115] 4380	images/sec: 57.1 +/- 0.2 (jitter = 16.6)	4.165	0.309	0.602
+I1004 23:13:40.789691 47334264659584 tf_logging.py:115] 4390	images/sec: 57.1 +/- 0.2 (jitter = 16.6)	4.193	0.312	0.566
+I1004 23:14:23.163911 47334264659584 tf_logging.py:115] 4400	images/sec: 57.1 +/- 0.2 (jitter = 16.6)	4.389	0.273	0.484
+I1004 23:15:07.421557 47334264659584 tf_logging.py:115] 4410	images/sec: 57.1 +/- 0.2 (jitter = 16.6)	4.602	0.215	0.480
+I1004 23:15:47.472240 47334264659584 tf_logging.py:115] 4420	images/sec: 57.1 +/- 0.2 (jitter = 16.6)	4.393	0.281	0.539
+I1004 23:16:29.176561 47334264659584 tf_logging.py:115] 4430	images/sec: 57.1 +/- 0.2 (jitter = 16.6)	4.270	0.301	0.523
+I1004 23:17:19.169367 47334264659584 tf_logging.py:115] 4440	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.012	0.367	0.559
+I1004 23:18:02.675651 47334264659584 tf_logging.py:115] 4450	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.152	0.262	0.516
+I1004 23:18:54.108034 47334264659584 tf_logging.py:115] 4460	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.047	0.316	0.578
+I1004 23:19:37.826252 47334264659584 tf_logging.py:115] 4470	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.079	0.359	0.570
+I1004 23:20:22.434074 47334264659584 tf_logging.py:115] 4480	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.091	0.320	0.586
+I1004 23:21:11.013040 47334264659584 tf_logging.py:115] 4490	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.177	0.293	0.559
+I1004 23:21:58.447145 47334264659584 tf_logging.py:115] 4500	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.150	0.363	0.582
+I1004 23:22:43.354895 47334264659584 tf_logging.py:115] 4510	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.513	0.254	0.496
+I1004 23:23:27.178130 47334264659584 tf_logging.py:115] 4520	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.115	0.305	0.574
+I1004 23:24:15.487019 47334264659584 tf_logging.py:115] 4530	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.242	0.320	0.543
+I1004 23:25:08.739089 47334264659584 tf_logging.py:115] 4540	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.449	0.258	0.500
+I1004 23:26:01.465842 47334264659584 tf_logging.py:115] 4550	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.142	0.316	0.551
+I1004 23:26:44.751832 47334264659584 tf_logging.py:115] 4560	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.209	0.289	0.559
+I1004 23:27:29.172286 47334264659584 tf_logging.py:115] 4570	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.011	0.320	0.609
+I1004 23:28:21.910118 47334264659584 tf_logging.py:115] 4580	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.326	0.305	0.527
+I1004 23:29:08.923215 47334264659584 tf_logging.py:115] 4590	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.163	0.301	0.578
+I1004 23:29:52.353479 47334264659584 tf_logging.py:115] 4600	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.038	0.348	0.578
+I1004 23:30:34.594635 47334264659584 tf_logging.py:115] 4610	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.067	0.297	0.574
+I1004 23:31:17.350589 47334264659584 tf_logging.py:115] 4620	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.013	0.289	0.582
+I1004 23:31:58.133191 47334264659584 tf_logging.py:115] 4630	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.235	0.309	0.531
+I1004 23:32:44.761926 47334264659584 tf_logging.py:115] 4640	images/sec: 57.0 +/- 0.2 (jitter = 16.5)	4.291	0.305	0.527
+I1004 23:33:25.697267 47334264659584 tf_logging.py:115] 4650	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.254	0.324	0.543
+I1004 23:34:07.814261 47334264659584 tf_logging.py:115] 4660	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.032	0.352	0.582
+I1004 23:34:48.521097 47334264659584 tf_logging.py:115] 4670	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.316	0.309	0.555
+I1004 23:35:36.203524 47334264659584 tf_logging.py:115] 4680	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.202	0.344	0.562
+I1004 23:36:19.577762 47334264659584 tf_logging.py:115] 4690	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.113	0.312	0.555
+I1004 23:37:02.353140 47334264659584 tf_logging.py:115] 4700	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	4.163	0.320	0.531
+I1004 23:37:42.697723 47334264659584 tf_logging.py:115] 4710	images/sec: 57.1 +/- 0.2 (jitter = 16.5)	3.843	0.336	0.637
+I1004 23:38:24.052619 47334264659584 tf_logging.py:115] 4720	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.978	0.348	0.559
+I1004 23:39:07.062564 47334264659584 tf_logging.py:115] 4730	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.989	0.371	0.605
+I1004 23:39:55.377713 47334264659584 tf_logging.py:115] 4740	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.739	0.375	0.641
+I1004 23:40:39.158715 47334264659584 tf_logging.py:115] 4750	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.202	0.312	0.535
+I1004 23:41:22.005642 47334264659584 tf_logging.py:115] 4760	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.092	0.348	0.570
+I1004 23:42:06.822678 47334264659584 tf_logging.py:115] 4770	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.036	0.320	0.602
+I1004 23:42:55.447961 47334264659584 tf_logging.py:115] 4780	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.200	0.355	0.562
+I1004 23:43:44.693965 47334264659584 tf_logging.py:115] 4790	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.281	0.320	0.539
+I1004 23:44:32.464899 47334264659584 tf_logging.py:115] 4800	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.342	0.273	0.520
+I1004 23:45:24.476891 47334264659584 tf_logging.py:115] 4810	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.996	0.320	0.559
+I1004 23:46:10.029653 47334264659584 tf_logging.py:115] 4820	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	4.109	0.285	0.547
+I1004 23:47:06.457097 47334264659584 tf_logging.py:115] 4830	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.883	0.359	0.617
+I1004 23:47:54.925663 47334264659584 tf_logging.py:115] 4840	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.864	0.340	0.629
+I1004 23:48:42.698621 47334264659584 tf_logging.py:115] 4850	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	4.106	0.332	0.535
+I1004 23:49:31.208999 47334264659584 tf_logging.py:115] 4860	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.126	0.312	0.566
+I1004 23:50:12.606534 47334264659584 tf_logging.py:115] 4870	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.043	0.328	0.605
+I1004 23:51:02.668408 47334264659584 tf_logging.py:115] 4880	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.165	0.301	0.559
+I1004 23:51:38.839560 47334264659584 tf_logging.py:115] 4890	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.969	0.375	0.594
+I1004 23:52:20.992322 47334264659584 tf_logging.py:115] 4900	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.124	0.305	0.535
+I1004 23:53:01.812780 47334264659584 tf_logging.py:115] 4910	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.958	0.344	0.582
+I1004 23:53:49.461088 47334264659584 tf_logging.py:115] 4920	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.858	0.367	0.602
+I1004 23:54:39.265165 47334264659584 tf_logging.py:115] 4930	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.201	0.324	0.543
+I1004 23:55:25.516248 47334264659584 tf_logging.py:115] 4940	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.995	0.355	0.605
+I1004 23:56:01.786784 47334264659584 tf_logging.py:115] 4950	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.779	0.359	0.645
+I1004 23:56:49.290310 47334264659584 tf_logging.py:115] 4960	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.098	0.320	0.562
+I1004 23:57:37.626039 47334264659584 tf_logging.py:115] 4970	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.913	0.336	0.598
+I1004 23:58:19.742042 47334264659584 tf_logging.py:115] 4980	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.971	0.359	0.570
+I1004 23:59:02.517702 47334264659584 tf_logging.py:115] 4990	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.030	0.332	0.582
+I1004 23:59:40.247427 47334264659584 tf_logging.py:115] 5000	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.044	0.316	0.570
+I1005 00:00:29.073122 47334264659584 tf_logging.py:115] 5010	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.904	0.355	0.605
+I1005 00:01:10.615705 47334264659584 tf_logging.py:115] 5020	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.920	0.375	0.602
+I1005 00:01:56.809272 47334264659584 tf_logging.py:115] 5030	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	4.128	0.316	0.543
+I1005 00:02:42.181232 47334264659584 tf_logging.py:115] 5040	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	4.159	0.320	0.566
+I1005 00:03:27.600207 47334264659584 tf_logging.py:115] 5050	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	4.075	0.363	0.578
+I1005 00:04:16.446269 47334264659584 tf_logging.py:115] 5060	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.195	0.316	0.566
+I1005 00:05:08.662851 47334264659584 tf_logging.py:115] 5070	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.890	0.363	0.617
+I1005 00:05:57.737997 47334264659584 tf_logging.py:115] 5080	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.928	0.344	0.578
+I1005 00:06:35.607374 47334264659584 tf_logging.py:115] 5090	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.772	0.387	0.629
+I1005 00:07:22.922569 47334264659584 tf_logging.py:115] 5100	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.024	0.332	0.574
+I1005 00:08:07.651983 47334264659584 tf_logging.py:115] 5110	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.981	0.348	0.586
+I1005 00:08:53.375934 47334264659584 tf_logging.py:115] 5120	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.978	0.328	0.598
+I1005 00:09:36.010657 47334264659584 tf_logging.py:115] 5130	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.315	0.305	0.512
+I1005 00:10:14.947637 47334264659584 tf_logging.py:115] 5140	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.996	0.320	0.582
+I1005 00:10:54.642066 47334264659584 tf_logging.py:115] 5150	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.824	0.387	0.621
+I1005 00:11:41.582184 47334264659584 tf_logging.py:115] 5160	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.900	0.320	0.602
+I1005 00:12:31.920597 47334264659584 tf_logging.py:115] 5170	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.860	0.352	0.617
+I1005 00:13:17.401890 47334264659584 tf_logging.py:115] 5180	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.968	0.309	0.586
+I1005 00:14:04.412553 47334264659584 tf_logging.py:115] 5190	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.051	0.328	0.590
+I1005 00:14:47.948836 47334264659584 tf_logging.py:115] 5200	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.178	0.324	0.547
+I1005 00:15:30.564105 47334264659584 tf_logging.py:115] 5210	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.123	0.293	0.586
+I1005 00:16:22.173954 47334264659584 tf_logging.py:115] 5220	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.053	0.332	0.562
+I1005 00:17:12.609021 47334264659584 tf_logging.py:115] 5230	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.846	0.332	0.594
+I1005 00:17:55.605413 47334264659584 tf_logging.py:115] 5240	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.979	0.355	0.590
+I1005 00:18:38.797809 47334264659584 tf_logging.py:115] 5250	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.987	0.387	0.617
+I1005 00:19:28.858725 47334264659584 tf_logging.py:115] 5260	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.031	0.309	0.578
+I1005 00:20:07.820795 47334264659584 tf_logging.py:115] 5270	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.185	0.309	0.562
+I1005 00:20:49.123816 47334264659584 tf_logging.py:115] 5280	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.866	0.332	0.621
+I1005 00:21:28.537646 47334264659584 tf_logging.py:115] 5290	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.988	0.332	0.590
+I1005 00:22:11.788537 47334264659584 tf_logging.py:115] 5300	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.808	0.367	0.617
+I1005 00:23:00.938489 47334264659584 tf_logging.py:115] 5310	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.853	0.367	0.598
+I1005 00:23:45.470197 47334264659584 tf_logging.py:115] 5320	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.835	0.332	0.617
+I1005 00:24:27.977007 47334264659584 tf_logging.py:115] 5330	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.758	0.363	0.641
+I1005 00:25:18.204524 47334264659584 tf_logging.py:115] 5340	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.813	0.348	0.617
+I1005 00:25:59.164470 47334264659584 tf_logging.py:115] 5350	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.000	0.336	0.582
+I1005 00:26:39.584152 47334264659584 tf_logging.py:115] 5360	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	4.062	0.320	0.570
+I1005 00:27:24.904574 47334264659584 tf_logging.py:115] 5370	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.538	0.406	0.688
+I1005 00:28:12.902093 47334264659584 tf_logging.py:115] 5380	images/sec: 57.0 +/- 0.2 (jitter = 16.3)	3.870	0.359	0.633
+I1005 00:28:54.236799 47334264659584 tf_logging.py:115] 5390	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.857	0.363	0.586
+I1005 00:29:33.926454 47334264659584 tf_logging.py:115] 5400	images/sec: 57.0 +/- 0.2 (jitter = 16.4)	3.787	0.355	0.641
+I1005 00:30:12.423114 47334264659584 tf_logging.py:115] 5410	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	3.799	0.375	0.625
+I1005 00:30:55.979023 47334264659584 tf_logging.py:115] 5420	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	3.821	0.359	0.637
+I1005 00:31:39.301360 47334264659584 tf_logging.py:115] 5430	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	3.893	0.375	0.578
+I1005 00:32:22.740566 47334264659584 tf_logging.py:115] 5440	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	3.754	0.395	0.648
+I1005 00:33:08.502037 47334264659584 tf_logging.py:115] 5450	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	3.998	0.336	0.562
+I1005 00:33:51.801028 47334264659584 tf_logging.py:115] 5460	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	3.907	0.363	0.590
+I1005 00:34:37.750252 47334264659584 tf_logging.py:115] 5470	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	4.019	0.305	0.551
+I1005 00:35:19.926898 47334264659584 tf_logging.py:115] 5480	images/sec: 57.1 +/- 0.2 (jitter = 16.3)	4.109	0.309	0.559
+I1005 00:35:55.087366 47334264659584 tf_logging.py:115] 5490	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.791	0.387	0.633
+I1005 00:36:43.821553 47334264659584 tf_logging.py:115] 5500	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.833	0.359	0.598
+I1005 00:37:23.959969 47334264659584 tf_logging.py:115] 5510	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.728	0.375	0.621
+I1005 00:38:10.549481 47334264659584 tf_logging.py:115] 5520	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.771	0.352	0.582
+I1005 00:38:48.218069 47334264659584 tf_logging.py:115] 5530	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.672	0.359	0.637
+I1005 00:39:26.449660 47334264659584 tf_logging.py:115] 5540	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.753	0.367	0.621
+I1005 00:40:10.543419 47334264659584 tf_logging.py:115] 5550	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.905	0.340	0.605
+I1005 00:41:04.343814 47334264659584 tf_logging.py:115] 5560	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.960	0.328	0.582
+I1005 00:41:51.922082 47334264659584 tf_logging.py:115] 5570	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.000	0.348	0.598
+I1005 00:42:33.330683 47334264659584 tf_logging.py:115] 5580	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.748	0.379	0.602
+I1005 00:43:15.012887 47334264659584 tf_logging.py:115] 5590	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.908	0.344	0.621
+I1005 00:43:55.099730 47334264659584 tf_logging.py:115] 5600	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.882	0.367	0.598
+I1005 00:44:38.824309 47334264659584 tf_logging.py:115] 5610	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.656	0.422	0.652
+I1005 00:45:21.103379 47334264659584 tf_logging.py:115] 5620	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.789	0.340	0.590
+I1005 00:46:02.587076 47334264659584 tf_logging.py:115] 5630	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	4.006	0.328	0.578
+I1005 00:46:43.121257 47334264659584 tf_logging.py:115] 5640	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.575	0.363	0.680
+I1005 00:47:28.139555 47334264659584 tf_logging.py:115] 5650	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.514	0.430	0.707
+I1005 00:48:08.764912 47334264659584 tf_logging.py:115] 5660	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	4.208	0.332	0.547
+I1005 00:48:54.088387 47334264659584 tf_logging.py:115] 5670	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.891	0.348	0.598
+I1005 00:49:37.112372 47334264659584 tf_logging.py:115] 5680	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.782	0.367	0.641
+I1005 00:50:28.886072 47334264659584 tf_logging.py:115] 5690	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.941	0.355	0.598
+I1005 00:51:12.742673 47334264659584 tf_logging.py:115] 5700	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.698	0.383	0.664
+I1005 00:51:58.568090 47334264659584 tf_logging.py:115] 5710	images/sec: 57.1 +/- 0.2 (jitter = 16.4)	3.735	0.359	0.648
+I1005 00:52:40.184709 47334264659584 tf_logging.py:115] 5720	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.966	0.332	0.605
+I1005 00:53:22.457421 47334264659584 tf_logging.py:115] 5730	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.637	0.387	0.641
+I1005 00:54:07.910701 47334264659584 tf_logging.py:115] 5740	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.881	0.316	0.582
+I1005 00:54:51.949573 47334264659584 tf_logging.py:115] 5750	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.957	0.320	0.559
+I1005 00:55:33.788047 47334264659584 tf_logging.py:115] 5760	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.891	0.359	0.582
+I1005 00:56:12.794663 47334264659584 tf_logging.py:115] 5770	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.939	0.359	0.586
+I1005 00:56:55.154794 47334264659584 tf_logging.py:115] 5780	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.901	0.355	0.602
+I1005 00:57:30.786873 47334264659584 tf_logging.py:115] 5790	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.767	0.387	0.598
+I1005 00:58:16.738261 47334264659584 tf_logging.py:115] 5800	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.992	0.355	0.613
+I1005 00:58:58.280972 47334264659584 tf_logging.py:115] 5810	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.712	0.418	0.625
+I1005 00:59:47.307835 47334264659584 tf_logging.py:115] 5820	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.967	0.355	0.590
+I1005 01:00:33.498065 47334264659584 tf_logging.py:115] 5830	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.921	0.348	0.570
+I1005 01:01:15.670057 47334264659584 tf_logging.py:115] 5840	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.725	0.375	0.598
+I1005 01:02:02.881964 47334264659584 tf_logging.py:115] 5850	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	4.034	0.336	0.602
+I1005 01:02:49.097850 47334264659584 tf_logging.py:115] 5860	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.943	0.371	0.613
+I1005 01:03:36.302846 47334264659584 tf_logging.py:115] 5870	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.742	0.383	0.621
+I1005 01:04:18.806831 47334264659584 tf_logging.py:115] 5880	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.642	0.379	0.641
+I1005 01:05:05.877350 47334264659584 tf_logging.py:115] 5890	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.838	0.352	0.625
+I1005 01:05:47.945176 47334264659584 tf_logging.py:115] 5900	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.807	0.379	0.613
+I1005 01:06:31.293933 47334264659584 tf_logging.py:115] 5910	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.943	0.367	0.625
+I1005 01:07:17.035037 47334264659584 tf_logging.py:115] 5920	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.858	0.367	0.590
+I1005 01:07:57.018035 47334264659584 tf_logging.py:115] 5930	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.654	0.375	0.637
+I1005 01:08:34.280295 47334264659584 tf_logging.py:115] 5940	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.796	0.410	0.598
+I1005 01:09:13.137322 47334264659584 tf_logging.py:115] 5950	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.843	0.363	0.602
+I1005 01:10:01.699128 47334264659584 tf_logging.py:115] 5960	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.620	0.395	0.676
+I1005 01:10:46.726539 47334264659584 tf_logging.py:115] 5970	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.993	0.316	0.590
+I1005 01:11:37.080211 47334264659584 tf_logging.py:115] 5980	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.967	0.312	0.602
+I1005 01:12:15.730847 47334264659584 tf_logging.py:115] 5990	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.739	0.352	0.637
+I1005 01:12:57.886495 47334264659584 tf_logging.py:115] 6000	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.664	0.402	0.656
+I1005 01:13:39.769419 47334264659584 tf_logging.py:115] 6010	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.903	0.328	0.578
+I1005 01:14:23.453713 47334264659584 tf_logging.py:115] 6020	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.944	0.352	0.602
+I1005 01:15:08.497677 47334264659584 tf_logging.py:115] 6030	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.678	0.379	0.645
+I1005 01:15:52.934695 47334264659584 tf_logging.py:115] 6040	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.783	0.352	0.602
+I1005 01:16:42.574173 47334264659584 tf_logging.py:115] 6050	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.670	0.375	0.648
+I1005 01:17:26.975921 47334264659584 tf_logging.py:115] 6060	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.786	0.395	0.613
+I1005 01:18:06.807626 47334264659584 tf_logging.py:115] 6070	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.740	0.375	0.617
+I1005 01:18:55.920786 47334264659584 tf_logging.py:115] 6080	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.515	0.383	0.676
+I1005 01:19:43.668510 47334264659584 tf_logging.py:115] 6090	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.726	0.320	0.633
+I1005 01:20:26.565141 47334264659584 tf_logging.py:115] 6100	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.471	0.418	0.703
+I1005 01:21:09.299361 47334264659584 tf_logging.py:115] 6110	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.484	0.395	0.660
+I1005 01:22:07.913957 47334264659584 tf_logging.py:115] 6120	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.546	0.438	0.641
+I1005 01:22:51.097836 47334264659584 tf_logging.py:115] 6130	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.826	0.344	0.609
+I1005 01:23:29.354520 47334264659584 tf_logging.py:115] 6140	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.597	0.379	0.664
+I1005 01:24:15.069748 47334264659584 tf_logging.py:115] 6150	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.493	0.414	0.672
+I1005 01:25:09.460808 47334264659584 tf_logging.py:115] 6160	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.649	0.402	0.652
+I1005 01:25:52.085209 47334264659584 tf_logging.py:115] 6170	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.787	0.367	0.590
+I1005 01:26:36.134606 47334264659584 tf_logging.py:115] 6180	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.681	0.395	0.648
+I1005 01:27:22.084882 47334264659584 tf_logging.py:115] 6190	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.728	0.402	0.641
+I1005 01:28:09.103706 47334264659584 tf_logging.py:115] 6200	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.953	0.312	0.598
+I1005 01:28:53.810665 47334264659584 tf_logging.py:115] 6210	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.552	0.430	0.656
+I1005 01:29:33.940897 47334264659584 tf_logging.py:115] 6220	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.786	0.375	0.652
+I1005 01:30:20.016078 47334264659584 tf_logging.py:115] 6230	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.597	0.406	0.664
+I1005 01:31:04.281090 47334264659584 tf_logging.py:115] 6240	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.871	0.348	0.625
+I1005 01:31:47.365321 47334264659584 tf_logging.py:115] 6250	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.796	0.355	0.609
+I1005 01:32:28.511037 47334264659584 tf_logging.py:115] 6260	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.870	0.363	0.613
+I1005 01:33:11.032657 47334264659584 tf_logging.py:115] 6270	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.454	0.391	0.668
+I1005 01:33:52.198230 47334264659584 tf_logging.py:115] 6280	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.723	0.383	0.672
+I1005 01:34:40.022801 47334264659584 tf_logging.py:115] 6290	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.766	0.367	0.625
+I1005 01:35:22.252637 47334264659584 tf_logging.py:115] 6300	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.956	0.355	0.594
+I1005 01:36:09.521156 47334264659584 tf_logging.py:115] 6310	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.778	0.363	0.594
+I1005 01:36:51.512894 47334264659584 tf_logging.py:115] 6320	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.777	0.371	0.652
+I1005 01:37:32.517184 47334264659584 tf_logging.py:115] 6330	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.816	0.328	0.609
+I1005 01:38:21.228075 47334264659584 tf_logging.py:115] 6340	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.411	0.434	0.660
+I1005 01:39:10.741690 47334264659584 tf_logging.py:115] 6350	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.936	0.355	0.602
+I1005 01:39:47.902461 47334264659584 tf_logging.py:115] 6360	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.688	0.379	0.652
+I1005 01:40:26.561776 47334264659584 tf_logging.py:115] 6370	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.741	0.395	0.625
+I1005 01:41:06.809080 47334264659584 tf_logging.py:115] 6380	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.852	0.379	0.598
+I1005 01:41:45.983508 47334264659584 tf_logging.py:115] 6390	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.603	0.434	0.641
+I1005 01:42:32.548720 47334264659584 tf_logging.py:115] 6400	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.564	0.406	0.633
+I1005 01:43:14.820692 47334264659584 tf_logging.py:115] 6410	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.702	0.383	0.648
+I1005 01:43:58.824339 47334264659584 tf_logging.py:115] 6420	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.949	0.344	0.590
+I1005 01:44:39.589763 47334264659584 tf_logging.py:115] 6430	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.812	0.355	0.621
+I1005 01:45:19.175350 47334264659584 tf_logging.py:115] 6440	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.566	0.398	0.660
+I1005 01:46:05.532773 47334264659584 tf_logging.py:115] 6450	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.611	0.406	0.652
+I1005 01:46:44.436902 47334264659584 tf_logging.py:115] 6460	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.766	0.379	0.621
+I1005 01:47:33.594641 47334264659584 tf_logging.py:115] 6470	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.758	0.336	0.625
+I1005 01:48:20.598681 47334264659584 tf_logging.py:115] 6480	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	4.006	0.324	0.590
+I1005 01:49:05.613066 47334264659584 tf_logging.py:115] 6490	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.598	0.371	0.645
+I1005 01:49:46.821882 47334264659584 tf_logging.py:115] 6500	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.743	0.375	0.633
+I1005 01:50:41.577119 47334264659584 tf_logging.py:115] 6510	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.778	0.387	0.625
+I1005 01:51:25.135550 47334264659584 tf_logging.py:115] 6520	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.658	0.371	0.633
+I1005 01:52:13.588330 47334264659584 tf_logging.py:115] 6530	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.634	0.438	0.660
+I1005 01:52:59.775433 47334264659584 tf_logging.py:115] 6540	images/sec: 57.3 +/- 0.2 (jitter = 16.4)	3.728	0.359	0.598
+I1005 01:53:48.694710 47334264659584 tf_logging.py:115] 6550	images/sec: 57.3 +/- 0.2 (jitter = 16.4)	3.620	0.379	0.617
+I1005 01:54:36.347237 47334264659584 tf_logging.py:115] 6560	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.642	0.391	0.660
+I1005 01:55:29.761010 47334264659584 tf_logging.py:115] 6570	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.658	0.418	0.625
+I1005 01:56:08.770579 47334264659584 tf_logging.py:115] 6580	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.529	0.422	0.695
+I1005 01:56:56.330674 47334264659584 tf_logging.py:115] 6590	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.434	0.418	0.707
+I1005 01:57:44.206236 47334264659584 tf_logging.py:115] 6600	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.790	0.375	0.613
+I1005 01:58:38.376873 47334264659584 tf_logging.py:115] 6610	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.541	0.395	0.676
+I1005 01:59:16.913190 47334264659584 tf_logging.py:115] 6620	images/sec: 57.2 +/- 0.2 (jitter = 16.4)	3.455	0.422	0.633
+I1005 02:00:00.000249 47334264659584 tf_logging.py:115] 6630	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.559	0.391	0.672
+I1005 02:00:46.861586 47334264659584 tf_logging.py:115] 6640	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.562	0.398	0.664
+I1005 02:01:29.466807 47334264659584 tf_logging.py:115] 6650	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.800	0.402	0.621
+I1005 02:02:22.155225 47334264659584 tf_logging.py:115] 6660	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	4.025	0.328	0.555
+I1005 02:03:03.956325 47334264659584 tf_logging.py:115] 6670	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.668	0.418	0.652
+I1005 02:03:50.367055 47334264659584 tf_logging.py:115] 6680	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.544	0.418	0.652
+I1005 02:04:37.952304 47334264659584 tf_logging.py:115] 6690	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.653	0.398	0.664
+I1005 02:05:18.063657 47334264659584 tf_logging.py:115] 6700	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.604	0.371	0.641
+I1005 02:06:02.096892 47334264659584 tf_logging.py:115] 6710	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.673	0.387	0.633
+I1005 02:06:43.791982 47334264659584 tf_logging.py:115] 6720	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.653	0.391	0.637
+I1005 02:07:24.451535 47334264659584 tf_logging.py:115] 6730	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.831	0.352	0.598
+I1005 02:08:03.120823 47334264659584 tf_logging.py:115] 6740	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.478	0.438	0.656
+I1005 02:08:44.849565 47334264659584 tf_logging.py:115] 6750	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.376	0.438	0.688
+I1005 02:09:27.066337 47334264659584 tf_logging.py:115] 6760	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.804	0.363	0.602
+I1005 02:10:07.581606 47334264659584 tf_logging.py:115] 6770	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.593	0.422	0.637
+I1005 02:10:55.587495 47334264659584 tf_logging.py:115] 6780	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.420	0.395	0.699
+I1005 02:11:37.591752 47334264659584 tf_logging.py:115] 6790	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.743	0.387	0.656
+I1005 02:12:23.105689 47334264659584 tf_logging.py:115] 6800	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.802	0.383	0.645
+I1005 02:13:04.099446 47334264659584 tf_logging.py:115] 6810	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.697	0.387	0.641
+I1005 02:13:49.768923 47334264659584 tf_logging.py:115] 6820	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.828	0.355	0.598
+I1005 02:14:31.994278 47334264659584 tf_logging.py:115] 6830	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.461	0.426	0.676
+I1005 02:15:21.928843 47334264659584 tf_logging.py:115] 6840	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.652	0.383	0.637
+I1005 02:16:09.590855 47334264659584 tf_logging.py:115] 6850	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.724	0.383	0.629
+I1005 02:16:58.223411 47334264659584 tf_logging.py:115] 6860	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.582	0.402	0.668
+I1005 02:17:47.263782 47334264659584 tf_logging.py:115] 6870	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.362	0.438	0.691
+I1005 02:18:29.743724 47334264659584 tf_logging.py:115] 6880	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.353	0.488	0.680
+I1005 02:19:10.841004 47334264659584 tf_logging.py:115] 6890	images/sec: 57.2 +/- 0.2 (jitter = 16.3)	3.410	0.469	0.691
+I1005 02:19:58.999334 47334264659584 tf_logging.py:115] 6900	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.644	0.352	0.668
+I1005 02:20:39.258941 47334264659584 tf_logging.py:115] 6910	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.415	0.461	0.707
+I1005 02:21:30.584184 47334264659584 tf_logging.py:115] 6920	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.537	0.441	0.684
+I1005 02:22:14.678393 47334264659584 tf_logging.py:115] 6930	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.461	0.406	0.660
+I1005 02:23:01.320019 47334264659584 tf_logging.py:115] 6940	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.475	0.398	0.660
+I1005 02:23:44.052613 47334264659584 tf_logging.py:115] 6950	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.516	0.434	0.672
+I1005 02:24:31.309196 47334264659584 tf_logging.py:115] 6960	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.682	0.395	0.621
+I1005 02:25:21.414507 47334264659584 tf_logging.py:115] 6970	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.371	0.430	0.691
+I1005 02:26:01.029623 47334264659584 tf_logging.py:115] 6980	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.674	0.383	0.633
+I1005 02:26:49.206234 47334264659584 tf_logging.py:115] 6990	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.853	0.371	0.621
+I1005 02:27:32.347790 47334264659584 tf_logging.py:115] 7000	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.653	0.434	0.645
+I1005 02:28:14.700443 47334264659584 tf_logging.py:115] 7010	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.826	0.363	0.602
+I1005 02:28:52.124119 47334264659584 tf_logging.py:115] 7020	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.693	0.359	0.637
+I1005 02:29:42.309050 47334264659584 tf_logging.py:115] 7030	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.701	0.359	0.648
+I1005 02:30:20.595708 47334264659584 tf_logging.py:115] 7040	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.642	0.371	0.656
+I1005 02:30:57.234307 47334264659584 tf_logging.py:115] 7050	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.699	0.422	0.648
+I1005 02:31:40.467811 47334264659584 tf_logging.py:115] 7060	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.907	0.332	0.609
+I1005 02:32:29.862067 47334264659584 tf_logging.py:115] 7070	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.644	0.379	0.664
+I1005 02:33:19.514630 47334264659584 tf_logging.py:115] 7080	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.349	0.457	0.668
+I1005 02:33:57.757233 47334264659584 tf_logging.py:115] 7090	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.375	0.422	0.684
+I1005 02:34:46.403329 47334264659584 tf_logging.py:115] 7100	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.531	0.398	0.625
+I1005 02:35:30.260812 47334264659584 tf_logging.py:115] 7110	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.610	0.434	0.660
+I1005 02:36:20.690899 47334264659584 tf_logging.py:115] 7120	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.627	0.414	0.652
+I1005 02:37:01.253337 47334264659584 tf_logging.py:115] 7130	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.333	0.430	0.707
+I1005 02:37:45.691393 47334264659584 tf_logging.py:115] 7140	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.658	0.387	0.633
+I1005 02:38:26.966311 47334264659584 tf_logging.py:115] 7150	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.630	0.375	0.652
+I1005 02:39:06.577466 47334264659584 tf_logging.py:115] 7160	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.347	0.422	0.688
+I1005 02:39:55.324071 47334264659584 tf_logging.py:115] 7170	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.724	0.398	0.652
+I1005 02:40:41.128940 47334264659584 tf_logging.py:115] 7180	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.513	0.398	0.652
+I1005 02:41:33.401266 47334264659584 tf_logging.py:115] 7190	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.576	0.418	0.656
+I1005 02:42:22.456942 47334264659584 tf_logging.py:115] 7200	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.684	0.406	0.625
+I1005 02:43:11.283062 47334264659584 tf_logging.py:115] 7210	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.581	0.434	0.629
+I1005 02:43:54.852090 47334264659584 tf_logging.py:115] 7220	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.583	0.422	0.684
+I1005 02:44:39.127990 47334264659584 tf_logging.py:115] 7230	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.356	0.445	0.684
+I1005 02:45:20.723530 47334264659584 tf_logging.py:115] 7240	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.332	0.441	0.680
+I1005 02:46:02.203822 47334264659584 tf_logging.py:115] 7250	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.529	0.418	0.633
+I1005 02:46:43.108073 47334264659584 tf_logging.py:115] 7260	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.684	0.398	0.637
+I1005 02:47:21.081266 47334264659584 tf_logging.py:115] 7270	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.502	0.387	0.652
+I1005 02:48:00.515583 47334264659584 tf_logging.py:115] 7280	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.727	0.395	0.617
+I1005 02:48:45.222804 47334264659584 tf_logging.py:115] 7290	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.686	0.387	0.648
+I1005 02:49:30.403789 47334264659584 tf_logging.py:115] 7300	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.616	0.402	0.637
+I1005 02:50:18.229749 47334264659584 tf_logging.py:115] 7310	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.337	0.449	0.691
+I1005 02:51:05.442895 47334264659584 tf_logging.py:115] 7320	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.745	0.383	0.625
+I1005 02:51:49.507692 47334264659584 tf_logging.py:115] 7330	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.473	0.418	0.637
+I1005 02:52:37.324210 47334264659584 tf_logging.py:115] 7340	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.811	0.379	0.605
+I1005 02:53:22.257576 47334264659584 tf_logging.py:115] 7350	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.552	0.430	0.648
+I1005 02:54:03.826226 47334264659584 tf_logging.py:115] 7360	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.549	0.402	0.664
+I1005 02:54:41.116815 47334264659584 tf_logging.py:115] 7370	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.375	0.422	0.688
+I1005 02:55:24.100625 47334264659584 tf_logging.py:115] 7380	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.561	0.406	0.637
+I1005 02:56:04.376751 47334264659584 tf_logging.py:115] 7390	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.488	0.426	0.672
+I1005 02:56:49.697368 47334264659584 tf_logging.py:115] 7400	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.713	0.391	0.613
+I1005 02:57:28.017806 47334264659584 tf_logging.py:115] 7410	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.629	0.387	0.645
+I1005 02:58:14.058515 47334264659584 tf_logging.py:115] 7420	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.740	0.379	0.621
+I1005 02:59:02.868405 47334264659584 tf_logging.py:115] 7430	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.801	0.355	0.621
+I1005 02:59:49.037981 47334264659584 tf_logging.py:115] 7440	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.429	0.402	0.680
+I1005 03:00:42.422782 47334264659584 tf_logging.py:115] 7450	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.564	0.383	0.633
+I1005 03:01:31.902344 47334264659584 tf_logging.py:115] 7460	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.373	0.441	0.676
+I1005 03:02:19.588741 47334264659584 tf_logging.py:115] 7470	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.570	0.422	0.641
+I1005 03:03:08.167541 47334264659584 tf_logging.py:115] 7480	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.397	0.391	0.672
+I1005 03:03:51.713922 47334264659584 tf_logging.py:115] 7490	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.495	0.426	0.688
+I1005 03:04:28.853791 47334264659584 tf_logging.py:115] 7500	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.693	0.398	0.660
+I1005 03:05:11.751903 47334264659584 tf_logging.py:115] 7510	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.338	0.438	0.699
+I1005 03:05:55.874369 47334264659584 tf_logging.py:115] 7520	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.328	0.457	0.688
+I1005 03:06:34.106194 47334264659584 tf_logging.py:115] 7530	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.387	0.453	0.672
+I1005 03:07:08.864816 47334264659584 tf_logging.py:115] 7540	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.912	0.367	0.605
+I1005 03:07:55.725298 47334264659584 tf_logging.py:115] 7550	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.540	0.430	0.641
+I1005 03:08:42.969357 47334264659584 tf_logging.py:115] 7560	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.190	0.445	0.730
+I1005 03:09:25.972615 47334264659584 tf_logging.py:115] 7570	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.873	0.387	0.648
+I1005 03:10:09.009463 47334264659584 tf_logging.py:115] 7580	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.473	0.426	0.664
+I1005 03:10:51.180752 47334264659584 tf_logging.py:115] 7590	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.355	0.414	0.707
+I1005 03:11:35.405349 47334264659584 tf_logging.py:115] 7600	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.297	0.461	0.691
+I1005 03:12:21.501610 47334264659584 tf_logging.py:115] 7610	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.347	0.434	0.711
+I1005 03:13:05.828685 47334264659584 tf_logging.py:115] 7620	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.427	0.441	0.684
+I1005 03:13:50.446276 47334264659584 tf_logging.py:115] 7630	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.470	0.410	0.656
+I1005 03:14:27.971184 47334264659584 tf_logging.py:115] 7640	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.507	0.410	0.668
+I1005 03:15:07.309513 47334264659584 tf_logging.py:115] 7650	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.437	0.395	0.703
+I1005 03:15:51.611720 47334264659584 tf_logging.py:115] 7660	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.206	0.480	0.727
+I1005 03:16:33.257205 47334264659584 tf_logging.py:115] 7670	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.527	0.422	0.652
+I1005 03:17:20.627524 47334264659584 tf_logging.py:115] 7680	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.430	0.395	0.664
+I1005 03:18:01.222370 47334264659584 tf_logging.py:115] 7690	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.520	0.391	0.688
+I1005 03:18:49.820207 47334264659584 tf_logging.py:115] 7700	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.422	0.441	0.707
+I1005 03:19:36.532707 47334264659584 tf_logging.py:115] 7710	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.514	0.414	0.637
+I1005 03:20:16.323145 47334264659584 tf_logging.py:115] 7720	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.360	0.480	0.684
+I1005 03:20:59.781126 47334264659584 tf_logging.py:115] 7730	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.387	0.449	0.699
+I1005 03:21:38.308637 47334264659584 tf_logging.py:115] 7740	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.488	0.395	0.703
+I1005 03:22:21.423332 47334264659584 tf_logging.py:115] 7750	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.638	0.449	0.664
+I1005 03:23:09.274694 47334264659584 tf_logging.py:115] 7760	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.495	0.418	0.660
+I1005 03:23:47.563431 47334264659584 tf_logging.py:115] 7770	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.370	0.445	0.680
+I1005 03:24:35.512755 47334264659584 tf_logging.py:115] 7780	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.387	0.480	0.691
+I1005 03:25:21.862101 47334264659584 tf_logging.py:115] 7790	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.384	0.465	0.703
+I1005 03:26:02.512730 47334264659584 tf_logging.py:115] 7800	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.344	0.410	0.695
+I1005 03:26:50.493719 47334264659584 tf_logging.py:115] 7810	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.676	0.426	0.605
+I1005 03:27:38.637154 47334264659584 tf_logging.py:115] 7820	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.419	0.398	0.668
+I1005 03:28:23.027211 47334264659584 tf_logging.py:115] 7830	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.372	0.445	0.668
+I1005 03:29:03.529887 47334264659584 tf_logging.py:115] 7840	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.792	0.344	0.633
+I1005 03:29:48.179418 47334264659584 tf_logging.py:115] 7850	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.608	0.406	0.660
+I1005 03:30:32.102279 47334264659584 tf_logging.py:115] 7860	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.365	0.484	0.695
+I1005 03:31:15.266637 47334264659584 tf_logging.py:115] 7870	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.649	0.441	0.633
+I1005 03:32:07.586012 47334264659584 tf_logging.py:115] 7880	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.460	0.410	0.668
+I1005 03:32:49.759526 47334264659584 tf_logging.py:115] 7890	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.467	0.406	0.684
+I1005 03:33:36.503879 47334264659584 tf_logging.py:115] 7900	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.233	0.426	0.691
+I1005 03:34:18.112795 47334264659584 tf_logging.py:115] 7910	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.489	0.422	0.656
+I1005 03:34:59.539164 47334264659584 tf_logging.py:115] 7920	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.490	0.414	0.668
+I1005 03:35:49.145573 47334264659584 tf_logging.py:115] 7930	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.546	0.402	0.664
+I1005 03:36:36.261708 47334264659584 tf_logging.py:115] 7940	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.395	0.449	0.645
+I1005 03:37:22.304313 47334264659584 tf_logging.py:115] 7950	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.600	0.398	0.633
+I1005 03:38:11.146805 47334264659584 tf_logging.py:115] 7960	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.412	0.430	0.672
+I1005 03:38:59.929601 47334264659584 tf_logging.py:115] 7970	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.283	0.441	0.707
+I1005 03:39:37.812845 47334264659584 tf_logging.py:115] 7980	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.206	0.434	0.707
+I1005 03:40:27.879133 47334264659584 tf_logging.py:115] 7990	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.450	0.438	0.676
+I1005 03:41:16.168251 47334264659584 tf_logging.py:115] 8000	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.471	0.457	0.664
+I1005 03:41:54.486340 47334264659584 tf_logging.py:115] 8010	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.412	0.402	0.676
+I1005 03:42:36.994772 47334264659584 tf_logging.py:115] 8020	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.625	0.383	0.668
+I1005 03:43:21.388396 47334264659584 tf_logging.py:115] 8030	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.699	0.391	0.605
+I1005 03:44:01.135359 47334264659584 tf_logging.py:115] 8040	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.770	0.402	0.637
+I1005 03:44:37.794621 47334264659584 tf_logging.py:115] 8050	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.449	0.426	0.684
+I1005 03:45:31.912885 47334264659584 tf_logging.py:115] 8060	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.470	0.426	0.648
+I1005 03:46:20.650511 47334264659584 tf_logging.py:115] 8070	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.311	0.434	0.680
+I1005 03:47:02.305627 47334264659584 tf_logging.py:115] 8080	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.418	0.465	0.691
+I1005 03:47:52.421760 47334264659584 tf_logging.py:115] 8090	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.498	0.414	0.645
+I1005 03:48:34.080477 47334264659584 tf_logging.py:115] 8100	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.374	0.457	0.699
+I1005 03:49:15.290575 47334264659584 tf_logging.py:115] 8110	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.341	0.430	0.684
+I1005 03:50:01.504040 47334264659584 tf_logging.py:115] 8120	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.230	0.477	0.711
+I1005 03:50:50.042096 47334264659584 tf_logging.py:115] 8130	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.651	0.406	0.641
+I1005 03:51:35.216048 47334264659584 tf_logging.py:115] 8140	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.274	0.461	0.695
+I1005 03:52:16.660574 47334264659584 tf_logging.py:115] 8150	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.298	0.441	0.715
+I1005 03:53:06.704644 47334264659584 tf_logging.py:115] 8160	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.425	0.422	0.676
+I1005 03:53:52.260215 47334264659584 tf_logging.py:115] 8170	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.341	0.430	0.707
+I1005 03:54:40.179399 47334264659584 tf_logging.py:115] 8180	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.425	0.465	0.688
+I1005 03:55:22.726547 47334264659584 tf_logging.py:115] 8190	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.357	0.426	0.699
+I1005 03:56:05.007920 47334264659584 tf_logging.py:115] 8200	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.500	0.441	0.660
+I1005 03:56:47.045935 47334264659584 tf_logging.py:115] 8210	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.347	0.434	0.715
+I1005 03:57:27.874670 47334264659584 tf_logging.py:115] 8220	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.326	0.402	0.695
+I1005 03:58:11.628892 47334264659584 tf_logging.py:115] 8230	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.546	0.414	0.656
+I1005 03:58:52.423895 47334264659584 tf_logging.py:115] 8240	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.443	0.457	0.668
+I1005 03:59:43.309886 47334264659584 tf_logging.py:115] 8250	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.267	0.453	0.730
+I1005 04:00:27.375135 47334264659584 tf_logging.py:115] 8260	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.441	0.422	0.672
+I1005 04:01:10.879048 47334264659584 tf_logging.py:115] 8270	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.418	0.434	0.668
+I1005 04:01:48.445497 47334264659584 tf_logging.py:115] 8280	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.353	0.422	0.691
+I1005 04:02:37.383890 47334264659584 tf_logging.py:115] 8290	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.490	0.387	0.668
+I1005 04:03:29.030400 47334264659584 tf_logging.py:115] 8300	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.377	0.367	0.672
+I1005 04:04:13.765239 47334264659584 tf_logging.py:115] 8310	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.463	0.441	0.684
+I1005 04:05:02.715587 47334264659584 tf_logging.py:115] 8320	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.648	0.395	0.656
+I1005 04:05:43.651973 47334264659584 tf_logging.py:115] 8330	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.449	0.422	0.668
+I1005 04:06:25.763544 47334264659584 tf_logging.py:115] 8340	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.373	0.461	0.680
+I1005 04:07:03.887538 47334264659584 tf_logging.py:115] 8350	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.279	0.484	0.684
+I1005 04:07:47.371370 47334264659584 tf_logging.py:115] 8360	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.325	0.422	0.699
+I1005 04:08:26.234793 47334264659584 tf_logging.py:115] 8370	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.275	0.445	0.738
+I1005 04:09:05.949703 47334264659584 tf_logging.py:115] 8380	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.586	0.441	0.637
+I1005 04:09:42.425568 47334264659584 tf_logging.py:115] 8390	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.384	0.453	0.680
+I1005 04:10:21.930000 47334264659584 tf_logging.py:115] 8400	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.425	0.430	0.684
+I1005 04:11:01.979079 47334264659584 tf_logging.py:115] 8410	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.116	0.477	0.703
+I1005 04:11:39.308432 47334264659584 tf_logging.py:115] 8420	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.446	0.422	0.688
+I1005 04:12:31.831153 47334264659584 tf_logging.py:115] 8430	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.334	0.461	0.723
+I1005 04:13:14.045560 47334264659584 tf_logging.py:115] 8440	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.232	0.488	0.695
+I1005 04:13:57.120056 47334264659584 tf_logging.py:115] 8450	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.538	0.395	0.664
+I1005 04:14:37.719334 47334264659584 tf_logging.py:115] 8460	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.300	0.441	0.711
+I1005 04:15:21.584529 47334264659584 tf_logging.py:115] 8470	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.359	0.492	0.648
+I1005 04:16:06.426301 47334264659584 tf_logging.py:115] 8480	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.447	0.422	0.664
+I1005 04:16:48.673106 47334264659584 tf_logging.py:115] 8490	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.525	0.395	0.637
+I1005 04:17:38.180425 47334264659584 tf_logging.py:115] 8500	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.394	0.422	0.695
+I1005 04:18:26.708567 47334264659584 tf_logging.py:115] 8510	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.566	0.457	0.672
+I1005 04:19:23.851236 47334264659584 tf_logging.py:115] 8520	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.302	0.469	0.660
+I1005 04:20:08.193931 47334264659584 tf_logging.py:115] 8530	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.306	0.473	0.707
+I1005 04:20:52.131748 47334264659584 tf_logging.py:115] 8540	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.732	0.395	0.648
+I1005 04:21:41.185844 47334264659584 tf_logging.py:115] 8550	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.371	0.449	0.695
+I1005 04:22:27.200764 47334264659584 tf_logging.py:115] 8560	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.618	0.410	0.633
+I1005 04:23:14.883641 47334264659584 tf_logging.py:115] 8570	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.429	0.430	0.676
+I1005 04:23:55.947294 47334264659584 tf_logging.py:115] 8580	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.315	0.473	0.703
+I1005 04:24:37.205568 47334264659584 tf_logging.py:115] 8590	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.457	0.434	0.688
+I1005 04:25:18.067074 47334264659584 tf_logging.py:115] 8600	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.264	0.461	0.684
+I1005 04:26:06.468800 47334264659584 tf_logging.py:115] 8610	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.453	0.395	0.680
+I1005 04:26:53.465747 47334264659584 tf_logging.py:115] 8620	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.513	0.375	0.652
+I1005 04:27:35.566349 47334264659584 tf_logging.py:115] 8630	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.308	0.445	0.684
+I1005 04:28:27.922718 47334264659584 tf_logging.py:115] 8640	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.497	0.406	0.652
+I1005 04:29:12.696597 47334264659584 tf_logging.py:115] 8650	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.297	0.438	0.691
+I1005 04:29:58.324180 47334264659584 tf_logging.py:115] 8660	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.274	0.488	0.727
+I1005 04:30:39.988098 47334264659584 tf_logging.py:115] 8670	images/sec: 57.4 +/- 0.2 (jitter = 16.2)	3.420	0.375	0.652
+I1005 04:31:27.025721 47334264659584 tf_logging.py:115] 8680	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.303	0.426	0.680
+I1005 04:32:15.820296 47334264659584 tf_logging.py:115] 8690	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.119	0.445	0.730
+I1005 04:33:02.737828 47334264659584 tf_logging.py:115] 8700	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.356	0.453	0.707
+I1005 04:33:45.223988 47334264659584 tf_logging.py:115] 8710	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.154	0.457	0.727
+I1005 04:34:31.748494 47334264659584 tf_logging.py:115] 8720	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.421	0.426	0.656
+I1005 04:35:16.439476 47334264659584 tf_logging.py:115] 8730	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.425	0.418	0.652
+I1005 04:36:03.028905 47334264659584 tf_logging.py:115] 8740	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.131	0.453	0.730
+I1005 04:36:50.912286 47334264659584 tf_logging.py:115] 8750	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.418	0.402	0.695
+I1005 04:37:32.117090 47334264659584 tf_logging.py:115] 8760	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.535	0.422	0.648
+I1005 04:38:20.957821 47334264659584 tf_logging.py:115] 8770	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.424	0.453	0.684
+I1005 04:39:01.406902 47334264659584 tf_logging.py:115] 8780	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.315	0.457	0.676
+I1005 04:39:49.250562 47334264659584 tf_logging.py:115] 8790	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.168	0.520	0.738
+I1005 04:40:29.891228 47334264659584 tf_logging.py:115] 8800	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.387	0.430	0.656
+I1005 04:41:11.887551 47334264659584 tf_logging.py:115] 8810	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.492	0.434	0.695
+I1005 04:41:57.486856 47334264659584 tf_logging.py:115] 8820	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.627	0.398	0.648
+I1005 04:42:53.075673 47334264659584 tf_logging.py:115] 8830	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.522	0.441	0.676
+I1005 04:43:39.425163 47334264659584 tf_logging.py:115] 8840	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.018	0.488	0.758
+I1005 04:44:23.697429 47334264659584 tf_logging.py:115] 8850	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.238	0.453	0.707
+I1005 04:45:08.920889 47334264659584 tf_logging.py:115] 8860	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.381	0.434	0.668
+I1005 04:46:03.393779 47334264659584 tf_logging.py:115] 8870	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.344	0.414	0.699
+I1005 04:46:57.567817 47334264659584 tf_logging.py:115] 8880	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.639	0.391	0.617
+I1005 04:47:35.145924 47334264659584 tf_logging.py:115] 8890	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.422	0.398	0.684
+I1005 04:48:24.457350 47334264659584 tf_logging.py:115] 8900	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.187	0.438	0.727
+I1005 04:49:03.385503 47334264659584 tf_logging.py:115] 8910	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.247	0.465	0.719
+I1005 04:49:47.877258 47334264659584 tf_logging.py:115] 8920	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.326	0.422	0.668
+I1005 04:50:33.054697 47334264659584 tf_logging.py:115] 8930	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.188	0.516	0.754
+I1005 04:51:18.759694 47334264659584 tf_logging.py:115] 8940	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.327	0.426	0.699
+I1005 04:52:02.433491 47334264659584 tf_logging.py:115] 8950	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.279	0.453	0.699
+I1005 04:52:51.074531 47334264659584 tf_logging.py:115] 8960	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.273	0.453	0.711
+I1005 04:53:48.390532 47334264659584 tf_logging.py:115] 8970	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.210	0.512	0.707
+I1005 04:54:31.888063 47334264659584 tf_logging.py:115] 8980	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.412	0.453	0.688
+I1005 04:55:09.650819 47334264659584 tf_logging.py:115] 8990	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.463	0.391	0.648
+I1005 04:55:54.358446 47334264659584 tf_logging.py:115] 9000	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.124	0.469	0.738
+I1005 04:56:47.498045 47334264659584 tf_logging.py:115] 9010	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.191	0.406	0.703
+I1005 04:57:36.747820 47334264659584 tf_logging.py:115] 9020	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.400	0.387	0.695
+I1005 04:58:16.080408 47334264659584 tf_logging.py:115] 9030	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.422	0.426	0.656
+I1005 04:59:11.315512 47334264659584 tf_logging.py:115] 9040	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.552	0.434	0.645
+I1005 04:59:56.566144 47334264659584 tf_logging.py:115] 9050	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.426	0.445	0.695
+I1005 05:00:45.646041 47334264659584 tf_logging.py:115] 9060	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.331	0.445	0.727
+I1005 05:01:30.369198 47334264659584 tf_logging.py:115] 9070	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.280	0.469	0.676
+I1005 05:02:19.426851 47334264659584 tf_logging.py:115] 9080	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.172	0.480	0.695
+I1005 05:02:59.006360 47334264659584 tf_logging.py:115] 9090	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.008	0.504	0.711
+I1005 05:03:35.753183 47334264659584 tf_logging.py:115] 9100	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.089	0.488	0.727
+I1005 05:04:26.016235 47334264659584 tf_logging.py:115] 9110	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.148	0.445	0.766
+I1005 05:05:13.929079 47334264659584 tf_logging.py:115] 9120	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.319	0.445	0.680
+I1005 05:05:59.211349 47334264659584 tf_logging.py:115] 9130	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.994	0.539	0.750
+I1005 05:06:38.716053 47334264659584 tf_logging.py:115] 9140	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.151	0.461	0.707
+I1005 05:07:28.319749 47334264659584 tf_logging.py:115] 9150	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.288	0.496	0.703
+I1005 05:08:13.582661 47334264659584 tf_logging.py:115] 9160	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.241	0.465	0.715
+I1005 05:08:54.885974 47334264659584 tf_logging.py:115] 9170	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.204	0.441	0.719
+I1005 05:09:44.774577 47334264659584 tf_logging.py:115] 9180	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.423	0.457	0.668
+I1005 05:10:26.857721 47334264659584 tf_logging.py:115] 9190	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.167	0.480	0.746
+I1005 05:11:11.174679 47334264659584 tf_logging.py:115] 9200	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.165	0.508	0.703
+I1005 05:12:01.624007 47334264659584 tf_logging.py:115] 9210	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.361	0.426	0.668
+I1005 05:12:46.265671 47334264659584 tf_logging.py:115] 9220	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.311	0.492	0.676
+I1005 05:13:26.489319 47334264659584 tf_logging.py:115] 9230	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.244	0.461	0.688
+I1005 05:14:13.366847 47334264659584 tf_logging.py:115] 9240	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.424	0.457	0.691
+I1005 05:14:56.412543 47334264659584 tf_logging.py:115] 9250	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.038	0.504	0.719
+I1005 05:15:41.046736 47334264659584 tf_logging.py:115] 9260	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.383	0.414	0.660
+I1005 05:16:31.943094 47334264659584 tf_logging.py:115] 9270	images/sec: 57.3 +/- 0.2 (jitter = 16.1)	3.082	0.457	0.734
+I1005 05:17:17.623215 47334264659584 tf_logging.py:115] 9280	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.155	0.418	0.727
+I1005 05:18:06.563954 47334264659584 tf_logging.py:115] 9290	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.272	0.422	0.695
+I1005 05:18:55.982095 47334264659584 tf_logging.py:115] 9300	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.317	0.465	0.680
+I1005 05:19:39.875916 47334264659584 tf_logging.py:115] 9310	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.215	0.492	0.723
+I1005 05:20:23.442840 47334264659584 tf_logging.py:115] 9320	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.247	0.465	0.715
+I1005 05:21:10.430957 47334264659584 tf_logging.py:115] 9330	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.339	0.457	0.668
+I1005 05:21:59.737417 47334264659584 tf_logging.py:115] 9340	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.354	0.465	0.691
+I1005 05:22:44.858453 47334264659584 tf_logging.py:115] 9350	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.282	0.484	0.684
+I1005 05:23:25.264454 47334264659584 tf_logging.py:115] 9360	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.383	0.449	0.711
+I1005 05:24:02.998753 47334264659584 tf_logging.py:115] 9370	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.184	0.473	0.742
+I1005 05:24:46.763306 47334264659584 tf_logging.py:115] 9380	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.383	0.430	0.664
+I1005 05:25:35.419741 47334264659584 tf_logging.py:115] 9390	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.351	0.449	0.688
+I1005 05:26:22.401565 47334264659584 tf_logging.py:115] 9400	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.293	0.441	0.691
+I1005 05:27:09.796588 47334264659584 tf_logging.py:115] 9410	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.109	0.484	0.727
+I1005 05:27:54.446398 47334264659584 tf_logging.py:115] 9420	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.219	0.430	0.711
+I1005 05:28:34.842379 47334264659584 tf_logging.py:115] 9430	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.314	0.445	0.695
+I1005 05:29:19.595548 47334264659584 tf_logging.py:115] 9440	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.281	0.453	0.695
+I1005 05:30:03.631389 47334264659584 tf_logging.py:115] 9450	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.585	0.406	0.672
+I1005 05:30:44.851351 47334264659584 tf_logging.py:115] 9460	images/sec: 57.2 +/- 0.2 (jitter = 16.1)	3.176	0.438	0.730
+I1005 05:31:22.789474 47334264659584 tf_logging.py:115] 9470	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.105	0.449	0.723
+I1005 05:32:05.378757 47334264659584 tf_logging.py:115] 9480	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.147	0.430	0.719
+I1005 05:32:57.774482 47334264659584 tf_logging.py:115] 9490	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.425	0.406	0.672
+I1005 05:33:40.396283 47334264659584 tf_logging.py:115] 9500	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.410	0.441	0.668
+I1005 05:34:23.532961 47334264659584 tf_logging.py:115] 9510	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.270	0.496	0.707
+I1005 05:35:09.954028 47334264659584 tf_logging.py:115] 9520	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.240	0.473	0.723
+I1005 05:35:56.706278 47334264659584 tf_logging.py:115] 9530	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.069	0.500	0.730
+I1005 05:36:44.164458 47334264659584 tf_logging.py:115] 9540	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.299	0.461	0.719
+I1005 05:37:35.929326 47334264659584 tf_logging.py:115] 9550	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.324	0.422	0.684
+I1005 05:38:25.284482 47334264659584 tf_logging.py:115] 9560	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.198	0.500	0.723
+I1005 05:39:14.471876 47334264659584 tf_logging.py:115] 9570	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.140	0.469	0.730
+I1005 05:40:00.645225 47334264659584 tf_logging.py:115] 9580	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.049	0.473	0.723
+I1005 05:40:38.412510 47334264659584 tf_logging.py:115] 9590	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.140	0.500	0.703
+I1005 05:41:25.339123 47334264659584 tf_logging.py:115] 9600	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.001	0.500	0.762
+I1005 05:42:10.072396 47334264659584 tf_logging.py:115] 9610	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.220	0.453	0.699
+I1005 05:42:56.817760 47334264659584 tf_logging.py:115] 9620	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.213	0.469	0.691
+I1005 05:43:43.211881 47334264659584 tf_logging.py:115] 9630	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.295	0.449	0.703
+I1005 05:44:26.931233 47334264659584 tf_logging.py:115] 9640	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.240	0.457	0.672
+I1005 05:45:12.742549 47334264659584 tf_logging.py:115] 9650	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.110	0.516	0.711
+I1005 05:45:55.214810 47334264659584 tf_logging.py:115] 9660	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.266	0.441	0.676
+I1005 05:46:54.206706 47334264659584 tf_logging.py:115] 9670	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.273	0.477	0.688
+I1005 05:47:37.515915 47334264659584 tf_logging.py:115] 9680	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.233	0.465	0.719
+I1005 05:48:24.402648 47334264659584 tf_logging.py:115] 9690	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.037	0.492	0.730
+I1005 05:49:17.903381 47334264659584 tf_logging.py:115] 9700	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.345	0.473	0.699
+I1005 05:50:02.793265 47334264659584 tf_logging.py:115] 9710	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.059	0.504	0.738
+I1005 05:50:49.549401 47334264659584 tf_logging.py:115] 9720	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.049	0.469	0.742
+I1005 05:51:38.723169 47334264659584 tf_logging.py:115] 9730	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.317	0.465	0.664
+I1005 05:52:20.179387 47334264659584 tf_logging.py:115] 9740	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.403	0.410	0.680
+I1005 05:53:06.265541 47334264659584 tf_logging.py:115] 9750	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.141	0.496	0.727
+I1005 05:53:52.500558 47334264659584 tf_logging.py:115] 9760	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.395	0.480	0.691
+I1005 05:54:37.262775 47334264659584 tf_logging.py:115] 9770	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.198	0.484	0.695
+I1005 05:55:24.084701 47334264659584 tf_logging.py:115] 9780	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.314	0.422	0.688
+I1005 05:56:03.622127 47334264659584 tf_logging.py:115] 9790	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.414	0.445	0.684
+I1005 05:56:51.310578 47334264659584 tf_logging.py:115] 9800	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.382	0.426	0.668
+I1005 05:57:39.706499 47334264659584 tf_logging.py:115] 9810	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.357	0.457	0.688
+I1005 05:58:26.141753 47334264659584 tf_logging.py:115] 9820	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.240	0.457	0.719
+I1005 05:59:10.000279 47334264659584 tf_logging.py:115] 9830	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.199	0.500	0.684
+I1005 05:59:56.584725 47334264659584 tf_logging.py:115] 9840	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.380	0.434	0.664
+I1005 06:00:35.326761 47334264659584 tf_logging.py:115] 9850	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.378	0.469	0.688
+I1005 06:01:21.720328 47334264659584 tf_logging.py:115] 9860	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.505	0.449	0.676
+I1005 06:02:06.422471 47334264659584 tf_logging.py:115] 9870	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.189	0.461	0.730
+I1005 06:02:50.282679 47334264659584 tf_logging.py:115] 9880	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.197	0.465	0.723
+I1005 06:03:33.153496 47334264659584 tf_logging.py:115] 9890	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.226	0.465	0.727
+I1005 06:04:09.996393 47334264659584 tf_logging.py:115] 9900	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.112	0.441	0.691
+I1005 06:04:55.836154 47334264659584 tf_logging.py:115] 9910	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.992	0.512	0.754
+I1005 06:05:41.006582 47334264659584 tf_logging.py:115] 9920	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.905	0.488	0.750
+I1005 06:06:23.986201 47334264659584 tf_logging.py:115] 9930	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.365	0.414	0.660
+I1005 06:07:11.719648 47334264659584 tf_logging.py:115] 9940	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.117	0.461	0.754
+I1005 06:08:03.081635 47334264659584 tf_logging.py:115] 9950	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.137	0.465	0.738
+I1005 06:08:44.266132 47334264659584 tf_logging.py:115] 9960	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.063	0.480	0.754
+I1005 06:09:31.354307 47334264659584 tf_logging.py:115] 9970	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.143	0.520	0.727
+I1005 06:10:16.760042 47334264659584 tf_logging.py:115] 9980	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.080	0.508	0.746
+I1005 06:11:00.858535 47334264659584 tf_logging.py:115] 9990	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.180	0.484	0.727
+I1005 06:11:44.434213 47334264659584 tf_logging.py:115] 10000	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.239	0.477	0.695
+I1005 06:12:30.460592 47334264659584 tf_logging.py:115] 10010	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.134	0.477	0.723
+I1005 06:13:10.662827 47334264659584 tf_logging.py:115] 10020	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.275	0.461	0.711
+I1005 06:14:05.535763 47334264659584 tf_logging.py:115] 10030	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.017	0.500	0.746
+I1005 06:14:54.734389 47334264659584 tf_logging.py:115] 10040	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.331	0.426	0.691
+I1005 06:15:39.174689 47334264659584 tf_logging.py:115] 10050	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.276	0.461	0.711
+I1005 06:16:25.096673 47334264659584 tf_logging.py:115] 10060	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.178	0.457	0.703
+I1005 06:17:09.933322 47334264659584 tf_logging.py:115] 10070	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.353	0.445	0.680
+I1005 06:17:50.865523 47334264659584 tf_logging.py:115] 10080	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.110	0.453	0.723
+I1005 06:18:30.137625 47334264659584 tf_logging.py:115] 10090	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.135	0.465	0.723
+I1005 06:19:14.705320 47334264659584 tf_logging.py:115] 10100	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.221	0.457	0.730
+I1005 06:19:58.391517 47334264659584 tf_logging.py:115] 10110	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.154	0.434	0.734
+I1005 06:20:40.302882 47334264659584 tf_logging.py:115] 10120	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.240	0.504	0.730
+I1005 06:21:24.208325 47334264659584 tf_logging.py:115] 10130	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.106	0.492	0.742
+I1005 06:22:06.467868 47334264659584 tf_logging.py:115] 10140	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.084	0.496	0.738
+I1005 06:22:47.906486 47334264659584 tf_logging.py:115] 10150	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.291	0.438	0.691
+I1005 06:23:27.193483 47334264659584 tf_logging.py:115] 10160	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.956	0.508	0.773
+I1005 06:24:16.025004 47334264659584 tf_logging.py:115] 10170	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.120	0.504	0.699
+I1005 06:25:00.024166 47334264659584 tf_logging.py:115] 10180	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.079	0.465	0.719
+I1005 06:25:41.365413 47334264659584 tf_logging.py:115] 10190	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.097	0.445	0.723
+I1005 06:26:28.717541 47334264659584 tf_logging.py:115] 10200	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.058	0.492	0.723
+I1005 06:27:12.236237 47334264659584 tf_logging.py:115] 10210	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.057	0.469	0.738
+I1005 06:27:54.402626 47334264659584 tf_logging.py:115] 10220	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.371	0.406	0.684
+I1005 06:28:41.106415 47334264659584 tf_logging.py:115] 10230	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.058	0.504	0.754
+I1005 06:29:22.764919 47334264659584 tf_logging.py:115] 10240	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.014	0.535	0.762
+I1005 06:30:10.091044 47334264659584 tf_logging.py:115] 10250	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.095	0.488	0.754
+I1005 06:30:54.529743 47334264659584 tf_logging.py:115] 10260	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.008	0.512	0.746
+I1005 06:31:43.977408 47334264659584 tf_logging.py:115] 10270	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.362	0.461	0.652
+I1005 06:32:22.689919 47334264659584 tf_logging.py:115] 10280	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.154	0.469	0.715
+I1005 06:33:11.514238 47334264659584 tf_logging.py:115] 10290	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.291	0.418	0.664
+I1005 06:34:00.227353 47334264659584 tf_logging.py:115] 10300	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.959	0.496	0.754
+I1005 06:34:43.398821 47334264659584 tf_logging.py:115] 10310	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.141	0.496	0.754
+I1005 06:35:31.740479 47334264659584 tf_logging.py:115] 10320	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.223	0.449	0.727
+I1005 06:36:15.037860 47334264659584 tf_logging.py:115] 10330	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.957	0.523	0.777
+I1005 06:36:59.686759 47334264659584 tf_logging.py:115] 10340	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.225	0.430	0.688
+I1005 06:37:41.944438 47334264659584 tf_logging.py:115] 10350	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.111	0.492	0.715
+I1005 06:38:24.517087 47334264659584 tf_logging.py:115] 10360	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.995	0.531	0.738
+I1005 06:39:07.091791 47334264659584 tf_logging.py:115] 10370	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.075	0.527	0.746
+I1005 06:39:48.125654 47334264659584 tf_logging.py:115] 10380	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.264	0.473	0.691
+I1005 06:40:34.935744 47334264659584 tf_logging.py:115] 10390	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.091	0.465	0.730
+I1005 06:41:13.161220 47334264659584 tf_logging.py:115] 10400	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.029	0.484	0.727
+I1005 06:42:03.048531 47334264659584 tf_logging.py:115] 10410	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.932	0.484	0.750
+I1005 06:42:53.360646 47334264659584 tf_logging.py:115] 10420	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.258	0.418	0.695
+I1005 06:43:42.815269 47334264659584 tf_logging.py:115] 10430	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.969	0.477	0.750
+I1005 06:44:23.884594 47334264659584 tf_logging.py:115] 10440	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.204	0.465	0.727
+I1005 06:45:05.182509 47334264659584 tf_logging.py:115] 10450	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.360	0.453	0.715
+I1005 06:45:45.466650 47334264659584 tf_logging.py:115] 10460	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.894	0.535	0.758
+I1005 06:46:33.611472 47334264659584 tf_logging.py:115] 10470	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.203	0.488	0.730
+I1005 06:47:15.311257 47334264659584 tf_logging.py:115] 10480	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.127	0.461	0.727
+I1005 06:47:58.253964 47334264659584 tf_logging.py:115] 10490	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.333	0.438	0.684
+I1005 06:48:43.835858 47334264659584 tf_logging.py:115] 10500	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.378	0.441	0.680
+I1005 06:49:25.253746 47334264659584 tf_logging.py:115] 10510	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.186	0.457	0.699
+I1005 06:50:12.700361 47334264659584 tf_logging.py:115] 10520	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.076	0.488	0.758
+I1005 06:50:53.945767 47334264659584 tf_logging.py:115] 10530	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.005	0.480	0.762
+I1005 06:51:36.743058 47334264659584 tf_logging.py:115] 10540	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.004	0.520	0.723
+I1005 06:52:17.193255 47334264659584 tf_logging.py:115] 10550	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.909	0.520	0.773
+I1005 06:53:03.630299 47334264659584 tf_logging.py:115] 10560	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.996	0.496	0.758
+I1005 06:53:45.806225 47334264659584 tf_logging.py:115] 10570	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.310	0.453	0.703
+I1005 06:54:24.884015 47334264659584 tf_logging.py:115] 10580	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.187	0.473	0.699
+I1005 06:55:10.845656 47334264659584 tf_logging.py:115] 10590	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.977	0.473	0.723
+I1005 06:56:04.626862 47334264659584 tf_logging.py:115] 10600	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.263	0.445	0.684
+I1005 06:56:42.915407 47334264659584 tf_logging.py:115] 10610	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.249	0.445	0.691
+I1005 06:57:25.907120 47334264659584 tf_logging.py:115] 10620	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.861	0.559	0.754
+I1005 06:58:06.561376 47334264659584 tf_logging.py:115] 10630	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.309	0.430	0.703
+I1005 06:58:48.156716 47334264659584 tf_logging.py:115] 10640	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.406	0.449	0.660
+I1005 06:59:33.313802 47334264659584 tf_logging.py:115] 10650	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.039	0.516	0.715
+I1005 07:00:22.894982 47334264659584 tf_logging.py:115] 10660	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.991	0.477	0.742
+I1005 07:01:11.528270 47334264659584 tf_logging.py:115] 10670	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.043	0.508	0.734
+I1005 07:02:05.086243 47334264659584 tf_logging.py:115] 10680	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.183	0.512	0.723
+I1005 07:02:49.107399 47334264659584 tf_logging.py:115] 10690	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.912	0.535	0.750
+I1005 07:03:39.589922 47334264659584 tf_logging.py:115] 10700	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.121	0.480	0.719
+I1005 07:04:20.586163 47334264659584 tf_logging.py:115] 10710	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.090	0.480	0.719
+I1005 07:05:13.276625 47334264659584 tf_logging.py:115] 10720	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.955	0.523	0.738
+I1005 07:05:50.551887 47334264659584 tf_logging.py:115] 10730	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.119	0.523	0.691
+I1005 07:06:29.451861 47334264659584 tf_logging.py:115] 10740	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.182	0.473	0.715
+I1005 07:07:05.458559 47334264659584 tf_logging.py:115] 10750	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.330	0.453	0.711
+I1005 07:07:45.620774 47334264659584 tf_logging.py:115] 10760	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.242	0.480	0.699
+I1005 07:08:31.504940 47334264659584 tf_logging.py:115] 10770	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.102	0.500	0.738
+I1005 07:09:18.941365 47334264659584 tf_logging.py:115] 10780	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.266	0.426	0.691
+I1005 07:09:57.907679 47334264659584 tf_logging.py:115] 10790	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.109	0.508	0.727
+I1005 07:10:41.908145 47334264659584 tf_logging.py:115] 10800	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.246	0.438	0.699
+I1005 07:11:22.403918 47334264659584 tf_logging.py:115] 10810	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.935	0.500	0.730
+I1005 07:12:09.467781 47334264659584 tf_logging.py:115] 10820	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	2.965	0.469	0.754
+I1005 07:12:50.559900 47334264659584 tf_logging.py:115] 10830	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.444	0.410	0.676
+I1005 07:13:32.446271 47334264659584 tf_logging.py:115] 10840	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.138	0.461	0.699
+I1005 07:14:15.828304 47334264659584 tf_logging.py:115] 10850	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.284	0.426	0.688
+I1005 07:15:03.001311 47334264659584 tf_logging.py:115] 10860	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.160	0.508	0.707
+I1005 07:15:51.379503 47334264659584 tf_logging.py:115] 10870	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.219	0.488	0.703
+I1005 07:16:40.586594 47334264659584 tf_logging.py:115] 10880	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.092	0.496	0.703
+I1005 07:17:23.606128 47334264659584 tf_logging.py:115] 10890	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.257	0.438	0.703
+I1005 07:18:06.126717 47334264659584 tf_logging.py:115] 10900	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.093	0.496	0.723
+I1005 07:18:44.938768 47334264659584 tf_logging.py:115] 10910	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.128	0.469	0.688
+I1005 07:19:30.594435 47334264659584 tf_logging.py:115] 10920	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.912	0.508	0.750
+I1005 07:20:17.744183 47334264659584 tf_logging.py:115] 10930	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.370	0.469	0.668
+I1005 07:21:02.812759 47334264659584 tf_logging.py:115] 10940	images/sec: 57.2 +/- 0.2 (jitter = 16.2)	3.268	0.449	0.668
+I1005 07:21:43.866848 47334264659584 tf_logging.py:115] 10950	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.737	0.516	0.793
+I1005 07:22:21.134748 47334264659584 tf_logging.py:115] 10960	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.139	0.473	0.703
+I1005 07:23:01.133005 47334264659584 tf_logging.py:115] 10970	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.000	0.488	0.742
+I1005 07:23:38.099658 47334264659584 tf_logging.py:115] 10980	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.900	0.520	0.742
+I1005 07:24:28.133872 47334264659584 tf_logging.py:115] 10990	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.283	0.402	0.688
+I1005 07:25:17.682294 47334264659584 tf_logging.py:115] 11000	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.149	0.473	0.730
+I1005 07:25:59.941815 47334264659584 tf_logging.py:115] 11010	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.060	0.492	0.742
+I1005 07:26:39.898002 47334264659584 tf_logging.py:115] 11020	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.834	0.496	0.770
+I1005 07:27:20.132872 47334264659584 tf_logging.py:115] 11030	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.060	0.469	0.746
+I1005 07:28:01.885519 47334264659584 tf_logging.py:115] 11040	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.164	0.434	0.719
+I1005 07:28:49.509604 47334264659584 tf_logging.py:115] 11050	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.943	0.512	0.719
+I1005 07:29:32.712299 47334264659584 tf_logging.py:115] 11060	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.240	0.449	0.691
+I1005 07:30:18.459989 47334264659584 tf_logging.py:115] 11070	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.210	0.477	0.695
+I1005 07:31:02.109913 47334264659584 tf_logging.py:115] 11080	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.195	0.461	0.719
+I1005 07:31:46.115275 47334264659584 tf_logging.py:115] 11090	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.056	0.484	0.707
+I1005 07:32:31.703530 47334264659584 tf_logging.py:115] 11100	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.292	0.426	0.703
+I1005 07:33:12.030566 47334264659584 tf_logging.py:115] 11110	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.126	0.504	0.746
+I1005 07:33:56.879286 47334264659584 tf_logging.py:115] 11120	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.969	0.508	0.762
+I1005 07:34:41.660142 47334264659584 tf_logging.py:115] 11130	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.167	0.445	0.723
+I1005 07:35:32.899572 47334264659584 tf_logging.py:115] 11140	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.095	0.488	0.723
+I1005 07:36:14.791433 47334264659584 tf_logging.py:115] 11150	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.030	0.504	0.742
+I1005 07:36:53.038725 47334264659584 tf_logging.py:115] 11160	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.993	0.496	0.727
+I1005 07:37:32.857040 47334264659584 tf_logging.py:115] 11170	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.157	0.496	0.699
+I1005 07:38:13.952294 47334264659584 tf_logging.py:115] 11180	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.084	0.512	0.730
+I1005 07:38:52.578222 47334264659584 tf_logging.py:115] 11190	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.082	0.516	0.715
+I1005 07:39:37.932182 47334264659584 tf_logging.py:115] 11200	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.992	0.496	0.742
+I1005 07:40:14.788044 47334264659584 tf_logging.py:115] 11210	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.011	0.500	0.746
+I1005 07:40:58.000322 47334264659584 tf_logging.py:115] 11220	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.941	0.500	0.797
+I1005 07:41:41.618852 47334264659584 tf_logging.py:115] 11230	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.094	0.500	0.754
+I1005 07:42:30.754603 47334264659584 tf_logging.py:115] 11240	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.034	0.457	0.730
+I1005 07:43:19.789900 47334264659584 tf_logging.py:115] 11250	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.919	0.508	0.785
+I1005 07:44:01.537679 47334264659584 tf_logging.py:115] 11260	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.102	0.469	0.742
+I1005 07:44:39.900341 47334264659584 tf_logging.py:115] 11270	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.855	0.512	0.781
+I1005 07:45:22.408422 47334264659584 tf_logging.py:115] 11280	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.027	0.512	0.727
+I1005 07:46:10.026172 47334264659584 tf_logging.py:115] 11290	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.028	0.496	0.719
+I1005 07:46:57.961070 47334264659584 tf_logging.py:115] 11300	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	2.960	0.523	0.734
+I1005 07:47:39.270301 47334264659584 tf_logging.py:115] 11310	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.239	0.477	0.707
+I1005 07:48:25.174842 47334264659584 tf_logging.py:115] 11320	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.313	0.422	0.688
+I1005 07:49:15.827821 47334264659584 tf_logging.py:115] 11330	images/sec: 57.3 +/- 0.2 (jitter = 16.2)	3.008	0.516	0.746
+I1005 07:49:54.744262 47334264659584 tf_logging.py:115] 11340	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.083	0.492	0.715
+I1005 07:50:42.990231 47334264659584 tf_logging.py:115] 11350	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.213	0.465	0.723
+I1005 07:51:22.853139 47334264659584 tf_logging.py:115] 11360	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.189	0.441	0.707
+I1005 07:52:04.886096 47334264659584 tf_logging.py:115] 11370	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.281	0.430	0.680
+I1005 07:52:45.213262 47334264659584 tf_logging.py:115] 11380	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.119	0.484	0.715
+I1005 07:53:28.063289 47334264659584 tf_logging.py:115] 11390	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.155	0.449	0.723
+I1005 07:54:08.210095 47334264659584 tf_logging.py:115] 11400	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.689	0.559	0.801
+I1005 07:54:47.979327 47334264659584 tf_logging.py:115] 11410	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.244	0.457	0.723
+I1005 07:55:25.829864 47334264659584 tf_logging.py:115] 11420	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.100	0.504	0.711
+I1005 07:56:06.604954 47334264659584 tf_logging.py:115] 11430	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.145	0.488	0.742
+I1005 07:56:54.505307 47334264659584 tf_logging.py:115] 11440	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.930	0.500	0.742
+I1005 07:57:39.666246 47334264659584 tf_logging.py:115] 11450	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.384	0.430	0.688
+I1005 07:58:17.697546 47334264659584 tf_logging.py:115] 11460	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.243	0.457	0.699
+I1005 07:59:03.162091 47334264659584 tf_logging.py:115] 11470	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.113	0.426	0.730
+I1005 07:59:54.579415 47334264659584 tf_logging.py:115] 11480	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.974	0.520	0.746
+I1005 08:00:36.261624 47334264659584 tf_logging.py:115] 11490	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.218	0.484	0.727
+I1005 08:01:29.842921 47334264659584 tf_logging.py:115] 11500	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.363	0.398	0.660
+I1005 08:02:11.359196 47334264659584 tf_logging.py:115] 11510	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.968	0.504	0.742
+I1005 08:02:56.444611 47334264659584 tf_logging.py:115] 11520	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.129	0.484	0.699
+I1005 08:03:35.844703 47334264659584 tf_logging.py:115] 11530	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.081	0.496	0.699
+I1005 08:04:21.328584 47334264659584 tf_logging.py:115] 11540	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.924	0.504	0.766
+I1005 08:04:59.884945 47334264659584 tf_logging.py:115] 11550	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.113	0.473	0.727
+I1005 08:05:44.071255 47334264659584 tf_logging.py:115] 11560	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.106	0.473	0.746
+I1005 08:06:32.797034 47334264659584 tf_logging.py:115] 11570	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.925	0.512	0.797
+I1005 08:07:15.936379 47334264659584 tf_logging.py:115] 11580	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.129	0.477	0.676
+I1005 08:07:58.622128 47334264659584 tf_logging.py:115] 11590	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.870	0.496	0.762
+I1005 08:08:43.201015 47334264659584 tf_logging.py:115] 11600	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.962	0.516	0.727
+I1005 08:09:24.534254 47334264659584 tf_logging.py:115] 11610	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.130	0.461	0.727
+I1005 08:10:11.342456 47334264659584 tf_logging.py:115] 11620	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.942	0.508	0.742
+I1005 08:10:56.395259 47334264659584 tf_logging.py:115] 11630	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.872	0.535	0.734
+I1005 08:11:40.185695 47334264659584 tf_logging.py:115] 11640	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.038	0.461	0.734
+I1005 08:12:35.468970 47334264659584 tf_logging.py:115] 11650	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.033	0.480	0.727
+I1005 08:13:19.816251 47334264659584 tf_logging.py:115] 11660	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.992	0.484	0.727
+I1005 08:14:05.430642 47334264659584 tf_logging.py:115] 11670	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.020	0.480	0.723
+I1005 08:14:44.569581 47334264659584 tf_logging.py:115] 11680	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.160	0.504	0.715
+I1005 08:15:24.569468 47334264659584 tf_logging.py:115] 11690	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.955	0.523	0.766
+I1005 08:16:04.987755 47334264659584 tf_logging.py:115] 11700	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.968	0.531	0.750
+I1005 08:16:49.813545 47334264659584 tf_logging.py:115] 11710	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.136	0.457	0.742
+I1005 08:17:36.143034 47334264659584 tf_logging.py:115] 11720	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.878	0.492	0.793
+I1005 08:18:23.632035 47334264659584 tf_logging.py:115] 11730	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.382	0.414	0.703
+I1005 08:19:12.727478 47334264659584 tf_logging.py:115] 11740	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.847	0.531	0.762
+I1005 08:19:57.363192 47334264659584 tf_logging.py:115] 11750	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.203	0.488	0.719
+I1005 08:20:44.497534 47334264659584 tf_logging.py:115] 11760	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.955	0.531	0.746
+I1005 08:21:27.782244 47334264659584 tf_logging.py:115] 11770	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.220	0.488	0.699
+I1005 08:22:16.585896 47334264659584 tf_logging.py:115] 11780	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.226	0.465	0.738
+I1005 08:23:12.081648 47334264659584 tf_logging.py:115] 11790	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.963	0.520	0.758
+I1005 08:23:53.557016 47334264659584 tf_logging.py:115] 11800	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.972	0.488	0.766
+I1005 08:24:39.316783 47334264659584 tf_logging.py:115] 11810	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.019	0.508	0.727
+I1005 08:25:17.489481 47334264659584 tf_logging.py:115] 11820	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.994	0.523	0.719
+I1005 08:26:02.165306 47334264659584 tf_logging.py:115] 11830	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.994	0.508	0.734
+I1005 08:26:39.462898 47334264659584 tf_logging.py:115] 11840	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.002	0.457	0.742
+I1005 08:27:24.762874 47334264659584 tf_logging.py:115] 11850	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.026	0.488	0.723
+I1005 08:28:09.771511 47334264659584 tf_logging.py:115] 11860	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.098	0.441	0.703
+I1005 08:28:54.195646 47334264659584 tf_logging.py:115] 11870	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.807	0.516	0.773
+I1005 08:29:43.408120 47334264659584 tf_logging.py:115] 11880	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.156	0.480	0.699
+I1005 08:30:31.250815 47334264659584 tf_logging.py:115] 11890	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.109	0.477	0.715
+I1005 08:31:12.658315 47334264659584 tf_logging.py:115] 11900	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.124	0.508	0.695
+I1005 08:31:52.237007 47334264659584 tf_logging.py:115] 11910	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.026	0.520	0.734
+I1005 08:32:33.557924 47334264659584 tf_logging.py:115] 11920	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.086	0.473	0.723
+I1005 08:33:20.075619 47334264659584 tf_logging.py:115] 11930	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.232	0.457	0.691
+I1005 08:34:09.887615 47334264659584 tf_logging.py:115] 11940	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.033	0.477	0.719
+I1005 08:34:45.552930 47334264659584 tf_logging.py:115] 11950	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.416	0.434	0.660
+I1005 08:35:29.491125 47334264659584 tf_logging.py:115] 11960	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.976	0.488	0.734
+I1005 08:36:10.252097 47334264659584 tf_logging.py:115] 11970	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.939	0.480	0.719
+I1005 08:36:55.488668 47334264659584 tf_logging.py:115] 11980	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.909	0.500	0.781
+I1005 08:37:41.416558 47334264659584 tf_logging.py:115] 11990	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.212	0.457	0.703
+I1005 08:38:29.415802 47334264659584 tf_logging.py:115] 12000	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.019	0.461	0.742
+I1005 08:39:23.692678 47334264659584 tf_logging.py:115] 12010	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.161	0.496	0.730
+I1005 08:39:59.317676 47334264659584 tf_logging.py:115] 12020	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.998	0.484	0.738
+I1005 08:40:42.147531 47334264659584 tf_logging.py:115] 12030	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	3.206	0.457	0.656
+I1005 08:41:24.814401 47334264659584 tf_logging.py:115] 12040	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.218	0.445	0.730
+I1005 08:42:10.270580 47334264659584 tf_logging.py:115] 12050	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.037	0.488	0.730
+I1005 08:42:51.311226 47334264659584 tf_logging.py:115] 12060	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.203	0.441	0.691
+I1005 08:43:36.053564 47334264659584 tf_logging.py:115] 12070	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.956	0.539	0.738
+I1005 08:44:19.114609 47334264659584 tf_logging.py:115] 12080	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.055	0.477	0.734
+I1005 08:45:08.594584 47334264659584 tf_logging.py:115] 12090	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.894	0.559	0.754
+I1005 08:45:48.431549 47334264659584 tf_logging.py:115] 12100	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.989	0.480	0.723
+I1005 08:46:31.910025 47334264659584 tf_logging.py:115] 12110	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.081	0.523	0.711
+I1005 08:47:16.853494 47334264659584 tf_logging.py:115] 12120	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.068	0.492	0.734
+I1005 08:48:01.744360 47334264659584 tf_logging.py:115] 12130	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.804	0.559	0.766
+I1005 08:48:45.574072 47334264659584 tf_logging.py:115] 12140	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.016	0.504	0.758
+I1005 08:49:33.440341 47334264659584 tf_logging.py:115] 12150	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.976	0.496	0.734
+I1005 08:50:22.073049 47334264659584 tf_logging.py:115] 12160	images/sec: 57.3 +/- 0.2 (jitter = 16.3)	2.828	0.535	0.754
+I1005 08:51:04.634208 47334264659584 tf_logging.py:115] 12170	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.781	0.551	0.762
+I1005 08:51:43.283567 47334264659584 tf_logging.py:115] 12180	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.889	0.520	0.770
+I1005 08:52:25.379720 47334264659584 tf_logging.py:115] 12190	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.909	0.500	0.777
+I1005 08:53:08.060285 47334264659584 tf_logging.py:115] 12200	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.908	0.500	0.773
+I1005 08:53:51.193808 47334264659584 tf_logging.py:115] 12210	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.761	0.531	0.797
+I1005 08:54:34.937288 47334264659584 tf_logging.py:115] 12220	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.962	0.484	0.738
+I1005 08:55:20.139245 47334264659584 tf_logging.py:115] 12230	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.058	0.477	0.723
+I1005 08:56:00.978302 47334264659584 tf_logging.py:115] 12240	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.086	0.488	0.707
+I1005 08:56:44.559446 47334264659584 tf_logging.py:115] 12250	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.127	0.477	0.746
+I1005 08:57:26.286177 47334264659584 tf_logging.py:115] 12260	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.898	0.512	0.762
+I1005 08:58:15.217942 47334264659584 tf_logging.py:115] 12270	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.025	0.469	0.734
+I1005 08:58:57.950600 47334264659584 tf_logging.py:115] 12280	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.921	0.488	0.758
+I1005 08:59:44.759808 47334264659584 tf_logging.py:115] 12290	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.889	0.520	0.730
+I1005 09:00:27.787491 47334264659584 tf_logging.py:115] 12300	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.997	0.492	0.750
+I1005 09:01:12.782428 47334264659584 tf_logging.py:115] 12310	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.062	0.523	0.727
+I1005 09:01:55.723506 47334264659584 tf_logging.py:115] 12320	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.059	0.465	0.742
+I1005 09:02:43.551030 47334264659584 tf_logging.py:115] 12330	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.071	0.496	0.727
+I1005 09:03:29.173984 47334264659584 tf_logging.py:115] 12340	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.963	0.504	0.719
+I1005 09:04:13.035164 47334264659584 tf_logging.py:115] 12350	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.823	0.520	0.785
+I1005 09:04:54.576382 47334264659584 tf_logging.py:115] 12360	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.997	0.535	0.758
+I1005 09:05:37.427471 47334264659584 tf_logging.py:115] 12370	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.959	0.500	0.742
+I1005 09:06:20.940935 47334264659584 tf_logging.py:115] 12380	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.098	0.492	0.762
+I1005 09:07:02.031197 47334264659584 tf_logging.py:115] 12390	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.055	0.477	0.699
+I1005 09:07:47.745439 47334264659584 tf_logging.py:115] 12400	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.722	0.543	0.797
+I1005 09:08:46.319840 47334264659584 tf_logging.py:115] 12410	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.191	0.457	0.695
+I1005 09:09:35.202647 47334264659584 tf_logging.py:115] 12420	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.901	0.570	0.758
+I1005 09:10:18.419396 47334264659584 tf_logging.py:115] 12430	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.999	0.500	0.754
+I1005 09:10:59.150028 47334264659584 tf_logging.py:115] 12440	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.912	0.496	0.762
+I1005 09:11:41.661502 47334264659584 tf_logging.py:115] 12450	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.973	0.508	0.730
+I1005 09:12:27.164879 47334264659584 tf_logging.py:115] 12460	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.250	0.422	0.695
+I1005 09:13:05.564009 47334264659584 tf_logging.py:115] 12470	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.080	0.469	0.742
+I1005 09:13:45.099896 47334264659584 tf_logging.py:115] 12480	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.900	0.500	0.758
+I1005 09:14:30.293608 47334264659584 tf_logging.py:115] 12490	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.986	0.551	0.734
+I1005 09:15:14.895547 47334264659584 tf_logging.py:115] 12500	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.139	0.465	0.715
+I1005 09:16:00.612723 47334264659584 tf_logging.py:115] 12510	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.954	0.484	0.762
+I1005 09:16:52.723963 47334264659584 tf_logging.py:115] 12520	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.964	0.484	0.723
+I1005 09:17:35.431781 47334264659584 tf_logging.py:115] 12530	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.182	0.438	0.703
+I1005 09:18:14.983973 47334264659584 tf_logging.py:115] 12540	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.001	0.527	0.719
+I1005 09:18:56.163463 47334264659584 tf_logging.py:115] 12550	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.933	0.500	0.750
+I1005 09:19:35.901797 47334264659584 tf_logging.py:115] 12560	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.084	0.500	0.727
+I1005 09:20:22.518500 47334264659584 tf_logging.py:115] 12570	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	3.096	0.469	0.707
+I1005 09:21:08.441988 47334264659584 tf_logging.py:115] 12580	images/sec: 57.4 +/- 0.2 (jitter = 16.3)	2.847	0.520	0.750
+I1005 09:21:57.487308 47334264659584 tf_logging.py:115] 12590	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.778	0.535	0.742
+I1005 09:22:38.761665 47334264659584 tf_logging.py:115] 12600	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.847	0.523	0.750
+I1005 09:23:24.659320 47334264659584 tf_logging.py:115] 12610	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.156	0.473	0.707
+I1005 09:24:07.290500 47334264659584 tf_logging.py:115] 12620	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.973	0.484	0.742
+I1005 09:24:54.328591 47334264659584 tf_logging.py:115] 12630	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.071	0.480	0.742
+I1005 09:25:34.712829 47334264659584 tf_logging.py:115] 12640	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.172	0.457	0.715
+I1005 09:26:15.258211 47334264659584 tf_logging.py:115] 12650	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.748	0.531	0.789
+I1005 09:26:52.924446 47334264659584 tf_logging.py:115] 12660	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.979	0.496	0.758
+I1005 09:27:39.272851 47334264659584 tf_logging.py:115] 12670	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.292	0.457	0.676
+I1005 09:28:16.645043 47334264659584 tf_logging.py:115] 12680	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.107	0.461	0.711
+I1005 09:29:03.284215 47334264659584 tf_logging.py:115] 12690	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.004	0.480	0.738
+I1005 09:29:40.531303 47334264659584 tf_logging.py:115] 12700	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.815	0.520	0.789
+I1005 09:30:25.837460 47334264659584 tf_logging.py:115] 12710	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.867	0.535	0.762
+I1005 09:31:09.304980 47334264659584 tf_logging.py:115] 12720	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.787	0.523	0.773
+I1005 09:31:48.699313 47334264659584 tf_logging.py:115] 12730	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.276	0.457	0.688
+I1005 09:32:29.161966 47334264659584 tf_logging.py:115] 12740	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.815	0.531	0.762
+I1005 09:33:22.728239 47334264659584 tf_logging.py:115] 12750	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.994	0.520	0.758
+I1005 09:34:06.399803 47334264659584 tf_logging.py:115] 12760	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.989	0.512	0.734
+I1005 09:34:51.872297 47334264659584 tf_logging.py:115] 12770	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.790	0.539	0.770
+I1005 09:35:36.083452 47334264659584 tf_logging.py:115] 12780	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.225	0.465	0.715
+I1005 09:36:27.030966 47334264659584 tf_logging.py:115] 12790	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.051	0.480	0.730
+I1005 09:37:09.098054 47334264659584 tf_logging.py:115] 12800	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.879	0.500	0.766
+I1005 09:37:54.001177 47334264659584 tf_logging.py:115] 12810	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.878	0.508	0.723
+I1005 09:38:33.874440 47334264659584 tf_logging.py:115] 12820	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.025	0.477	0.738
+I1005 09:39:19.226532 47334264659584 tf_logging.py:115] 12830	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.915	0.520	0.762
+I1005 09:39:59.617597 47334264659584 tf_logging.py:115] 12840	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.947	0.496	0.727
+I1005 09:40:43.721815 47334264659584 tf_logging.py:115] 12850	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.839	0.539	0.770
+I1005 09:41:30.057886 47334264659584 tf_logging.py:115] 12860	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.084	0.461	0.727
+I1005 09:42:14.186519 47334264659584 tf_logging.py:115] 12870	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.994	0.508	0.750
+I1005 09:43:02.635027 47334264659584 tf_logging.py:115] 12880	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.893	0.516	0.777
+I1005 09:43:40.083839 47334264659584 tf_logging.py:115] 12890	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.894	0.469	0.766
+I1005 09:44:20.554368 47334264659584 tf_logging.py:115] 12900	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.051	0.496	0.723
+I1005 09:45:09.812967 47334264659584 tf_logging.py:115] 12910	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.099	0.469	0.738
+I1005 09:45:54.181069 47334264659584 tf_logging.py:115] 12920	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.148	0.477	0.703
+I1005 09:46:44.570286 47334264659584 tf_logging.py:115] 12930	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.956	0.516	0.742
+I1005 09:47:26.194299 47334264659584 tf_logging.py:115] 12940	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.100	0.492	0.734
+I1005 09:48:08.803100 47334264659584 tf_logging.py:115] 12950	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.885	0.531	0.754
+I1005 09:48:50.290974 47334264659584 tf_logging.py:115] 12960	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.078	0.465	0.715
+I1005 09:49:39.722705 47334264659584 tf_logging.py:115] 12970	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.031	0.516	0.727
+I1005 09:50:30.349728 47334264659584 tf_logging.py:115] 12980	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.937	0.523	0.723
+I1005 09:51:04.816611 47334264659584 tf_logging.py:115] 12990	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.138	0.453	0.723
+I1005 09:51:44.115467 47334264659584 tf_logging.py:115] 13000	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.828	0.551	0.781
+I1005 09:52:25.804884 47334264659584 tf_logging.py:115] 13010	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.246	0.449	0.699
+I1005 09:53:08.145936 47334264659584 tf_logging.py:115] 13020	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.129	0.492	0.703
+I1005 09:53:56.247747 47334264659584 tf_logging.py:115] 13030	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.035	0.496	0.746
+I1005 09:54:38.978140 47334264659584 tf_logging.py:115] 13040	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.096	0.477	0.715
+I1005 09:55:23.652738 47334264659584 tf_logging.py:115] 13050	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.035	0.473	0.699
+I1005 09:56:04.542048 47334264659584 tf_logging.py:115] 13060	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.765	0.535	0.797
+I1005 09:56:45.559305 47334264659584 tf_logging.py:115] 13070	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.896	0.512	0.719
+I1005 09:57:25.534133 47334264659584 tf_logging.py:115] 13080	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.072	0.504	0.711
+I1005 09:58:17.132136 47334264659584 tf_logging.py:115] 13090	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.914	0.484	0.746
+I1005 09:59:08.672028 47334264659584 tf_logging.py:115] 13100	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.954	0.477	0.730
+I1005 09:59:54.474452 47334264659584 tf_logging.py:115] 13110	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.894	0.500	0.754
+I1005 10:00:36.255251 47334264659584 tf_logging.py:115] 13120	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.996	0.480	0.711
+I1005 10:01:22.311660 47334264659584 tf_logging.py:115] 13130	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.023	0.512	0.738
+I1005 10:02:11.039458 47334264659584 tf_logging.py:115] 13140	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.010	0.492	0.742
+I1005 10:02:46.619937 47334264659584 tf_logging.py:115] 13150	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.839	0.539	0.781
+I1005 10:03:31.178023 47334264659584 tf_logging.py:115] 13160	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.953	0.516	0.734
+I1005 10:04:25.515152 47334264659584 tf_logging.py:115] 13170	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.927	0.512	0.750
+I1005 10:05:11.359753 47334264659584 tf_logging.py:115] 13180	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.914	0.543	0.750
+I1005 10:06:03.579474 47334264659584 tf_logging.py:115] 13190	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.125	0.430	0.691
+I1005 10:06:52.227000 47334264659584 tf_logging.py:115] 13200	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.930	0.523	0.754
+I1005 10:07:43.484595 47334264659584 tf_logging.py:115] 13210	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.804	0.496	0.781
+I1005 10:08:31.890441 47334264659584 tf_logging.py:115] 13220	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.906	0.520	0.762
+I1005 10:09:10.294628 47334264659584 tf_logging.py:115] 13230	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.065	0.488	0.734
+I1005 10:09:52.561614 47334264659584 tf_logging.py:115] 13240	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.823	0.520	0.777
+I1005 10:10:42.127422 47334264659584 tf_logging.py:115] 13250	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.969	0.512	0.742
+I1005 10:11:32.482103 47334264659584 tf_logging.py:115] 13260	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.975	0.516	0.738
+I1005 10:12:25.297069 47334264659584 tf_logging.py:115] 13270	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.838	0.504	0.766
+I1005 10:13:06.098700 47334264659584 tf_logging.py:115] 13280	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.220	0.418	0.699
+I1005 10:13:50.096985 47334264659584 tf_logging.py:115] 13290	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.837	0.531	0.758
+I1005 10:14:31.263342 47334264659584 tf_logging.py:115] 13300	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.086	0.477	0.695
+I1005 10:15:11.258065 47334264659584 tf_logging.py:115] 13310	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.027	0.520	0.738
+I1005 10:15:59.904487 47334264659584 tf_logging.py:115] 13320	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.269	0.438	0.676
+I1005 10:16:40.045161 47334264659584 tf_logging.py:115] 13330	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.945	0.527	0.754
+I1005 10:17:26.105220 47334264659584 tf_logging.py:115] 13340	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.057	0.496	0.715
+I1005 10:18:07.795420 47334264659584 tf_logging.py:115] 13350	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.677	0.500	0.801
+I1005 10:18:51.541807 47334264659584 tf_logging.py:115] 13360	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.797	0.539	0.766
+I1005 10:19:40.546284 47334264659584 tf_logging.py:115] 13370	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.070	0.504	0.711
+I1005 10:20:21.490365 47334264659584 tf_logging.py:115] 13380	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.177	0.469	0.723
+I1005 10:21:13.970288 47334264659584 tf_logging.py:115] 13390	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.858	0.535	0.770
+I1005 10:21:54.527894 47334264659584 tf_logging.py:115] 13400	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.998	0.508	0.738
+I1005 10:22:39.386663 47334264659584 tf_logging.py:115] 13410	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.840	0.559	0.754
+I1005 10:23:19.975420 47334264659584 tf_logging.py:115] 13420	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.799	0.535	0.773
+I1005 10:24:00.415749 47334264659584 tf_logging.py:115] 13430	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.831	0.492	0.758
+I1005 10:24:41.084965 47334264659584 tf_logging.py:115] 13440	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.004	0.527	0.746
+I1005 10:25:36.629886 47334264659584 tf_logging.py:115] 13450	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.973	0.453	0.750
+I1005 10:26:28.128652 47334264659584 tf_logging.py:115] 13460	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.184	0.441	0.730
+I1005 10:27:10.713832 47334264659584 tf_logging.py:115] 13470	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.944	0.531	0.734
+I1005 10:27:54.222160 47334264659584 tf_logging.py:115] 13480	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.921	0.516	0.734
+I1005 10:28:40.550476 47334264659584 tf_logging.py:115] 13490	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.067	0.473	0.730
+I1005 10:29:27.191710 47334264659584 tf_logging.py:115] 13500	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.765	0.586	0.773
+I1005 10:30:07.054030 47334264659584 tf_logging.py:115] 13510	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.076	0.516	0.711
+I1005 10:30:47.924801 47334264659584 tf_logging.py:115] 13520	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.968	0.496	0.715
+I1005 10:31:27.091205 47334264659584 tf_logging.py:115] 13530	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.830	0.562	0.781
+I1005 10:32:17.254311 47334264659584 tf_logging.py:115] 13540	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.662	0.562	0.809
+I1005 10:32:58.070828 47334264659584 tf_logging.py:115] 13550	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.862	0.539	0.730
+I1005 10:33:38.822486 47334264659584 tf_logging.py:115] 13560	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.011	0.484	0.734
+I1005 10:34:15.777908 47334264659584 tf_logging.py:115] 13570	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.922	0.527	0.730
+I1005 10:35:08.121151 47334264659584 tf_logging.py:115] 13580	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.884	0.539	0.746
+I1005 10:35:56.279713 47334264659584 tf_logging.py:115] 13590	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.020	0.523	0.711
+I1005 10:36:40.232571 47334264659584 tf_logging.py:115] 13600	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.844	0.562	0.781
+I1005 10:37:22.823270 47334264659584 tf_logging.py:115] 13610	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.148	0.480	0.730
+I1005 10:38:16.639557 47334264659584 tf_logging.py:115] 13620	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.843	0.543	0.762
+I1005 10:38:59.438963 47334264659584 tf_logging.py:115] 13630	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.962	0.496	0.758
+I1005 10:39:50.236291 47334264659584 tf_logging.py:115] 13640	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.828	0.520	0.766
+I1005 10:40:29.917492 47334264659584 tf_logging.py:115] 13650	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.903	0.543	0.742
+I1005 10:41:12.514469 47334264659584 tf_logging.py:115] 13660	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.959	0.520	0.738
+I1005 10:41:56.050822 47334264659584 tf_logging.py:115] 13670	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.030	0.477	0.762
+I1005 10:42:35.245524 47334264659584 tf_logging.py:115] 13680	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.829	0.512	0.773
+I1005 10:43:15.286666 47334264659584 tf_logging.py:115] 13690	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.680	0.574	0.824
+I1005 10:43:59.535141 47334264659584 tf_logging.py:115] 13700	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.846	0.504	0.770
+I1005 10:44:47.467099 47334264659584 tf_logging.py:115] 13710	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.680	0.582	0.777
+I1005 10:45:27.800339 47334264659584 tf_logging.py:115] 13720	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.951	0.461	0.742
+I1005 10:46:06.777415 47334264659584 tf_logging.py:115] 13730	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.204	0.488	0.680
+I1005 10:46:45.714518 47334264659584 tf_logging.py:115] 13740	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.660	0.547	0.805
+I1005 10:47:28.209224 47334264659584 tf_logging.py:115] 13750	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.742	0.551	0.758
+I1005 10:48:12.752733 47334264659584 tf_logging.py:115] 13760	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.838	0.473	0.773
+I1005 10:49:00.560999 47334264659584 tf_logging.py:115] 13770	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.880	0.492	0.723
+I1005 10:49:45.690839 47334264659584 tf_logging.py:115] 13780	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.986	0.496	0.762
+I1005 10:50:27.895195 47334264659584 tf_logging.py:115] 13790	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.026	0.473	0.754
+I1005 10:51:11.008702 47334264659584 tf_logging.py:115] 13800	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.828	0.500	0.770
+I1005 10:51:51.507819 47334264659584 tf_logging.py:115] 13810	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.811	0.473	0.777
+I1005 10:52:34.178759 47334264659584 tf_logging.py:115] 13820	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.912	0.543	0.742
+I1005 10:53:13.810202 47334264659584 tf_logging.py:115] 13830	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.076	0.484	0.734
+I1005 10:53:56.895504 47334264659584 tf_logging.py:115] 13840	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.830	0.531	0.762
+I1005 10:54:41.535272 47334264659584 tf_logging.py:115] 13850	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.226	0.480	0.711
+I1005 10:55:25.685247 47334264659584 tf_logging.py:115] 13860	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.041	0.488	0.719
+I1005 10:56:12.445021 47334264659584 tf_logging.py:115] 13870	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.930	0.535	0.738
+I1005 10:56:54.657345 47334264659584 tf_logging.py:115] 13880	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.060	0.453	0.727
+I1005 10:57:39.664312 47334264659584 tf_logging.py:115] 13890	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.924	0.488	0.762
+I1005 10:58:27.630376 47334264659584 tf_logging.py:115] 13900	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.975	0.477	0.773
+I1005 10:59:10.626941 47334264659584 tf_logging.py:115] 13910	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.998	0.516	0.746
+I1005 11:00:01.111575 47334264659584 tf_logging.py:115] 13920	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.943	0.484	0.734
+I1005 11:00:46.853788 47334264659584 tf_logging.py:115] 13930	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.096	0.496	0.715
+I1005 11:01:35.879888 47334264659584 tf_logging.py:115] 13940	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.040	0.445	0.742
+I1005 11:02:12.792431 47334264659584 tf_logging.py:115] 13950	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.809	0.539	0.777
+I1005 11:03:03.338743 47334264659584 tf_logging.py:115] 13960	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.939	0.516	0.754
+I1005 11:03:38.475400 47334264659584 tf_logging.py:115] 13970	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.849	0.512	0.777
+I1005 11:04:19.876590 47334264659584 tf_logging.py:115] 13980	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.922	0.504	0.719
+I1005 11:04:57.371170 47334264659584 tf_logging.py:115] 13990	images/sec: 57.4 +/- 0.1 (jitter = 16.4)	2.815	0.516	0.789
+I1005 11:05:45.836474 47334264659584 tf_logging.py:115] 14000	images/sec: 57.4 +/- 0.1 (jitter = 16.4)	3.033	0.496	0.723
+I1005 11:06:27.321399 47334264659584 tf_logging.py:115] 14010	images/sec: 57.4 +/- 0.1 (jitter = 16.4)	2.970	0.492	0.762
+I1005 11:07:11.862004 47334264659584 tf_logging.py:115] 14020	images/sec: 57.4 +/- 0.1 (jitter = 16.4)	2.564	0.609	0.820
+I1005 11:07:54.509500 47334264659584 tf_logging.py:115] 14030	images/sec: 57.4 +/- 0.1 (jitter = 16.4)	2.982	0.512	0.734
+I1005 11:08:40.113821 47334264659584 tf_logging.py:115] 14040	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.020	0.480	0.719
+I1005 11:09:22.001791 47334264659584 tf_logging.py:115] 14050	images/sec: 57.4 +/- 0.1 (jitter = 16.4)	3.274	0.480	0.695
+I1005 11:10:10.891947 47334264659584 tf_logging.py:115] 14060	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.914	0.484	0.750
+I1005 11:10:52.537514 47334264659584 tf_logging.py:115] 14070	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.960	0.520	0.750
+I1005 11:11:36.922249 47334264659584 tf_logging.py:115] 14080	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.021	0.465	0.746
+I1005 11:12:19.252935 47334264659584 tf_logging.py:115] 14090	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.794	0.496	0.738
+I1005 11:13:04.756745 47334264659584 tf_logging.py:115] 14100	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.843	0.547	0.727
+I1005 11:13:46.216784 47334264659584 tf_logging.py:115] 14110	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.062	0.465	0.758
+I1005 11:14:35.767888 47334264659584 tf_logging.py:115] 14120	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.976	0.500	0.719
+I1005 11:15:18.357209 47334264659584 tf_logging.py:115] 14130	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.851	0.488	0.730
+I1005 11:16:01.420431 47334264659584 tf_logging.py:115] 14140	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.988	0.508	0.770
+I1005 11:16:47.587558 47334264659584 tf_logging.py:115] 14150	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.992	0.477	0.754
+I1005 11:17:30.237239 47334264659584 tf_logging.py:115] 14160	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.909	0.508	0.723
+I1005 11:18:14.403796 47334264659584 tf_logging.py:115] 14170	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.808	0.539	0.758
+I1005 11:19:02.049918 47334264659584 tf_logging.py:115] 14180	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.869	0.520	0.754
+I1005 11:19:40.944809 47334264659584 tf_logging.py:115] 14190	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.152	0.477	0.719
+I1005 11:20:21.135452 47334264659584 tf_logging.py:115] 14200	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.869	0.539	0.762
+I1005 11:20:59.720230 47334264659584 tf_logging.py:115] 14210	images/sec: 57.5 +/- 0.1 (jitter = 16.3)	2.711	0.523	0.801
+I1005 11:21:44.814648 47334264659584 tf_logging.py:115] 14220	images/sec: 57.5 +/- 0.1 (jitter = 16.3)	2.913	0.504	0.730
+I1005 11:22:36.860944 47334264659584 tf_logging.py:115] 14230	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.865	0.488	0.742
+I1005 11:23:16.865842 47334264659584 tf_logging.py:115] 14240	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.932	0.523	0.742
+I1005 11:24:00.561775 47334264659584 tf_logging.py:115] 14250	images/sec: 57.5 +/- 0.1 (jitter = 16.3)	3.186	0.430	0.703
+I1005 11:24:50.612970 47334264659584 tf_logging.py:115] 14260	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.593	0.578	0.797
+I1005 11:25:32.310467 47334264659584 tf_logging.py:115] 14270	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.548	0.559	0.809
+I1005 11:26:19.337064 47334264659584 tf_logging.py:115] 14280	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.754	0.551	0.773
+I1005 11:27:08.192884 47334264659584 tf_logging.py:115] 14290	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.688	0.543	0.770
+I1005 11:27:51.499311 47334264659584 tf_logging.py:115] 14300	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.564	0.578	0.781
+I1005 11:28:31.270079 47334264659584 tf_logging.py:115] 14310	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.907	0.531	0.723
+I1005 11:29:13.713075 47334264659584 tf_logging.py:115] 14320	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.798	0.539	0.758
+I1005 11:30:03.501422 47334264659584 tf_logging.py:115] 14330	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.920	0.535	0.742
+I1005 11:30:48.510818 47334264659584 tf_logging.py:115] 14340	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.039	0.504	0.734
+I1005 11:31:34.473087 47334264659584 tf_logging.py:115] 14350	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.890	0.508	0.738
+I1005 11:32:18.261492 47334264659584 tf_logging.py:115] 14360	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.772	0.527	0.754
+I1005 11:33:07.229620 47334264659584 tf_logging.py:115] 14370	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.728	0.543	0.773
+I1005 11:33:47.201970 47334264659584 tf_logging.py:115] 14380	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.975	0.535	0.738
+I1005 11:34:34.191861 47334264659584 tf_logging.py:115] 14390	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.096	0.488	0.719
+I1005 11:35:17.101558 47334264659584 tf_logging.py:115] 14400	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.041	0.488	0.750
+I1005 11:35:58.352573 47334264659584 tf_logging.py:115] 14410	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.178	0.473	0.695
+I1005 11:36:47.693295 47334264659584 tf_logging.py:115] 14420	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.874	0.516	0.742
+I1005 11:37:29.472035 47334264659584 tf_logging.py:115] 14430	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.651	0.582	0.777
+I1005 11:38:24.432847 47334264659584 tf_logging.py:115] 14440	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.097	0.488	0.715
+I1005 11:39:10.774348 47334264659584 tf_logging.py:115] 14450	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.065	0.496	0.734
+I1005 11:39:49.791026 47334264659584 tf_logging.py:115] 14460	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.851	0.555	0.785
+I1005 11:40:32.079222 47334264659584 tf_logging.py:115] 14470	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.787	0.535	0.773
+I1005 11:41:15.577481 47334264659584 tf_logging.py:115] 14480	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	3.015	0.473	0.727
+I1005 11:41:55.682908 47334264659584 tf_logging.py:115] 14490	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.973	0.500	0.711
+I1005 11:42:40.792482 47334264659584 tf_logging.py:115] 14500	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.915	0.512	0.742
+I1005 11:43:21.257310 47334264659584 tf_logging.py:115] 14510	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.741	0.535	0.785
+I1005 11:44:11.102778 47334264659584 tf_logging.py:115] 14520	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.903	0.496	0.715
+I1005 11:44:57.515124 47334264659584 tf_logging.py:115] 14530	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.825	0.508	0.812
+I1005 11:45:42.045565 47334264659584 tf_logging.py:115] 14540	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.991	0.461	0.719
+I1005 11:46:27.323443 47334264659584 tf_logging.py:115] 14550	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.950	0.457	0.750
+I1005 11:47:03.974726 47334264659584 tf_logging.py:115] 14560	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.976	0.500	0.715
+I1005 11:47:53.736807 47334264659584 tf_logging.py:115] 14570	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.969	0.527	0.727
+I1005 11:48:32.657882 47334264659584 tf_logging.py:115] 14580	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.899	0.484	0.730
+I1005 11:49:14.731390 47334264659584 tf_logging.py:115] 14590	images/sec: 57.5 +/- 0.1 (jitter = 16.3)	2.720	0.547	0.770
+I1005 11:50:00.054612 47334264659584 tf_logging.py:115] 14600	images/sec: 57.5 +/- 0.1 (jitter = 16.3)	2.890	0.539	0.754
+I1005 11:50:44.938910 47334264659584 tf_logging.py:115] 14610	images/sec: 57.4 +/- 0.1 (jitter = 16.3)	2.792	0.477	0.781
