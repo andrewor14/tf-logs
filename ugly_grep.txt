@@ -1,1 +1,1 @@
-grep -e "] 90\simages/sec" *out | sed 's/batch_size_micro_\([0-9][0-9]*\).*images\/sec: \([0-9][0-9\.]*\).*/\1 \2/g' | sort -k 1 -g
+grep -e "] 90\simages/sec" cifar10-trivial/run*/*out | sed 's/.*batch_size_micro_\([0-9][0-9]*\).*images\/sec: \([0-9][0-9\.]*\).*/\1 \2/g' | sort -k 1 -g
