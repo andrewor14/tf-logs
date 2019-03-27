@@ -12,7 +12,7 @@ labels = []
 if len(args) > 1:
   labels = args[1:]
 else:
-  labels = ["cifar10-trivial", "synthetic-resnet50"]
+  labels = ["cifar10-trivial", "synthetic-resnet50", "cifar10-resnet56"]
 
 # Plot one experiment
 def plot_experiment(ax, file_name, label):
@@ -38,12 +38,15 @@ def plot_experiment(ax, file_name, label):
     y_data.append(y)
     y_lower.append(y - y_min)
     y_upper.append(y_max - y)
-  ax.errorbar(x_data, y_data, yerr=[y_lower, y_upper], fmt="-x", label=label)
-  ## Drop some ticks to avoid overlapping
-  #xtick_start_index = int(math.log(max(y_data), 2)) - 3 # kind of arbitrary
-  #ax.set_xticks([1] + x_data[xtick_start_index:])
-  ax.set_xticks(x_data)
+  if label == "cifar10-trivial":
+    ax.set_xscale("log")
+    ax.set_xticks(x_data)
+  else:
+    ## Drop some ticks to avoid overlapping
+    xtick_start_index = int(math.log(max(y_data), 2)) - 3 # kind of arbitrary
+    ax.set_xticks([1] + x_data[xtick_start_index:])
   ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+  ax.errorbar(x_data, y_data, yerr=[y_lower, y_upper], fmt="-x", label=label)
 
 # Plot it
 def make_plot(label):
@@ -54,8 +57,6 @@ def make_plot(label):
   ax.set_xlabel("batch size per device")
   ax.set_ylabel("throughput (images/sec)")
   ax.set_title("1 ps + 2 workers (1 K40 GPU each) on a single node")
-  if label == "cifar10-trivial":
-    ax.set_xscale("log")
   plot_experiment(ax, in_file, label)
   legend = ax.legend(loc="best")
   fig.savefig(out_file, bbox_extra_artists=(legend,))
