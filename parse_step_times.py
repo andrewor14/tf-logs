@@ -32,14 +32,13 @@ def parse_step_time(log_file):
     step_time = average_delta / 10 # prints once every 10 steps
     return step_time
 
-# Return the step time (seconds) averaged across all nodes running in a job, and across all jobs
-def get_average_step_time(log_dirs):
+# Return the step time (seconds) averaged across all nodes running in a job
+def get_average_step_time(log_dir):
   step_times = []
-  for log_dir in log_dirs:
-    log_files = validate_log_dir(log_dir)
-    for log_file in log_files:
-      step_time = parse_step_time(log_file)
-      step_times.append(step_time)
+  log_files = validate_log_dir(log_dir)
+  for log_file in log_files:
+    step_time = parse_step_time(log_file)
+    step_times.append(step_time)
   average_step_time = sum(step_times) / len(step_times)
   return average_step_time
 
@@ -48,7 +47,11 @@ def main():
   if len(args) < 2:
     print("Usage: parse_mpi_logs [log_dir] <[log_dir2], [log_dir3] ...>")
     sys.exit(1)
-  print(get_average_step_time(args[1:]))
+  step_times = []
+  for log_dir in args[1:]:
+    step_times.append(get_step_time(log_dir))
+  average_step_time = sum(step_times) / len(step_times)
+  print(average_step_time)
 
 if __name__ == "__main__":
   main()
