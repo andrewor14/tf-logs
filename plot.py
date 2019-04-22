@@ -14,31 +14,25 @@ import sys
 def plot_experiment(ax, label):
   step_times = {} # num workers -> step times
   for log_dir in os.listdir(label):
-    num_workers = int(re.match("mpi-horovod_(\d+)workers", x).groups()[0])
+    num_workers = int(re.match("mpi-horovod_(\d+)workers", log_dir).groups()[0])
     if num_workers not in step_times:
       step_times[num_workers] = []
+    log_dir = os.path.join(label, log_dir)
     step_time = parse_step_times.get_average_step_time(log_dir)
     step_times[num_workers].append(step_time)
   # Flatten data: average by key + include min and max
   for k, v in step_times.items():
     step_times[k] = (sum(v) / len(v), min(v), max(v))
   # Sort and separate
-  data = data.items()
-  data.sort()
+  step_times = step_times.items()
+  step_times.sort()
   x_data, y_data, y_lower, y_upper = [], [], [], []
-  for (x, (y, y_min, y_max)) in data:
+  for (x, (y, y_min, y_max)) in step_times:
     x_data.append(x)
     y_data.append(y)
     y_lower.append(y - y_min)
     y_upper.append(y_max - y)
-  #if label == "cifar10-trivial":
-  #  ax.set_xscale("log")
-  #  ax.set_xticks(x_data)
-  #else:
-  #  ## Drop some ticks to avoid overlapping
-  #  xtick_start_index = int(math.log(max(y_data), 2)) - 3 # kind of arbitrary
-  #  ax.set_xticks([1] + x_data[xtick_start_index:])
-  #ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+  ax.set_xticks(x_data)
   ax.errorbar(x_data, y_data, yerr=[y_lower, y_upper], fmt="-x", label=label)
 
 # Plot it
