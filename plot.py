@@ -41,7 +41,7 @@ def make_plot(label):
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   ax.set_xlabel("num workers")
-  ax.set_ylabel("average step time")
+  ax.set_ylabel("average step time (s)")
   ax.set_title("horovod step time with increasing number of workers")
   plot_experiment(ax, label)
   legend = ax.legend(loc="best")
@@ -54,7 +54,7 @@ def main():
   if len(args) > 1:
     labels = args[1:]
   else:
-    labels = ["cifar10-trivial"]
+    labels = ["cifar10-trivial", "synthetic-andrew-trivial"]
   for label in labels:
     make_plot(label)
 
