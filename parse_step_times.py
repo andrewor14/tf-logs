@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 
 import datetime
+import math
 import os
 import sys
+
+VERBOSE = False
 
 # Validate the specified log dir and return the log files.
 # The structure should be log_dir/1/rank.x, where x+1 is the number of nodes used in the job.
@@ -20,26 +23,41 @@ def validate_log_dir(log_dir):
   log_files = [os.path.join(os.path.join(log_dir, d), "stderr") for d in os.listdir(log_dir)]
   return log_files
 
-def parse_step_time(log_file):
+def parse_step_times(log_file):
   with open(log_file) as f:
-    lines = [l for l in f.readlines() if "images/sec" in l]
-    timestamps = [" ".join(l.split()[:2]) for l in lines]
-    timestamps = [datetime.datetime.strptime(ts, "I%m%d %H:%M:%S.%f") for ts in timestamps]
-    deltas = []
-    for i in range(1, len(timestamps)):
-      deltas.append(float((timestamps[i] - timestamps[i - 1]).total_seconds()))
-    average_delta = sum(deltas) / len(deltas)
-    step_time = average_delta / 10 # prints once every 10 steps
-    return step_time
+    # Parse step numbers and timestamps
+    steps, timestamps = [], []
+    for line in f.readlines():
+      if "images/sec" not in line or "total" in line:
+        continue
+      split = line.split()
+      steps.append(int(split[4]))
+      timestamp = " ".join(split[:2])
+      timestamp = datetime.datetime.strptime(timestamp, "I%m%d %H:%M:%S.%f")
+      timestamps.append(timestamp)
+    # Interpolate missing values
+    step_times = []
+    for i in range(1, len(steps)):
+      step_delta = steps[i] - steps[i-1]
+      timestamp_delta = float((timestamps[i] - timestamps[i - 1]).total_seconds())
+      step_times += [timestamp_delta / step_delta] * step_delta
+    return step_times
 
-# Return the step time (seconds) averaged across all nodes running in a job
-def get_average_step_time(log_dir):
+# Return the average step time (seconds) and its variance across all nodes running in a job
+def get_step_time_average_and_variance(log_dir):
   step_times = []
   log_files = validate_log_dir(log_dir)
   for log_file in log_files:
-    step_time = parse_step_time(log_file)
-    step_times.append(step_time)
-  average_step_time = sum(step_times) / len(step_times)
+    step_times += parse_step_times(log_file)
+  average = sum(step_times) / len(step_times)
+  variance = sum([math.pow(t - average, 2) for t in step_times]) / len(step_times)
+  if VERBOSE:
+    print("Log dir: %s, average: %s, variance: %s" % (log_dir, average, variance))
+  return (average, variance)
+
+# Return the step time (seconds) averaged across all nodes running in a job
+def get_average_step_time(log_dir):
+  (average_step_time, _) = get_step_time_average_and_variance(log_dir)
   return average_step_time
 
 def main():
@@ -49,7 +67,7 @@ def main():
     sys.exit(1)
   step_times = []
   for log_dir in args[1:]:
-    step_times.append(get_step_time(log_dir))
+    step_times.append(get_average_step_time(log_dir))
   average_step_time = sum(step_times) / len(step_times)
   print(average_step_time)
 
