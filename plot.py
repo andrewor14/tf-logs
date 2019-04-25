@@ -67,7 +67,11 @@ def main():
   if len(args) > 1:
     experiment_names = args[1:]
   else:
-    experiment_names = ["cifar10-trivial", "synthetic-andrew-trivial", "synthetic-andrew-trivial-4-25"]
+    experiment_names = [
+      "cifar10-trivial",
+      "synthetic-andrew-trivial",
+      "synthetic-andrew-trivial2",
+      "synthetic-andrew-trivial3"]
   for name in experiment_names:
     make_plot(name)
 
