@@ -71,7 +71,8 @@ def main():
       "cifar10-trivial",
       "synthetic-andrew-trivial",
       "synthetic-andrew-trivial2",
-      "synthetic-andrew-trivial3"]
+      "synthetic-andrew-trivial3",
+      "synthetic-andrew-trivial4"]
   for name in experiment_names:
     make_plot(name)
 
