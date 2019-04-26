@@ -18,8 +18,8 @@ import sys
 # and thus are cumulative (i.e. monotonically increasing).
 # ==========================================================
 
-def make_plot(data_file):
-  out_file = data_file.replace(".out", ".pdf")
+def make_plot(data_file, min_x, max_x):
+  out_file = data_file.replace(".txt", "") + ".pdf"
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   ax.set_xlabel("time elapsed (ms)")
@@ -42,6 +42,17 @@ def make_plot(data_file):
       tx_data.append(tx - previous_tx)
       previous_rx = rx
       previous_tx = tx
+  # Filter out some data based on min_x and max_x
+  if min_x is not None and max_x is not None:
+    start_index, end_index = None, None
+    for i in range(len(x_data)):
+      if start_index is None and x_data[i] >= min_x:
+        start_index = i
+      if end_index is None and x_data[i] > max_x:
+        end_index = i
+    x_data = x_data[start_index:end_index]
+    rx_data = rx_data[start_index:end_index]
+    tx_data = tx_data[start_index:end_index]
   ax.plot(x_data, rx_data, "-x", label="rx_bytes")
   ax.plot(x_data, tx_data, "-x", label="tx_bytes")
   ax.legend()
@@ -51,10 +62,14 @@ def make_plot(data_file):
 
 def main():
   args = sys.argv
-  if len(args) < 2:
-    print("Usage: plot_network.py [data_file]")
+  if not (len(args) == 2 or len(args) == 4):
+    print("Usage: plot_network.py [data_file] <[min] [max]>")
     sys.exit(1)
-  make_plot(args[1])
+  min_x, max_x = None, None
+  if len(args) == 4:
+    min_x = int(args[2])
+    max_x = int(args[3])
+  make_plot(args[1], min_x, max_x)
 
 if __name__ == "__main__":
   main()

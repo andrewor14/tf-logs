@@ -18,8 +18,8 @@ def validate_log_dir(log_dir):
     if not d.startswith("rank"):
       raise ValueError("ERROR: expected structure log_dir/1/rank.x, was %s" % d)
     log_files = os.listdir(os.path.join(log_dir, d))
-    if sorted(log_files) != ["stderr", "stdout"]:
-      raise ValueError("ERROR: expected log dir to contain 'stderr' and 'stdout' only, was %s" % log_files)
+    if "stderr" not in log_files:
+      raise ValueError("ERROR: expected log dir to contain file 'stderr', was %s" % log_files)
   log_files = [os.path.join(os.path.join(log_dir, d), "stderr") for d in os.listdir(log_dir)]
   return log_files
 
