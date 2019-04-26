@@ -2,6 +2,7 @@
 
 import matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
 
 import sys
 
@@ -25,34 +26,39 @@ def make_plot(data_file, min_x, max_x):
   ax.set_xlabel("time elapsed (ms)")
   ax.set_ylabel("bytes")
   ax.set_title(data_file, y=1.08)
-  # Parse data
+  # Parse raw data
+  x_data, rx_data, tx_data = [], [], []
   with open(data_file) as f:
-    x_data, rx_data, tx_data = [], [], []
-    first_ts, previous_rx, previous_tx = None, None, None
     for line in f.readlines()[1:]: # skip header
       split = line.split()
       (ts, rx, tx) = (int(split[0]), int(split[1]), int(split[2]))
-      first_ts = first_ts or ts
-      previous_rx = previous_rx or rx
-      previous_tx = previous_tx or tx
-      # Subtract all timestamps by the first one
-      x_data.append(ts - first_ts)
-      # Network stats are cumulative counters, so turn them into deltas
-      rx_data.append(rx - previous_rx)
-      tx_data.append(tx - previous_tx)
-      previous_rx = rx
-      previous_tx = tx
-  # Filter out some data based on min_x and max_x
+      x_data.append(ts)
+      rx_data.append(rx)
+      tx_data.append(tx)
+  # Try deleting unique values?
+  unique_indices = []
+  last_rx = None
+  for i in range(len(rx_data)):
+    if rx_data[i] != last_rx:
+      unique_indices.append(i)
+    last_rx = rx_data[i]
+  x_data = np.array(x_data)[unique_indices].tolist()
+  rx_data = np.array(rx_data)[unique_indices].tolist()
+  tx_data = np.array(tx_data)[unique_indices].tolist()
+  # Subtract all timestamps by the first one
+  # Network stats are cumulative counters, so turn them into deltas
+  x_data = np.array(x_data)
+  x_data = (x_data - x_data[0]).tolist()
+  rx_data = [0] + np.diff(rx_data).tolist()
+  tx_data = [0] + np.diff(tx_data).tolist()
+  # Optionally zoom in
   if min_x is not None and max_x is not None:
-    start_index, end_index = None, None
-    for i in range(len(x_data)):
-      if start_index is None and x_data[i] >= min_x:
-        start_index = i
-      if end_index is None and x_data[i] > max_x:
-        end_index = i
-    x_data = x_data[start_index:end_index]
-    rx_data = rx_data[start_index:end_index]
-    tx_data = tx_data[start_index:end_index]
+    x_data = np.array(x_data)
+    zoom_indices = np.where((x_data >= min_x) & (x_data < max_x))
+    x_data = np.array(x_data)[zoom_indices].tolist()
+    rx_data = np.array(rx_data)[zoom_indices].tolist()
+    tx_data = np.array(tx_data)[zoom_indices].tolist()
+  # Plot
   ax.plot(x_data, rx_data, "-x", label="rx_bytes")
   ax.plot(x_data, tx_data, "-x", label="tx_bytes")
   ax.legend()
