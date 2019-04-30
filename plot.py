@@ -67,12 +67,10 @@ def main():
   if len(args) > 1:
     experiment_names = args[1:]
   else:
-    experiment_names = [
-      "cifar10-trivial",
-      "synthetic-andrew-trivial",
-      "synthetic-andrew-trivial2",
-      "synthetic-andrew-trivial3",
-      "synthetic-andrew-trivial4"]
+    experiment_names = ["cifar10-trivial"]
+    for d in os.listdir(os.getcwd()):
+      if os.path.isdir(d) and "synthetic-andrew-trivial" in d:
+        experiment_names.append(d)
   for name in experiment_names:
     make_plot(name)
 

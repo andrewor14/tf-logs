@@ -5,6 +5,8 @@ import math
 import os
 import sys
 
+import numpy as np
+
 VERBOSE = False
 
 # Validate the specified log dir and return the log files.
@@ -45,12 +47,15 @@ def parse_step_times(log_file):
 
 # Return the average step time (seconds) and its variance across all nodes running in a job
 def get_step_time_average_and_variance(log_dir):
-  step_times = []
+  averages = []
+  variances = []
   log_files = validate_log_dir(log_dir)
   for log_file in log_files:
-    step_times += parse_step_times(log_file)
-  average = sum(step_times) / len(step_times)
-  variance = sum([math.pow(t - average, 2) for t in step_times]) / len(step_times)
+    step_times = parse_step_times(log_file)
+    averages.append(np.mean(step_times))
+    variances.append(np.var(step_times))
+  average = np.mean(averages)
+  variance = np.mean(variances)
   if VERBOSE:
     print("Log dir: %s, average: %s, variance: %s" % (log_dir, average, variance))
   return (average, variance)
