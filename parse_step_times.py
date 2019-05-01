@@ -13,9 +13,9 @@ VERBOSE = False
 # The structure should be log_dir/1/rank.x, where x+1 is the number of nodes used in the job.
 def validate_log_dir(log_dir):
   temp_dir = os.listdir(log_dir)
-  if temp_dir != ["1"]:
+  if "1" not in temp_dir:
     raise ValueError("ERROR: expected structure log_dir/1, was %s" % temp_dir)
-  log_dir = os.path.join(log_dir, temp_dir[0])
+  log_dir = os.path.join(log_dir, "1")
   for d in os.listdir(log_dir):
     if not d.startswith("rank"):
       raise ValueError("ERROR: expected structure log_dir/1/rank.x, was %s" % d)
