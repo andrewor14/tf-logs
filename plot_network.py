@@ -20,7 +20,7 @@ import sys
 # ==========================================================
 
 def make_plot(data_file, min_x, max_x):
-  out_file = data_file.replace(".txt", "") + ".pdf"
+  out_file = "output/%s.pdf" % data_file.replace(".txt", "")
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   ax.set_xlabel("time elapsed (ms)")

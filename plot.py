@@ -14,13 +14,14 @@ import sys
 def plot_experiment(ax1, ax2, experiment_name):
   step_time_averages = {} # num workers -> step time averages
   step_time_variances = {} # num workers -> step time variances
-  for log_dir in os.listdir(experiment_name):
-    num_workers = int(re.match("mpi-horovod_(\d+)workers", log_dir).groups()[0])
+  experiment_dir = "data/%s" % experiment_name
+  for log_dir in os.listdir(experiment_dir):
+    num_workers = int(re.match(".*horovod_(\d+)workers", log_dir).groups()[0])
     if num_workers not in step_time_averages:
       step_time_averages[num_workers] = []
     if num_workers not in step_time_variances:
       step_time_variances[num_workers] = []
-    log_dir = os.path.join(experiment_name, log_dir)
+    log_dir = os.path.join(experiment_dir, log_dir)
     (average, variance) = parse.get_step_time_average_and_variance(log_dir)
     step_time_averages[num_workers].append(average)
     step_time_variances[num_workers].append(variance)
@@ -49,7 +50,7 @@ def get_plot_data(data):
 
 # Plot it
 def make_plot(experiment_name):
-  out_file = "%s-step-times.pdf" % experiment_name
+  out_file = "output/%s-step-times.pdf" % experiment_name
   fig = plt.figure()
   ax1 = fig.add_subplot(1, 1, 1)
   ax1.set_xlabel("num workers")
@@ -68,8 +69,8 @@ def main():
     experiment_names = args[1:]
   else:
     experiment_names = ["cifar10-trivial"]
-    for d in os.listdir(os.getcwd()):
-      if os.path.isdir(d) and "synthetic-andrew-trivial" in d:
+    for d in os.listdir("data"):
+      if os.path.isdir("data/%s" % d) and "synthetic-andrew-trivial" in d:
         experiment_names.append(d)
   for name in experiment_names:
     make_plot(name)
