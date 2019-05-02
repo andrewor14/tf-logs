@@ -3,7 +3,7 @@
 import matplotlib
 import matplotlib.pyplot as plt
 
-import parse_step_times
+import parse
 
 import math
 import os
@@ -21,7 +21,7 @@ def plot_experiment(ax1, ax2, experiment_name):
     if num_workers not in step_time_variances:
       step_time_variances[num_workers] = []
     log_dir = os.path.join(experiment_name, log_dir)
-    (average, variance) = parse_step_times.get_step_time_average_and_variance(log_dir)
+    (average, variance) = parse.get_step_time_average_and_variance(log_dir)
     step_time_averages[num_workers].append(average)
     step_time_variances[num_workers].append(variance)
   (avg_x_data, avg_y_data, avg_y_min, avg_y_max) = get_plot_data(step_time_averages)
