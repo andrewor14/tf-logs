@@ -16,7 +16,7 @@ def plot_experiment(ax1, ax2, experiment_name):
   step_time_variances = {} # num workers -> step time variances
   experiment_dir = "data/%s" % experiment_name
   for log_dir in os.listdir(experiment_dir):
-    num_workers = int(re.match(".*horovod_(\d+)workers", log_dir).groups()[0])
+    num_workers = int(re.match(".*horovod.*_(\d+)workers", log_dir).groups()[0])
     if num_workers not in step_time_averages:
       step_time_averages[num_workers] = []
     if num_workers not in step_time_variances:
