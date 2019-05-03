@@ -97,7 +97,7 @@ def parse_allreduce_times(horovod_trace, tag):
 
 # Return the average allreduce time (seconds) and its variance across all nodes running in a job
 def get_allreduce_time_average_and_variance(log_dir, tag):
-  horovod_trace = validate_log_dir(log_dir)
+  horovod_trace = validate_log_dir(log_dir, horovod_trace=True)
   allreduce_times = parse_allreduce_times(horovod_trace, tag)
   average = np.mean(allreduce_times)
   variance = np.var(allreduce_times)
