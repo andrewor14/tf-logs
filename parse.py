@@ -12,7 +12,10 @@ def parse_step_times(log_file):
     # Parse step numbers and timestamps
     steps, timestamps = [], []
     for line in f.readlines():
-      if "images/sec" not in line or "tf_logging" not in line or "total" in line:
+      if "Segmentation fault" in line:
+        print("Warning: detected segmentation fault in %s. Skipping." % log_file)
+        return []
+      if not line.startswith("I") or "images/sec" not in line or "total" in line:
         continue
       split = line.split()
       steps.append(int(split[4]))
