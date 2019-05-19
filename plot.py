@@ -87,7 +87,7 @@ def do_plot(experiment_name, zoom_worker_minimum=None, zoom_worker_maximum=None)
 
 def main():
   args = sys.argv
-  if len(args) < 2 and len(args) > 4:
+  if len(args) < 2 or len(args) > 4:
     print("Usage: plot.py [experiment_name] <[zoom_worker_minimum] [zoom_worker_maximum]>")
     sys.exit(1)
   experiment_name = args[1]
