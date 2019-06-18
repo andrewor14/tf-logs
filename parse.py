@@ -31,7 +31,7 @@ def validate_mpi_log_dir(log_dir):
 
 # Parse values from the given log file, indexed by number of workers
 # Data returned is a list of 2-tuples (num_workers, list of values)
-# `value_to_parse` can be one of "throughput" or "step_time"
+# `value_to_parse` can be one of "throughput", "throughput_per_worker", or "step_time"
 def parse_file(log_file, value_to_parse="throughput"):
   with open(log_file) as f:
     data = []
@@ -47,7 +47,7 @@ def parse_file(log_file, value_to_parse="throughput"):
         cluster_spec = json.loads(cluster_spec_json)
         current_num_workers = len(cluster_spec["worker"])
       elif "images/sec" in line and "total" not in line:
-        if value_to_parse == "throughput":
+        if "throughput" in value_to_parse:
           throughput = float(re.match(".*images/sec: ([\d\.]*).*", line).groups()[0])
           current_values.append(throughput)
         elif value_to_parse == "step_time":
@@ -92,7 +92,7 @@ def parse_dir(log_dir, value_to_parse="throughput"):
     if len(v) > 0:
       if value_to_parse == "throughput":
         new_value = sum(v)
-      elif value_to_parse == "step_time":
+      elif value_to_parse == "step_time" or value_to_parse == "throughput_per_worker":
         new_value = np.mean(v)
     if new_value is not None:
       data[k] = new_value

@@ -11,15 +11,31 @@ import sys
 import parse
 
 
+PLOT_THROUGHPUT_PER_WORKER = False
+
 # Plot one experiment identified by the given name
 # ax1 is intended for plotting throughput and ax2 for step times
 def plot_experiment(ax1, ax2, experiment_name):
   experiment_dir = "data/%s" % experiment_name
+  # Parse
   num_workers, throughputs = parse.parse_dir(experiment_dir, value_to_parse="throughput")
+  _, throughputs_per_worker = parse.parse_dir(experiment_dir, value_to_parse="throughput_per_worker")
   _, step_times = parse.parse_dir(experiment_dir, value_to_parse="step_time")
-  line1 = ax1.errorbar(num_workers, throughputs, fmt="-x", color="b", linewidth=2, markeredgewidth=2, markersize=10)
-  line2 = ax2.errorbar(num_workers, step_times, fmt="-+", color="g", linewidth=1, markeredgewidth=2, markersize=10)
-  ax1.legend([line1, line2], ["throughput", "step time"], loc="upper center")
+  # Plot
+  throughput_line = ax1.errorbar(num_workers, throughputs,\
+    fmt="-x", color="r", linewidth=2, markeredgewidth=2, markersize=10)
+  step_time_line = ax2.errorbar(num_workers, step_times,\
+    fmt="-+", color="g", linewidth=2, markeredgewidth=2, markersize=10)
+  # Labels
+  if PLOT_THROUGHPUT_PER_WORKER:
+    throughput_per_worker_line = ax1.errorbar(num_workers, throughputs_per_worker,\
+      fmt="-o", color="b", linewidth=2, markeredgewidth=2, markersize=10)
+    lines = [throughput_line, throughput_per_worker_line, step_time_line]
+    labels = ["throughput", "throughput per worker", "step time"]
+  else:
+    lines = [throughput_line, step_time_line]
+    labels = ["throughput", "step time"]
+  ax1.legend(lines, labels, loc="best")
 
 # Actually plot it
 def do_plot(experiment_name):
