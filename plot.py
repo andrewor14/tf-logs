@@ -16,10 +16,10 @@ import parse
 def plot_experiment(ax1, ax2, experiment_name):
   experiment_dir = "data/%s" % experiment_name
   num_workers, throughputs = parse.parse_dir(experiment_dir, value_to_parse="throughput")
-  _, step_times = parse.parse_dir(experiment_dir, value_to_parse="step_times")
-  line1 = ax1.errorbar(num_workers, throughputs, fmt="-x", color="b", linewidth=2)
-  line2 = ax2.errorbar(num_workers, step_times, fmt="-x", color="g", linewidth=2)
-  ax1.legend([line1, line2], ["throughputs", "step times"], loc="lower right")
+  _, step_times = parse.parse_dir(experiment_dir, value_to_parse="step_time")
+  line1 = ax1.errorbar(num_workers, throughputs, fmt="-x", color="b", linewidth=2, markeredgewidth=2, markersize=10)
+  line2 = ax2.errorbar(num_workers, step_times, fmt="-+", color="g", linewidth=1, markeredgewidth=2, markersize=10)
+  ax1.legend([line1, line2], ["throughput", "step time"], loc="upper center")
 
 # Actually plot it
 def do_plot(experiment_name):
