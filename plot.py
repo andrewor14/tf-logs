@@ -18,24 +18,17 @@ PLOT_THROUGHPUT_PER_WORKER = False
 def plot_experiment(ax1, ax2, experiment_name):
   experiment_dir = "data/%s" % experiment_name
   # Parse
-  num_workers, throughputs = parse.parse_dir(experiment_dir, value_to_parse="throughput")
-  _, throughputs_per_worker = parse.parse_dir(experiment_dir, value_to_parse="throughput_per_worker")
+  throughput_name = "throughput_per_worker" if PLOT_THROUGHPUT_PER_WORKER else "throughput"
+  num_workers, throughputs = parse.parse_dir(experiment_dir, value_to_parse=throughput_name)
   _, step_times = parse.parse_dir(experiment_dir, value_to_parse="step_time")
   # Plot
   throughput_line = ax1.errorbar(num_workers, throughputs,\
-    fmt="-x", color="r", linewidth=2, markeredgewidth=2, markersize=10)
+    fmt="-x", color="b", linewidth=2, markeredgewidth=2, markersize=10)
   step_time_line = ax2.errorbar(num_workers, step_times,\
     fmt="-+", color="g", linewidth=2, markeredgewidth=2, markersize=10)
   # Labels
-  if PLOT_THROUGHPUT_PER_WORKER:
-    throughput_per_worker_line = ax1.errorbar(num_workers, throughputs_per_worker,\
-      fmt="-o", color="b", linewidth=2, markeredgewidth=2, markersize=10)
-    lines = [throughput_line, throughput_per_worker_line, step_time_line]
-    labels = ["throughput", "throughput per worker", "step time"]
-  else:
-    lines = [throughput_line, step_time_line]
-    labels = ["throughput", "step time"]
-  ax1.legend(lines, labels, loc="upper center")
+  labels = [throughput_name.replace("_", " "), "step_time"]
+  ax1.legend([throughput_line, step_time_line], labels, loc="upper center")
 
 # Actually plot it
 def do_plot(experiment_name):
