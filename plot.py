@@ -35,7 +35,7 @@ def plot_experiment(ax1, ax2, experiment_name):
   else:
     lines = [throughput_line, step_time_line]
     labels = ["throughput", "step time"]
-  ax1.legend(lines, labels, loc="best")
+  ax1.legend(lines, labels, loc="upper center")
 
 # Actually plot it
 def do_plot(experiment_name):
@@ -48,6 +48,7 @@ def do_plot(experiment_name):
   ax2 = ax1.twinx()
   ax2.set_ylabel("step time (s)")
   plot_experiment(ax1, ax2, experiment_name)
+  plt.xlim(xmin=1)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file)
   print("Wrote to %s." % out_file)
