@@ -27,8 +27,9 @@ def plot_experiment(ax1, ax2, experiment_name):
   step_time_line = ax2.errorbar(num_workers, step_times,\
     fmt="-+", color="g", linewidth=2, markeredgewidth=2, markersize=10)
   # Labels
-  labels = [throughput_name.replace("_", " "), "step_time"]
-  ax1.legend([throughput_line, step_time_line], labels, loc="upper center")
+  labels = [throughput_name.replace("_", " "), "step time"]
+  legend_location = "upper right" if PLOT_THROUGHPUT_PER_WORKER else "upper center"
+  ax1.legend([throughput_line, step_time_line], labels, loc=legend_location)
 
 # Actually plot it
 def do_plot(experiment_name):

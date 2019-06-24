@@ -38,6 +38,8 @@ def parse_file(log_file, value_to_parse="throughput"):
     current_num_workers = None
     current_values = []
     for line in f.readlines():
+      if "tf_logging" not in line:
+        continue
       if "cluster spec synced" in line:
         if current_num_workers is not None:
           data.append((current_num_workers, current_values))
