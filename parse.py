@@ -33,12 +33,30 @@ def validate_mpi_log_dir(log_dir):
 # Data returned is a list of 2-tuples (num_workers, list of values)
 # `value_to_parse` can be one of "throughput", "throughput_per_worker", or "step_time"
 def parse_file(log_file, value_to_parse="throughput"):
+
+  # Decide which patterns to parse first
+  is_benchmark = None
+  line_parse_condition = None
+  throughput_parse_regex = None
+  step_split_index = None
+  with open(log_file) as f:
+    is_benchmark = "tf_cnn_benchmark" in f.read()
+  if is_benchmark:
+    line_parse_condition = lambda line: "images/sec" in line and "total" not in line
+    throughput_parse_pattern  = ".*images/sec: ([\d\.]*).*"
+    step_split_index = 4
+  else:
+    line_parse_condition = lambda line: "examples_per_second" in line
+    throughput_parse_pattern = ".*examples_per_second = ([\d\.]*).*"
+    step_split_index = 6
+
+  # Actually parse file
   with open(log_file) as f:
     data = []
     current_num_workers = None
     current_values = []
     for line in f.readlines():
-      if "tf_logging" not in line:
+      if is_benchmark and "tf_logging" not in line:
         continue
       if "cluster spec synced" in line:
         if current_num_workers is not None:
@@ -48,13 +66,13 @@ def parse_file(log_file, value_to_parse="throughput"):
         cluster_spec_json = re.match(".*(\{.*\}).*", line).groups()[0]
         cluster_spec = json.loads(cluster_spec_json)
         current_num_workers = len(cluster_spec["worker"])
-      elif "images/sec" in line and "total" not in line:
+      elif line_parse_condition(line):
         if "throughput" in value_to_parse:
-          throughput = float(re.match(".*images/sec: ([\d\.]*).*", line).groups()[0])
+          throughput = float(re.match(throughput_parse_pattern, line).groups()[0])
           current_values.append(throughput)
         elif value_to_parse == "step_time":
           split = line.split()
-          step = int(split[4])
+          step = int(split[step_split_index].replace(",", ""))
           timestamp = " ".join(split[:2])
           timestamp = datetime.datetime.strptime(timestamp, "I%m%d %H:%M:%S.%f")
           current_values.append((step, timestamp))
@@ -80,7 +98,11 @@ def parse_file(log_file, value_to_parse="throughput"):
 # Throughputs are summed across workers while step times are averaged across workers
 # Return two lists: num_workers and values
 def parse_dir(log_dir, value_to_parse="throughput"):
-  log_files = [os.path.join(log_dir, f) for f in os.listdir(log_dir) if f.endswith("out")]
+  log_files = []
+  if os.listdir(log_dir) == ["1"]:
+    log_files = validate_mpi_log_dir(log_dir)
+  else:
+    log_files = [os.path.join(log_dir, f) for f in os.listdir(log_dir) if f.endswith("out")]
   data = {}
   for log_file in log_files:
     for (num_workers, values) in parse_file(log_file, value_to_parse):
