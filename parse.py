@@ -32,21 +32,19 @@ def validate_mpi_log_dir(log_dir):
 # Parse values from the given log file, indexed by number of workers
 # Data returned is a list of 2-tuples (num_workers, list of values)
 # `value_to_parse` can be one of "throughput", "throughput_per_worker", or "step_time"
-def parse_file(log_file, value_to_parse="throughput"):
+def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
 
   # Decide which patterns to parse first
-  is_benchmark = None
   line_parse_condition = None
   throughput_parse_regex = None
   step_split_index = None
-  with open(log_file) as f:
-    is_benchmark = "tf_cnn_benchmark" in f.read()
   if is_benchmark:
     line_parse_condition = lambda line: "images/sec" in line and "total" not in line
     throughput_parse_pattern  = ".*images/sec: ([\d\.]*).*"
     step_split_index = 4
   else:
-    line_parse_condition = lambda line: "examples_per_second" in line
+    # Ignore the first step after restart because we're still warming up
+    line_parse_condition = lambda line: "examples_per_second" in line and "step = 0" not in line
     throughput_parse_pattern = ".*examples_per_second = ([\d\.]*).*"
     step_split_index = 6
 
@@ -69,6 +67,8 @@ def parse_file(log_file, value_to_parse="throughput"):
       elif line_parse_condition(line):
         if "throughput" in value_to_parse:
           throughput = float(re.match(throughput_parse_pattern, line).groups()[0])
+          if value_to_parse == "throughput_per_worker":
+            throughput = throughput / current_num_workers
           current_values.append(throughput)
         elif value_to_parse == "step_time":
           split = line.split()
@@ -95,7 +95,8 @@ def parse_file(log_file, value_to_parse="throughput"):
     return data
 
 # Reduce the values parsed across all log files in the log dir by num_workers
-# Throughputs are summed across workers while step times are averaged across workers
+# Throughputs are summed across workers for the benchmark repo and averaged across workers
+# for the models repo, while step times are always averaged across workers
 # Return two lists: num_workers and values
 def parse_dir(log_dir, value_to_parse="throughput"):
   log_files = []
@@ -103,9 +104,14 @@ def parse_dir(log_dir, value_to_parse="throughput"):
     log_files = validate_mpi_log_dir(log_dir)
   else:
     log_files = [os.path.join(log_dir, f) for f in os.listdir(log_dir) if f.endswith("out")]
+  # Figure out which repo this experiment is from
+  is_benchmark = None
+  with open(log_files[0]) as f:
+    is_benchmark = "tf_cnn_benchmark" in f.read()
+  # Parse
   data = {}
   for log_file in log_files:
-    for (num_workers, values) in parse_file(log_file, value_to_parse):
+    for (num_workers, values) in parse_file(log_file, is_benchmark, value_to_parse):
       if num_workers not in data:
         data[num_workers] = []
       if len(values) > 0:
@@ -115,7 +121,7 @@ def parse_dir(log_dir, value_to_parse="throughput"):
     new_value = None
     if len(v) > 0:
       if value_to_parse == "throughput":
-        new_value = sum(v)
+        new_value = sum(v) if is_benchmark else np.mean(v)
       elif value_to_parse == "step_time" or value_to_parse == "throughput_per_worker":
         new_value = np.mean(v)
     if new_value is not None:
