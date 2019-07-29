@@ -2,6 +2,7 @@
 
 import matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
 
 import math
 import json
@@ -25,10 +26,19 @@ def plot_experiment(ax1, ax2, experiment_name, per_worker):
     fmt="-x", color="b", linewidth=2, markeredgewidth=2, markersize=10)
   step_time_line = ax2.errorbar(num_workers, step_times,\
     fmt="-+", color="g", linewidth=2, markeredgewidth=2, markersize=10)
+  # Add perfect scaling line
+  perfect_scaling_throughput = None
+  if per_worker:
+    perfect_scaling_throughput = [throughputs[0]] * len(num_workers)
+  else:
+    perfect_scaling_throughput = throughputs[0] / num_workers[0] * np.array(num_workers)
+  perfect_scaling_throughput_line = ax1.errorbar(num_workers, perfect_scaling_throughput,\
+    fmt="--", color="b", linewidth=1)
   # Labels
-  labels = [throughput_name.replace("_", " "), "step time"]
+  throughput_name = throughput_name.replace("_", " ")
+  labels = [throughput_name, throughput_name + " perfect scaling", "step time"]
   legend_location = "upper right" if per_worker else "upper center"
-  ax1.legend([throughput_line, step_time_line], labels, loc=legend_location)
+  ax1.legend([throughput_line, perfect_scaling_throughput_line, step_time_line], labels, loc=legend_location)
 
 # Actually plot it
 def do_plot(experiment_name, per_worker):
