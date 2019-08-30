@@ -94,21 +94,20 @@ def extract_plot_data(data):
     y_upper.append(y_max - y)
   return (x_data, y_data, y_lower, y_upper)
 
-# Actually plot it
 def do_plot(experiment_name, zoom_worker_minimum=None, zoom_worker_maximum=None):
   out_file = "output/%s.pdf" % experiment_name
   fig = plt.figure()
-  plt.xticks(fontsize=15)
-  plt.yticks(fontsize=15)
   axes = plt.gca()
   axes.set_ylim([0.245,0.255])
-  ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("Num workers", fontsize=20, labelpad=15)
+  plt.xticks(fontsize=20)
+  plt.yticks(fontsize=20)
+  ax = fig.add_subplot(1, 1, 1) 
+  ax.set_xlabel("Num workers", fontsize=24, labelpad=15)
   ax.set_xscale("log")
   ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
-  ax.set_ylabel("Expected computation time (s)", fontsize=20, labelpad=20)
+  ax.set_ylabel("Expected computation time (s)", fontsize=24, labelpad=20)
   plot_experiment(ax, experiment_name, zoom_worker_minimum, zoom_worker_maximum)
-  ax.legend(loc="best", prop={'size': 20})
+  ax.legend(loc="best", prop={'size': 24})
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file)
   print("Wrote to %s." % out_file)
