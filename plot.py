@@ -12,27 +12,21 @@ import parse
 
 
 # Plot one experiment identified by the given name
-# ax1 is intended for plotting averages and ax2 for variances
-def plot_experiment(ax1, ax2, experiment_name, mode):
+def plot_experiment(ax, experiment_name, mode):
   averages = {} # num workers -> averages
-  variances = {} # num workers -> variances
   experiment_dir = "data/%s" % experiment_name
   for log_dir in os.listdir(experiment_dir):
-    num_workers = int(re.match(".*horovod.*_(\d+)workers", log_dir).groups()[0])
+    #num_workers = int(re.match(".*horovod.*_(\d+)workers", log_dir).groups()[0])
+    num_workers = int(re.match(".*checkpoint-restart-(\d+)-*", log_dir).groups()[0])
+    if num_workers > 45:
+      continue
     if num_workers not in averages:
       averages[num_workers] = []
-    if num_workers not in variances:
-      variances[num_workers] = []
     log_dir = os.path.join(experiment_dir, log_dir)
     (average, variance) = parse_average_and_variance(experiment_name, mode, log_dir)
     averages[num_workers].append(average)
-    variances[num_workers].append(variance)
   (avg_x_data, avg_y_data, avg_y_min, avg_y_max) = extract_plot_data(averages)
-  (var_x_data, var_y_data, _, _) = extract_plot_data(variances)
-  ax1.set_xticks(avg_x_data)
-  line1 = ax1.errorbar(avg_x_data, avg_y_data, yerr=[avg_y_min, avg_y_max], fmt="-x", color="b", linewidth=2)
-  line2 = ax2.errorbar(var_x_data, var_y_data, fmt="--", color="g")
-  ax1.legend([line1, line2], ["average", "variance"], loc="lower right")
+  line1 = ax.errorbar(avg_x_data, avg_y_data, yerr=[avg_y_min, avg_y_max], fmt="-x", color="b", linewidth=2)
 
 # Parse the average and variance of the metric specified by mode
 # Return a 2-tuple of (average, variance)
@@ -40,7 +34,7 @@ def parse_average_and_variance(experiment_name, mode, log_dir):
   if mode == "step":
     return parse.get_step_time_average_and_variance(log_dir)
   elif mode == "communication":
-    tag = "Const" if "fake-allreduce" in experiment_name else "AddN"
+    tag = "Const" if "fake-allreduce" in experiment_name else ""
     return parse.get_allreduce_time_average_and_variance(log_dir, tag)
   else:
     raise ValueError("Error: mode must be either 'step' or 'communication' (was '%s')" % mode)
@@ -65,13 +59,10 @@ def extract_plot_data(data):
 def do_plot(experiment_name, mode):
   out_file = "output/%s-%s-times.pdf" % (experiment_name, mode)
   fig = plt.figure()
-  ax1 = fig.add_subplot(1, 1, 1)
-  ax1.set_xlabel("num workers")
-  ax1.set_ylabel("average (s)")
-  ax1.set_title("horovod %s time (%s)" % (mode, experiment_name))
-  ax2 = ax1.twinx()
-  ax2.set_ylabel("variance")
-  plot_experiment(ax1, ax2, experiment_name, mode)
+  ax = fig.add_subplot(1, 1, 1)
+  ax.set_xlabel("num workers")
+  ax.set_ylabel("average (s)")
+  plot_experiment(ax, experiment_name, mode)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file)
   print("Wrote to %s." % out_file)

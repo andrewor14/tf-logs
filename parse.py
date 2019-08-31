@@ -21,9 +21,8 @@ VERBOSE = False
 def validate_log_dir(log_dir, horovod_trace=False):
   temp_dir = os.listdir(log_dir)
   if horovod_trace:
-    if "horovod_timeline.json" not in temp_dir:
-      raise ValueError("ERROR: horovod_timeline.json not found under %s" % log_dir)
-    return os.path.join(log_dir, "horovod_timeline.json")
+    if "horovod_timeline.json" in temp_dir:
+      return os.path.join(log_dir, "horovod_timeline.json")
   if "1" not in temp_dir:
     raise ValueError("ERROR: expected structure log_dir/1, was %s" % temp_dir)
   log_dir = os.path.join(log_dir, "1")
@@ -120,27 +119,18 @@ def parse_step_times(log_file):
   with open(log_file) as f:
     # Parse step numbers and timestamps
     steps, timestamps = [], []
-    for line in f.readlines():
-      if "images/sec" not in line or "total" in line:
-        continue
-      split = line.split()
-      steps.append(int(split[4]))
-      timestamp = " ".join(split[:2])
-      timestamp = datetime.datetime.strptime(timestamp, "I%m%d %H:%M:%S.%f")
-      timestamps.append(timestamp)
-    # Interpolate missing values
     step_times = []
-    for i in range(1, len(steps)):
-      step_delta = steps[i] - steps[i-1]
-      timestamp_delta = float((timestamps[i] - timestamps[i - 1]).total_seconds())
-      step_times += [timestamp_delta / step_delta] * step_delta
+    for line in f.readlines():
+      if "time_taken" in line and "BenchmarkMetric" not in line:
+        split = line.split()
+        step_times.append(float(split[9].rstrip(",")))
     return step_times
 
 # Return the average step time (seconds) and its variance across all nodes running in a job
 def get_step_time_average_and_variance(log_dir):
   averages = []
   variances = []
-  log_files = validate_log_dir(log_dir)
+  log_files = validate_log_dir(log_dir, True)
   for log_file in log_files:
     step_times = parse_step_times(log_file)
     averages.append(np.mean(step_times))
