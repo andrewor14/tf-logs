@@ -12,7 +12,7 @@ import sys
 
 import parse
 
-NO_STRAGGLERS = None
+MAX_NUM_WORKERS = 16
 
 # Plot one experiment identified by the given name
 def plot_experiment(ax, experiment_name, per_worker, perfect_scaling=False):
@@ -20,16 +20,20 @@ def plot_experiment(ax, experiment_name, per_worker, perfect_scaling=False):
   # Parse
   throughput_name = "throughput_per_worker" if per_worker else "throughput"
   num_workers, throughputs = parse.parse_dir(experiment_dir, value_to_parse=throughput_name)
-  ax.errorbar(num_workers, throughputs,\
-    fmt="-x", linewidth=2, markeredgewidth=2, markersize=10, label=experiment_name)
-  # HACK
-  global NO_STRAGGLERS
-  differences = None
-  if experiment_name == "no-stragglers":
-    NO_STRAGGLERS = throughputs
+  num_workers = num_workers[:MAX_NUM_WORKERS]
+  throughputs = throughputs[:MAX_NUM_WORKERS]
+  experiment_name = experiment_name.lstrip("cifar10-60workers-")
+  # Labels
+  label = None
+  fmt = None
+  if "no-stragglers" in experiment_name:
+    label = "No stragglers"
+    fmt = "-x"
   else:
-    differences = np.array(NO_STRAGGLERS) - np.array(throughputs)
-    ax.errorbar(num_workers, differences, fmt="-x", linewidth=2, label="difference")
+    label = "1 straggler"
+    fmt = "-+"
+  ax.errorbar(num_workers, throughputs,\
+    fmt=fmt, linewidth=2, markeredgewidth=4, markersize=15, label=label)
   # Maybe add perfect scaling line
   if perfect_scaling:
     perfect_scaling_throughput = None
@@ -47,9 +51,9 @@ def do_plot(experiment_name, per_worker):
   ax = fig.add_subplot(1, 1, 1)
   plt.xticks(fontsize=20)
   plt.yticks(fontsize=20)
-  gca = plt.gca()
-  gca.set_ylim([0, 800])
-  gca.set_xlim([0, 10])
+  #gca = plt.gca()
+  #gca.set_ylim([0, 800])
+  #gca.set_xlim([0, 10])
   ax.set_xlabel("Number of workers", fontsize=24, labelpad=15)
   ax.set_ylabel("Average throughput (img/s)", fontsize=24, labelpad=15)
   for i, e in enumerate(experiment_name.split(",")):
