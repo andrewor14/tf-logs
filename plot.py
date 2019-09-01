@@ -18,7 +18,7 @@ def plot_experiment(ax, experiment_name, mode):
   for log_dir in os.listdir(experiment_dir):
     #num_workers = int(re.match(".*horovod.*_(\d+)workers", log_dir).groups()[0])
     num_workers = int(re.match(".*checkpoint-restart-(\d+)-*", log_dir).groups()[0])
-    if num_workers > 45:
+    if num_workers < 2 or num_workers > 45:
       continue
     if num_workers not in averages:
       averages[num_workers] = []
@@ -26,7 +26,9 @@ def plot_experiment(ax, experiment_name, mode):
     (average, variance) = parse_average_and_variance(experiment_name, mode, log_dir)
     averages[num_workers].append(average)
   (avg_x_data, avg_y_data, avg_y_min, avg_y_max) = extract_plot_data(averages)
-  line1 = ax.errorbar(avg_x_data, avg_y_data, yerr=[avg_y_min, avg_y_max], fmt="-x", color="b", linewidth=2)
+  perfect_scaling = [min(avg_y_data)] * len(avg_x_data)
+  ax.errorbar(avg_x_data, avg_y_data, fmt="-x", linewidth=2, label="actual")
+  ax.errorbar(avg_x_data, perfect_scaling, fmt="--", linewidth=2, label="perfect scaling")
 
 # Parse the average and variance of the metric specified by mode
 # Return a 2-tuple of (average, variance)
@@ -58,11 +60,16 @@ def extract_plot_data(data):
 # Actually plot it
 def do_plot(experiment_name, mode):
   out_file = "output/%s-%s-times.pdf" % (experiment_name, mode)
+  plt.xticks(fontsize=20)
+  plt.yticks(fontsize=20)
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("num workers")
-  ax.set_ylabel("average (s)")
+  axes = plt.gca()
+  axes.set_ylim([0.002,0.026])
+  ax.set_xlabel("Num workers", fontsize=24, labelpad=15)
+  ax.set_ylabel("Average communication time (s)", fontsize=24, labelpad=15)
   plot_experiment(ax, experiment_name, mode)
+  ax.legend(loc="best", prop={'size': 24})
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file)
   print("Wrote to %s." % out_file)
