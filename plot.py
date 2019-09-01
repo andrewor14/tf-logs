@@ -21,6 +21,9 @@ def plot_experiment(ax1, ax2, experiment_name, per_worker):
   throughput_name = "throughput_per_worker" if per_worker else "throughput"
   num_workers, throughputs = parse.parse_dir(experiment_dir, value_to_parse=throughput_name)
   _, step_times = parse.parse_dir(experiment_dir, value_to_parse="step_time")
+  #num_total_steps = 156 * 100
+  #dollars_per_second = 0.1 / float(3600)
+  #total_cost = np.array(num_workers) * np.array(step_times) * num_total_steps * dollars_per_second
   # Plot
   throughput_line = ax1.errorbar(num_workers, throughputs,\
     fmt="-x", color="b", linewidth=2, markeredgewidth=2, markersize=10)
@@ -61,7 +64,7 @@ def main():
   if len(args) < 2 or len(args) > 3:
     print("Usage: plot.py [experiment_name] <plot_throughput_per_worker>")
     sys.exit(1)
-  experiment_name = args[1]
+  experiment_name = args[1].lstrip("data/").rstrip("/")
   per_worker = json.loads(args[2].lower()) if len(args) == 3 else False
   do_plot(experiment_name, per_worker)
 
