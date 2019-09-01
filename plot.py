@@ -60,9 +60,9 @@ def extract_plot_data(data):
 # Actually plot it
 def do_plot(experiment_name, mode):
   out_file = "output/%s-%s-times.pdf" % (experiment_name, mode)
+  fig = plt.figure()
   plt.xticks(fontsize=20)
   plt.yticks(fontsize=20)
-  fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   axes = plt.gca()
   axes.set_ylim([0.002,0.026])
@@ -71,7 +71,7 @@ def do_plot(experiment_name, mode):
   plot_experiment(ax, experiment_name, mode)
   ax.legend(loc="best", prop={'size': 24})
   fig.set_tight_layout({"pad": 1.5})
-  fig.savefig(out_file)
+  fig.savefig(out_file, bbox_inches='tight')
   print("Wrote to %s." % out_file)
 
 def main():
