@@ -43,17 +43,11 @@ def plot_experiment(ax1, ax2, experiment_name, per_worker):
   if not per_worker:
     perfect_throughput_line = ax1.errorbar(num_workers, perfect_throughputs,\
       fmt="--", color="b", linewidth=1)
-    #perfect_total_cost_line = ax2.errorbar(num_workers, perfect_total_costs,\
-    #  fmt="--", color="g", linewidth=1)
   # Labels
   throughput_name = throughput_name.replace("_", " ").capitalize()
   labels = ["Total cost", throughput_name]
   lines = [total_cost_line, throughput_line]
-  if not per_worker:
-    labels.append("%s perfect scaling" % throughput_name)
-    lines.append(perfect_throughput_line)
-    #lines.append(perfect_total_cost_line)
-  ax1.legend(lines, labels, fontsize=20, bbox_to_anchor=(0,1.05,1,0.2), loc="lower left")
+  ax1.legend(lines, labels, fontsize=20, loc="best")
 
 # Actually plot it
 def do_plot(experiment_name, per_worker):
