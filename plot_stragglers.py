@@ -39,22 +39,24 @@ def plot_experiment(ax, experiment_name, per_worker, perfect_scaling=False):
       perfect_scaling_throughput = throughputs[0] / num_workers[0] * np.array(num_workers)
     ax.errorbar(num_workers, perfect_scaling_throughput,\
       fmt="--", color="black", linewidth=1, label="perfect scaling")
-  ax.legend(loc="best")
 
 # Actually plot it
 def do_plot(experiment_name, per_worker):
   out_file = "output/stragglers.pdf"
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
+  plt.xticks(fontsize=20)
+  plt.yticks(fontsize=20)
   gca = plt.gca()
-  #gca.set_ylim([0, 800])
+  gca.set_ylim([0, 800])
   gca.set_xlim([0, 10])
-  ax.set_xlabel("num workers")
-  ax.set_ylabel("throughput (img/s)")
+  ax.set_xlabel("Number of workers", fontsize=24, labelpad=15)
+  ax.set_ylabel("Average throughput (img/s)", fontsize=24, labelpad=15)
   for i, e in enumerate(experiment_name.split(",")):
     e = e.lstrip("data/").rstrip("/")
     plot_experiment(ax, e, per_worker)
   plt.xlim(xmin=1)
+  ax.legend(loc="best", fontsize=24)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file)
   print("Wrote to %s." % out_file)
