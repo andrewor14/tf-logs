@@ -31,7 +31,7 @@ def validate_mpi_log_dir(log_dir):
 
 # Parse values from the given log file, indexed by number of workers
 # Data returned is a list of 2-tuples (num_workers, list of values)
-# `value_to_parse` can be one of "throughput", "throughput_per_worker", or "step_time"
+# `value_to_parse` can be one of "throughput", "throughput_per_worker", "step_time" or "total_time"
 def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
 
   # Decide which patterns to parse first
@@ -57,7 +57,7 @@ def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
       if is_benchmark and "tf_logging" not in line:
         continue
       if "cluster spec synced" in line:
-        if current_num_workers is not None:
+        if current_num_workers is not None and value_to_parse != "total_time":
           data.append((current_num_workers, current_values))
           current_values = []
         # Parse num workers
@@ -70,28 +70,23 @@ def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
           if value_to_parse == "throughput_per_worker":
             throughput = throughput / current_num_workers
           current_values.append(throughput)
-        elif value_to_parse == "step_time":
+        elif value_to_parse == "step_time" or value_to_parse == "total_time":
           split = line.split()
           step = int(split[step_split_index].replace(",", ""))
           timestamp = " ".join(split[:2])
           timestamp = datetime.datetime.strptime(timestamp, "I%m%d %H:%M:%S.%f")
-          current_values.append((step, timestamp))
+          if value_to_parse == "step_time":
+            current_values.append((step, timestamp))
+          else:
+            current_values.append(timestamp)
+    # Ignore first batch
+    if value_to_parse == "total_time":
+      if len(current_values) > 0:
+        return [(current_num_workers, [(current_values[-1] - current_values[1]).total_seconds()])]
+      else:
+        return [(current_num_workers, [])]
     if current_num_workers is not None:
       data.append((current_num_workers, current_values))
-    # If we're parsing step times, interpolate missing values
-    if value_to_parse == "step_time":
-      new_data = []
-      for (num_workers, values) in data:
-        steps, timestamps, step_times = [], [], []
-        for (step, timestamp) in values:
-          steps.append(step)
-          timestamps.append(timestamp)
-        for i in range(1, len(steps)):
-          step_delta = steps[i] - steps[i-1]
-          timestamp_delta = float((timestamps[i] - timestamps[i - 1]).total_seconds())
-          step_times += [timestamp_delta / step_delta] * step_delta
-        new_data.append((num_workers, step_times))
-      data = new_data
     return data
 
 # Reduce the values parsed across all log files in the log dir by num_workers
@@ -122,7 +117,9 @@ def parse_dir(log_dir, value_to_parse="throughput"):
     if len(v) > 0:
       if value_to_parse == "throughput":
         new_value = sum(v) if is_benchmark else np.mean(v)
-      elif value_to_parse == "step_time" or value_to_parse == "throughput_per_worker":
+      elif value_to_parse == "step_time" or\
+          value_to_parse == "throughput_per_worker" or\
+          value_to_parse == "total_time":
         new_value = np.mean(v)
     if new_value is not None:
       data[k] = new_value
