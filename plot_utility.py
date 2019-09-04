@@ -4,6 +4,7 @@ import os
 import sys
 
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 import numpy as np
 
 import parse
@@ -33,7 +34,6 @@ def plot(log_dirs):
       print("Warning: total time was not available for %s" % experiment_name)
     if price not in all_prices:
       all_prices.append(price)
-  print(linear_function_data)
   # Decide how many plots to make
   # We align all the linear and step plots
   out_file = "output/utility.pdf"
@@ -59,22 +59,43 @@ def plot(log_dirs):
     ax.tick_params(axis='both', which='both', labelsize=18)
     ax.xaxis.set_major_locator(plt.MaxNLocator(5))
     ax.yaxis.set_major_locator(plt.MaxNLocator(5))
-    ax.errorbar(x, y, fmt="-", linewidth=4, color=color_cycle[i])
+    ax.errorbar(x, y, fmt="-", linewidth=6, color=color_cycle[i])
     for price, total_time in linear_function_data[func_args]:
       total_time /= 60
       ax.errorbar(total_time, y[total_time], fmt=price_formats[price],
-        color=color_cycle[i], markersize=36, markeredgewidth=8, markeredgecolor=color_cycle[i])
+        color="k", markersize=36, markeredgewidth=6, markeredgecolor="k")
   # Plot step functions
-  step_function_data = {1:1, 2:2, 3:3}
+  # Currently his only handles one step!
+  step_function_data = {"10:3000":[], "100:3000":[], "10000:3000":[]}
+  step_keys = list(step_function_data.keys())
+  step_keys.sort()
   for i, func_args in enumerate(step_function_data.keys()):
+    step_value, end_point = [float(k) for k in func_args.split(":")]
     ax = axes[i][1]
     ax.tick_params(axis='both', which='both', labelsize=18)
     ax.xaxis.set_major_locator(plt.MaxNLocator(5))
-    ax.yaxis.set_major_locator(plt.MaxNLocator(5))
-  plt.text(-1, -0.4, "Expected completion time (min)", fontsize=28)
+    ax.set_yticks(np.arange(0, step_value + 1, step_value / 5))
+    x1 = np.arange(0, end_point)
+    x2 = np.arange(end_point, end_point * 2)
+    y1 = [step_value] * int(end_point)
+    y2 = [0] * int(end_point)
+    ax.errorbar(x1, y1, fmt="-", linewidth=6, color=color_cycle[i])
+    ax.errorbar(x2, y2, fmt="-", linewidth=6, color=color_cycle[i])
+    ax.vlines(end_point, ymin=0, ymax=step_value, linestyle="dashed")
+    ax.set_ylim([step_value * -0.15, step_value * 1.15])
   # Tweak figure layout and save
+  plt.figtext(0.55, -0.03,"Expected completion time (min)", va="center", ha="center", size=28)
+  legend_lines = []
+  legend_labels = []
+  all_prices.sort()
+  for price in all_prices:
+    legend_lines.append(Line2D([0], [0], color="k", linewidth=0,
+      markersize=18, markeredgewidth=6, marker=price_formats[price]))
+    legend_labels.append("$%s/hr" % price)
+  fig.legend(tuple(legend_lines), tuple(legend_labels), "center",
+    prop={"size":18}, bbox_to_anchor=(0.52, 1.08), numpoints=1, ncol=len(legend_lines), handletextpad=0.1)
   fig.set_size_inches(10, 10)
-  fig.set_tight_layout({"pad": 1.5})
+  fig.set_tight_layout({"pad": 2.5})
   fig.savefig(out_file, bbox_inches="tight")
   print("Wrote to %s." % out_file)
 
