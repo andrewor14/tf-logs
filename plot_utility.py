@@ -43,7 +43,6 @@ def plot(log_dirs):
   price_formats = {}
   for i, p in enumerate(all_prices):
     price_formats[p] = format_cycle[i]
-  print(price_formats)
   # Plot linear functions
   linear_keys = list(linear_function_data.keys())
   linear_keys.sort()
@@ -103,6 +102,7 @@ def main():
   args = sys.argv
   if len(args) < 2:
     print("Usage: plot_utility.py [log_dir1] <[log_dir2] ...>")
+    print("  e.g. ./plot_utility.py data/linear-* data/step-*")
     sys.exit(1)
   log_dirs = [d for d in args[1:] if "tgz" not in d]
   plot(log_dirs)
