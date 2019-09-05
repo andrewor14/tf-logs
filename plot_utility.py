@@ -21,9 +21,14 @@ def plot(log_dirs):
     price = float(price)
     # Parse total time from logs
     total_time = None
+    print("Parsing total time from %s" % log_dir)
     parsed = parse.parse_dir(log_dir, "total_time")[1]
     if len(parsed) == 1:
       total_time = float(parsed[0])
+    # We may have used "_" instead of ":" so bash parses the variable
+    # names correctly, so here we substitute it back
+    if func_name == "step":
+      func_args = func_args.replace("_", ":")
     # Save parsed time to the right map
     data_map = linear_function_data if func_name == "linear" else step_function_data
     if func_args not in data_map:
@@ -65,23 +70,31 @@ def plot(log_dirs):
         color="k", markersize=36, markeredgewidth=6, markeredgecolor="k")
   # Plot step functions
   # Currently his only handles one step!
-  step_function_data = {"10:3000":[], "100:3000":[], "10000:3000":[]}
   step_keys = list(step_function_data.keys())
-  step_keys.sort()
-  for i, func_args in enumerate(step_function_data.keys()):
+  step_keys.sort(reverse=True)
+  for i, func_args in enumerate(step_keys):
     step_value, end_point = [float(k) for k in func_args.split(":")]
+    end_point = int(end_point / 60)
     ax = axes[i][1]
     ax.tick_params(axis='both', which='both', labelsize=18)
     ax.xaxis.set_major_locator(plt.MaxNLocator(5))
     ax.set_yticks(np.arange(0, step_value + 1, step_value / 5))
     x1 = np.arange(0, end_point)
-    x2 = np.arange(end_point, end_point * 2)
+    x2 = np.arange(end_point, end_point * 3)
     y1 = [step_value] * int(end_point)
-    y2 = [0] * int(end_point)
+    y2 = [0] * int(end_point) * 2
     ax.errorbar(x1, y1, fmt="-", linewidth=6, color=color_cycle[i])
     ax.errorbar(x2, y2, fmt="-", linewidth=6, color=color_cycle[i])
     ax.vlines(end_point, ymin=0, ymax=step_value, linestyle="dashed")
-    ax.set_ylim([step_value * -0.15, step_value * 1.15])
+    ax.set_ylim([step_value * -0.2, step_value * 1.2])
+    for price, total_time in step_function_data[func_args]:
+      total_time = int(total_time / 60)
+      if total_time == end_point:
+        total_time = end_point - 1
+      y = y1[total_time] if total_time < end_point else y2[total_time - end_point]
+      ax.errorbar(total_time, y, fmt=price_formats[price],
+        color="k", markersize=36, markeredgewidth=6, markeredgecolor="k")
+
   # Tweak figure layout and save
   plt.figtext(0.55, -0.03,"Expected completion time (min)", va="center", ha="center", size=28)
   legend_lines = []
