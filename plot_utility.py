@@ -59,7 +59,7 @@ def plot(log_dirs):
     y = slope * x + y_intercept
     ax = axes[i][0]
     if i == len(axes) / 2:
-      ax.set_ylabel("Utility ($)", fontsize=28, labelpad=40)
+      ax.set_ylabel("Utility ($)", fontsize=24, labelpad=30)
     ax.tick_params(axis='both', which='both', labelsize=18)
     ax.xaxis.set_major_locator(plt.MaxNLocator(5))
     ax.yaxis.set_major_locator(plt.MaxNLocator(5))
@@ -96,7 +96,7 @@ def plot(log_dirs):
         color="k", markersize=36, markeredgewidth=6, markeredgecolor="k")
 
   # Tweak figure layout and save
-  plt.figtext(0.55, -0.03,"Expected completion time (min)", va="center", ha="center", size=28)
+  plt.figtext(0.55, -0.03,"Expected completion time (min)", va="center", ha="center", size=24)
   legend_lines = []
   legend_labels = []
   all_prices.sort()
