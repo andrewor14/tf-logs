@@ -44,7 +44,8 @@ def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
     step_split_index = 4
   else:
     # Ignore the first step after restart because we're still warming up
-    line_parse_condition = lambda line: "examples_per_second" in line and "step = 0" not in line
+    line_parse_condition = lambda line: "examples_per_second" in line and\
+      not "INFO" in line and "step = 0" not in line
     throughput_parse_pattern = ".*examples_per_second = ([\d\.]*).*"
     step_split_index = 6
 
