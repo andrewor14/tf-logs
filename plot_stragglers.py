@@ -12,67 +12,67 @@ import sys
 
 import parse
 
-MAX_NUM_WORKERS = 16
+MAX_NUM_WORKERS = 50
 
 # Plot one experiment identified by the given name
-def plot_experiment(ax, experiment_name, per_worker, perfect_scaling=False):
+def plot_experiment(ax, experiment_name, perfect_scaling=False):
   experiment_dir = "data/%s" % experiment_name
   # Parse
-  throughput_name = "throughput_per_worker" if per_worker else "throughput"
+  throughput_name = "throughput"
   num_workers, throughputs = parse.parse_dir(experiment_dir, value_to_parse=throughput_name)
   num_workers = num_workers[:MAX_NUM_WORKERS]
   throughputs = throughputs[:MAX_NUM_WORKERS]
-  experiment_name = experiment_name.lstrip("cifar10-60workers-")
   # Labels
-  label = None
+  split = experiment_name.split("-")
+  multiplier = round(1 / float(split[1]), 2)
+  replaced = "replaced" if "replace" in experiment_name else "straggler"
+  label = "%sx %s" % (multiplier, replaced)
   fmt = None
-  if "no-stragglers" in experiment_name:
-    label = "No stragglers"
-    fmt = "-x"
+  color = None
+  if "straggler-2" in experiment_name:
+    color="r"
+  elif "straggler-1.3" in experiment_name:
+    color="b"
+  if "replace" in experiment_name:
+    fmt="-"
   else:
-    label = "1 straggler"
-    fmt = "-+"
+    fmt="--"
   ax.errorbar(num_workers, throughputs,\
-    fmt=fmt, linewidth=2, markeredgewidth=4, markersize=15, label=label)
+    fmt=fmt, linewidth=4, markeredgewidth=4, markersize=15, color=color, label=label)
   # Maybe add perfect scaling line
   if perfect_scaling:
     perfect_scaling_throughput = None
-    if per_worker:
-      perfect_scaling_throughput = [throughputs[0]] * len(num_workers)
-    else:
-      perfect_scaling_throughput = throughputs[0] / num_workers[0] * np.array(num_workers)
+    perfect_scaling_throughput = throughputs[0] / num_workers[0] * np.array(num_workers)
     ax.errorbar(num_workers, perfect_scaling_throughput,\
       fmt="--", color="black", linewidth=1, label="perfect scaling")
 
 # Actually plot it
-def do_plot(experiment_name, per_worker):
-  out_file = "output/stragglers.pdf"
+def do_plot(experiment_names):
+  out_file = "output/stragglers_eval.pdf"
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   plt.xticks(fontsize=20)
   plt.yticks(fontsize=20)
-  #gca = plt.gca()
-  #gca.set_ylim([0, 800])
-  #gca.set_xlim([0, 10])
   ax.set_xlabel("Number of workers", fontsize=24, labelpad=15)
   ax.set_ylabel("Average throughput (img/s)", fontsize=24, labelpad=15)
-  for i, e in enumerate(experiment_name.split(",")):
+  for i, e in enumerate(experiment_names):
+    print(e)
     e = e.lstrip("data/").rstrip("/")
-    plot_experiment(ax, e, per_worker)
+    plot_experiment(ax, e)
   plt.xlim(xmin=1)
-  ax.legend(loc="best", fontsize=24)
+  ax.legend(fontsize=24, loc="center", bbox_to_anchor=(1.35, 0.5))
   fig.set_tight_layout({"pad": 1.5})
-  fig.savefig(out_file)
+  fig.savefig(out_file, bbox_inches="tight")
   print("Wrote to %s." % out_file)
 
 def main():
   args = sys.argv
-  if len(args) < 2 or len(args) > 3:
-    print("Usage: plot.py [experiment_name] <plot_throughput_per_worker>")
+  if len(args) < 2:
+    print("Usage: plot_stragglers.py [experiment_name1] <[experiment_name2] ...>")
+    print("  (e.g. ./plot_stragglers.py data/*straggler*)")
     sys.exit(1)
-  experiment_name = args[1]
-  per_worker = json.loads(args[2].lower()) if len(args) == 3 else False
-  do_plot(experiment_name, per_worker)
+  experiment_names = [x for x in args[1:] if "tgz" not in x]
+  do_plot(experiment_names)
 
 if __name__ == "__main__":
   main()
