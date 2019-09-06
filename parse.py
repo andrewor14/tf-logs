@@ -30,10 +30,14 @@ def validate_mpi_log_dir(log_dir):
   return log_files
 
 # Parse values from the given log file, indexed by number of workers
-# Data returned is a list of 2-tuples (num_workers, list of values)
-# `value_to_parse` can be one of "throughput", "throughput_per_worker", "step_time" or "total_time"
-def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
-
+# Data returned is a list of 2-tuples (num_workers, list of values), except for start_times
+# `value_to_parse` can be one of:
+#    - throughput,
+#    - throughput_per_worker,
+#    - step_time
+#    - total_time
+#    - start_times
+def parse_file(log_file, is_benchmark=False, value_to_parse="throughput"):
   # Decide which patterns to parse first
   line_parse_condition = None
   throughput_parse_regex = None
@@ -44,8 +48,7 @@ def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
     step_split_index = 4
   else:
     # Ignore the first step after restart because we're still warming up
-    line_parse_condition = lambda line: "examples_per_second" in line and\
-      not "INFO" in line and "step = 0" not in line
+    line_parse_condition = lambda line: "examples_per_second" in line and "step = 0" not in line
     throughput_parse_pattern = ".*examples_per_second = ([\d\.]*).*"
     step_split_index = 6
 
@@ -54,8 +57,11 @@ def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
     data = []
     current_num_workers = None
     current_values = []
+    start_time = None
     for line in f.readlines():
       if is_benchmark and "tf_logging" not in line:
+        continue
+      if not is_benchmark and "INFO" in line:
         continue
       if "cluster spec synced" in line:
         if current_num_workers is not None and value_to_parse != "total_time":
@@ -71,15 +77,27 @@ def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
           if value_to_parse == "throughput_per_worker":
             throughput = throughput / current_num_workers
           current_values.append(throughput)
-        elif value_to_parse == "step_time" or value_to_parse == "total_time":
+        elif value_to_parse == "step_time" or\
+            value_to_parse == "total_time" or\
+            value_to_parse == "start_times":
           split = line.split()
           step = int(split[step_split_index].replace(",", ""))
           timestamp = " ".join(split[:2])
           timestamp = datetime.datetime.strptime(timestamp, "I%m%d %H:%M:%S.%f")
           if value_to_parse == "step_time":
             current_values.append((step, timestamp))
-          else:
+          elif value_to_parse == "total_time":
             current_values.append(timestamp)
+          elif value_to_parse == "start_times" and start_time is None:
+            start_time = timestamp
+      elif "Averaging gradients with horovod" in line:
+        if value_to_parse == "start_times":
+          timestamp = " ".join(line.split()[:2])
+          timestamp = datetime.datetime.strptime(timestamp, "I%m%d %H:%M:%S.%f")
+          if start_time is not None:
+            current_values.append((timestamp - start_time).total_seconds())
+          else:
+            current_values.append(0)
     # Ignore first batch
     if value_to_parse == "total_time":
       if len(current_values) > 0:
@@ -88,6 +106,10 @@ def parse_file(log_file, is_benchmark, value_to_parse="throughput"):
         return [(current_num_workers, [])]
     if current_num_workers is not None:
       data.append((current_num_workers, current_values))
+    # Skip current_num_workers == 1 when parsing start times
+    if value_to_parse == "start_times":
+      if len(data) > 0 and data[0][0] == 1:
+        data = data[1:]
     return data
 
 # Reduce the values parsed across all log files in the log dir by num_workers
@@ -107,11 +129,16 @@ def parse_dir(log_dir, value_to_parse="throughput"):
   # Parse
   data = {}
   for log_file in log_files:
+    if value_to_parse == "start_times" and\
+        "rank.0/" not in log_file and\
+        "rank.00/" not in log_file:
+      continue
     for (num_workers, values) in parse_file(log_file, is_benchmark, value_to_parse):
       if num_workers not in data:
         data[num_workers] = []
       if len(values) > 0:
         data[num_workers].append(np.mean(values))
+  print(data)
   # Reduce
   for k, v in data.items():
     new_value = None
@@ -122,6 +149,8 @@ def parse_dir(log_dir, value_to_parse="throughput"):
           value_to_parse == "throughput_per_worker" or\
           value_to_parse == "total_time":
         new_value = np.mean(v)
+      else:
+        new_value = v
     if new_value is not None:
       data[k] = new_value
     else:

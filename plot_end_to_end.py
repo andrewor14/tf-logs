@@ -43,7 +43,12 @@ def really_do_plot(ax, experiment_names, mode):
 
 # Actually plot it
 def do_plot(experiment_names):
-  out_file = "output/end_to_end.pdf"
+  if "cifar10" in experiment_names[0]:
+    out_file = "output/cifar10_end_to_end.pdf"
+  elif "imagenet" in experiment_names[0]:
+    out_file = "output/imagenet_end_to_end.pdf"
+  else:
+    out_file = "output/end_to_end.pdf"
   fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   plt.xticks(fontsize=20)
@@ -62,6 +67,7 @@ def main():
   args = sys.argv
   if len(args) < 2:
     print("Usage: plot_end_to_end.py [experiment_name1] <[experiment_name2] ...>")
+    print("  (e.g. ./plot_end_to_end.py data/cifar10*")
     sys.exit(1)
   experiment_names = [x for x in args[1:] if "tgz" not in x]
   do_plot(experiment_names)
