@@ -22,13 +22,14 @@ def plot_experiment(ax, experiment_name, mode):
       continue
     if num_workers not in averages:
       averages[num_workers] = []
+    print(log_dir)
     log_dir = os.path.join(experiment_dir, log_dir)
     (average, variance) = parse_average_and_variance(experiment_name, mode, log_dir)
     averages[num_workers].append(average)
   (avg_x_data, avg_y_data, avg_y_min, avg_y_max) = extract_plot_data(averages)
   perfect_scaling = [min(avg_y_data)] * len(avg_x_data)
-  ax.errorbar(avg_x_data, avg_y_data, fmt="-x", linewidth=2, label="actual")
-  ax.errorbar(avg_x_data, perfect_scaling, fmt="--", linewidth=2, label="perfect scaling")
+  ax.errorbar(avg_x_data, avg_y_data, fmt="-x", linewidth=4, label="actual")
+  ax.errorbar(avg_x_data, perfect_scaling, fmt="--", linewidth=4, label="perfect scaling")
 
 # Parse the average and variance of the metric specified by mode
 # Return a 2-tuple of (average, variance)
@@ -76,16 +77,11 @@ def do_plot(experiment_name, mode):
 
 def main():
   args = sys.argv
-  if len(args) != 3:
-    print("Usage: plot.py [mode] [experiment_name] (where mode = 'step', 'communication', or 'all')")
+  if len(args) != 2:
+    print("Usage: plot.py [experiment_name]")
     sys.exit(1)
-  mode = args[1]
-  experiment_name = args[2]
-  if mode == "all":
-    do_plot(experiment_name, "step")
-    do_plot(experiment_name, "communication")
-  else:
-    do_plot(experiment_name, mode)
+  experiment_name = args[1].lstrip("data/").rstrip("/")
+  do_plot(experiment_name, "communication")
 
 if __name__ == "__main__":
   main()
