@@ -50,8 +50,8 @@ def plot_experiment(ax, experiment_name, zoom_worker_minimum=None, zoom_worker_m
     y = y[start_index:end_index]
     perfect_scaling = perfect_scaling[start_index:end_index]
   ax.set_xticks(x)
-  ax.errorbar(x, y, fmt="-x", linewidth=2, label="actual")
-  ax.errorbar(x, perfect_scaling, fmt="--", linewidth=2, label="perfect scaling")
+  ax.errorbar(x, y, fmt="-x", linewidth=4, label="actual")
+  ax.errorbar(x, perfect_scaling, fmt="--", linewidth=4, label="perfect scaling")
 
 # Return x, y, y_min and y_max for the specified data, which has the format {key -> [list of values]}
 def extract_plot_data(data):
