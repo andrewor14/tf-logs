@@ -29,11 +29,15 @@ def plot_experiment(ax, experiment_name, perfect_scaling=False):
   label = "%sx %s" % (multiplier, replaced)
   fmt = None
   color = None
-  if "straggler-2" in experiment_name:
+  if "straggler-4" in experiment_name:
+    color="b"
+  elif "straggler-2" in experiment_name:
     color="r"
   elif "straggler-1.3" in experiment_name:
-    color="b"
-  if "replace" in experiment_name:
+    color="g"
+  elif "straggler-1" in experiment_name:
+    color="k"
+  if "replace" in experiment_name or "straggler-1-" in experiment_name:
     fmt="-"
   else:
     fmt="--"
