@@ -28,27 +28,31 @@ def plot_experiment(ax, experiment_name, perfect_scaling=False):
   replaced = "replaced" if "replace" in experiment_name else "straggler"
   label = "%sx %s" % (multiplier, replaced)
   fmt = None
+  marker = None
   color = None
+  linewidth = 4
   if "straggler-4" in experiment_name:
-    color="b"
+    color="g"
+    marker="x"
   elif "straggler-2" in experiment_name:
     color="r"
+    marker="o"
   elif "straggler-1.3" in experiment_name:
-    color="g"
+    color="b"
+    marker="v"
   elif "straggler-1" in experiment_name:
     color="k"
+    linewidth = 12
+    label = "No stragglers"
   if "replace" in experiment_name or "straggler-1-" in experiment_name:
     fmt="-"
   else:
     fmt="--"
-  ax.errorbar(num_workers, throughputs,\
-    fmt=fmt, linewidth=4, markeredgewidth=4, markersize=15, color=color, label=label)
-  # Maybe add perfect scaling line
-  if perfect_scaling:
-    perfect_scaling_throughput = None
-    perfect_scaling_throughput = throughputs[0] / num_workers[0] * np.array(num_workers)
-    ax.errorbar(num_workers, perfect_scaling_throughput,\
-      fmt="--", color="black", linewidth=1, label="perfect scaling")
+  if marker is not None:
+    fmt = "%s%s" % (fmt, marker)
+  markeredgewidth = 4 if marker == "x" else 0
+  ax.errorbar(num_workers, throughputs, fmt=fmt, linewidth=linewidth,
+    markeredgewidth=markeredgewidth, markersize=16, color=color, label=label, markevery=4)
 
 # Actually plot it
 def do_plot(experiment_names):
