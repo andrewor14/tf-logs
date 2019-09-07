@@ -80,16 +80,17 @@ def plot(log_dirs):
     ax.xaxis.set_major_locator(plt.MaxNLocator(5))
     ax.set_yticks(np.arange(0, step_value + 1, step_value / 5))
     x1 = np.arange(0, end_point)
-    x2 = np.arange(end_point, end_point * 3)
-    y1 = [step_value] * int(end_point)
-    y2 = [0] * int(end_point) * 2
+    x2 = np.arange(end_point, int(end_point * 2.5))
+    y1 = [step_value] * end_point
+    y2 = [0] * int(end_point * 1.5)
     ax.errorbar(x1, y1, fmt="-", linewidth=6, color=color_cycle[i])
     ax.errorbar(x2, y2, fmt="-", linewidth=6, color=color_cycle[i])
     ax.vlines(end_point, ymin=0, ymax=step_value, linestyle="dashed")
     ax.set_ylim([step_value * -0.2, step_value * 1.2])
     for price, total_time in step_function_data[func_args]:
       total_time = int(total_time / 60)
-      if total_time == end_point:
+      print(total_time, end_point)
+      if abs(total_time - end_point) < 5:
         total_time = end_point - 1
       y = y1[total_time] if total_time < end_point else y2[total_time - end_point]
       ax.errorbar(total_time, y, fmt=price_formats[price],
