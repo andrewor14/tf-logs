@@ -35,11 +35,13 @@ def really_do_plot(ax, experiment_names, mode):
     total_times[num_starting_workers] = total_time
   print(total_times)
   # Plot
+  fmt = "-x" if mode == "autoscaling" else "-o"
+  markeredgewidth = 4 if mode == "autoscaling" else 0
   num_starting_workers = list(total_times.keys())
   num_starting_workers.sort()
   total_times_sorted = [total_times[w] for w in num_starting_workers]
   ax.errorbar(num_starting_workers, total_times_sorted,\
-    fmt="-x", linewidth=4, markeredgewidth=4, markersize=15, label=mode)
+    fmt=fmt, linewidth=4, markeredgewidth=markeredgewidth, markersize=20, label=mode)
 
 # Actually plot it
 def do_plot(experiment_names):

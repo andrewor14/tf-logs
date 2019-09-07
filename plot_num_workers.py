@@ -13,12 +13,14 @@ import sys
 import parse
 
 MAX_NUM_WORKERS = 50
+FORMATS = ["--", "-x", "-o", "-s", "-^", "-v"]
+COLORS = ["c", "g", "r", "k", "m", "b"]
 
 # Plot one experiment identified by the given name
 def really_do_plot(ax, experiment_names, mode):
-  for experiment_name in experiment_names:
-    if mode not in experiment_name:
-      continue
+  experiment_names.sort(key=lambda e: int(e.split("-")[3]))
+  experiment_names = [e for e in experiment_names if mode in e]
+  for i, experiment_name in enumerate(experiment_names):
     experiment_name = experiment_name.lstrip("data/").rstrip("/")
     log_file = "data/%s/1/rank.0/stderr" % experiment_name
     # Parse
@@ -35,7 +37,14 @@ def really_do_plot(ax, experiment_names, mode):
     y.append(y[-1])
     # Plot
     label = experiment_name.split("-")[3]
-    ax.errorbar(x, y, fmt="-x", linewidth=4, markeredgewidth=4, markersize=15, label=label)
+    fmt = FORMATS[i]
+    color = COLORS[i]
+    markeredgewidth = 8 if "x" in fmt else 0
+    markersize = 24
+    markercolor = color
+    markeredgecolor = color
+    ax.errorbar(x, y, fmt=fmt, linewidth=6, color=color, markeredgewidth=markeredgewidth,
+      markersize=markersize, markeredgecolor=markeredgecolor, label=label)
 
 # Actually plot it
 def do_plot(experiment_names):
@@ -52,8 +61,8 @@ def do_plot(experiment_names):
   ax.set_xlabel("Time elapsed (s)", fontsize=24, labelpad=15)
   ax.set_ylabel("Number of workers", fontsize=24, labelpad=15)
   really_do_plot(ax, experiment_names, "autoscaling")
-  plt.xlim(xmin=1, xmax=120)
-  ax.legend(fontsize=24, loc="best")
+  plt.xlim(xmin=1, xmax=180)
+  ax.legend(fontsize=24, loc="best", ncol=2)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file, bbox_inches="tight")
   print("Wrote to %s." % out_file)

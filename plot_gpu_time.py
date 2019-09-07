@@ -42,11 +42,13 @@ def really_do_plot(ax, experiment_names, mode):
     num_starting_workers = int(split[3])
     gpu_times[num_starting_workers] = gpu_time
   # Plot
+  fmt = "-x" if mode == "autoscaling" else "-o"
+  markeredgewidth = 4 if mode == "autoscaling" else 0
   num_starting_workers = list(gpu_times.keys())
   num_starting_workers.sort()
   gpu_times_sorted = [gpu_times[w] for w in num_starting_workers]
   ax.errorbar(num_starting_workers, gpu_times_sorted,\
-    fmt="-x", linewidth=4, markeredgewidth=4, markersize=15, label=mode)
+    fmt=fmt, linewidth=4, markeredgewidth=markeredgewidth, markersize=20, label=mode)
 
 # Actually plot it
 def do_plot(experiment_names):
