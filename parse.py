@@ -64,7 +64,7 @@ def parse_file(log_file, is_benchmark=False, value_to_parse="throughput"):
       if not is_benchmark and "INFO" in line:
         continue
       if "cluster spec synced" in line:
-        if current_num_workers is not None and value_to_parse != "total_time":
+        if current_num_workers is not None and value_to_parse != "total_time" and len(current_values) > 0:
           data.append((current_num_workers, current_values))
           current_values = []
         # Parse num workers

@@ -30,14 +30,14 @@ def really_do_plot(ax, experiment_names, mode):
     # Add a point at the end to show when the experiment ended
     print("Parsing total time from %s" % log_file)
     total_time = parse.parse_file(log_file, value_to_parse="total_time")[0][1][0]
-    start_times.append((start_times[-1][1], [total_time]))
+    start_times.append((start_times[-1][0], [total_time]))
     gpu_time = 0
     for i in range(1, len(start_times)):
       prev_num_workers, prev_start_time = start_times[i-1]
       this_num_workers, this_start_time = start_times[i]
-      if len(prev_start_time) != 1 or len(this_start_time) != 1:
+      if len(prev_start_time) < 1 or len(this_start_time) < 1:
         raise ValueError("Wrong length: %s, %s" % (prev_start_time, this_start_time))
-      gpu_time += (this_start_time[0] - prev_start_time[0]) * prev_num_workers
+      gpu_time += (this_start_time[-1] - prev_start_time[-1]) * prev_num_workers
     split = experiment_name.split("-")
     num_starting_workers = int(split[3])
     gpu_times[num_starting_workers] = gpu_time
@@ -49,6 +49,9 @@ def really_do_plot(ax, experiment_names, mode):
   gpu_times_sorted = [gpu_times[w] for w in num_starting_workers]
   ax.errorbar(num_starting_workers, gpu_times_sorted,\
     fmt=fmt, linewidth=4, markeredgewidth=markeredgewidth, markersize=20, label=mode)
+  if mode == "static":
+    ax.set_xticks(num_starting_workers)
+    ax.margins(0.1)
 
 # Actually plot it
 def do_plot(experiment_names):
@@ -66,7 +69,7 @@ def do_plot(experiment_names):
   ax.set_ylabel("GPU time (s)", fontsize=24, labelpad=15)
   really_do_plot(ax, experiment_names, "static")
   really_do_plot(ax, experiment_names, "autoscaling")
-  plt.xlim(xmin=1)
+  #plt.xlim(xmin=1)
   ax.legend(fontsize=24, loc="best")
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file, bbox_inches="tight")

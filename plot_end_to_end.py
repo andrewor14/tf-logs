@@ -42,6 +42,9 @@ def really_do_plot(ax, experiment_names, mode):
   total_times_sorted = [total_times[w] for w in num_starting_workers]
   ax.errorbar(num_starting_workers, total_times_sorted,\
     fmt=fmt, linewidth=4, markeredgewidth=markeredgewidth, markersize=20, label=mode)
+  if mode == "static":
+    ax.set_xticks(num_starting_workers)
+    ax.margins(0.1)
 
 # Actually plot it
 def do_plot(experiment_names):
@@ -55,11 +58,11 @@ def do_plot(experiment_names):
   ax = fig.add_subplot(1, 1, 1)
   plt.xticks(fontsize=20)
   plt.yticks(fontsize=20)
+  num_epochs = 200 if "cifar10" in experiment_names[0] else 5
   ax.set_xlabel("Starting number of workers", fontsize=24, labelpad=15)
-  ax.set_ylabel("Time to complete 200 epochs (s)", fontsize=24, labelpad=15)
+  ax.set_ylabel("Time to complete %s epochs (s)" % num_epochs, fontsize=24, labelpad=15)
   really_do_plot(ax, experiment_names, "static")
   really_do_plot(ax, experiment_names, "autoscaling")
-  plt.xlim(xmin=1)
   ax.legend(fontsize=24, loc="best")
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file, bbox_inches="tight")
