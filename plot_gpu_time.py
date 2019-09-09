@@ -37,6 +37,7 @@ def really_do_plot(ax, experiment_names, mode):
       this_num_workers, this_start_time = start_times[i]
       if len(prev_start_time) < 1 or len(this_start_time) < 1:
         raise ValueError("Wrong length: %s, %s" % (prev_start_time, this_start_time))
+      print("Num workers = %s, Diff %s" % (prev_num_workers, this_start_time[-1] - prev_start_time[-1]))
       gpu_time += (this_start_time[-1] - prev_start_time[-1]) * prev_num_workers
     split = experiment_name.split("-")
     num_starting_workers = int(split[3])
@@ -69,7 +70,7 @@ def do_plot(experiment_names):
   ax.set_ylabel("GPU time (s)", fontsize=24, labelpad=15)
   really_do_plot(ax, experiment_names, "static")
   really_do_plot(ax, experiment_names, "autoscaling")
-  #plt.xlim(xmin=1)
+  plt.ylim(ymin=100000, ymax=180000)
   ax.legend(fontsize=24, loc="best")
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file, bbox_inches="tight")
