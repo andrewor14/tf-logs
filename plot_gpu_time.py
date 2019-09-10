@@ -37,7 +37,6 @@ def really_do_plot(ax, experiment_names, mode):
       this_num_workers, this_start_time = start_times[i]
       if len(prev_start_time) < 1 or len(this_start_time) < 1:
         raise ValueError("Wrong length: %s, %s" % (prev_start_time, this_start_time))
-      print("Num workers = %s, Diff %s" % (prev_num_workers, this_start_time[-1] - prev_start_time[-1]))
       gpu_time += (this_start_time[-1] - prev_start_time[-1]) * prev_num_workers
     split = experiment_name.split("-")
     num_starting_workers = int(split[3])
@@ -48,6 +47,8 @@ def really_do_plot(ax, experiment_names, mode):
   num_starting_workers = list(gpu_times.keys())
   num_starting_workers.sort()
   gpu_times_sorted = [gpu_times[w] for w in num_starting_workers]
+  print(num_starting_workers)
+  print(gpu_times_sorted)
   ax.errorbar(num_starting_workers, gpu_times_sorted,\
     fmt=fmt, linewidth=4, markeredgewidth=markeredgewidth, markersize=20, label=mode)
   if mode == "static":

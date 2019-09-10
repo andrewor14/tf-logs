@@ -28,6 +28,8 @@ def really_do_plot(ax, experiment_names, mode):
     total_time = None
     if len(parsed) == 1:
       total_time = float(parsed[0])
+    elif len(parsed) == 2:
+      total_time = float(parsed[-1])
     else:
       print("Warning: total time not parsed from %s" % experiment_dir)
     split = experiment_name.split("-")
@@ -63,6 +65,10 @@ def do_plot(experiment_names):
   ax.set_ylabel("Time to complete %s epochs (s)" % num_epochs, fontsize=24, labelpad=15)
   really_do_plot(ax, experiment_names, "static")
   really_do_plot(ax, experiment_names, "autoscaling")
+  if "cifar10" in experiment_names[0]:
+    plt.ylim(ymin=800, ymax=1500)
+  else:
+    plt.ylim(ymin=1800, ymax=5000)
   ax.legend(fontsize=24, loc="best")
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file, bbox_inches="tight")

@@ -45,6 +45,7 @@ def really_do_plot(ax, experiment_names, mode):
     markersize = 24
     markercolor = color
     markeredgecolor = color
+    print(x, y)
     ax.errorbar(x, y, fmt=fmt, linewidth=6, color=color, markeredgewidth=markeredgewidth,
       markersize=markersize, markeredgecolor=markeredgecolor, label=label)
   ax.set_yticks(all_num_workers)
@@ -78,7 +79,7 @@ def main():
     print("Usage: plot_num_workers.py [experiment_name1] <[experiment_name2] ...>")
     print("  (e.g. ./plot_num_workers.py data/cifar10*")
     sys.exit(1)
-  experiment_names = [x for x in args[1:] if "tgz" not in x]
+  experiment_names = [x for x in args[1:] if "tgz" not in x and "tar" not in x and "checkpoint" not in x]
   do_plot(experiment_names)
 
 if __name__ == "__main__":
