@@ -7,6 +7,8 @@ import sys
 
 import numpy as np
 
+from find_alloc import parse_timestamp, prettify_bytes
+
 
 BATCH_SIZE = 192
 INPUT_DIMENSION = 224
@@ -15,17 +17,6 @@ ALLOCATION_INPUTS = "inputs"
 ALLOCATION_ACTIVATIONS = "activations"
 ALLOCATION_OTHER = "other"
 ALLOCATION_UNKNOWN = "unknown"
-
-def prettify_bytes(size, decimal_places=2):
-  # Stolen from https://stackoverflow.com/questions/1094841/reusable-library-to-get-human-readable-version-of-file-size
-  for unit in ['B','KB','MB','GB','TB']:
-    if size < 1000.0:
-      break
-    size /= 1000.0
-  return f"{size:.{decimal_places}f}{unit}"
-
-def parse_timestamp(timestamp):
-  return datetime.datetime.strptime(timestamp, "%H:%M:%S.%f")
 
 def parse_allocation_events(log_file):
   '''

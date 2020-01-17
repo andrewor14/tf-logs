@@ -8,47 +8,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
+from find_alloc import parse_memory_over_time_elapsed
 
-def parse(data_file):
-  """
-  Parse memory usage over time from `data_file`, a path to a space separated file
-  with four fields: (timestamp, [Allocate|Deallocate], num_bytes, allocation_id).
-  Timestamp is expected to be in the format (hour:minute:seconds), e.g.
-  15:13:03.741560.
-
-  Return two lists: (time elapsed in seconds, memory usage in bytes).
-  """
-  first_timestamp = None
-  time_elapsed = []
-  memory_used = []
-  max_cumulative_memory = -1
-  max_cumulative_memory_timestamp = None
-  with open(data_file) as f:
-    for line in f.readlines():
-      split = tuple(line.split(" "))
-      raw_timestamp = split[0]
-      allocate_or_deallocate = split[1]
-      num_bytes = split[2]
-      # Parse timestamp
-      timestamp = datetime.datetime.strptime(raw_timestamp, "%H:%M:%S.%f")
-      if first_timestamp is None:
-        first_timestamp = timestamp
-      time_elapsed.append((timestamp - first_timestamp).total_seconds())
-      # Parse new memory usage
-      current_memory = memory_used[-1] if len(memory_used) > 0 else 0
-      delta_bytes = int(num_bytes)
-      allocate_or_deallocate = allocate_or_deallocate.lower()
-      if allocate_or_deallocate == "deallocate":
-        delta_bytes *= -1
-      elif allocate_or_deallocate != "allocate":
-        raise ValueError("Malformed line: %s" % line)
-      memory_used.append(current_memory + delta_bytes)
-      # Save max cumulative memory and the corresponding timestamp
-      if memory_used[-1] > max_cumulative_memory:
-        max_cumulative_memory = memory_used[-1]
-        max_cumulative_memory_timestamp = raw_timestamp
-  print("Max memory timestamp: %s" % max_cumulative_memory_timestamp)
-  return time_elapsed, memory_used
 
 def do_plot(data_file, zoom_start=None, zoom_end = None):
   out_file = "output/%s.pdf" % os.path.basename(os.path.splitext(data_file)[0])
@@ -58,7 +19,7 @@ def do_plot(data_file, zoom_start=None, zoom_end = None):
   ax1 = fig.add_subplot(1, 1, 1)
   ax1.set_xlabel("Time elapsed (s)", fontsize=24, labelpad=15)
   ax1.set_ylabel("Num bytes in memory", fontsize=24, labelpad=15)
-  time_elapsed, memory_used = parse(data_file)
+  time_elapsed, memory_used = parse_memory_over_time_elapsed(data_file)
   # Optionally zoom
   if zoom_start is not None and zoom_end is not None:
     start_index = np.where(np.array(time_elapsed) > zoom_start)[0][0]
