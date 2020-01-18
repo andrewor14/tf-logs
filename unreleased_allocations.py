@@ -13,9 +13,11 @@ from find_alloc import parse_timestamp, prettify_bytes
 BATCH_SIZE = 192
 INPUT_DIMENSION = 224
 UNKNOWN_DETAILS = "unknown"
+READ_VARIABLE_OP = "ReadVariableOp"
 ALLOCATION_INPUTS = "inputs"
 ALLOCATION_ACTIVATIONS = "activations"
 ALLOCATION_OTHER = "other"
+ALLOCATION_PARAMETERS = "parameters"
 ALLOCATION_UNKNOWN = "unknown"
 
 def parse_allocation_events(log_file):
@@ -80,6 +82,8 @@ def classify_allocation(allocation_details):
       return ALLOCATION_INPUTS
     elif BATCH_SIZE in dimensions:
       return ALLOCATION_ACTIVATIONS
+    elif READ_VARIABLE_OP in kernel:
+      return ALLOCATION_PARAMETERS
   return ALLOCATION_OTHER
 
 def get_unreleased_allocations(log_file, until_this_timestamp):
@@ -108,6 +112,7 @@ def main():
     sys.exit(1)
   unreleased_allocations = get_unreleased_allocations(args[1], args[2])
   # Break down all unreleased allocations by type
+  num_parameters = 0
   total_bytes = 0
   allocation_breakdown = {}
   for allocation_id in unreleased_allocations.keys():
@@ -117,9 +122,13 @@ def main():
       allocation_breakdown[allocation_class] = 0
     allocation_breakdown[allocation_class] += num_bytes
     total_bytes += num_bytes
-    print(allocation_id, timestamp, num_bytes, details)
-  # Print memory allocations
+    if allocation_class == ALLOCATION_PARAMETERS:
+      num_parameters += np.prod(details[0][1])
+    if allocation_class == ALLOCATION_OTHER:
+      print(allocation_id, timestamp, num_bytes, details)
+  # Print summary stats
   print("\n----------------------------------------------------")
+  print("Num parameters = %s" % num_parameters)
   print("Total memory occupied: %s" % prettify_bytes(total_bytes))
   for allocation_type in allocation_breakdown.keys():
     num_bytes = prettify_bytes(allocation_breakdown[allocation_type])
