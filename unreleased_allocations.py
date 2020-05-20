@@ -1,24 +1,43 @@
 #!/usr/bin/env python3
 
 import datetime
+from enum import Enum
 import os
 import re
 import sys
 
 import numpy as np
 
-from find_alloc import parse_timestamp, prettify_bytes
+from find_alloc import find_alloc, parse_timestamp, prettify_bytes
 
 
-BATCH_SIZE = 192
-INPUT_DIMENSION = 224
+BATCH_SIZE = int(os.getenv("BATCH_SIZE") or 192)
+INPUT_DIMENSION = int(os.getenv("INPUT_DIMENSION") or 224)
 UNKNOWN_DETAILS = "unknown"
 READ_VARIABLE_OP = "ReadVariableOp"
-ALLOCATION_INPUTS = "inputs"
-ALLOCATION_ACTIVATIONS = "activations"
-ALLOCATION_OTHER = "other"
-ALLOCATION_PARAMETERS = "parameters"
-ALLOCATION_UNKNOWN = "unknown"
+ALLOCATE_TEMP = "allocate_temp"
+ALLOCATION_TIMESTAMPS = "timestamps"
+
+class AllocationCategories(Enum):
+  '''
+  Constants that represent all memory allocation categories.
+  '''
+  INPUTS = "inputs"
+  ACTIVATIONS = "activations"
+  KERNEL_TEMP = "kernel_temp"
+  OTHER = "other"
+  PARAMETERS = "parameters"
+  UNKNOWN = "unknown"
+
+def should_ignore_line(line):
+  '''
+  Return true if the given line in a log file should be ignored during parsing.
+  '''
+  return "gpu_host_bfc" in line or\
+    line.startswith("+") or\
+    line.startswith("-") or\
+    line.startswith(" ") or\
+    "(allocated null ptr)" in line
 
 def parse_allocation_events(log_file):
   '''
@@ -29,8 +48,7 @@ def parse_allocation_events(log_file):
   data = []
   with open(log_file) as f:
     for line in f.readlines():
-      # TODO: what is gpu_host_bfc?
-      if "llocateRaw" not in line or "gpu_host_bfc" in line:
+      if "llocateRaw" not in line or should_ignore_line(line):
         continue
       split = line.strip().split(" ")
       timestamp = split[1].strip(":")
@@ -49,8 +67,7 @@ def parse_allocation_details(log_file):
   allocations = {}
   with open(log_file) as f:
     for line in f.readlines():
-      # TODO: what is gpu_host_bfc?
-      if "MemoryLog" not in line or "gpu_host_bfc" in line:
+      if "MemoryLog" not in line or should_ignore_line(line):
         continue
       # Parse allocation details
       allocation_id = re.match(".*allocation_id: ([0-9]*).*", line)
@@ -76,15 +93,46 @@ def classify_allocation(allocation_details):
   Return a string that represents this allocation's class. 
   '''
   if allocation_details == UNKNOWN_DETAILS:
-    return ALLOCATION_UNKNOWN
+    return AllocationCategories.UNKNOWN
+  for (kernel, _) in allocation_details:
+    if ALLOCATE_TEMP in kernel:
+      return AllocationCategories.KERNEL_TEMP
   for (kernel, dimensions) in allocation_details:
     if np.count_nonzero(np.array(dimensions) == INPUT_DIMENSION) == 2:
-      return ALLOCATION_INPUTS
+      return AllocationCategories.INPUTS
     elif BATCH_SIZE in dimensions:
-      return ALLOCATION_ACTIVATIONS
+      return AllocationCategories.ACTIVATIONS
     elif READ_VARIABLE_OP in kernel:
-      return ALLOCATION_PARAMETERS
-  return ALLOCATION_OTHER
+      return AllocationCategories.PARAMETERS
+  return AllocationCategories.OTHER
+
+def get_allocations_by_category(log_file):
+  '''
+  Return a map of bytes allocated over time, indexed by the category of the allocation.
+
+  The returned map has a special 'timestamps' value that is a list of all the timestamps
+  that corresponding to allocation changes. All other values have the same length as this
+  timestamps list.
+  '''
+  allocation_details = parse_allocation_details(log_file)
+  allocations_by_category = {}
+  allocations_by_category[ALLOCATION_TIMESTAMPS] = []
+  # Classify each allocation and keep track of bytes allocated across all categories
+  for timestamp, is_allocate, num_bytes, alloc_id in parse_allocation_events(log_file):
+    details = allocation_details[alloc_id] if alloc_id in allocation_details else UNKNOWN_DETAILS
+    category = classify_allocation(details)
+    # Append to each list: only the current category gets an updated value
+    for cat in AllocationCategories:
+      if cat.value not in allocations_by_category:
+        allocations_by_category[cat.value] = []
+      allocations = allocations_by_category[cat.value]
+      new_value = allocations[-1] if len(allocations) > 0 else 0
+      if cat == category:
+        delta = num_bytes if is_allocate else num_bytes * -1
+        new_value += delta
+      allocations.append(new_value)
+    allocations_by_category[ALLOCATION_TIMESTAMPS].append(timestamp)
+  return allocations_by_category
 
 def get_unreleased_allocations(log_file, until_this_timestamp):
   '''
@@ -101,38 +149,45 @@ def get_unreleased_allocations(log_file, until_this_timestamp):
       details = allocation_details[allocation_id] if allocation_id in allocation_details else UNKNOWN_DETAILS
       unreleased_allocations[allocation_id] = (timestamp, num_bytes, details)
     else:
-      del unreleased_allocations[allocation_id]
+      if allocation_id in unreleased_allocations:
+        del unreleased_allocations[allocation_id]
+      else:
+        print("Warning: releasing unknown allocation %s" % allocation_id)
   return unreleased_allocations
 
 def main():
   args = sys.argv
-  if len(args) != 3:
-    print("Usage: ./unreleased_allocations.py [log_file] [until_this_timestamp]")
+  if len(args) != 2 and len(args) != 3:
+    print("Usage: ./unreleased_allocations.py [log_file] <[until_this_timestamp]>")
     print("  e.g. ./unreleased_allocations.py training.log 14:09:03.208021")
     sys.exit(1)
-  unreleased_allocations = get_unreleased_allocations(args[1], args[2])
+  # If no timestamp is given, try to deduce it from the corresponding data file
+  log_file = args[1]
+  if len(args) == 2:
+    timestamp, _ = find_alloc(log_file.replace(".log", ".txt"))
+  else:
+    timestamp = args[2]
+  unreleased_allocations = get_unreleased_allocations(log_file, timestamp)
   # Break down all unreleased allocations by type
   num_parameters = 0
   total_bytes = 0
   allocation_breakdown = {}
   for allocation_id in unreleased_allocations.keys():
     timestamp, num_bytes, details = unreleased_allocations[allocation_id]
-    allocation_class = classify_allocation(details)
-    if allocation_class not in allocation_breakdown:
-      allocation_breakdown[allocation_class] = 0
-    allocation_breakdown[allocation_class] += num_bytes
+    category = classify_allocation(details)
+    if category not in allocation_breakdown:
+      allocation_breakdown[category] = 0
+    allocation_breakdown[category] += num_bytes
     total_bytes += num_bytes
-    if allocation_class == ALLOCATION_PARAMETERS:
+    if category == AllocationCategories.PARAMETERS:
       num_parameters += np.prod(details[0][1])
-    if allocation_class == ALLOCATION_OTHER:
-      print(allocation_id, timestamp, num_bytes, details)
   # Print summary stats
-  print("\n----------------------------------------------------")
+  print("----------------------------------------------------")
   print("Num parameters = %s" % num_parameters)
   print("Total memory occupied: %s" % prettify_bytes(total_bytes))
-  for allocation_type in allocation_breakdown.keys():
-    num_bytes = prettify_bytes(allocation_breakdown[allocation_type])
-    print("  %s: %s" % (allocation_type, num_bytes))
+  for category in allocation_breakdown.keys():
+    num_bytes = prettify_bytes(allocation_breakdown[category])
+    print("  %s: %s" % (category.value, num_bytes))
   print("----------------------------------------------------")
 
 if __name__ == "__main__":

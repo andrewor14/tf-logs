@@ -8,7 +8,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-from find_alloc import parse_memory_over_time_elapsed
+from find_alloc import parse_memory_over_time_elapsed, parse_markers
 
 
 def do_plot(data_file, zoom_start=None, zoom_end = None):
@@ -20,18 +20,18 @@ def do_plot(data_file, zoom_start=None, zoom_end = None):
   ax1.set_xlabel("Time elapsed (s)", fontsize=24, labelpad=15)
   ax1.set_ylabel("Num bytes in memory", fontsize=24, labelpad=15)
   time_elapsed, memory_used = parse_memory_over_time_elapsed(data_file)
-  # Optionally zoom
-  if zoom_start is not None and zoom_end is not None:
-    start_index = np.where(np.array(time_elapsed) > zoom_start)[0][0]
-    end_index = np.where(np.array(time_elapsed) < zoom_end)[0][-1]
-    time_elapsed = time_elapsed[start_index:end_index]
-    memory_used = memory_used[start_index:end_index]
+  marker_times = parse_markers(data_file)
   # Draw memory line
   ax1.errorbar(time_elapsed, memory_used, fmt="-")
-  # Draw vertical line at the max
+  # Draw vertical lines at both the max and where the markers are
   plt.axvline(x=time_elapsed[np.argmax(memory_used)], linestyle="--", color="r")
+  for t in marker_times:
+    plt.axvline(x=t, linestyle="--", color="b")
   plt.xticks(fontsize=20)
   plt.yticks(fontsize=20)
+  # Optionally zoom
+  if zoom_start is not None and zoom_end is not None:
+    plt.xlim(zoom_start, zoom_end)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(out_file, bbox_inches="tight")
   print("Wrote to %s." % out_file)

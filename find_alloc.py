@@ -6,6 +6,8 @@ import sys
 import numpy as np
 
 
+MARKER = "ANDREW"
+
 def prettify_bytes(size, decimal_places=2):
   # Stolen from https://stackoverflow.com/questions/1094841/reusable-library-to-get-human-readable-version-of-file-size
   for unit in ['B','KB','MB','GB','TB']:
@@ -43,19 +45,37 @@ def parse_memory_over_time(data_file):
     for line in f.readlines():
       split = tuple(line.split(" "))
       raw_timestamp = split[0]
-      allocate_or_deallocate = split[1]
+      action = split[1].strip()
+      if action == MARKER:
+        continue
       num_bytes = split[2]
       raw_timestamps.append(raw_timestamp)
       # Parse new memory usage
       current_memory = memory_used[-1] if len(memory_used) > 0 else 0
       delta_bytes = int(num_bytes)
-      allocate_or_deallocate = allocate_or_deallocate.lower()
-      if allocate_or_deallocate == "deallocate":
+      action = action.lower()
+      if action == "deallocate":
         delta_bytes *= -1
-      elif allocate_or_deallocate != "allocate":
+      elif action != "allocate":
         raise ValueError("Malformed line: %s" % line)
       memory_used.append(current_memory + delta_bytes)
   return raw_timestamps, memory_used
+
+def parse_markers(data_file):
+  """
+  Parse the times (relative to first timestamp) at which the MARKER token appears in `data_file`.
+  """
+  first_timestamp = None
+  marker_times = []
+  with open(data_file) as f:
+    for line in f.readlines():
+      split = tuple(line.split(" "))
+      timestamp = parse_timestamp(split[0])
+      if first_timestamp is None:
+        first_timestamp = timestamp
+      if split[1].strip() == MARKER:
+        marker_times.append((timestamp - first_timestamp).total_seconds())
+  return marker_times
 
 def find_alloc(data_file, max_alloc=True, range_start=None, range_end=None):
   '''
