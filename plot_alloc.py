@@ -11,7 +11,7 @@ import numpy as np
 from find_alloc import parse_memory_over_time_elapsed, parse_markers
 
 
-def do_plot(data_file, zoom_start=None, zoom_end = None):
+def do_plot(data_file, zoom_start=None, zoom_end=None):
   out_file = "output/%s.pdf" % os.path.basename(os.path.splitext(data_file)[0])
   fig = plt.figure()
   plt.xticks(fontsize=20)
