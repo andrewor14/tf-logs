@@ -79,33 +79,30 @@ def parse_markers(data_file):
 
 def find_alloc(data_file, max_alloc=True, range_start=None, range_end=None):
   '''
-  Return a 2-tuple (raw timestamp, memory allocated) that corresponds to
+  Return a 2-tuple (time_elapsed, memory allocated) that corresponds to
   the point when the cumulative memory allocation is at a maximum or minimum.
   Optional range start and range end are inclusive.
   '''
   raw_timestamps, memory_used = parse_memory_over_time(data_file)
   timestamps = [parse_timestamp(t) for t in raw_timestamps]
+  time_elapsed = [(t - timestamps[0]).total_seconds() for t in timestamps]
   if range_start is not None:
-    range_start = parse_timestamp(range_start)
-    indices = np.where(np.array(timestamps) >= range_start)[0]
+    indices = np.where(np.array(time_elapsed) >= range_start)[0]
     if len(indices) == 0:
       return (None, None)
     start_index = indices[0]
-    raw_timestamps = raw_timestamps[start_index:]
-    timestamps = timestamps[start_index:]
+    time_elapsed = time_elapsed[start_index:]
     memory_used = memory_used[start_index:]
   if range_end is not None:
-    range_end = parse_timestamp(range_end)
-    indices = np.where(np.array(timestamps) <= range_end)[0]
+    indices = np.where(np.array(time_elapsed) <= range_end)[0]
     if len(indices) == 0:
       return (None, None)
     end_index = indices[-1]
-    raw_timestamps = raw_timestamps[:end_index+1]
-    timestamps = timestamps[:end_index+1]
+    time_elapsed = time_elapsed[:end_index+1]
     memory_used = memory_used[:end_index+1]
   arg_function = np.argmax if max_alloc else np.argmin
   result_index = arg_function(np.array(memory_used))
-  return (raw_timestamps[result_index], memory_used[result_index])
+  return (time_elapsed[result_index], memory_used[result_index])
 
 def print_usage_and_exit():
   print("Usage: find_alloc.py [data.txt] <['max' or 'min']> <[after this timestamp]> <[before this timestamp]>")
@@ -121,12 +118,12 @@ def main():
     print("Invalid mode: '%s', must be one of 'max' or 'min'" % max_or_min)
     print_usage_and_exit()
   max_alloc = max_or_min == "max"
-  range_start = args[3] if len(args) > 3 else None
-  range_end = args[4] if len(args) > 4 else None
+  range_start = float(args[3]) if len(args) > 3 else None
+  range_end = float(args[4]) if len(args) > 4 else None
   # Find max/min allocation
-  timestamp, alloc = find_alloc(args[1], max_alloc, range_start, range_end)
-  if timestamp is not None and alloc is not None:
-    print("%s alloc: %s at %s" % (max_or_min.capitalize(), prettify_bytes(alloc), timestamp))
+  time_elapsed, alloc = find_alloc(args[1], max_alloc, range_start, range_end)
+  if time_elapsed is not None and alloc is not None:
+    print("%s alloc: %s at %.3fs" % (max_or_min.capitalize(), prettify_bytes(alloc), time_elapsed))
   else:
     print("No allocations found within given range")
 

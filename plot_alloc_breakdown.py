@@ -8,14 +8,32 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-from find_alloc import parse_timestamp
+from find_alloc import parse_timestamp, prettify_bytes
 from unreleased_allocations import get_allocations_by_category, ALLOCATION_TIMESTAMPS
+
+def print_peak_breakdown(time_elapsed, allocations_by_category):
+  peak_index = None
+  peak_memory = None
+  # Find peak memory
+  for i in range(len(time_elapsed)):
+    memory_used = sum([allocs[i] for _, allocs in allocations_by_category.items()])
+    if peak_memory is None or memory_used > peak_memory:
+      peak_index = i
+      peak_memory = memory_used
+  if peak_index is None or peak_memory is None:
+    raise ValueError("No peak memory found?")
+  # Print breakdown
+  print("----------------------------------------------------")
+  print("Peak memory at %.3fs: %s" %\
+    (time_elapsed[peak_index], prettify_bytes(peak_memory)))
+  for category in allocations_by_category.keys():
+    num_bytes = prettify_bytes(allocations_by_category[category][peak_index])
+    print("  %s: %s" % (category, num_bytes))
+  print("----------------------------------------------------")
 
 def do_plot(log_file, zoom_start=None, zoom_end=None):
   out_file = "output/%s.pdf" % os.path.basename(os.path.splitext(log_file)[0])
   fig = plt.figure()
-  plt.xticks(fontsize=20)
-  plt.yticks(fontsize=20)
   ax1 = fig.add_subplot(1, 1, 1)
   ax1.set_xlabel("Time elapsed (s)", fontsize=24, labelpad=15)
   ax1.set_ylabel("Num bytes in memory", fontsize=24, labelpad=15)
@@ -31,6 +49,7 @@ def do_plot(log_file, zoom_start=None, zoom_end=None):
   all_allocations = [allocations_by_category[c] for c in all_categories]
   ax1.stackplot(time_elapsed, *all_allocations, labels=all_categories)
   ax1.legend(all_categories, loc='upper left')
+  print_peak_breakdown(time_elapsed, allocations_by_category)
   plt.xticks(fontsize=20)
   plt.yticks(fontsize=20)
   # Optionally zoom

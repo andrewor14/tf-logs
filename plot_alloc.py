@@ -14,8 +14,6 @@ from find_alloc import parse_memory_over_time_elapsed, parse_markers
 def do_plot(data_file, zoom_start=None, zoom_end=None):
   out_file = "output/%s.pdf" % os.path.basename(os.path.splitext(data_file)[0])
   fig = plt.figure()
-  plt.xticks(fontsize=20)
-  plt.yticks(fontsize=20)
   ax1 = fig.add_subplot(1, 1, 1)
   ax1.set_xlabel("Time elapsed (s)", fontsize=24, labelpad=15)
   ax1.set_ylabel("Num bytes in memory", fontsize=24, labelpad=15)

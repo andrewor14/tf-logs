@@ -11,8 +11,6 @@ import numpy as np
 from find_alloc import find_alloc, parse_timestamp, prettify_bytes
 
 
-BATCH_SIZE = int(os.getenv("BATCH_SIZE") or 192)
-INPUT_DIMENSION = int(os.getenv("INPUT_DIMENSION") or 224)
 UNKNOWN_DETAILS = "unknown"
 READ_VARIABLE_OP = "ReadVariableOp"
 ALLOCATE_TEMP = "allocate_temp"
@@ -86,21 +84,27 @@ def parse_allocation_details(log_file):
           allocations[allocation_id].append(data)
   return allocations
 
-def classify_allocation(allocation_details):
+def classify_allocation(allocation_details, batch_size=None, input_dimension=None):
   '''
   Classify an allocation into one of "inputs", "activations", "other", and "unknown".
   Argument is a list of (kernel name, dimensions).
   Return a string that represents this allocation's class. 
   '''
+  # Maybe read batch size and input dimensions from environment variables
+  if batch_size is None:
+    batch_size = int(os.getenv("BATCH_SIZE") or 192)
+  if input_dimension is None:
+    input_dimension = int(os.getenv("INPUT_DIMENSION") or 224)
+  # Classify allocation
   if allocation_details == UNKNOWN_DETAILS:
     return AllocationCategories.UNKNOWN
   for (kernel, _) in allocation_details:
     if ALLOCATE_TEMP in kernel:
       return AllocationCategories.KERNEL_TEMP
   for (kernel, dimensions) in allocation_details:
-    if np.count_nonzero(np.array(dimensions) == INPUT_DIMENSION) == 2:
+    if np.count_nonzero(np.array(dimensions) == input_dimension) == 2:
       return AllocationCategories.INPUTS
-    elif BATCH_SIZE in dimensions:
+    elif batch_size in dimensions:
       return AllocationCategories.ACTIVATIONS
     elif READ_VARIABLE_OP in kernel:
       return AllocationCategories.PARAMETERS
@@ -134,16 +138,17 @@ def get_allocations_by_category(log_file):
     allocations_by_category[ALLOCATION_TIMESTAMPS].append(timestamp)
   return allocations_by_category
 
-def get_unreleased_allocations(log_file, until_this_timestamp):
+def get_unreleased_allocations(log_file, time_elapsed):
   '''
-  Return a map of allocations that were not released by the provided timestamp.
-  The map is indexed by allocation ID and contains 2-tuples (timestamp, num_bytes).
+  Return a map of allocations that were not released at the specified time.
+  The map is indexed by allocation ID and contains 3-tuples (timestamp, num_bytes, details).
   '''
   allocation_details = parse_allocation_details(log_file)
-  until_this_timestamp = parse_timestamp(until_this_timestamp)
+  allocation_events = parse_allocation_events(log_file)
+  first_timestamp = parse_timestamp(parse_allocation_events(log_file)[0][0])
   unreleased_allocations = {}
-  for timestamp, is_allocate, num_bytes, allocation_id in parse_allocation_events(log_file):
-    if parse_timestamp(timestamp) > until_this_timestamp:
+  for timestamp, is_allocate, num_bytes, allocation_id in allocation_events:
+    if (parse_timestamp(timestamp) - first_timestamp).total_seconds() > time_elapsed:
       break
     if is_allocate:
       details = allocation_details[allocation_id] if allocation_id in allocation_details else UNKNOWN_DETAILS
@@ -158,35 +163,50 @@ def get_unreleased_allocations(log_file, until_this_timestamp):
 def main():
   args = sys.argv
   if len(args) != 2 and len(args) != 3:
-    print("Usage: ./unreleased_allocations.py [log_file] <[until_this_timestamp]>")
-    print("  e.g. ./unreleased_allocations.py training.log 14:09:03.208021")
+    print("Usage: ./unreleased_allocations.py [log_file] <[time_elapsed]>")
+    print("  e.g. ./unreleased_allocations.py training.log 15")
     sys.exit(1)
   # If no timestamp is given, try to deduce it from the corresponding data file
   log_file = args[1]
   if len(args) == 2:
-    timestamp, _ = find_alloc(log_file.replace(".log", ".txt"))
+    time_elapsed, _ = find_alloc(log_file.replace(".log", ".txt"))
   else:
-    timestamp = args[2]
-  unreleased_allocations = get_unreleased_allocations(log_file, timestamp)
+    time_elapsed = float(args[2])
+  unreleased_allocations = get_unreleased_allocations(log_file, time_elapsed)
   # Break down all unreleased allocations by type
   num_parameters = 0
   total_bytes = 0
-  allocation_breakdown = {}
+  bytes_by_category = {}
+  ids_by_category = {}
   for allocation_id in unreleased_allocations.keys():
     timestamp, num_bytes, details = unreleased_allocations[allocation_id]
     category = classify_allocation(details)
-    if category not in allocation_breakdown:
-      allocation_breakdown[category] = 0
-    allocation_breakdown[category] += num_bytes
+    if category not in bytes_by_category:
+      bytes_by_category[category] = 0
+      ids_by_category[category] = []
+    bytes_by_category[category] += num_bytes
+    ids_by_category[category].append(allocation_id)
     total_bytes += num_bytes
     if category == AllocationCategories.PARAMETERS:
       num_parameters += np.prod(details[0][1])
+  # Print allocation details in each category
+  first_timestamp = parse_timestamp(parse_allocation_events(log_file)[0][0])
+  for category, ids in ids_by_category.items():
+    print("======================================================================")
+    print("Allocation details for category '%s'" % category)
+    for alloc_id in ids:
+      timestamp, num_bytes, details = unreleased_allocations[alloc_id]
+      alloc_time = (parse_timestamp(timestamp) - first_timestamp).total_seconds()
+      print("%s, %.3fs, %s (%s), %s" %\
+        (alloc_id, alloc_time, num_bytes, prettify_bytes(num_bytes), details))
+    print("======================================================================\n")
   # Print summary stats
   print("----------------------------------------------------")
+  print("Memory breakdown at %.3fs:" % time_elapsed)
   print("Num parameters = %s" % num_parameters)
   print("Total memory occupied: %s" % prettify_bytes(total_bytes))
-  for category in allocation_breakdown.keys():
-    num_bytes = prettify_bytes(allocation_breakdown[category])
+  for category in bytes_by_category.keys():
+    num_bytes = prettify_bytes(bytes_by_category[category])
     print("  %s: %s" % (category.value, num_bytes))
   print("----------------------------------------------------")
 
