@@ -16,6 +16,7 @@ def main():
   title = os.getenv("TITLE", "ResNet-50 on ImageNet")
   output_file = os.getenv("OUTPUT_FILE", "output/resnet_accuracy.pdf")
   data_file_prefix = os.getenv("DATA_FILE_PREFIX", "resnet-imagenet-")
+  data_file_suffix = os.getenv("DATA_FILE_SUFFIX", ".txt")
 
   # Allow the user to plot other dimensions/units
   steps_per_epoch = int(os.getenv("STEPS_PER_EPOCH", -1))
@@ -31,10 +32,10 @@ def main():
   for data_file in data_files:
     epochs = []
     validation_accuracies = []
-    label = data_file.replace(data_file_prefix, "").replace("-time", "").replace(".txt", "")
+    label = data_file.replace(data_file_prefix, "").replace(data_file_suffix, "")
     with open(data_file) as f:
       for i, line in enumerate(f.readlines()):
-        if smooth_factor > 0 && i % smooth_factor == 0:
+        if smooth_factor > 0 and i % smooth_factor == 0:
           continue
         split = line.strip().split(" ")
         if len(split) != 2:
@@ -50,6 +51,7 @@ def main():
   plt.title(title, fontsize=24, pad=20)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
+  print("Saved to %s" % output_file)
 
 if __name__ == "__main__":
   main()
