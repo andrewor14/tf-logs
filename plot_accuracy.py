@@ -44,7 +44,10 @@ def main():
         validation_accuracies.append(float(split[1]))
     x = [steps_per_epoch * e for e in epochs] if steps_per_epoch > 0 else epochs
     y = validation_accuracies
-    ax.plot(x, y, label=label, marker="x", linewidth=3, markeredgewidth=3)
+    if "baseline" in data_file:
+      ax.plot(x, y, label=label, linestyle="--", linewidth=2)
+    else:
+      ax.plot(x, y, label=label, marker="x", linewidth=3, markeredgewidth=3)
   ax.legend(fontsize=12)
   plt.xticks(fontsize=16)
   plt.yticks(fontsize=16)
