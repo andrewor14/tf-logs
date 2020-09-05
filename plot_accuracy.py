@@ -42,13 +42,31 @@ def main():
           raise ValueError("Expected two columns in data file: %s" % data_file)
         epochs.append(int(split[0]))
         validation_accuracies.append(float(split[1]))
-    x = [steps_per_epoch * e for e in epochs] if steps_per_epoch > 0 else epochs
+    if steps_per_epoch > 0:
+      # The baseline may have more steps per epoch because the batch sizes are smaller
+      baseline_steps_multiplier = int(os.getenv("BASELINE_STEPS_MULTIPLIER", 1))\
+        if "baseline" in data_file else 1
+      x = [steps_per_epoch * baseline_steps_multiplier * e for e in epochs]
+    else:
+      x = epochs
     y = validation_accuracies
     if "baseline" in data_file:
       ax.plot(x, y, label=label, linestyle="--", linewidth=2)
     else:
       ax.plot(x, y, label=label, marker="x", linewidth=3, markeredgewidth=3)
-  ax.legend(fontsize=12)
+
+  # Legend
+  def sort_key(tup):
+    label = tup[0]
+    return int(label.split("bs_")[0]) * (1 if "baseline" in label else 100)
+  def format_label(label):
+    return label.replace("_baseline", " (baseline)")
+  handles, labels = ax.get_legend_handles_labels()
+  labels, handles = zip(*sorted(zip(labels, handles), key=sort_key))
+  labels = [format_label(l) for l in labels]
+  ax.legend(handles, labels, fontsize=12)
+
+  ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
   plt.xticks(fontsize=16)
   plt.yticks(fontsize=16)
   plt.title(title, fontsize=24, pad=20)
