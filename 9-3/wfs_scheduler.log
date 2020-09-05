@@ -1,0 +1,63 @@
+[    0.0008] Listening for scheduler requests on port 18383
+[    0.0010] Started event loop...
+[    1.0029] Job 0 submitted
+[    2.0029] * Processing event ScheduleEvent: 1 job(s) in queue
+[    2.0029] ... wfs schedule: current_allocations {}
+[    2.0030] ... wfs schedule: potential_allocations {0: 4}
+[    2.0030] ... wfs schedule: fair_allocations {0: 4}
+[    2.0031] * Processing event RunJobEvent(job=Job(0, ResNetWorkload(dataset=cifar10, gpu_demand=4, batch_size=32, num_steps=100, num_epochs=None), 1), initial_allocation=4)
+--------------------------------------------------------------------------
+By default, for Open MPI 4.0 and later, infiniband ports on a device
+are not used by default.  The intent is to use UCX for these devices.
+You can override this policy by setting the btl_openib_allow_ib MCA parameter
+to true.
+
+  Local host:              ns-l10c1n1
+  Local adapter:           mlx4_0
+  Local port:              1
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ns-l10c1n1
+  Local device: mlx4_0
+--------------------------------------------------------------------------
+[    5.5853] Job 0 started with 4 GPUs (PID = 20316)
+[   41.9790] Job 0 successfully resized to 4 GPUs
+[   60.1021] Job 1 submitted
+[   60.6485] * Processing event ScheduleEvent: 1 job(s) in queue
+[   60.6487] ... wfs schedule: current_allocations {0: 4}
+[   60.6488] ... wfs schedule: potential_allocations {1: 2, 0: 2}
+[   60.6488] ... wfs schedule: fair_allocations {1: 2, 0: 2}
+[   60.6488] * Processing event ResizeEvent(job_id=0, target_num_workers=2)
+[   60.6585] * Processing event RunJobEvent(job=Job(1, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=32, num_steps=250, num_epochs=None), 2), initial_allocation=2)
+[   60.6858] Job 0 successfully resized to 2 GPUs
+[   61.6597] * Processing event RunJobEvent(job=Job(1, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=32, num_steps=250, num_epochs=None), 2), initial_allocation=2)
+[   61.6673] Job 1 started with 2 GPUs (PID = 20971)
+[  101.6940] Job 1 successfully resized to 2 GPUs
+[  153.7424] Job 0 finished
+[  153.8215] * Processing event ScheduleEvent: 0 job(s) in queue
+[  153.8217] ... wfs schedule: current_allocations {1: 2}
+[  153.8217] ... wfs schedule: fair_allocations {1: 2}
+[  180.2719] Job 2 submitted
+[  180.8555] * Processing event ScheduleEvent: 1 job(s) in queue
+[  180.8557] ... wfs schedule: current_allocations {1: 2}
+[  180.8557] ... wfs schedule: potential_allocations {1: 2, 2: 2}
+[  180.8557] ... wfs schedule: fair_allocations {1: 2, 2: 2}
+[  180.8558] * Processing event RunJobEvent(job=Job(2, ResNetWorkload(dataset=cifar10, gpu_demand=4, batch_size=32, num_steps=200, num_epochs=None), 3), initial_allocation=2)
+[  180.8685] Job 2 started with 2 GPUs (PID = 21457)
+[  224.0063] Job 1 finished
+[  224.9325] * Processing event ScheduleEvent: 0 job(s) in queue
+[  224.9327] ... wfs schedule: current_allocations {2: 2}
+[  224.9327] ... wfs schedule: fair_allocations {2: 4}
+[  224.9327] * Processing event ResizeEvent(job_id=2, target_num_workers=4)
+[  224.9386] ... exception encountered with set_num_workers(4) request to job 2: <Fault 1: "<class 'ValueError'>:Existing spawn request in progress, not accepting further requests">
+[  225.9373] * Processing event ResizeEvent(job_id=2, target_num_workers=4)
+[  225.9422] ... exception encountered with set_num_workers(4) request to job 2: (same as above)
+[  226.6378] Job 2 successfully resized to 2 GPUs
+[  226.9420] * Processing event ResizeEvent(job_id=2, target_num_workers=4)
+[  260.2835] Job 2 successfully resized to 4 GPUs
+[  324.6221] Job 2 finished
+[  324.6222] Reached maximum number of 3 jobs
+[  325.0746] Exiting event loop.

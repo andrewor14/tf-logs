@@ -1,0 +1,41 @@
+[    0.0009] Listening for scheduler requests on port 18383
+[    0.0012] Started event loop...
+[    1.0033] Job 0 submitted
+[    2.0030] * Processing event ScheduleEvent: 1 job(s) in queue
+--------------------------------------------------------------------------
+By default, for Open MPI 4.0 and later, infiniband ports on a device
+are not used by default.  The intent is to use UCX for these devices.
+You can override this policy by setting the btl_openib_allow_ib MCA parameter
+to true.
+
+  Local host:              ns-l10c1n1
+  Local adapter:           mlx4_0
+  Local port:              1
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ns-l10c1n1
+  Local device: mlx4_0
+--------------------------------------------------------------------------
+[    5.4211] * Processing event RunJobEvent(job=Job(0, ResNetWorkload(dataset=cifar10, gpu_demand=4, batch_size=32, num_steps=100, num_epochs=None), 1), initial_allocation=4)
+[    5.4279] Job 0 started with 4 GPUs (PID = 23944)
+[   41.7817] Job 0 successfully resized to 4 GPUs
+[   60.0738] Job 1 submitted
+[   60.4883] * Processing event ScheduleEvent: 1 job(s) in queue
+[  120.3586] Job 0 finished
+[  120.5977] * Processing event ScheduleEvent: 1 job(s) in queue
+[  120.5978] * Processing event RunJobEvent(job=Job(1, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=32, num_steps=250, num_epochs=None), 2), initial_allocation=2)
+[  120.6047] Job 1 started with 2 GPUs (PID = 24643)
+[  153.9392] Job 1 successfully resized to 2 GPUs
+[  180.2532] Job 2 submitted
+[  180.6684] * Processing event ScheduleEvent: 1 job(s) in queue
+[  253.7133] Job 1 finished
+[  253.7578] * Processing event ScheduleEvent: 1 job(s) in queue
+[  253.7578] * Processing event RunJobEvent(job=Job(2, ResNetWorkload(dataset=cifar10, gpu_demand=4, batch_size=32, num_steps=200, num_epochs=None), 3), initial_allocation=4)
+[  253.7685] Job 2 started with 4 GPUs (PID = 25198)
+[  289.7281] Job 2 successfully resized to 4 GPUs
+[  436.3860] Job 2 finished
+[  436.3861] Reached maximum number of 3 jobs
+[  437.0479] Exiting event loop.
