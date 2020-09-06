@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import re
 import sys
 
 import matplotlib.pyplot as plt
@@ -14,9 +15,10 @@ def main():
   data_files = args[1:]
   smooth_factor = int(os.getenv("SMOOTH_FACTOR", -1))
   title = os.getenv("TITLE", "ResNet-50 on ImageNet")
-  output_file = os.getenv("OUTPUT_FILE", "output/resnet_accuracy.pdf")
+  output_file = os.getenv("OUTPUT_FILE", "output.pdf")
   data_file_prefix = os.getenv("DATA_FILE_PREFIX", "resnet-imagenet-")
   data_file_suffix = os.getenv("DATA_FILE_SUFFIX", ".txt")
+  figure_size = os.getenv("FIGURE_SIZE")
 
   # Allow the user to plot other dimensions/units
   steps_per_epoch = int(os.getenv("STEPS_PER_EPOCH", -1))
@@ -27,11 +29,27 @@ def main():
   put_legend_outside = os.getenv("PUT_LEGEND_OUTSIDE", "").lower() == "true"
   bold_baseline = os.getenv("BOLD_BASELINE", "").lower() == "true"
 
+  # Sort the labels
+  def sort_key(label):
+    label = label.replace(data_file_prefix, "")
+    batch_size, num_gpus = re.match("([0-9]+)bs_([0-9]+)gpu.*", label).groups()
+    return (int(batch_size) * 10 + int(num_gpus)) * (10000 if "baseline" in label else 1)
+  data_files.sort(key=sort_key)
+
   # Plot it
-  fig = plt.figure()
+  if figure_size is not None:
+    width = float(figure_size.split(",")[0])
+    height = float(figure_size.split(",")[1])
+    fig = plt.figure(figsize=(width, height))
+  else:
+    fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   ax.set_xlabel(xlabel, fontsize=24, labelpad=15)
   ax.set_ylabel(ylabel, fontsize=24, labelpad=15)
+  color_cycle = plt.rcParams['axes.prop_cycle'].by_key()['color'] * 10
+  num_virtual_experiments = len([d for d in data_files if "baseline" not in d])
+  virtual_color_cycle = iter(color_cycle[:num_virtual_experiments] * 10)
+  baseline_color_cycle = iter(color_cycle[num_virtual_experiments:] * 10)
   for data_file in data_files:
     epochs = []
     validation_accuracies = []
@@ -60,19 +78,17 @@ def main():
     virtual_linewidth = 2 if bold_baseline else 3
     virtual_marker = "" if bold_baseline else "x"
     if "baseline" in data_file:
-      ax.plot(x, y, label=label, linestyle=baseline_linestyle, linewidth=baseline_linewidth)
+      ax.plot(x, y, label=label, linestyle=baseline_linestyle, linewidth=baseline_linewidth,\
+        color=next(baseline_color_cycle))
     else:
       ax.plot(x, y, label=label, linestyle=virtual_linestyle, linewidth=virtual_linewidth,\
-        marker=virtual_marker, markeredgewidth=3)
+        marker=virtual_marker, markeredgewidth=2, color=next(virtual_color_cycle))
 
   # Legend
-  def sort_key(tup):
-    label = tup[0]
-    return int(label.split("bs_")[0]) * (1 if "baseline" in label else 100)
   def format_label(label):
     return label.replace("_baseline", " (baseline)")
   handles, labels = ax.get_legend_handles_labels()
-  labels, handles = zip(*sorted(zip(labels, handles), key=sort_key))
+  labels, handles = zip(*sorted(zip(labels, handles), key=lambda pair: sort_key(pair[0])))
   labels = [format_label(l) for l in labels]
   if put_legend_outside:
     box = ax.get_position()
