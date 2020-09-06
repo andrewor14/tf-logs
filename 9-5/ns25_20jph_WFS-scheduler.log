@@ -1,0 +1,695 @@
+[    0.0000] Running SchedulerMode.WFS scheduler on hosts ns-l10c1n1,ns-l10c1n3,ns-l10c1n4,ns-l10c1n5 with 1 GPU(s) per host
+[    0.0008] Listening for scheduler requests on port 18383
+[    0.0010] Started event loop...
+[    0.0013] Running with trace: scheduler_traces/ns25_20jph.json
+[    1.0033] Job 0 submitted
+[    2.0029] * Processing event ScheduleEvent: 1 job(s) in queue
+[    2.0030] ... wfs schedule: current_allocations {}
+[    2.0031] ... wfs schedule: potential_allocations {0: 2}
+[    2.0031] ... wfs schedule: fair_allocations {0: 2}
+[    2.0031] * Processing event RunJobEvent(job=Job(0, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 1), initial_allocation=2)
+--------------------------------------------------------------------------
+By default, for Open MPI 4.0 and later, infiniband ports on a device
+are not used by default.  The intent is to use UCX for these devices.
+You can override this policy by setting the btl_openib_allow_ib MCA parameter
+to true.
+
+  Local host:              ns-l10c1n1
+  Local adapter:           mlx4_0
+  Local port:              1
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ns-l10c1n1
+  Local device: mlx4_0
+--------------------------------------------------------------------------
+[    5.6411] Job 0 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[    5.6487] Job 0 started with 2 GPUs (PID = 26533)
+[   46.1046] Job 1 submitted
+[   46.6902] * Processing event ScheduleEvent: 1 job(s) in queue
+[   46.6903] ... wfs schedule: current_allocations {0: 2}
+[   46.6903] ... wfs schedule: potential_allocations {0: 2, 1: 2}
+[   46.6903] ... wfs schedule: fair_allocations {0: 2, 1: 2}
+[   46.6904] * Processing event RunJobEvent(job=Job(1, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=200, num_epochs=None), 1), initial_allocation=2)
+[   46.6904] Job 1 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [1], 'ns-l10c1n5': [1]}
+[   46.6977] Job 1 started with 2 GPUs (PID = 26994)
+[   63.4299] Job 0 successfully resized to 2 GPUs
+[   94.1060] Job 1 successfully resized to 2 GPUs
+[  373.6346] Job 2 submitted
+[  374.1475] * Processing event ScheduleEvent: 1 job(s) in queue
+[  374.1478] ... wfs schedule: current_allocations {0: 2, 1: 2}
+[  374.1479] ... wfs schedule: potential_allocations {2: 2, 0: 1, 1: 1}
+[  374.1479] ... wfs schedule: fair_allocations {2: 2, 0: 1, 1: 1}
+[  374.1480] * Processing event ResizeEvent(job_id=0, target_num_workers=1)
+[  374.1506] * Processing event ResizeEvent(job_id=1, target_num_workers=1)
+[  374.1512] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=MRPC, gpu_demand=2, batch_size=4, num_steps=50, num_epochs=None), 10), initial_allocation=2)
+[  374.5618] Job 0 successfully resized to 1 GPUs
+[  374.5619] Job 0 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [0], 'ns-l10c1n3': [None], 'ns-l10c1n4': [1], 'ns-l10c1n5': [1]}
+[  375.1521] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=MRPC, gpu_demand=2, batch_size=4, num_steps=50, num_epochs=None), 10), initial_allocation=2)
+[  375.2219] Job 1 successfully resized to 1 GPUs
+[  375.2220] Job 1 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [0], 'ns-l10c1n3': [None], 'ns-l10c1n4': [1], 'ns-l10c1n5': [None]}
+[  376.1525] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=MRPC, gpu_demand=2, batch_size=4, num_steps=50, num_epochs=None), 10), initial_allocation=2)
+[  376.1526] Job 2 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [0], 'ns-l10c1n3': [2], 'ns-l10c1n4': [1], 'ns-l10c1n5': [2]}
+[  376.1640] Job 2 started with 2 GPUs (PID = 27431)
+[  420.6837] Job 2 successfully resized to 2 GPUs
+[  519.6419] Job 2 finished, took 143.5 seconds
+[  519.6420] Job 2 released its GPUs, new GPU assignment = {'ns-l10c1n1': [0], 'ns-l10c1n3': [None], 'ns-l10c1n4': [1], 'ns-l10c1n5': [None]}
+[  520.4335] * Processing event ScheduleEvent: 0 job(s) in queue
+[  520.4337] ... wfs schedule: current_allocations {0: 1, 1: 1}
+[  520.4337] ... wfs schedule: fair_allocations {0: 2, 1: 2}
+[  520.4337] * Processing event ResizeEvent(job_id=0, target_num_workers=2)
+[  520.4338] Job 0 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [1], 'ns-l10c1n5': [None]}
+[  520.4347] * Processing event ResizeEvent(job_id=1, target_num_workers=2)
+[  520.4348] Job 1 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [1], 'ns-l10c1n5': [1]}
+[  564.5854] Job 1 successfully resized to 2 GPUs
+[  572.9726] Job 3 submitted
+[  573.3141] Job 0 successfully resized to 2 GPUs
+[  573.5293] * Processing event ScheduleEvent: 1 job(s) in queue
+[  573.5294] ... wfs schedule: current_allocations {0: 2, 1: 2}
+[  573.5295] ... wfs schedule: potential_allocations {3: 1, 0: 2, 1: 1}
+[  573.5295] ... wfs schedule: fair_allocations {3: 1, 0: 2, 1: 1}
+[  573.5296] * Processing event ResizeEvent(job_id=1, target_num_workers=1)
+[  573.5312] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  574.5345] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  575.5357] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  576.5369] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  577.5379] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  578.5390] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  579.2480] Job 1 successfully resized to 1 GPUs
+[  579.2481] Job 1 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [1], 'ns-l10c1n5': [None]}
+[  579.5400] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  579.5401] Job 3 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [1], 'ns-l10c1n5': [3]}
+[  579.5487] Job 3 started with 1 GPUs (PID = 27635)
+[  674.5482] Job 3 finished, took 95.0 seconds
+[  674.5483] Job 3 released its GPUs, new GPU assignment = {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [1], 'ns-l10c1n5': [None]}
+[  674.6957] * Processing event ScheduleEvent: 0 job(s) in queue
+[  674.6959] ... wfs schedule: current_allocations {0: 2, 1: 1}
+[  674.6959] ... wfs schedule: fair_allocations {0: 2, 1: 2}
+[  674.6960] * Processing event ResizeEvent(job_id=1, target_num_workers=2)
+[  674.6960] Job 1 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [1], 'ns-l10c1n5': [1]}
+[  720.2713] Job 1 successfully resized to 2 GPUs
+[  885.4382] Job 1 finished, took 838.7 seconds
+[  885.4383] Job 1 released its GPUs, new GPU assignment = {'ns-l10c1n1': [0], 'ns-l10c1n3': [0], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[  886.0063] * Processing event ScheduleEvent: 0 job(s) in queue
+[  886.0065] ... wfs schedule: current_allocations {0: 2}
+[  886.0065] ... wfs schedule: fair_allocations {0: 2}
+[  888.1396] Job 0 finished, took 882.5 seconds
+[  888.1397] Job 0 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [None], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[  889.0097] * Processing event ScheduleEvent: 0 job(s) in queue
+[  889.0097] ... wfs schedule: current_allocations {}
+[  889.0097] ... wfs schedule: fair_allocations {}
+[  976.5409] Job 4 submitted
+[  977.1011] * Processing event ScheduleEvent: 1 job(s) in queue
+[  977.1012] ... wfs schedule: current_allocations {}
+[  977.1012] ... wfs schedule: potential_allocations {4: 4}
+[  977.1012] ... wfs schedule: fair_allocations {4: 4}
+[  977.1013] * Processing event RunJobEvent(job=Job(4, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 1), initial_allocation=4)
+[  977.1013] Job 4 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [4], 'ns-l10c1n5': [4]}
+[  977.1096] Job 4 started with 4 GPUs (PID = 28154)
+[  997.5623] Job 5 submitted
+[  998.1312] * Processing event ScheduleEvent: 1 job(s) in queue
+[  998.1314] ... wfs schedule: current_allocations {4: 4}
+[  998.1314] ... wfs schedule: potential_allocations {4: 2, 5: 2}
+[  998.1314] ... wfs schedule: fair_allocations {4: 2, 5: 2}
+[  998.1315] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[  998.1321] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[  998.1440] ... set_num_workers exception from job 4: <Fault 1: "<class 'ValueError'>:Existing spawn request in progress, not accepting further requests">
+[  999.1332] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[  999.1333] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[  999.1357] ... set_num_workers exception from job 4: (same as above)
+[ 1000.1348] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1000.1348] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1000.1371] ... set_num_workers exception from job 4: (same as above)
+[ 1001.1363] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1001.1364] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1001.1401] ... set_num_workers exception from job 4: (same as above)
+[ 1002.1378] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1002.1379] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1002.1405] ... set_num_workers exception from job 4: (same as above)
+[ 1003.1394] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1003.1395] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1003.1416] ... set_num_workers exception from job 4: (same as above)
+[ 1004.1409] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1004.1410] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1004.1580] ... set_num_workers exception from job 4: (same as above)
+[ 1005.1425] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1005.1425] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1005.1590] ... set_num_workers exception from job 4: (same as above)
+[ 1006.1439] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1006.1440] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1006.1609] ... set_num_workers exception from job 4: (same as above)
+[ 1007.1454] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1007.1455] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1007.1536] ... set_num_workers exception from job 4: (same as above)
+[ 1008.1469] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1008.1470] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1008.1635] ... set_num_workers exception from job 4: (same as above)
+[ 1009.1483] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1009.1484] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1009.1652] ... set_num_workers exception from job 4: (same as above)
+[ 1010.1498] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1010.1499] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1010.1667] ... set_num_workers exception from job 4: (same as above)
+[ 1011.1513] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1011.1514] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1011.1553] ... set_num_workers exception from job 4: (same as above)
+[ 1012.1527] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1012.1528] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1012.1563] ... set_num_workers exception from job 4: (same as above)
+[ 1013.1542] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1013.1543] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1013.1564] ... set_num_workers exception from job 4: (same as above)
+[ 1014.1558] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1014.1558] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1014.1576] ... set_num_workers exception from job 4: (same as above)
+[ 1015.1574] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1015.1574] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1015.1602] ... set_num_workers exception from job 4: (same as above)
+[ 1016.1588] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1016.1589] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1016.1607] ... set_num_workers exception from job 4: (same as above)
+[ 1017.1602] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1017.1602] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1017.1621] ... set_num_workers exception from job 4: (same as above)
+[ 1018.1616] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1018.1616] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1018.1634] ... set_num_workers exception from job 4: (same as above)
+[ 1019.1629] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1019.1629] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1019.1658] ... set_num_workers exception from job 4: (same as above)
+[ 1020.1643] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1020.1643] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1020.1655] ... set_num_workers exception from job 4: (same as above)
+[ 1021.1656] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1021.1657] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1021.1667] ... set_num_workers exception from job 4: (same as above)
+[ 1022.1670] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1022.1670] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1022.1684] ... set_num_workers exception from job 4: (same as above)
+[ 1023.1683] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1023.1684] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1023.1695] ... set_num_workers exception from job 4: (same as above)
+[ 1024.1697] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1024.1697] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1024.1708] ... set_num_workers exception from job 4: (same as above)
+[ 1025.1711] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1025.1711] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1025.1722] ... set_num_workers exception from job 4: (same as above)
+[ 1026.1725] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1026.1725] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1026.1736] ... set_num_workers exception from job 4: (same as above)
+[ 1027.1738] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1027.1738] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1027.1749] ... set_num_workers exception from job 4: (same as above)
+[ 1028.1752] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1028.1752] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1028.1763] ... set_num_workers exception from job 4: (same as above)
+[ 1029.1775] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1029.1776] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1029.2000] ... set_num_workers exception from job 4: (same as above)
+[ 1030.1935] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1030.1936] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1030.1957] ... set_num_workers exception from job 4: (same as above)
+[ 1031.1945] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1031.1946] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1031.1976] ... set_num_workers exception from job 4: (same as above)
+[ 1032.1965] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1032.1966] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1032.1984] ... set_num_workers exception from job 4: (same as above)
+[ 1033.2017] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1033.2018] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1033.2037] ... set_num_workers exception from job 4: (same as above)
+[ 1034.2035] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1034.2036] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1034.2058] ... set_num_workers exception from job 4: (same as above)
+[ 1035.2059] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1035.2060] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1035.2083] ... set_num_workers exception from job 4: (same as above)
+[ 1036.2077] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1036.2078] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1036.2098] ... set_num_workers exception from job 4: (same as above)
+[ 1037.2085] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1037.2086] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1037.2105] ... set_num_workers exception from job 4: (same as above)
+[ 1038.2096] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1038.2097] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1038.2117] ... set_num_workers exception from job 4: (same as above)
+[ 1039.2114] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1039.2115] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1039.2136] ... set_num_workers exception from job 4: (same as above)
+[ 1040.2125] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1040.2126] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1040.2140] ... set_num_workers exception from job 4: <Fault 1: "<class 'ValueError'>:Existing resizing request in progress, not accepting further requests">
+[ 1041.2141] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1041.2142] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1041.2159] ... set_num_workers exception from job 4: (same as above)
+[ 1042.2157] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1042.2158] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1042.2290] ... set_num_workers exception from job 4: (same as above)
+[ 1042.8244] Job 4 successfully resized to 4 GPUs
+[ 1043.2171] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1043.2172] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1044.2185] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1045.2196] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1046.2206] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1047.2217] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1048.2227] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1049.2238] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1050.2249] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1051.2260] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1052.2272] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1053.2283] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1054.2295] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1055.2307] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1056.2318] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1057.2330] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1058.2341] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1059.2354] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1060.2365] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1061.2423] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1062.2435] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1063.2447] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1063.9348] Job 4 successfully resized to 2 GPUs
+[ 1063.9349] Job 4 released 2 GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 1064.2459] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=2)
+[ 1064.2460] Job 5 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [5], 'ns-l10c1n5': [5]}
+[ 1064.2543] Job 5 started with 2 GPUs (PID = 28645)
+[ 1124.2550] Job 5 successfully resized to 2 GPUs
+[ 1186.9155] Job 6 submitted
+[ 1187.4745] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 1187.4747] ... wfs schedule: current_allocations {4: 2, 5: 2}
+[ 1187.4747] ... wfs schedule: potential_allocations {6: 1, 4: 2, 5: 1}
+[ 1187.4748] ... wfs schedule: fair_allocations {6: 1, 4: 2, 5: 1}
+[ 1187.4748] * Processing event ResizeEvent(job_id=5, target_num_workers=1)
+[ 1187.4755] * Processing event RunJobEvent(job=Job(6, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 1188.4767] * Processing event RunJobEvent(job=Job(6, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 1189.4780] * Processing event RunJobEvent(job=Job(6, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 1190.4793] * Processing event RunJobEvent(job=Job(6, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 1190.8902] Job 5 successfully resized to 1 GPUs
+[ 1190.8902] Job 5 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [5], 'ns-l10c1n5': [None]}
+[ 1191.4805] * Processing event RunJobEvent(job=Job(6, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 1191.4806] Job 6 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [5], 'ns-l10c1n5': [6]}
+[ 1191.5027] Job 6 started with 1 GPUs (PID = 28785)
+[ 1390.8993] Job 5 finished, took 326.7 seconds
+[ 1390.8994] Job 5 released its GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [None], 'ns-l10c1n5': [6]}
+[ 1390.9275] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 1390.9278] ... wfs schedule: current_allocations {4: 2, 6: 1}
+[ 1390.9278] ... wfs schedule: fair_allocations {6: 1, 4: 2}
+[ 1411.3054] Job 6 finished, took 219.8 seconds
+[ 1411.3055] Job 6 released its GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 1411.9562] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 1411.9563] ... wfs schedule: current_allocations {4: 2}
+[ 1411.9563] ... wfs schedule: fair_allocations {4: 4}
+[ 1411.9564] * Processing event ResizeEvent(job_id=4, target_num_workers=4)
+[ 1411.9565] Job 4 was assigned 2 new GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [4], 'ns-l10c1n5': [4]}
+[ 1475.4661] Job 4 successfully resized to 4 GPUs
+[ 1682.8566] Job 7 submitted
+[ 1683.4745] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 1683.4746] ... wfs schedule: current_allocations {4: 4}
+[ 1683.4747] ... wfs schedule: potential_allocations {7: 2, 4: 2}
+[ 1683.4747] ... wfs schedule: fair_allocations {7: 2, 4: 2}
+[ 1683.4747] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 1683.4843] * Processing event RunJobEvent(job=Job(7, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 1684.4855] * Processing event RunJobEvent(job=Job(7, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 1685.4866] * Processing event RunJobEvent(job=Job(7, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 1685.5857] Job 4 successfully resized to 2 GPUs
+[ 1685.5858] Job 4 released 2 GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 1686.4915] * Processing event RunJobEvent(job=Job(7, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 1686.4916] Job 7 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [7], 'ns-l10c1n5': [7]}
+[ 1686.5012] Job 7 started with 2 GPUs (PID = 29417)
+[ 1745.1856] Job 7 successfully resized to 2 GPUs
+[ 1798.1040] Job 8 submitted
+[ 1798.7344] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 1798.7347] ... wfs schedule: current_allocations {4: 2, 7: 2}
+[ 1798.7347] ... wfs schedule: potential_allocations {8: 1, 7: 2, 4: 1}
+[ 1798.7348] ... wfs schedule: fair_allocations {8: 1, 7: 2, 4: 1}
+[ 1798.7348] * Processing event ResizeEvent(job_id=4, target_num_workers=1)
+[ 1798.7356] * Processing event RunJobEvent(job=Job(8, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 1799.7368] * Processing event RunJobEvent(job=Job(8, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 1800.3150] Job 4 successfully resized to 1 GPUs
+[ 1800.3150] Job 4 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [None], 'ns-l10c1n4': [7], 'ns-l10c1n5': [7]}
+[ 1800.7380] * Processing event RunJobEvent(job=Job(8, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 1800.7381] Job 8 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [8], 'ns-l10c1n4': [7], 'ns-l10c1n5': [7]}
+[ 1800.7478] Job 8 started with 1 GPUs (PID = 29547)
+[ 1864.2427] Job 9 submitted
+[ 1864.8815] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 1864.8817] ... wfs schedule: current_allocations {4: 1, 8: 1, 7: 2}
+[ 1864.8818] ... wfs schedule: potential_allocations {8: 1, 4: 1, 7: 1, 9: 1}
+[ 1864.8818] ... wfs schedule: fair_allocations {8: 1, 4: 1, 7: 1, 9: 1}
+[ 1864.8818] * Processing event ResizeEvent(job_id=7, target_num_workers=1)
+[ 1864.8835] * Processing event RunJobEvent(job=Job(9, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=50, num_epochs=None), 5), initial_allocation=1)
+[ 1865.8845] * Processing event RunJobEvent(job=Job(9, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=50, num_epochs=None), 5), initial_allocation=1)
+[ 1866.7131] Job 7 successfully resized to 1 GPUs
+[ 1866.7132] Job 7 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [8], 'ns-l10c1n4': [7], 'ns-l10c1n5': [None]}
+[ 1866.8865] * Processing event RunJobEvent(job=Job(9, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=50, num_epochs=None), 5), initial_allocation=1)
+[ 1866.8866] Job 9 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [8], 'ns-l10c1n4': [7], 'ns-l10c1n5': [9]}
+[ 1866.9699] Job 9 started with 1 GPUs (PID = 29705)
+[ 2065.7236] Job 10 submitted
+[ 2066.4006] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 2066.4009] ... wfs schedule: current_allocations {4: 1, 8: 1, 7: 1, 9: 1}
+[ 2066.4009] ... wfs schedule: fair_allocations {8: 1, 4: 1, 7: 1, 9: 1}
+[ 2066.7972] Job 9 finished, took 199.9 seconds
+[ 2066.7973] Job 9 released its GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [8], 'ns-l10c1n4': [7], 'ns-l10c1n5': [None]}
+[ 2067.4085] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 2067.4087] ... wfs schedule: current_allocations {4: 1, 8: 1, 7: 1}
+[ 2067.4087] ... wfs schedule: potential_allocations {8: 1, 4: 1, 7: 1, 10: 1}
+[ 2067.4087] ... wfs schedule: fair_allocations {8: 1, 4: 1, 7: 1, 10: 1}
+[ 2067.4088] * Processing event RunJobEvent(job=Job(10, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=200, num_epochs=None), 10), initial_allocation=1)
+[ 2067.4090] Job 10 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [8], 'ns-l10c1n4': [7], 'ns-l10c1n5': [10]}
+[ 2067.4227] Job 10 started with 1 GPUs (PID = 29954)
+[ 2193.1492] Job 8 finished, took 392.4 seconds
+[ 2193.1493] Job 8 released its GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [None], 'ns-l10c1n4': [7], 'ns-l10c1n5': [10]}
+[ 2193.7075] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 2193.7076] ... wfs schedule: current_allocations {4: 1, 7: 1, 10: 1}
+[ 2193.7077] ... wfs schedule: fair_allocations {4: 1, 7: 1, 10: 2}
+[ 2193.7077] * Processing event ResizeEvent(job_id=10, target_num_workers=2)
+[ 2193.7078] Job 10 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [10], 'ns-l10c1n4': [7], 'ns-l10c1n5': [10]}
+[ 2234.7436] Job 10 successfully resized to 2 GPUs
+[ 2485.6736] Job 11 submitted
+[ 2486.3592] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 2486.3594] ... wfs schedule: current_allocations {4: 1, 10: 2, 7: 1}
+[ 2486.3595] ... wfs schedule: potential_allocations {4: 1, 7: 1, 10: 1, 11: 1}
+[ 2486.3595] ... wfs schedule: fair_allocations {4: 1, 7: 1, 10: 2}
+[ 2591.9846] Job 10 finished, took 524.6 seconds
+[ 2591.9847] Job 10 released its GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [None], 'ns-l10c1n4': [7], 'ns-l10c1n5': [None]}
+[ 2592.6145] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 2592.6147] ... wfs schedule: current_allocations {4: 1, 7: 1}
+[ 2592.6148] ... wfs schedule: potential_allocations {7: 2, 4: 1, 11: 1}
+[ 2592.6148] ... wfs schedule: fair_allocations {7: 2, 4: 1, 11: 1}
+[ 2592.6149] * Processing event ResizeEvent(job_id=7, target_num_workers=2)
+[ 2592.6149] Job 7 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [7], 'ns-l10c1n4': [7], 'ns-l10c1n5': [None]}
+[ 2592.6158] * Processing event RunJobEvent(job=Job(11, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 1), initial_allocation=1)
+[ 2592.6158] Job 11 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [7], 'ns-l10c1n4': [7], 'ns-l10c1n5': [11]}
+[ 2592.6257] Job 11 started with 1 GPUs (PID = 30556)
+[ 2644.9461] Job 7 finished, took 958.5 seconds
+[ 2644.9462] Job 7 released its GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [None], 'ns-l10c1n4': [None], 'ns-l10c1n5': [11]}
+[ 2645.7464] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 2645.7466] ... wfs schedule: current_allocations {4: 1, 11: 1}
+[ 2645.7466] ... wfs schedule: fair_allocations {4: 2, 11: 2}
+[ 2645.7467] * Processing event ResizeEvent(job_id=4, target_num_workers=2)
+[ 2645.7467] Job 4 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [None], 'ns-l10c1n5': [11]}
+[ 2645.7475] * Processing event ResizeEvent(job_id=11, target_num_workers=2)
+[ 2645.7475] Job 11 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [11], 'ns-l10c1n5': [11]}
+[ 2701.4090] Job 11 successfully resized to 2 GPUs
+[ 2708.7937] Job 4 successfully resized to 2 GPUs
+[ 2859.3992] Job 12 submitted
+[ 2860.2055] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 2860.2056] ... wfs schedule: current_allocations {4: 2, 11: 2}
+[ 2860.2057] ... wfs schedule: potential_allocations {12: 2, 4: 1, 11: 1}
+[ 2860.2057] ... wfs schedule: fair_allocations {12: 2, 4: 1, 11: 1}
+[ 2860.2057] * Processing event ResizeEvent(job_id=4, target_num_workers=1)
+[ 2860.2136] * Processing event ResizeEvent(job_id=11, target_num_workers=1)
+[ 2860.2233] * Processing event RunJobEvent(job=Job(12, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 10), initial_allocation=2)
+[ 2861.2244] * Processing event RunJobEvent(job=Job(12, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 10), initial_allocation=2)
+[ 2861.2732] Job 11 successfully resized to 1 GPUs
+[ 2861.2732] Job 11 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [4], 'ns-l10c1n4': [None], 'ns-l10c1n5': [11]}
+[ 2862.2256] * Processing event RunJobEvent(job=Job(12, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 10), initial_allocation=2)
+[ 2862.6692] Job 4 successfully resized to 1 GPUs
+[ 2862.6693] Job 4 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [4], 'ns-l10c1n3': [None], 'ns-l10c1n4': [None], 'ns-l10c1n5': [11]}
+[ 2863.2268] * Processing event RunJobEvent(job=Job(12, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 10), initial_allocation=2)
+[ 2863.2269] Job 12 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [4], 'ns-l10c1n3': [12], 'ns-l10c1n4': [12], 'ns-l10c1n5': [11]}
+[ 2863.2397] Job 12 started with 2 GPUs (PID = 30937)
+[ 2922.6338] Job 12 successfully resized to 2 GPUs
+[ 3123.9876] Job 13 submitted
+[ 3124.7906] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 3124.7907] ... wfs schedule: current_allocations {4: 1, 12: 2, 11: 1}
+[ 3124.7908] ... wfs schedule: potential_allocations {13: 1, 4: 1, 11: 1, 12: 1}
+[ 3124.7908] ... wfs schedule: fair_allocations {12: 2, 4: 1, 11: 1}
+[ 3287.5753] Job 4 finished, took 2310.5 seconds
+[ 3287.5754] Job 4 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [12], 'ns-l10c1n4': [12], 'ns-l10c1n5': [11]}
+[ 3288.1729] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 3288.1731] ... wfs schedule: current_allocations {12: 2, 11: 1}
+[ 3288.1731] ... wfs schedule: potential_allocations {12: 2, 13: 1, 11: 1}
+[ 3288.1731] ... wfs schedule: fair_allocations {12: 2, 13: 1, 11: 1}
+[ 3288.1732] * Processing event RunJobEvent(job=Job(13, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=300, num_epochs=None), 1), initial_allocation=1)
+[ 3288.1733] Job 13 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [13], 'ns-l10c1n3': [12], 'ns-l10c1n4': [12], 'ns-l10c1n5': [11]}
+[ 3288.1820] Job 13 started with 1 GPUs (PID = 31436)
+[ 3637.6250] Job 13 finished, took 349.5 seconds
+[ 3637.6251] Job 13 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [12], 'ns-l10c1n4': [12], 'ns-l10c1n5': [11]}
+[ 3637.7400] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 3637.7402] ... wfs schedule: current_allocations {12: 2, 11: 1}
+[ 3637.7402] ... wfs schedule: fair_allocations {12: 2, 11: 2}
+[ 3637.7403] * Processing event ResizeEvent(job_id=11, target_num_workers=2)
+[ 3637.7403] Job 11 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [11], 'ns-l10c1n3': [12], 'ns-l10c1n4': [12], 'ns-l10c1n5': [11]}
+[ 3687.6612] Job 11 finished, took 1095.0 seconds
+[ 3687.6613] Job 11 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [12], 'ns-l10c1n4': [12], 'ns-l10c1n5': [None]}
+[ 3687.7926] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 3687.7927] ... wfs schedule: current_allocations {12: 2}
+[ 3687.7927] ... wfs schedule: fair_allocations {12: 2}
+[ 3705.1762] Job 12 finished, took 841.9 seconds
+[ 3705.1763] Job 12 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [None], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 3705.8107] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 3705.8107] ... wfs schedule: current_allocations {}
+[ 3705.8108] ... wfs schedule: fair_allocations {}
+[ 3735.9779] Job 14 submitted
+[ 3736.8418] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 3736.8419] ... wfs schedule: current_allocations {}
+[ 3736.8419] ... wfs schedule: potential_allocations {14: 2}
+[ 3736.8419] ... wfs schedule: fair_allocations {14: 2}
+[ 3736.8420] * Processing event RunJobEvent(job=Job(14, BERTGlueWorkload(task=MRPC, gpu_demand=2, batch_size=4, num_steps=50, num_epochs=None), 5), initial_allocation=2)
+[ 3736.8420] Job 14 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [14], 'ns-l10c1n3': [14], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 3736.8505] Job 14 started with 2 GPUs (PID = 32634)
+[ 3761.0036] Job 15 submitted
+[ 3761.8763] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 3761.8765] ... wfs schedule: current_allocations {14: 2}
+[ 3761.8766] ... wfs schedule: potential_allocations {14: 2, 15: 1}
+[ 3761.8766] ... wfs schedule: fair_allocations {14: 2, 15: 1}
+[ 3761.8766] * Processing event RunJobEvent(job=Job(15, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 3761.8767] Job 15 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [14], 'ns-l10c1n3': [14], 'ns-l10c1n4': [15], 'ns-l10c1n5': [None]}
+[ 3761.8864] Job 15 started with 1 GPUs (PID = 527)
+[ 3781.0236] Job 16 submitted
+[ 3781.9156] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 3781.9157] ... wfs schedule: current_allocations {14: 2, 15: 1}
+[ 3781.9158] ... wfs schedule: potential_allocations {15: 1, 14: 2, 16: 1}
+[ 3781.9158] ... wfs schedule: fair_allocations {15: 1, 14: 2, 16: 1}
+[ 3781.9159] * Processing event RunJobEvent(job=Job(16, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 1), initial_allocation=1)
+[ 3781.9159] Job 16 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [14], 'ns-l10c1n3': [14], 'ns-l10c1n4': [15], 'ns-l10c1n5': [16]}
+[ 3781.9236] Job 16 started with 1 GPUs (PID = 589)
+[ 3782.0361] Job 14 successfully resized to 2 GPUs
+[ 3880.2175] Job 14 finished, took 143.4 seconds
+[ 3880.2176] Job 14 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [None], 'ns-l10c1n4': [15], 'ns-l10c1n5': [16]}
+[ 3881.0536] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 3881.0538] ... wfs schedule: current_allocations {15: 1, 16: 1}
+[ 3881.0538] ... wfs schedule: fair_allocations {15: 1, 16: 2}
+[ 3881.0538] * Processing event ResizeEvent(job_id=16, target_num_workers=2)
+[ 3881.0539] Job 16 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [16], 'ns-l10c1n3': [None], 'ns-l10c1n4': [15], 'ns-l10c1n5': [16]}
+[ 3890.1831] Job 17 submitted
+[ 3891.0647] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 3891.0649] ... wfs schedule: current_allocations {16: 2, 15: 1}
+[ 3891.0650] ... wfs schedule: potential_allocations {15: 1, 16: 2, 17: 1}
+[ 3891.0650] ... wfs schedule: fair_allocations {15: 1, 16: 2, 17: 1}
+[ 3891.0650] * Processing event RunJobEvent(job=Job(17, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 1), initial_allocation=1)
+[ 3891.0651] Job 17 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [16], 'ns-l10c1n3': [17], 'ns-l10c1n4': [15], 'ns-l10c1n5': [16]}
+[ 3891.0751] Job 17 started with 1 GPUs (PID = 1010)
+[ 3931.6387] Job 16 successfully resized to 2 GPUs
+[ 3980.8991] Job 15 finished, took 219.0 seconds
+[ 3980.8992] Job 15 released its GPUs, new GPU assignment = {'ns-l10c1n1': [16], 'ns-l10c1n3': [17], 'ns-l10c1n4': [None], 'ns-l10c1n5': [16]}
+[ 3981.1705] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 3981.1707] ... wfs schedule: current_allocations {16: 2, 17: 1}
+[ 3981.1707] ... wfs schedule: fair_allocations {16: 2, 17: 2}
+[ 3981.1707] * Processing event ResizeEvent(job_id=17, target_num_workers=2)
+[ 3981.1708] Job 17 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [16], 'ns-l10c1n3': [17], 'ns-l10c1n4': [17], 'ns-l10c1n5': [16]}
+[ 3996.2999] Job 18 submitted
+[ 3997.1895] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 3997.1896] ... wfs schedule: current_allocations {16: 2, 17: 2}
+[ 3997.1897] ... wfs schedule: potential_allocations {16: 1, 17: 1, 18: 2}
+[ 3997.1897] ... wfs schedule: fair_allocations {16: 1, 17: 1, 18: 2}
+[ 3997.1897] * Processing event ResizeEvent(job_id=16, target_num_workers=1)
+[ 3997.1902] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 3997.1913] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 3997.1954] ... set_num_workers exception from job 17: <Fault 1: "<class 'ValueError'>:Existing spawn request in progress, not accepting further requests">
+[ 3998.1925] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 3998.1926] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 3998.1949] ... set_num_workers exception from job 17: (same as above)
+[ 3999.1941] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 3999.1942] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 3999.1967] ... set_num_workers exception from job 17: (same as above)
+[ 3999.2727] Job 16 successfully resized to 1 GPUs
+[ 3999.2728] Job 16 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [None], 'ns-l10c1n3': [17], 'ns-l10c1n4': [17], 'ns-l10c1n5': [16]}
+[ 4000.1957] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4000.1958] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4000.1982] ... set_num_workers exception from job 17: (same as above)
+[ 4001.1974] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4001.1974] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4001.1997] ... set_num_workers exception from job 17: (same as above)
+[ 4002.1989] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4002.1989] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4002.2010] ... set_num_workers exception from job 17: (same as above)
+[ 4003.2004] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4003.2005] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4003.2030] ... set_num_workers exception from job 17: (same as above)
+[ 4004.2019] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4004.2019] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4004.2040] ... set_num_workers exception from job 17: (same as above)
+[ 4005.2034] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4005.2035] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4005.2071] ... set_num_workers exception from job 17: (same as above)
+[ 4006.2049] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4006.2049] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4006.2070] ... set_num_workers exception from job 17: (same as above)
+[ 4007.2063] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4007.2064] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4007.2087] ... set_num_workers exception from job 17: (same as above)
+[ 4008.2078] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4008.2078] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4008.2098] ... set_num_workers exception from job 17: (same as above)
+[ 4009.2092] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4009.2093] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4009.2112] ... set_num_workers exception from job 17: (same as above)
+[ 4010.2107] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4010.2108] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4010.2129] ... set_num_workers exception from job 17: (same as above)
+[ 4011.2122] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4011.2123] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4011.2143] ... set_num_workers exception from job 17: (same as above)
+[ 4012.2136] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4012.2137] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4012.2160] ... set_num_workers exception from job 17: (same as above)
+[ 4013.2152] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4013.2153] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4013.2182] ... set_num_workers exception from job 17: <Fault 1: "<class 'ValueError'>:Existing resizing request in progress, not accepting further requests">
+[ 4013.3465] Job 17 successfully resized to 2 GPUs
+[ 4014.2167] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4014.2168] * Processing event ResizeEvent(job_id=17, target_num_workers=1)
+[ 4015.2182] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4016.2192] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4017.2202] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4018.2213] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4019.2223] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4020.2234] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4021.2245] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4022.2255] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4023.2266] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4024.0418] Job 17 successfully resized to 1 GPUs
+[ 4024.0418] Job 17 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [None], 'ns-l10c1n3': [17], 'ns-l10c1n4': [None], 'ns-l10c1n5': [16]}
+[ 4024.2276] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 4024.2277] Job 18 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [17], 'ns-l10c1n4': [18], 'ns-l10c1n5': [16]}
+[ 4024.2360] Job 18 started with 2 GPUs (PID = 1333)
+[ 4084.4724] Job 18 successfully resized to 2 GPUs
+[ 4148.4836] Job 19 submitted
+[ 4149.4061] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 4149.4063] ... wfs schedule: current_allocations {18: 2, 17: 1, 16: 1}
+[ 4149.4063] ... wfs schedule: potential_allocations {16: 1, 17: 1, 18: 1, 19: 1}
+[ 4149.4063] ... wfs schedule: fair_allocations {16: 1, 17: 1, 18: 1, 19: 1}
+[ 4149.4064] * Processing event ResizeEvent(job_id=18, target_num_workers=1)
+[ 4149.4070] * Processing event RunJobEvent(job=Job(19, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4150.4086] * Processing event RunJobEvent(job=Job(19, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4151.4097] * Processing event RunJobEvent(job=Job(19, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4152.4109] * Processing event RunJobEvent(job=Job(19, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4152.8748] Job 18 successfully resized to 1 GPUs
+[ 4152.8749] Job 18 released 1 GPUs, new GPU assignment: {'ns-l10c1n1': [18], 'ns-l10c1n3': [17], 'ns-l10c1n4': [None], 'ns-l10c1n5': [16]}
+[ 4153.4125] * Processing event RunJobEvent(job=Job(19, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4153.4126] Job 19 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [17], 'ns-l10c1n4': [19], 'ns-l10c1n5': [16]}
+[ 4153.4417] Job 19 started with 1 GPUs (PID = 1860)
+[ 4289.2860] Job 17 finished, took 398.2 seconds
+[ 4289.2861] Job 17 released its GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [None], 'ns-l10c1n4': [19], 'ns-l10c1n5': [16]}
+[ 4289.6785] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 4289.6787] ... wfs schedule: current_allocations {18: 1, 19: 1, 16: 1}
+[ 4289.6787] ... wfs schedule: fair_allocations {16: 1, 18: 2, 19: 1}
+[ 4289.6787] * Processing event ResizeEvent(job_id=18, target_num_workers=2)
+[ 4289.6788] Job 18 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [19], 'ns-l10c1n5': [16]}
+[ 4342.3090] Job 18 successfully resized to 2 GPUs
+[ 4388.7270] Job 16 finished, took 606.8 seconds
+[ 4388.7271] Job 16 released its GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [19], 'ns-l10c1n5': [None]}
+[ 4388.8238] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 4388.8239] ... wfs schedule: current_allocations {18: 2, 19: 1}
+[ 4388.8240] ... wfs schedule: fair_allocations {19: 2, 18: 2}
+[ 4388.8240] * Processing event ResizeEvent(job_id=19, target_num_workers=2)
+[ 4388.8241] Job 19 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [19], 'ns-l10c1n5': [19]}
+[ 4420.7070] Job 19 successfully resized to 2 GPUs
+[ 4494.4702] Job 19 finished, took 341.1 seconds
+[ 4494.4703] Job 19 released its GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 4495.0031] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 4495.0032] ... wfs schedule: current_allocations {18: 2}
+[ 4495.0033] ... wfs schedule: fair_allocations {18: 4}
+[ 4495.0033] * Processing event ResizeEvent(job_id=18, target_num_workers=4)
+[ 4495.0034] Job 18 was assigned 2 new GPUs, new GPU assignment: {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [18], 'ns-l10c1n5': [18]}
+[ 4515.1415] Job 20 submitted
+[ 4516.0425] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 4516.0426] ... wfs schedule: current_allocations {18: 4}
+[ 4516.0427] ... wfs schedule: potential_allocations {20: 1, 18: 2}
+[ 4516.0427] ... wfs schedule: fair_allocations {18: 4}
+[ 4553.4251] Job 18 successfully resized to 4 GPUs
+[ 4695.4315] Job 21 submitted
+[ 4696.3346] * Processing event ScheduleEvent: 2 job(s) in queue
+[ 4696.3347] ... wfs schedule: current_allocations {18: 4}
+[ 4696.3348] ... wfs schedule: potential_allocations {21: 1, 18: 2}
+[ 4696.3348] ... wfs schedule: potential_allocations {21: 1, 20: 1, 18: 2}
+[ 4696.3349] ... wfs schedule: fair_allocations {21: 1, 20: 1, 18: 2}
+[ 4696.3349] * Processing event ResizeEvent(job_id=18, target_num_workers=2)
+[ 4696.3354] * Processing event RunJobEvent(job=Job(21, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4696.3355] * Processing event RunJobEvent(job=Job(20, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=500, num_epochs=None), 1), initial_allocation=1)
+[ 4697.3366] * Processing event RunJobEvent(job=Job(21, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4697.3367] * Processing event RunJobEvent(job=Job(20, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=500, num_epochs=None), 1), initial_allocation=1)
+[ 4697.5511] Job 18 successfully resized to 2 GPUs
+[ 4697.5511] Job 18 released 2 GPUs, new GPU assignment: {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 4698.3376] * Processing event RunJobEvent(job=Job(21, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 4698.3378] Job 21 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [21], 'ns-l10c1n5': [None]}
+[ 4698.3520] Job 21 started with 1 GPUs (PID = 2552)
+[ 4698.3536] * Processing event RunJobEvent(job=Job(20, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=500, num_epochs=None), 1), initial_allocation=1)
+[ 4698.3538] Job 20 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [21], 'ns-l10c1n5': [20]}
+[ 4698.3667] Job 20 started with 1 GPUs (PID = 2554)
+[ 4842.6376] Job 22 submitted
+[ 4843.6335] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 4843.6336] ... wfs schedule: current_allocations {18: 2, 21: 1, 20: 1}
+[ 4843.6337] ... wfs schedule: potential_allocations {21: 1, 20: 1, 22: 1, 18: 1}
+[ 4843.6337] ... wfs schedule: fair_allocations {21: 1, 20: 1, 18: 2}
+[ 4849.4464] Job 20 finished, took 151.1 seconds
+[ 4849.4465] Job 20 released its GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [21], 'ns-l10c1n5': [None]}
+[ 4849.6406] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 4849.6408] ... wfs schedule: current_allocations {18: 2, 21: 1}
+[ 4849.6408] ... wfs schedule: potential_allocations {21: 1, 22: 1, 18: 2}
+[ 4849.6408] ... wfs schedule: fair_allocations {21: 1, 22: 1, 18: 2}
+[ 4849.6409] * Processing event RunJobEvent(job=Job(22, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=50, num_epochs=None), 1), initial_allocation=1)
+[ 4849.6409] Job 22 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [21], 'ns-l10c1n5': [22]}
+[ 4849.6609] Job 22 started with 1 GPUs (PID = 2819)
+[ 4932.0490] Job 22 finished, took 82.4 seconds
+[ 4932.0491] Job 22 released its GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [21], 'ns-l10c1n5': [None]}
+[ 4932.8195] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 4932.8197] ... wfs schedule: current_allocations {18: 2, 21: 1}
+[ 4932.8197] ... wfs schedule: fair_allocations {21: 1, 18: 2}
+[ 5057.0055] Job 23 submitted
+[ 5057.0255] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 5057.0258] ... wfs schedule: current_allocations {18: 2, 21: 1}
+[ 5057.0258] ... wfs schedule: potential_allocations {21: 1, 18: 2, 23: 1}
+[ 5057.0259] ... wfs schedule: fair_allocations {21: 1, 18: 2, 23: 1}
+[ 5057.0259] * Processing event RunJobEvent(job=Job(23, ResNetWorkload(dataset=cifar10, gpu_demand=4, batch_size=128, num_steps=500, num_epochs=None), 5), initial_allocation=1)
+[ 5057.0260] Job 23 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [21], 'ns-l10c1n5': [23]}
+[ 5057.0387] Job 23 started with 1 GPUs (PID = 3022)
+[ 5089.7908] Job 21 finished, took 391.5 seconds
+[ 5089.7909] Job 21 released its GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [None], 'ns-l10c1n5': [23]}
+[ 5090.0875] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 5090.0876] ... wfs schedule: current_allocations {18: 2, 23: 1}
+[ 5090.0877] ... wfs schedule: fair_allocations {18: 2, 23: 2}
+[ 5090.0877] * Processing event ResizeEvent(job_id=23, target_num_workers=2)
+[ 5090.0878] Job 23 was assigned 1 new GPUs, new GPU assignment: {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [23], 'ns-l10c1n5': [23]}
+[ 5122.4930] Job 23 successfully resized to 2 GPUs
+[ 5145.1408] Job 24 submitted
+[ 5145.1732] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 5145.1734] ... wfs schedule: current_allocations {18: 2, 23: 2}
+[ 5145.1734] ... wfs schedule: potential_allocations {18: 2, 23: 1, 24: 1}
+[ 5145.1734] ... wfs schedule: fair_allocations {18: 2, 23: 2}
+[ 5297.3635] Job 23 finished, took 240.3 seconds
+[ 5297.3635] Job 23 released its GPUs, new GPU assignment = {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 5297.4156] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 5297.4157] ... wfs schedule: current_allocations {18: 2}
+[ 5297.4157] ... wfs schedule: potential_allocations {18: 2, 24: 2}
+[ 5297.4158] ... wfs schedule: fair_allocations {18: 4}
+[ 5297.4158] * Processing event ResizeEvent(job_id=18, target_num_workers=4)
+[ 5297.4158] Job 18 was assigned 2 new GPUs, new GPU assignment: {'ns-l10c1n1': [18], 'ns-l10c1n3': [18], 'ns-l10c1n4': [18], 'ns-l10c1n5': [18]}
+[ 5340.3686] Job 18 finished, took 1316.1 seconds
+[ 5340.3686] Job 18 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [None], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 5340.4792] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 5340.4792] ... wfs schedule: current_allocations {}
+[ 5340.4793] ... wfs schedule: potential_allocations {24: 2}
+[ 5340.4793] ... wfs schedule: fair_allocations {24: 2}
+[ 5340.4793] * Processing event RunJobEvent(job=Job(24, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=500, num_epochs=None), 1), initial_allocation=2)
+[ 5340.4794] Job 24 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n1': [24], 'ns-l10c1n3': [24], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 5340.4871] Job 24 started with 2 GPUs (PID = 3411)
+[ 5377.5435] Job 24 successfully resized to 2 GPUs
+[ 5609.6533] Job 24 finished, took 269.2 seconds
+[ 5609.6534] Job 24 released its GPUs, new GPU assignment = {'ns-l10c1n1': [None], 'ns-l10c1n3': [None], 'ns-l10c1n4': [None], 'ns-l10c1n5': [None]}
+[ 5609.6534] Reached maximum number of 25 jobs
+[ 5609.7942] Exiting event loop.

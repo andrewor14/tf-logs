@@ -1,0 +1,239 @@
+[    0.0000] Running SchedulerMode.PRIORITY scheduler on hosts ns-l10c1n6,ns-l10c1n7,ns-l10c1n9,ns-l10c1n10 with 1 GPU(s) per host
+[    0.0009] Listening for scheduler requests on port 18383
+[    0.0012] Started event loop...
+[    0.0016] Running with trace: scheduler_traces/ns25_20jph.json
+[    1.0037] Job 0 submitted
+[    2.0030] * Processing event ScheduleEvent: 1 job(s) in queue
+--------------------------------------------------------------------------
+By default, for Open MPI 4.0 and later, infiniband ports on a device
+are not used by default.  The intent is to use UCX for these devices.
+You can override this policy by setting the btl_openib_allow_ib MCA parameter
+to true.
+
+  Local host:              ns-l10c1n6
+  Local adapter:           mlx4_0
+  Local port:              1
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ns-l10c1n6
+  Local device: mlx4_0
+--------------------------------------------------------------------------
+[    5.7609] * Processing event RunJobEvent(job=Job(0, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 1), initial_allocation=2)
+[    5.7619] Job 0 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [0], 'ns-l10c1n7': [0], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[    5.7683] Job 0 started with 2 GPUs (PID = 26900)
+[   46.0531] Job 1 submitted
+[   46.8101] * Processing event ScheduleEvent: 1 job(s) in queue
+[   62.2600] Job 0 successfully resized to 2 GPUs
+[  373.5587] Job 2 submitted
+[  374.3308] * Processing event ScheduleEvent: 2 job(s) in queue
+[  374.3310] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=MRPC, gpu_demand=2, batch_size=4, num_steps=50, num_epochs=None), 10), initial_allocation=2)
+[  374.3311] Job 2 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [0], 'ns-l10c1n7': [0], 'ns-l10c1n9': [2], 'ns-l10c1n10': [2]}
+[  374.3398] Job 2 started with 2 GPUs (PID = 27607)
+[  418.5274] Job 2 successfully resized to 2 GPUs
+[  518.8553] Job 2 finished, took 144.5 seconds
+[  518.8554] Job 2 released its GPUs, new GPU assignment = {'ns-l10c1n6': [0], 'ns-l10c1n7': [0], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[  519.5641] * Processing event ScheduleEvent: 1 job(s) in queue
+[  572.8767] Job 3 submitted
+[  573.6307] * Processing event ScheduleEvent: 2 job(s) in queue
+[  573.6308] * Processing event RunJobEvent(job=Job(3, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=50, num_epochs=None), 10), initial_allocation=1)
+[  573.6309] Job 3 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [0], 'ns-l10c1n7': [0], 'ns-l10c1n9': [3], 'ns-l10c1n10': [None]}
+[  573.6395] Job 3 started with 1 GPUs (PID = 27806)
+[  671.0687] Job 3 finished, took 97.4 seconds
+[  671.0688] Job 3 released its GPUs, new GPU assignment = {'ns-l10c1n6': [0], 'ns-l10c1n7': [0], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[  671.8078] * Processing event ScheduleEvent: 1 job(s) in queue
+[  843.0134] Job 0 finished, took 837.3 seconds
+[  843.0135] Job 0 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[  843.0477] * Processing event ScheduleEvent: 1 job(s) in queue
+[  843.0479] * Processing event RunJobEvent(job=Job(1, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=200, num_epochs=None), 1), initial_allocation=4)
+[  843.0479] Job 1 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [1], 'ns-l10c1n7': [1], 'ns-l10c1n9': [1], 'ns-l10c1n10': [1]}
+[  843.0558] Job 1 started with 4 GPUs (PID = 28102)
+[  896.4008] Job 1 successfully resized to 4 GPUs
+[  976.5187] Job 4 submitted
+[  977.2707] * Processing event ScheduleEvent: 1 job(s) in queue
+[  997.5665] Job 5 submitted
+[  998.3337] * Processing event ScheduleEvent: 2 job(s) in queue
+[ 1186.9039] Job 6 submitted
+[ 1187.7117] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 1509.0579] Job 1 finished, took 666.0 seconds
+[ 1509.0580] Job 1 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 1509.2429] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 1509.2430] * Processing event RunJobEvent(job=Job(6, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 1509.2431] Job 6 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [6], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 1509.2504] Job 6 started with 1 GPUs (PID = 29008)
+[ 1682.7478] Job 7 submitted
+[ 1683.4907] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 1683.4909] * Processing event RunJobEvent(job=Job(7, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 5), initial_allocation=2)
+[ 1683.4909] Job 7 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [6], 'ns-l10c1n7': [7], 'ns-l10c1n9': [7], 'ns-l10c1n10': [None]}
+[ 1683.5061] Job 7 started with 2 GPUs (PID = 29486)
+[ 1727.7789] Job 6 finished, took 218.5 seconds
+[ 1727.7790] Job 6 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [7], 'ns-l10c1n9': [7], 'ns-l10c1n10': [None]}
+[ 1728.5668] * Processing event ScheduleEvent: 2 job(s) in queue
+[ 1742.0016] Job 7 successfully resized to 2 GPUs
+[ 1798.8963] Job 8 submitted
+[ 1799.6377] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 1799.6379] * Processing event RunJobEvent(job=Job(8, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 1799.6379] Job 8 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [8], 'ns-l10c1n7': [7], 'ns-l10c1n9': [7], 'ns-l10c1n10': [None]}
+[ 1799.6458] Job 8 started with 1 GPUs (PID = 29613)
+[ 1864.9645] Job 9 submitted
+[ 1865.7127] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 2065.1718] Job 10 submitted
+[ 2065.9197] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 2191.2201] Job 8 finished, took 391.6 seconds
+[ 2191.2202] Job 8 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [7], 'ns-l10c1n9': [7], 'ns-l10c1n10': [None]}
+[ 2192.0537] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 2485.6095] Job 11 submitted
+[ 2486.3550] * Processing event ScheduleEvent: 5 job(s) in queue
+[ 2526.0532] Job 7 finished, took 842.6 seconds
+[ 2526.0533] Job 7 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 2526.3954] * Processing event ScheduleEvent: 5 job(s) in queue
+[ 2526.3956] * Processing event RunJobEvent(job=Job(10, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=200, num_epochs=None), 10), initial_allocation=4)
+[ 2526.3957] Job 10 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [10], 'ns-l10c1n7': [10], 'ns-l10c1n9': [10], 'ns-l10c1n10': [10]}
+[ 2526.4026] Job 10 started with 4 GPUs (PID = 30549)
+[ 2579.0413] Job 10 successfully resized to 4 GPUs
+[ 2859.2617] Job 12 submitted
+[ 2859.9717] * Processing event ScheduleEvent: 5 job(s) in queue
+[ 3123.7617] Job 13 submitted
+[ 3124.4737] * Processing event ScheduleEvent: 6 job(s) in queue
+[ 3197.9138] Job 10 finished, took 671.5 seconds
+[ 3197.9139] Job 10 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 3198.6288] * Processing event ScheduleEvent: 6 job(s) in queue
+[ 3198.6289] * Processing event RunJobEvent(job=Job(12, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 10), initial_allocation=2)
+[ 3198.6290] Job 12 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [12], 'ns-l10c1n7': [12], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 3198.6364] Job 12 started with 2 GPUs (PID = 31458)
+[ 3257.1621] Job 12 successfully resized to 2 GPUs
+[ 3735.6682] Job 14 submitted
+[ 3736.4378] * Processing event ScheduleEvent: 6 job(s) in queue
+[ 3761.7057] Job 15 submitted
+[ 3762.5057] * Processing event ScheduleEvent: 7 job(s) in queue
+[ 3781.7417] Job 16 submitted
+[ 3782.5488] * Processing event ScheduleEvent: 8 job(s) in queue
+[ 3890.8937] Job 17 submitted
+[ 3891.7307] * Processing event ScheduleEvent: 9 job(s) in queue
+[ 3996.0377] Job 18 submitted
+[ 3996.8857] * Processing event ScheduleEvent: 10 job(s) in queue
+[ 4021.0624] Job 12 finished, took 822.4 seconds
+[ 4021.0625] Job 12 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 4021.9207] * Processing event ScheduleEvent: 10 job(s) in queue
+[ 4021.9208] * Processing event RunJobEvent(job=Job(9, BERTGlueWorkload(task=MRPC, gpu_demand=4, batch_size=8, num_steps=50, num_epochs=None), 5), initial_allocation=4)
+[ 4021.9209] Job 9 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [9], 'ns-l10c1n7': [9], 'ns-l10c1n9': [9], 'ns-l10c1n10': [9]}
+[ 4021.9276] Job 9 started with 4 GPUs (PID = 32554)
+[ 4074.7892] Job 9 successfully resized to 4 GPUs
+[ 4148.2881] Job 19 submitted
+[ 4149.1647] * Processing event ScheduleEvent: 10 job(s) in queue
+[ 4237.5511] Job 9 finished, took 215.6 seconds
+[ 4237.5512] Job 9 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 4238.3712] * Processing event ScheduleEvent: 10 job(s) in queue
+[ 4238.3713] * Processing event RunJobEvent(job=Job(14, BERTGlueWorkload(task=MRPC, gpu_demand=2, batch_size=4, num_steps=50, num_epochs=None), 5), initial_allocation=2)
+[ 4238.3713] Job 14 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [14], 'ns-l10c1n7': [14], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 4238.3789] Job 14 started with 2 GPUs (PID = 641)
+[ 4238.3794] * Processing event RunJobEvent(job=Job(15, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=200, num_epochs=None), 5), initial_allocation=1)
+[ 4238.3794] Job 15 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [14], 'ns-l10c1n7': [14], 'ns-l10c1n9': [15], 'ns-l10c1n10': [None]}
+[ 4238.3848] Job 15 started with 1 GPUs (PID = 643)
+[ 4283.2922] Job 14 successfully resized to 2 GPUs
+[ 4380.2273] Job 14 finished, took 141.9 seconds
+[ 4380.2274] Job 14 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [15], 'ns-l10c1n10': [None]}
+[ 4380.5988] * Processing event ScheduleEvent: 8 job(s) in queue
+[ 4456.3770] Job 15 finished, took 218.0 seconds
+[ 4456.3770] Job 15 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 4456.6759] * Processing event ScheduleEvent: 8 job(s) in queue
+[ 4456.6760] * Processing event RunJobEvent(job=Job(18, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 5), initial_allocation=4)
+[ 4456.6760] Job 18 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [18], 'ns-l10c1n7': [18], 'ns-l10c1n9': [18], 'ns-l10c1n10': [18]}
+[ 4456.6837] Job 18 started with 4 GPUs (PID = 1202)
+[ 4515.8348] Job 20 submitted
+[ 4516.7467] * Processing event ScheduleEvent: 8 job(s) in queue
+[ 4522.1608] Job 18 successfully resized to 4 GPUs
+[ 4695.1667] Job 21 submitted
+[ 4696.0597] * Processing event ScheduleEvent: 9 job(s) in queue
+[ 4842.4367] Job 22 submitted
+[ 4843.3367] * Processing event ScheduleEvent: 10 job(s) in queue
+[ 5057.7998] Job 23 submitted
+[ 5058.7468] * Processing event ScheduleEvent: 11 job(s) in queue
+[ 5145.9410] Job 24 submitted
+[ 5146.9107] * Processing event ScheduleEvent: 12 job(s) in queue
+[ 5751.4022] Job 18 finished, took 1294.7 seconds
+[ 5751.4023] Job 18 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 5752.0118] * Processing event ScheduleEvent: 12 job(s) in queue
+[ 5752.0119] * Processing event RunJobEvent(job=Job(19, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 5), initial_allocation=2)
+[ 5752.0120] Job 19 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [19], 'ns-l10c1n7': [19], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 5752.0193] Job 19 started with 2 GPUs (PID = 2822)
+[ 5752.0198] * Processing event RunJobEvent(job=Job(21, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=None, num_epochs=1), 5), initial_allocation=1)
+[ 5752.0198] Job 21 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [19], 'ns-l10c1n7': [19], 'ns-l10c1n9': [21], 'ns-l10c1n10': [None]}
+[ 5752.0252] Job 21 started with 1 GPUs (PID = 2824)
+[ 5790.4691] Job 19 successfully resized to 2 GPUs
+[ 6141.9530] Job 19 finished, took 389.9 seconds
+[ 6141.9530] Job 19 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [21], 'ns-l10c1n10': [None]}
+[ 6142.4568] * Processing event ScheduleEvent: 10 job(s) in queue
+[ 6145.6005] Job 21 finished, took 393.6 seconds
+[ 6145.6005] Job 21 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 6146.4609] * Processing event ScheduleEvent: 10 job(s) in queue
+[ 6146.4609] * Processing event RunJobEvent(job=Job(23, ResNetWorkload(dataset=cifar10, gpu_demand=4, batch_size=128, num_steps=500, num_epochs=None), 5), initial_allocation=4)
+[ 6146.4610] Job 23 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [23], 'ns-l10c1n7': [23], 'ns-l10c1n9': [23], 'ns-l10c1n10': [23]}
+[ 6146.4680] Job 23 started with 4 GPUs (PID = 3490)
+[ 6186.2890] Job 23 successfully resized to 4 GPUs
+[ 6522.6835] Job 23 finished, took 376.2 seconds
+[ 6522.6836] Job 23 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 6522.9773] * Processing event ScheduleEvent: 9 job(s) in queue
+[ 6522.9774] * Processing event RunJobEvent(job=Job(4, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 1), initial_allocation=4)
+[ 6522.9774] Job 4 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [4], 'ns-l10c1n7': [4], 'ns-l10c1n9': [4], 'ns-l10c1n10': [4]}
+[ 6522.9845] Job 4 started with 4 GPUs (PID = 4109)
+[ 6589.6585] Job 4 successfully resized to 4 GPUs
+[ 7822.7584] Job 4 finished, took 1299.8 seconds
+[ 7822.7584] Job 4 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 7823.2419] * Processing event ScheduleEvent: 8 job(s) in queue
+[ 7823.2420] * Processing event RunJobEvent(job=Job(5, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=50, num_epochs=None), 1), initial_allocation=4)
+[ 7823.2420] Job 5 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [5], 'ns-l10c1n7': [5], 'ns-l10c1n9': [5], 'ns-l10c1n10': [5]}
+[ 7823.2491] Job 5 started with 4 GPUs (PID = 5629)
+[ 7889.7812] Job 5 successfully resized to 4 GPUs
+[ 8111.5394] Job 5 finished, took 288.3 seconds
+[ 8111.5395] Job 5 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 8111.7850] * Processing event ScheduleEvent: 7 job(s) in queue
+[ 8111.7851] * Processing event RunJobEvent(job=Job(11, TransformerWorkload(gpu_demand=4, batch_size=512, num_steps=300, num_epochs=None), 1), initial_allocation=4)
+[ 8111.7851] Job 11 was assigned 4 GPUs, new GPU assignment = {'ns-l10c1n6': [11], 'ns-l10c1n7': [11], 'ns-l10c1n9': [11], 'ns-l10c1n10': [11]}
+[ 8111.7921] Job 11 started with 4 GPUs (PID = 6277)
+[ 8178.6805] Job 11 successfully resized to 4 GPUs
+[ 9410.1845] Job 11 finished, took 1298.4 seconds
+[ 9410.1847] Job 11 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 9411.1259] * Processing event ScheduleEvent: 6 job(s) in queue
+[ 9411.1260] * Processing event RunJobEvent(job=Job(13, TransformerWorkload(gpu_demand=1, batch_size=128, num_steps=300, num_epochs=None), 1), initial_allocation=1)
+[ 9411.1261] Job 13 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [13], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[ 9411.1332] Job 13 started with 1 GPUs (PID = 7772)
+[ 9411.1336] * Processing event RunJobEvent(job=Job(16, TransformerWorkload(gpu_demand=2, batch_size=256, num_steps=300, num_epochs=None), 1), initial_allocation=2)
+[ 9411.1337] Job 16 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [13], 'ns-l10c1n7': [16], 'ns-l10c1n9': [16], 'ns-l10c1n10': [None]}
+[ 9411.1392] Job 16 started with 2 GPUs (PID = 7775)
+[ 9469.2197] Job 16 successfully resized to 2 GPUs
+[ 9757.0132] Job 13 finished, took 345.9 seconds
+[ 9757.0133] Job 13 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [16], 'ns-l10c1n9': [16], 'ns-l10c1n10': [None]}
+[ 9757.7150] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 9757.7151] * Processing event RunJobEvent(job=Job(17, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=None, num_epochs=1), 1), initial_allocation=2)
+[ 9757.7151] Job 17 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [17], 'ns-l10c1n7': [16], 'ns-l10c1n9': [16], 'ns-l10c1n10': [17]}
+[ 9757.7219] Job 17 started with 2 GPUs (PID = 8470)
+[ 9794.2203] Job 17 successfully resized to 2 GPUs
+[10147.0211] Job 17 finished, took 389.3 seconds
+[10147.0212] Job 17 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [16], 'ns-l10c1n9': [16], 'ns-l10c1n10': [None]}
+[10147.1729] * Processing event ScheduleEvent: 3 job(s) in queue
+[10147.1730] * Processing event RunJobEvent(job=Job(20, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=32, num_steps=500, num_epochs=None), 1), initial_allocation=1)
+[10147.1730] Job 20 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [20], 'ns-l10c1n7': [16], 'ns-l10c1n9': [16], 'ns-l10c1n10': [None]}
+[10147.1798] Job 20 started with 1 GPUs (PID = 9100)
+[10147.1803] * Processing event RunJobEvent(job=Job(22, BERTGlueWorkload(task=MRPC, gpu_demand=1, batch_size=2, num_steps=50, num_epochs=None), 1), initial_allocation=1)
+[10147.1804] Job 22 was assigned 1 GPUs, new GPU assignment = {'ns-l10c1n6': [20], 'ns-l10c1n7': [16], 'ns-l10c1n9': [16], 'ns-l10c1n10': [22]}
+[10147.1859] Job 22 started with 1 GPUs (PID = 9102)
+[10227.9529] Job 16 finished, took 816.8 seconds
+[10227.9530] Job 16 released its GPUs, new GPU assignment = {'ns-l10c1n6': [20], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [22]}
+[10228.2677] * Processing event ScheduleEvent: 1 job(s) in queue
+[10228.2678] * Processing event RunJobEvent(job=Job(24, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=64, num_steps=500, num_epochs=None), 1), initial_allocation=2)
+[10228.2679] Job 24 was assigned 2 GPUs, new GPU assignment = {'ns-l10c1n6': [20], 'ns-l10c1n7': [24], 'ns-l10c1n9': [24], 'ns-l10c1n10': [22]}
+[10228.2767] Job 24 started with 2 GPUs (PID = 9510)
+[10228.8650] Job 22 finished, took 81.7 seconds
+[10228.8651] Job 22 released its GPUs, new GPU assignment = {'ns-l10c1n6': [20], 'ns-l10c1n7': [24], 'ns-l10c1n9': [24], 'ns-l10c1n10': [None]}
+[10229.2777] * Processing event ScheduleEvent: 0 job(s) in queue
+[10266.0237] Job 24 successfully resized to 2 GPUs
+[10293.4150] Job 20 finished, took 146.2 seconds
+[10293.4151] Job 20 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [24], 'ns-l10c1n9': [24], 'ns-l10c1n10': [None]}
+[10294.3487] * Processing event ScheduleEvent: 0 job(s) in queue
+[10498.3813] Job 24 finished, took 270.1 seconds
+[10498.3814] Job 24 released its GPUs, new GPU assignment = {'ns-l10c1n6': [None], 'ns-l10c1n7': [None], 'ns-l10c1n9': [None], 'ns-l10c1n10': [None]}
+[10498.3814] Reached maximum number of 25 jobs
+[10498.5544] Exiting event loop.
