@@ -18,7 +18,7 @@ def parse_gpu_allocations(scheduler_log):
     lines = f.readlines()
     for line in lines:
       # Filter out lines without timestamps
-      m = re.match("\[(.*)\] (.*)", line)
+      m = re.match("\[([\.\d\s]*)\] (.*)", line)
       if m is None:
         continue
       job_id = None
@@ -120,13 +120,26 @@ def plot(scheduler_log):
     all_labels.append("Job %s" % job_id)
   ax.stackplot(the_x, *all_ys, labels=all_labels)
 
-  plt.yticks(range(0, max_num_gpus+1))
-  ax.legend(fontsize=12)
-  plt.xticks(fontsize=16)
-  plt.yticks(fontsize=16)
+  # If this is WFS, try to find the Priority version of the same log and use
+  # its end time as the x max
   xmax = os.getenv("XMAX")
+  if xmax is None:
+    other_log = scheduler_log.replace("WFS", "Priority")
+    if os.path.isfile(other_log):
+      with open(other_log) as f:
+        m = re.match("\[(.*)\] Exiting event loop.*", f.readlines()[-1])
+        if m is not None:
+          xmax = float(m.groups()[0])
   if xmax is not None:
     plt.xlim(0, int(xmax))
+
+  plt.yticks(range(0, max_num_gpus+1))
+  if len(all_ys) <= 10:
+    ax.legend(fontsize=12)
+  plt.xticks(fontsize=16)
+  plt.yticks(fontsize=16)
+  title = os.getenv("TITLE", scheduler_log.replace(".log", ""))
+  plt.title(title, fontsize=20, pad=15)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
   print("Saved to %s" % output_file)
