@@ -23,6 +23,9 @@ def main():
   xlabel = "Step" if steps_per_epoch > 0 else "Epoch"
   xlabel = os.getenv("XLABEL", xlabel)
   ylabel = os.getenv("YLABEL", "Validation accuracy")
+  space_xticks_apart = os.getenv("SPACE_XTICKS_APART", "").lower() == "true"
+  put_legend_outside = os.getenv("PUT_LEGEND_OUTSIDE", "").lower() == "true"
+  bold_baseline = os.getenv("BOLD_BASELINE", "").lower() == "true"
 
   # Plot it
   fig = plt.figure()
@@ -50,10 +53,17 @@ def main():
     else:
       x = epochs
     y = validation_accuracies
+    # Style the lines
+    baseline_linestyle = "-" if bold_baseline else "--"
+    baseline_linewidth = 6 if bold_baseline else 2
+    virtual_linestyle = "--" if bold_baseline else "-"
+    virtual_linewidth = 2 if bold_baseline else 3
+    virtual_marker = "" if bold_baseline else "x"
     if "baseline" in data_file:
-      ax.plot(x, y, label=label, linestyle="--", linewidth=2)
+      ax.plot(x, y, label=label, linestyle=baseline_linestyle, linewidth=baseline_linewidth)
     else:
-      ax.plot(x, y, label=label, marker="x", linewidth=3, markeredgewidth=3)
+      ax.plot(x, y, label=label, linestyle=virtual_linestyle, linewidth=virtual_linewidth,\
+        marker=virtual_marker, markeredgewidth=3)
 
   # Legend
   def sort_key(tup):
@@ -64,9 +74,15 @@ def main():
   handles, labels = ax.get_legend_handles_labels()
   labels, handles = zip(*sorted(zip(labels, handles), key=sort_key))
   labels = [format_label(l) for l in labels]
-  ax.legend(handles, labels, fontsize=12)
+  if put_legend_outside:
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+    ax.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize=12)
+  else:
+    ax.legend(handles, labels, fontsize=12)
 
-  ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
+  if space_xticks_apart:
+    ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
   plt.xticks(fontsize=16)
   plt.yticks(fontsize=16)
   plt.title(title, fontsize=24, pad=20)

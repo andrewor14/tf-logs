@@ -5,6 +5,7 @@ GLUE_TASKS="SST-2 QNLI CoLA"
 export BASELINE_STEPS_MULTIPLIER=8
 cd ../..
 
+export SPACE_XTICKS_APART="true"
 for glue_task in $GLUE_TASKS; do
   export TITLE="BERT (base) finetuning on GLUE $glue_task"
   export DATA_FILE_PREFIX="logs/${CURRENT_DIR}/bert-glue-${glue_task}_"
