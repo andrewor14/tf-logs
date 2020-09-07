@@ -1,14 +1,14 @@
 #!/bin/bash
 
 CURRENT_DIR="$(basename $PWD)"
-GLUE_TASKS="${GLUE_TASKS:=RTE WNLI CoLA MRPC}"
+GLUE_TASKS="${GLUE_TASKS:=QQP MNLI SST-2 RTE CoLA MRPC}"
 cd ../..
 
 export LEGEND_BASELINE_FIRST="true"
 export BOLD_BASELINE="true"
 for glue_task in $GLUE_TASKS; do
   if [[ "$glue_task" == "RTE" ]]; then
-    export YLIM="0.35,0.75"
+    export YLIM="0.27,0.75"
   else
     unset YLIM
   fi
