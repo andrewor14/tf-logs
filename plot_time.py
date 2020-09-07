@@ -28,11 +28,11 @@ def main():
     m = re.match("([0-9]+)bs_([0-9]+)gpu.*", label)
     if m is not None:
       batch_size, num_gpus = m.groups()
+      return (int(num_gpus) * 100000 + int(batch_size)) + (0 if "baseline" in label else 1)
     else:
       batch_size = int(re.match("([0-9]+)bs.*", label).groups()[0])
       num_gpus = 1
-    return (int(batch_size) * 10 + int(num_gpus)) *\
-      (0 if "baseline" in label else 1)
+      return int(batch_size) + (0 if "baseline" in label else 1)
 
   data_files.sort(key=sort_key)
 

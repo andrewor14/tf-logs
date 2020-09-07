@@ -14,5 +14,7 @@ for glue_task in $GLUE_TASKS; do
     ./plot_accuracy.py $(ls ${DATA_FILE_PREFIX}*vn*txt | grep -v time | xargs)
   OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-time.pdf" XLABEL="Time elapsed (s)"\
     DATA_FILE_SUFFIX="-time.txt" ./plot_accuracy.py "$DATA_FILE_PREFIX"*-time*.txt
+  OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-time-2.pdf" FIGURE_SIZE="13,6"\
+    ./plot_time.py "$DATA_FILE_PREFIX"*-time.txt
 done
 
