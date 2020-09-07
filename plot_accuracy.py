@@ -28,13 +28,23 @@ def main():
   space_xticks_apart = os.getenv("SPACE_XTICKS_APART", "").lower() == "true"
   put_legend_outside = os.getenv("PUT_LEGEND_OUTSIDE", "").lower() == "true"
   bold_baseline = os.getenv("BOLD_BASELINE", "").lower() == "true"
+  plot_baseline_first = os.getenv("PLOT_BASELINE_FIRST", "").lower() == "true"
+  legend_baseline_first = os.getenv("LEGEND_BASELINE_FIRST", "").lower() == "true"
+  ylim = os.getenv("YLIM")
 
   # Sort the labels
-  def sort_key(label):
+  def sort_key(label, baseline_first=False):
     label = label.replace(data_file_prefix, "")
-    batch_size, num_gpus = re.match("([0-9]+)bs_([0-9]+)gpu.*", label).groups()
-    return (int(batch_size) * 10 + int(num_gpus)) * (10000 if "baseline" in label else 1)
-  data_files.sort(key=sort_key)
+    m = re.match("([0-9]+)bs_([0-9]+)gpu.*", label)
+    if m is not None:
+      batch_size, num_gpus = m.groups()
+    else:
+      batch_size = int(re.match("([0-9]+)bs.*", label).groups()[0])
+      num_gpus = 1
+    baseline_score = 0.00001 if baseline_first else 100000
+    return (int(batch_size) * 10 + int(num_gpus)) *\
+      (baseline_score if "baseline" in label else 1)
+  data_files.sort(key=lambda d: sort_key(d, plot_baseline_first))
 
   # Plot it
   if figure_size is not None:
@@ -46,10 +56,19 @@ def main():
   ax = fig.add_subplot(1, 1, 1)
   ax.set_xlabel(xlabel, fontsize=24, labelpad=15)
   ax.set_ylabel(ylabel, fontsize=24, labelpad=15)
+
+  # Figure out colors
   color_cycle = plt.rcParams['axes.prop_cycle'].by_key()['color'] * 10
-  num_virtual_experiments = len([d for d in data_files if "baseline" not in d])
-  virtual_color_cycle = iter(color_cycle[:num_virtual_experiments] * 10)
-  baseline_color_cycle = iter(color_cycle[num_virtual_experiments:] * 10)
+  if plot_baseline_first:
+    num_virtual_experiments = len([d for d in data_files if "baseline" not in d])
+    virtual_color_cycle = iter(color_cycle[:num_virtual_experiments] * 10)
+    baseline_color_cycle = iter(color_cycle[num_virtual_experiments:] * 10)
+  else:
+    num_baseline_experiments = len([d for d in data_files if "baseline" in d])
+    baseline_color_cycle = iter(color_cycle[:num_baseline_experiments] * 10)
+    virtual_color_cycle = iter(color_cycle[num_baseline_experiments:] * 10)
+
+  # Plot the lines
   for data_file in data_files:
     epochs = []
     validation_accuracies = []
@@ -88,7 +107,8 @@ def main():
   def format_label(label):
     return label.replace("_baseline", " (baseline)")
   handles, labels = ax.get_legend_handles_labels()
-  labels, handles = zip(*sorted(zip(labels, handles), key=lambda pair: sort_key(pair[0])))
+  labels, handles = zip(*sorted(zip(labels, handles),\
+    key=lambda pair: sort_key(pair[0], legend_baseline_first)))
   labels = [format_label(l) for l in labels]
   if put_legend_outside:
     box = ax.get_position()
@@ -99,6 +119,10 @@ def main():
 
   if space_xticks_apart:
     ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
+  if ylim is not None:
+    lower = float(ylim.split(",")[0])
+    upper = float(ylim.split(",")[1])
+    plt.ylim(lower, upper)
   plt.xticks(fontsize=16)
   plt.yticks(fontsize=16)
   plt.title(title, fontsize=24, pad=20)

@@ -5,6 +5,7 @@ import re
 import sys
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 def main():
   args = sys.argv
@@ -19,22 +20,38 @@ def main():
   data_file_suffix = os.getenv("DATA_FILE_SUFFIX", ".txt")
   figure_size = os.getenv("FIGURE_SIZE")
   time_unit = os.getenv("TIME_UNIT", "s")
+  hatch_max_accuracy = os.getenv("HATCH_MAX_ACCURACY", "").lower() == "true"
 
   # Sort the labels
   def sort_key(label):
     label = label.replace(data_file_prefix, "")
-    batch_size, num_gpus = re.match("([0-9]+)bs_([0-9]+)gpu.*", label).groups()
-    return (int(num_gpus) * 10 + int(num_gpus)) + (0 if "baseline" in label else 1)
+    m = re.match("([0-9]+)bs_([0-9]+)gpu.*", label)
+    if m is not None:
+      batch_size, num_gpus = m.groups()
+    else:
+      batch_size = int(re.match("([0-9]+)bs.*", label).groups()[0])
+      num_gpus = 1
+    return (int(batch_size) * 10 + int(num_gpus)) *\
+      (0 if "baseline" in label else 1)
+
   data_files.sort(key=sort_key)
 
   def get_label(data_file):
     label = data_file.replace(data_file_prefix, "").replace(data_file_suffix, "")
-    batch_size, num_gpus, num_vns = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label).groups()
-    num_gpus = "%s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
-    batch_size = "%sbs" % batch_size
-    num_vns = "%sVN" % num_vns
-    maybe_baseline = "(baseline)" if "baseline" in data_file else ""
-    return "%s\n%s\n%s\n%s" % (num_gpus, batch_size, num_vns, maybe_baseline)
+    m = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label)
+    if m is not None:
+      batch_size, num_gpus, num_vns = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label).groups()
+      num_gpus = "%s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
+      batch_size = "%sbs" % batch_size
+      num_vns = "%sVN" % num_vns
+      maybe_baseline = "(baseline)" if "baseline" in data_file else ""
+      return "%s\n%s\n%s\n%s" % (num_gpus, batch_size, num_vns, maybe_baseline)
+    else:
+      batch_size, num_vns = re.match("([0-9]+)bs_([0-9]+)vn.*", label).groups()
+      batch_size = "%sbs" % batch_size
+      num_vns = "%sVN" % num_vns
+      maybe_baseline = "(baseline)" if "baseline" in data_file else ""
+      return "%s\n%s\n%s" % (batch_size, num_vns, maybe_baseline)
 
   # Plot it
   if figure_size is not None:
@@ -61,11 +78,14 @@ def main():
         elapsed_time.append(elapsed_seconds / 60)
       final_accuracies.append(float(split[1]))
       colors.append("cornflowerblue" if "baseline" in data_file else "orange")
-  bars = ax.bar(labels, elapsed_time, color=colors, width=0.7)
+  bars = []
+  for i in range(len(labels)):
+    hatch = "/" if hatch_max_accuracy and i == int(np.argmax(final_accuracies)) else ""
+    bars.append(ax.bar(labels[i], elapsed_time[i], color=colors[i], hatch=hatch, width=0.7))
   for i, bar in enumerate(bars):
-    plt.text(bar.get_x() + bar.get_width() / 2.0, bar.get_height(),\
+    rect = bar.patches[0]
+    plt.text(rect.get_x() + rect.get_width() / 2.0, rect.get_height(),\
       "%.3f" % final_accuracies[i], ha='center', va='bottom')
-
   plt.xticks(fontsize=16)
   plt.yticks(fontsize=16)
   plt.ylim(0, max(elapsed_time) * 1.1)
