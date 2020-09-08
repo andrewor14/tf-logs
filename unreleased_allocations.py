@@ -45,15 +45,21 @@ def parse_allocation_events(log_file):
   '''
   data = []
   with open(log_file) as f:
-    for line in f.readlines():
+    for i, line in enumerate(f.readlines()):
       if "llocateRaw" not in line or should_ignore_line(line):
         continue
-      split = line.strip().split(" ")
-      timestamp = split[1].strip(":")
-      is_allocate = split[4] == "AllocateRaw"
-      num_bytes = int(split[6])
-      allocation_id = int(split[7])
-      data.append((timestamp, is_allocate, num_bytes, allocation_id))
+      try:
+        split = line.strip().split(" ")
+        timestamp = split[1].strip(":")
+        from find_alloc import parse_timestamp
+        parse_timestamp(timestamp)
+        is_allocate = split[-4] == "AllocateRaw"
+        num_bytes = int(split[-2])
+        allocation_id = int(split[-1])
+        data.append((timestamp, is_allocate, num_bytes, allocation_id))
+      except Exception as e:
+        print("Bad line (%s): %s" % (i, line))
+        raise e
   return data
 
 def parse_allocation_details(log_file):
