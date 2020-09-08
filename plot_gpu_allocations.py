@@ -92,16 +92,17 @@ def plot(scheduler_log):
   """
   gpu_allocations = align_time(parse_gpu_allocations(scheduler_log))
   output_file = scheduler_log.replace(".log", ".pdf")
+  title = os.getenv("TITLE", scheduler_log.split("/")[-1].replace(".log", ""))
 
   # Optionally resize figure
-  if os.getenv("FIGURE_SIZE") is not None:
-    split = os.environ["FIGURE_SIZE"].split(",")
-    fig = plt.figure(figsize=(int(split[0]), int(split[1])))
+  if "3jobs_4gpus" in scheduler_log:
+    fig = plt.figure(figsize=(7,4))
+    title = ""
   else:
     fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("Time (s)", fontsize=20, labelpad=15)
-  ax.set_ylabel("Num GPUs allocated", fontsize=20, labelpad=15)
+  ax.set_xlabel("Time (s)", fontsize=28, labelpad=15)
+  ax.set_ylabel("GPUs allocated", fontsize=28, labelpad=15)
 
   # Find max num GPUs to set the y-axis
   max_num_gpus = -1
@@ -143,7 +144,8 @@ def plot(scheduler_log):
         continue
       submitted_time = job_times[job_id][0]
       plt.axvline(x=submitted_time, linewidth=3, linestyle="--", color="black")
-      ax.text(submitted_time + 80, 3, "Submit\njob %s" % job_id, size=20, verticalalignment='center')
+      ax.text(submitted_time - 200, 5.2, "Submit\nJob %s" % job_id, size=24, verticalalignment='center')
+    plt.ylim(0, 4)
 
   # If this is WFS, try to find the Priority version of the same log and use
   # its end time as the x max
@@ -161,10 +163,9 @@ def plot(scheduler_log):
   plt.yticks(range(0, max_num_gpus+1))
   if len(all_ys) <= 10:
     ax.legend(fontsize=16)
-  plt.xticks(fontsize=14)
-  plt.yticks(fontsize=14)
-  title = os.getenv("TITLE", scheduler_log.split("/")[-1].replace(".log", ""))
-  plt.title(title, fontsize=24, pad=15)
+  plt.xticks(fontsize=20)
+  plt.yticks(fontsize=20)
+  plt.title(title.replace(r'\n', "\n"), fontsize=32, pad=25)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
   print("Saved to %s" % output_file)
