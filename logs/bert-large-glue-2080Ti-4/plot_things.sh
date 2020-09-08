@@ -12,7 +12,7 @@ for glue_task in $GLUE_TASKS; do
   else
     unset YLIM
   fi
-  export TITLE="BERT (large) GLUE $glue_task on 1 GPU"
+  export TITLE="BERT-LARGE finetuning on $glue_task"
   export DATA_FILE_PREFIX="logs/${CURRENT_DIR}/bert-glue-${glue_task}_"
   OUTPUT_FILE_PREFIX="bert-large-glue-${glue_task}-2080Ti"
   OUTPUT_FILE="${OUTPUT_FILE_PREFIX}.pdf"\

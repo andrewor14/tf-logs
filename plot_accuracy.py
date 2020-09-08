@@ -46,6 +46,18 @@ def main():
       (baseline_score if "baseline" in label else 1)
   data_files.sort(key=lambda d: sort_key(d, plot_baseline_first))
 
+  # Get label
+  def get_label(label):
+    m = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label)
+    if m is not None:
+      batch_size, num_gpus, num_vns = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label).groups()
+      num_gpus = " on %s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
+    else:
+      batch_size, num_vns = re.match("([0-9]+)bs_([0-9]+)vn.*", label).groups()
+      num_gpus = ""
+    vns = "(baseline)" if "baseline" in label else "(%s VN)" % num_vns
+    return "Batch size %s%s %s" % (batch_size, num_gpus, vns)
+
   # Plot it
   if figure_size is not None:
     width = float(figure_size.split(",")[0])
@@ -104,12 +116,10 @@ def main():
         marker=virtual_marker, markeredgewidth=2, color=next(virtual_color_cycle))
 
   # Legend
-  def format_label(label):
-    return label.replace("_baseline", " (baseline)")
   handles, labels = ax.get_legend_handles_labels()
   labels, handles = zip(*sorted(zip(labels, handles),\
     key=lambda pair: sort_key(pair[0], legend_baseline_first)))
-  labels = [format_label(l) for l in labels]
+  labels = [get_label(l) for l in labels]
   if put_legend_outside:
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
