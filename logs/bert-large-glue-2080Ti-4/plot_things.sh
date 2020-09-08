@@ -9,8 +9,6 @@ export BOLD_BASELINE="true"
 for glue_task in $GLUE_TASKS; do
   if [[ "$glue_task" == "RTE" ]]; then
     export YLIM="0.27,0.75"
-  else
-    unset YLIM
   fi
   export TITLE="BERT-LARGE finetuning on $glue_task"
   export DATA_FILE_PREFIX="logs/${CURRENT_DIR}/bert-glue-${glue_task}_"
@@ -21,5 +19,10 @@ for glue_task in $GLUE_TASKS; do
     DATA_FILE_SUFFIX="-time.txt" ./plot_accuracy.py "$DATA_FILE_PREFIX"*time.txt
   OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-time-2.pdf" DATA_FILE_SUFFIX="-time.txt"\
     HATCH_MAX_ACCURACY="true" ./plot_time.py "$DATA_FILE_PREFIX"*time.txt
+  unset YLIM
+  if [[ "$glue_task" == "RTE" ]]; then
+    OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-2lines.pdf" LEGEND_FONT_SIZE=16\
+      ./plot_accuracy.py "$DATA_FILE_PREFIX"4bs*vn_baseline.txt "$DATA_FILE_PREFIX"16bs*vn.txt
+  fi
 done
 

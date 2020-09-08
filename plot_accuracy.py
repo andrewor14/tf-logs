@@ -31,6 +31,7 @@ def main():
   plot_baseline_first = os.getenv("PLOT_BASELINE_FIRST", "").lower() == "true"
   legend_baseline_first = os.getenv("LEGEND_BASELINE_FIRST", "").lower() == "true"
   ylim = os.getenv("YLIM")
+  legend_font_size = int(os.getenv("LEGEND_FONT_SIZE", "12"))
 
   # Sort the labels
   def sort_key(label, baseline_first=False):
@@ -123,9 +124,9 @@ def main():
   if put_legend_outside:
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
-    ax.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize=12)
+    ax.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize=legend_font_size)
   else:
-    ax.legend(handles, labels, fontsize=12)
+    ax.legend(handles, labels, fontsize=legend_font_size)
 
   if space_xticks_apart:
     ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
