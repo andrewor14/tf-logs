@@ -93,16 +93,25 @@ def plot(scheduler_log):
   gpu_allocations = align_time(parse_gpu_allocations(scheduler_log))
   output_file = scheduler_log.replace(".log", ".pdf")
 
-  fig = plt.figure()
+  # Optionally resize figure
+  if os.getenv("FIGURE_SIZE") is not None:
+    split = os.environ["FIGURE_SIZE"].split(",")
+    fig = plt.figure(figsize=(int(split[0]), int(split[1])))
+  else:
+    fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("Time (s)", fontsize=24, labelpad=15)
-  ax.set_ylabel("Num GPUs allocated", fontsize=24, labelpad=15)
+  ax.set_xlabel("Time (s)", fontsize=20, labelpad=15)
+  ax.set_ylabel("Num GPUs allocated", fontsize=20, labelpad=15)
 
   # Find max num GPUs to set the y-axis
   max_num_gpus = -1
   the_x = None
   all_ys = []
   all_labels = []
+  if "3jobs_4gpus" in scheduler_log:
+    colors = ["lightskyblue", "orange", "pink"]
+  else:
+    colors = plt.rcParams['axes.prop_cycle'].by_key()['color'] * 10
   for job_id in gpu_allocations.keys():
     # For every change in allocation, append a fake point right before it so
     # matplotlib draws a "vertical" line connecting the two points
@@ -118,7 +127,23 @@ def plot(scheduler_log):
     the_x = x
     all_ys.append(y)
     all_labels.append("Job %s" % job_id)
-  ax.stackplot(the_x, *all_ys, labels=all_labels)
+  stacks = ax.stackplot(the_x, *all_ys, labels=all_labels, colors=colors)
+
+  if "3jobs_4gpus" in scheduler_log:
+    # Set some hatches
+    hatches = ["", "\\", "."]
+    for i, stack in enumerate(stacks):
+      stack.set_hatch(hatches[i])
+      stack.set_edgecolor("white")
+    # Plot submitted times as vertical dotted lines
+    from plot_cdf import parse_job_times
+    job_times = parse_job_times(scheduler_log)
+    for job_id in job_times.keys():
+      if job_id == 0:
+        continue
+      submitted_time = job_times[job_id][0]
+      plt.axvline(x=submitted_time, linewidth=3, linestyle="--", color="black")
+      ax.text(submitted_time + 80, 3, "Submit\njob %s" % job_id, size=20, verticalalignment='center')
 
   # If this is WFS, try to find the Priority version of the same log and use
   # its end time as the x max
@@ -135,11 +160,11 @@ def plot(scheduler_log):
 
   plt.yticks(range(0, max_num_gpus+1))
   if len(all_ys) <= 10:
-    ax.legend(fontsize=12)
-  plt.xticks(fontsize=16)
-  plt.yticks(fontsize=16)
-  title = os.getenv("TITLE", scheduler_log.replace(".log", ""))
-  plt.title(title, fontsize=20, pad=15)
+    ax.legend(fontsize=16)
+  plt.xticks(fontsize=14)
+  plt.yticks(fontsize=14)
+  title = os.getenv("TITLE", scheduler_log.split("/")[-1].replace(".log", ""))
+  plt.title(title, fontsize=24, pad=15)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
   print("Saved to %s" % output_file)

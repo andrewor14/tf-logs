@@ -1,0 +1,33 @@
+[    0.0000] Running SchedulerMode.PRIORITY scheduler on hosts 18380acdda5c with 4 GPU(s) per host
+[    0.0007] Listening for scheduler requests on port 18383
+[    0.0010] Started event loop...
+[    0.0012] Running with trace: scheduler_traces/3jobs_4gpus_v1.json
+[    1.0027] Job 0 submitted
+[    2.0035] * Processing event ScheduleEvent: 1 job(s) in queue
+2020-09-08 04:31:51.034899: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+[    4.3331] * Processing event RunJobEvent(job=Job(0, BERTGlueWorkload(task=SST-2, gpu_demand=4, batch_size=64, num_steps=105, num_epochs=10, num_virtual_nodes_per_device=2), 1), initial_allocation=4)
+[    4.3337] Job 0 was assigned 4 GPUs, new GPU assignment = {'18380acdda5c': [0, 0, 0, 0]}
+[    4.3456] Job 0 started with 4 GPUs (PID = 9769)
+[   95.3743] Job 0 successfully resized to 4 GPUs
+[  240.3005] Job 1 submitted
+[  240.6068] * Processing event ScheduleEvent: 1 job(s) in queue
+[  929.2032] Job 0 finished, took 924.9 seconds
+[  929.2033] Job 0 released its GPUs, new GPU assignment = {'18380acdda5c': [None, None, None, None]}
+[  929.3384] * Processing event ScheduleEvent: 1 job(s) in queue
+[  929.3386] * Processing event RunJobEvent(job=Job(1, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=128, num_steps=None, num_epochs=100, num_virtual_nodes_per_device=1), 5), initial_allocation=2)
+[  929.3387] Job 1 was assigned 2 GPUs, new GPU assignment = {'18380acdda5c': [1, 1, None, None]}
+[  929.3530] Job 1 started with 2 GPUs (PID = 12518)
+[  976.5166] Job 1 successfully resized to 2 GPUs
+[ 1500.6381] Job 2 submitted
+[ 1500.9725] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 2834.6498] Job 1 finished, took 1905.3 seconds
+[ 2834.6499] Job 1 released its GPUs, new GPU assignment = {'18380acdda5c': [None, None, None, None]}
+[ 2835.4133] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 2835.4135] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=QNLI, gpu_demand=4, batch_size=32, num_steps=327, num_epochs=10, num_virtual_nodes_per_device=1), 10), initial_allocation=4)
+[ 2835.4136] Job 2 was assigned 4 GPUs, new GPU assignment = {'18380acdda5c': [2, 2, 2, 2]}
+[ 2835.4254] Job 2 started with 4 GPUs (PID = 14079)
+[ 2892.1661] Job 2 successfully resized to 4 GPUs
+[ 4652.2446] Job 2 finished, took 1816.8 seconds
+[ 4652.2447] Job 2 released its GPUs, new GPU assignment = {'18380acdda5c': [None, None, None, None]}
+[ 4652.2447] Reached maximum number of 3 jobs
+[ 4652.3509] Exiting event loop.
