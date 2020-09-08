@@ -33,10 +33,19 @@ def print_peak_breakdown(time_elapsed, allocations_by_category):
 
 def do_plot(log_file, zoom_start=None, zoom_end=None):
   out_file = "output/%s.pdf" % os.path.basename(os.path.splitext(log_file)[0])
-  fig = plt.figure()
+
+  # Optionally adjust figure size
+  figure_size = os.getenv("FIGURE_SIZE")
+  if figure_size is not None:
+    width = float(figure_size.split(",")[0])
+    height = float(figure_size.split(",")[1])
+    fig = plt.figure(figsize=(width, height))
+  else:
+    fig = plt.figure()
+
   ax1 = fig.add_subplot(1, 1, 1)
-  ax1.set_xlabel("Time elapsed (s)", fontsize=24, labelpad=15)
-  ax1.set_ylabel("Num bytes in memory", fontsize=24, labelpad=15)
+  ax1.set_xlabel("Time elapsed (s)", fontsize=20, labelpad=15)
+  ax1.set_ylabel("Memory usage (B)", fontsize=20, labelpad=15)
   allocations_by_category = get_allocations_by_category(log_file)
   # Convert timestamps to time elapsed
   timestamps = allocations_by_category[ALLOCATION_TIMESTAMPS]
@@ -48,10 +57,14 @@ def do_plot(log_file, zoom_start=None, zoom_end=None):
   all_categories = allocations_by_category.keys()
   all_allocations = [allocations_by_category[c] for c in all_categories]
   ax1.stackplot(time_elapsed, *all_allocations, labels=all_categories)
-  ax1.legend(all_categories, loc='upper left')
+  labels = ["%s (%s)" % (c, prettify_bytes(max(allocations_by_category[c])))\
+    for c in all_categories]
+  ax1.legend(labels, loc='upper left', fontsize=14)
   print_peak_breakdown(time_elapsed, allocations_by_category)
-  plt.xticks(fontsize=20)
-  plt.yticks(fontsize=20)
+  from matplotlib.ticker import MaxNLocator
+  ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
+  plt.xticks(fontsize=16)
+  plt.yticks(fontsize=16)
   # Optionally zoom
   if zoom_start is not None and zoom_end is not None:
     plt.xlim(zoom_start, zoom_end)
