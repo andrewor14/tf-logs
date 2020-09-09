@@ -31,7 +31,8 @@ def main():
   plot_baseline_first = os.getenv("PLOT_BASELINE_FIRST", "").lower() == "true"
   legend_baseline_first = os.getenv("LEGEND_BASELINE_FIRST", "").lower() == "true"
   ylim = os.getenv("YLIM")
-  legend_font_size = int(os.getenv("LEGEND_FONT_SIZE", "12"))
+  legend_font_size = int(os.getenv("LEGEND_FONT_SIZE", "14"))
+  legend_ncol = int(os.getenv("LEGEND_NCOL", "1"))
 
   # Sort the labels
   def sort_key(label, baseline_first=False):
@@ -52,12 +53,13 @@ def main():
     m = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label)
     if m is not None:
       batch_size, num_gpus, num_vns = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label).groups()
-      num_gpus = " on %s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
+      num_gpus = ", %s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
     else:
       batch_size, num_vns = re.match("([0-9]+)bs_([0-9]+)vn.*", label).groups()
       num_gpus = ""
     vns = "(baseline)" if "baseline" in label else "(%s VN)" % num_vns
-    return "Batch size %s%s %s" % (batch_size, num_gpus, vns)
+    batch_size_text = "Batch size" if "2lines" in output_file else "BS"
+    return "%s %s%s %s" % (batch_size_text, batch_size, num_gpus, vns)
 
   # Plot it
   if figure_size is not None:
@@ -124,9 +126,10 @@ def main():
   if put_legend_outside:
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
-    ax.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize=legend_font_size)
+    ax.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5),\
+      fontsize=legend_font_size, ncol=legend_ncol, columnspacing=1)
   else:
-    ax.legend(handles, labels, fontsize=legend_font_size)
+    ax.legend(handles, labels, fontsize=legend_font_size, ncol=legend_ncol, columnspacing=1)
 
   if space_xticks_apart:
     ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])

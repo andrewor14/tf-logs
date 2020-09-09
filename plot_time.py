@@ -21,6 +21,9 @@ def main():
   figure_size = os.getenv("FIGURE_SIZE")
   time_unit = os.getenv("TIME_UNIT", "s")
   hatch_max_accuracy = os.getenv("HATCH_MAX_ACCURACY", "").lower() == "true"
+  group_bars = os.getenv("GROUP_BARS", "").lower() == "true"
+  num_total_examples = os.getenv("NUM_TOTAL_EXAMPLES")
+  space_yticks_apart = os.getenv("SPACE_YTICKS_APART")
 
   # Sort the labels
   def sort_key(label):
@@ -53,16 +56,22 @@ def main():
       maybe_baseline = "(baseline)" if "baseline" in data_file else ""
       return "%s\n%s\n%s" % (batch_size, num_vns, maybe_baseline)
 
-  # Plot it
+  # Optionally resize figure
   if figure_size is not None:
     width = float(figure_size.split(",")[0])
     height = float(figure_size.split(",")[1])
     fig = plt.figure(figsize=(width, height))
   else:
     fig = plt.figure()
+
+  # Y-axis can be either completion time or throughput
+  ylabel = "Completion time (%s)" % time_unit
+  if num_total_examples is not None:
+    ylabel = "Throughput\n(examples/%s)" % time_unit
+
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("Configuration", fontsize=24, labelpad=15)
-  ax.set_ylabel("Completion time (%s)" % time_unit, fontsize=24, labelpad=15)
+  ax.set_xlabel("Configuration", fontsize=20, labelpad=15)
+  ax.set_ylabel(ylabel, fontsize=20, labelpad=15)
   labels = []
   colors = []
   elapsed_time = []
@@ -78,17 +87,54 @@ def main():
         elapsed_time.append(elapsed_seconds / 60)
       final_accuracies.append(float(split[1]))
       colors.append("cornflowerblue" if "baseline" in data_file else "orange")
+
+  # Plot the bars
   bars = []
+  bar_width = 0.35 if group_bars else 0.7
+  y_values = elapsed_time
+  if num_total_examples:
+    y_values = [int(num_total_examples) / t for t in elapsed_time]
   for i in range(len(labels)):
+    if group_bars:
+      r1 = np.arange(int(len(labels)/2))
+      r2 = [x + bar_width for x in r1]
+      if i == 8:
+        x_value = 4
+      else:
+        x_value = r1[int(i/2)] if "baseline" in labels[i] else r2[int(i/2)]
+      label = "baseline" if "baseline" in labels[i] else "virtual node"
+    else:
+      x_value = labels[i]
+      label = None
     hatch = "/" if hatch_max_accuracy and i == int(np.argmax(final_accuracies)) else ""
-    bars.append(ax.bar(labels[i], elapsed_time[i], color=colors[i], hatch=hatch, width=0.7))
+    bars.append(ax.bar(x_value, y_values[i], color=colors[i], hatch=hatch, width=bar_width, label=label))
+
+  # Add final accuracy on top of each bar
   for i, bar in enumerate(bars):
     rect = bar.patches[0]
     plt.text(rect.get_x() + rect.get_width() / 2.0, rect.get_height(),\
-      "%.3f" % final_accuracies[i], ha='center', va='bottom')
-  plt.xticks(fontsize=16)
+      "%.3f" % final_accuracies[i], ha='center', va='bottom', fontsize=12)
+
+  # If we grouped the bars, just display num GPUs and add a legend
+  if group_bars:
+    positions = [r.patches[0].get_x() for i, r in enumerate(bars)\
+      if "baseline" not in labels[i]]
+    if len(labels) % 2 == 1:
+      positions[-1] += bar_width / 2
+    merged_labels = []
+    for i, label in enumerate(labels):
+      if "baseline" in label:
+        continue
+      merged_labels.append(labels[i].split("\n")[0])
+    plt.xticks(positions, merged_labels, fontsize=16)
+    ax.legend(["baseline", "virtual node"], fontsize=16)
+  else:
+    plt.xticks(fontsize=16)
+
+  if space_yticks_apart:
+    ax.set_yticks([max(yy, 0) for yy in ax.get_yticks()[::2]])
   plt.yticks(fontsize=16)
-  plt.ylim(0, max(elapsed_time) * 1.1)
+  plt.ylim(0, max(y_values) * 1.15)
   plt.title(title, fontsize=24, pad=20)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
