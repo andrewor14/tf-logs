@@ -95,8 +95,8 @@ def plot(scheduler_log):
   title = os.getenv("TITLE", scheduler_log.split("/")[-1].replace(".log", ""))
 
   # Optionally resize figure
-  if "3jobs_4gpus" in scheduler_log:
-    fig = plt.figure(figsize=(7,4))
+  if "3jobs" in scheduler_log:
+    fig = plt.figure(figsize=(7,3.5))
     title = ""
   else:
     fig = plt.figure()
@@ -109,7 +109,7 @@ def plot(scheduler_log):
   the_x = None
   all_ys = []
   all_labels = []
-  if "3jobs_4gpus" in scheduler_log:
+  if "3jobs" in scheduler_log:
     colors = ["lightskyblue", "orange", "pink"]
   else:
     colors = plt.rcParams['axes.prop_cycle'].by_key()['color'] * 10
@@ -130,7 +130,7 @@ def plot(scheduler_log):
     all_labels.append("Job %s" % job_id)
   stacks = ax.stackplot(the_x, *all_ys, labels=all_labels, colors=colors)
 
-  if "3jobs_4gpus" in scheduler_log:
+  if "3jobs" in scheduler_log:
     # Set some hatches
     hatches = ["", "\\", "."]
     for i, stack in enumerate(stacks):
@@ -144,7 +144,7 @@ def plot(scheduler_log):
         continue
       submitted_time = job_times[job_id][0]
       plt.axvline(x=submitted_time, linewidth=3, linestyle="--", color="black")
-      ax.text(submitted_time - 200, 5.2, "Submit\nJob %s" % job_id, size=24, verticalalignment='center')
+      ax.text(submitted_time - 130, 4.5, "J%s" % job_id, size=24, verticalalignment='center')
     plt.ylim(0, 4)
 
   # If this is WFS, try to find the Priority version of the same log and use
@@ -162,7 +162,7 @@ def plot(scheduler_log):
 
   plt.yticks(range(0, max_num_gpus+1))
   if len(all_ys) <= 10:
-    ax.legend(fontsize=16)
+    ax.legend(fontsize=20)
   plt.xticks(fontsize=20)
   plt.yticks(fontsize=20)
   plt.title(title.replace(r'\n', "\n"), fontsize=32, pad=25)

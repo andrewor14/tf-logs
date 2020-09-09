@@ -1,0 +1,64 @@
+[    0.0000] Running SchedulerMode.WFS scheduler on hosts 18380acdda5c with 4 GPU(s) per host
+[    0.0006] Listening for scheduler requests on port 18383
+[    0.0008] Started event loop...
+[    0.0011] Running with trace: scheduler_traces/3jobs_4gpus_v1.json
+[    1.0026] Job 0 submitted
+[    2.0031] * Processing event ScheduleEvent: 1 job(s) in queue
+[    2.0033] ... wfs schedule: current_allocations {}
+[    2.0033] ... wfs schedule: potential_allocations {0: 4}
+[    2.0033] ... wfs schedule: fair_allocations {0: 4}
+[    2.0033] * Processing event RunJobEvent(job=Job(0, BERTGlueWorkload(task=SST-2, gpu_demand=4, batch_size=64, num_steps=105, num_epochs=10, num_virtual_nodes_per_device=2), 1), initial_allocation=4)
+2020-09-09 19:00:00.814453: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+[    4.4934] Job 0 was assigned 4 GPUs, new GPU assignment = {'18380acdda5c': [0, 0, 0, 0]}
+[    4.5078] Job 0 started with 4 GPUs (PID = 12788)
+[   68.3820] Job 0 successfully resized to 4 GPUs
+[  240.2631] Job 1 submitted
+[  240.7633] * Processing event ScheduleEvent: 1 job(s) in queue
+[  240.7635] ... wfs schedule: current_allocations {0: 4}
+[  240.7636] ... wfs schedule: potential_allocations {1: 2, 0: 2}
+[  240.7636] ... wfs schedule: fair_allocations {1: 2, 0: 2}
+[  240.7637] * Processing event ResizeEvent(job_id=0, target_num_workers=2)
+[  240.7653] * Processing event RunJobEvent(job=Job(1, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=128, num_steps=None, num_epochs=100, num_virtual_nodes_per_device=1), 5), initial_allocation=2)
+[  241.1180] Job 0 successfully resized to 2 GPUs
+[  241.1180] Job 0 released 2 GPUs, new GPU assignment: {'18380acdda5c': [0, 0, None, None]}
+[  241.7667] * Processing event RunJobEvent(job=Job(1, ResNetWorkload(dataset=cifar10, gpu_demand=2, batch_size=128, num_steps=None, num_epochs=100, num_virtual_nodes_per_device=1), 5), initial_allocation=2)
+[  241.7669] Job 1 was assigned 2 GPUs, new GPU assignment = {'18380acdda5c': [0, 0, 1, 1]}
+[  241.7811] Job 1 started with 2 GPUs (PID = 15292)
+[  316.1118] Job 1 successfully resized to 2 GPUs
+[ 1020.0712] Job 2 submitted
+[ 1020.6054] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 1020.6055] ... wfs schedule: current_allocations {0: 2, 1: 2}
+[ 1020.6056] ... wfs schedule: potential_allocations {0: 1, 1: 1, 2: 2}
+[ 1020.6056] ... wfs schedule: fair_allocations {0: 1, 1: 1, 2: 2}
+[ 1020.6056] * Processing event ResizeEvent(job_id=0, target_num_workers=1)
+[ 1020.6064] * Processing event ResizeEvent(job_id=1, target_num_workers=1)
+[ 1020.6074] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=QNLI, gpu_demand=4, batch_size=32, num_steps=327, num_epochs=15, num_virtual_nodes_per_device=1), 10), initial_allocation=2)
+[ 1020.6287] Job 1 successfully resized to 1 GPUs
+[ 1020.6288] Job 1 released 1 GPUs, new GPU assignment: {'18380acdda5c': [0, 0, 1, None]}
+[ 1021.6087] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=QNLI, gpu_demand=4, batch_size=32, num_steps=327, num_epochs=15, num_virtual_nodes_per_device=1), 10), initial_allocation=2)
+[ 1021.7226] Job 0 successfully resized to 1 GPUs
+[ 1021.7226] Job 0 released 1 GPUs, new GPU assignment: {'18380acdda5c': [0, None, 1, None]}
+[ 1022.6099] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=QNLI, gpu_demand=4, batch_size=32, num_steps=327, num_epochs=15, num_virtual_nodes_per_device=1), 10), initial_allocation=2)
+[ 1022.6100] Job 2 was assigned 2 GPUs, new GPU assignment = {'18380acdda5c': [0, 2, 1, 2]}
+[ 1022.6233] Job 2 started with 2 GPUs (PID = 16713)
+[ 1077.6626] Job 2 successfully resized to 2 GPUs
+[ 1471.0718] Job 0 finished, took 1466.6 seconds
+[ 1471.0719] Job 0 released its GPUs, new GPU assignment = {'18380acdda5c': [None, 2, 1, 2]}
+[ 1471.0939] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 1471.0941] ... wfs schedule: current_allocations {2: 2, 1: 1}
+[ 1471.0941] ... wfs schedule: fair_allocations {1: 2, 2: 2}
+[ 1471.0941] * Processing event ResizeEvent(job_id=1, target_num_workers=2)
+[ 1471.0942] Job 1 was assigned 1 new GPUs, new GPU assignment: {'18380acdda5c': [1, 2, 1, 2]}
+[ 1518.6732] Job 1 successfully resized to 2 GPUs
+[ 2581.2294] Job 1 finished, took 2339.5 seconds
+[ 2581.2295] Job 1 released its GPUs, new GPU assignment = {'18380acdda5c': [None, 2, None, 2]}
+[ 2581.2507] * Processing event ScheduleEvent: 0 job(s) in queue
+[ 2581.2508] ... wfs schedule: current_allocations {2: 2}
+[ 2581.2508] ... wfs schedule: fair_allocations {2: 4}
+[ 2581.2508] * Processing event ResizeEvent(job_id=2, target_num_workers=4)
+[ 2581.2509] Job 2 was assigned 2 new GPUs, new GPU assignment: {'18380acdda5c': [2, 2, 2, 2]}
+[ 2636.3146] Job 2 successfully resized to 4 GPUs
+[ 3300.5907] Job 2 finished, took 2278.0 seconds
+[ 3300.5908] Job 2 released its GPUs, new GPU assignment = {'18380acdda5c': [None, None, None, None]}
+[ 3300.5908] Reached maximum number of 3 jobs
+[ 3301.0168] Exiting event loop.

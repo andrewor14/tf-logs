@@ -35,14 +35,14 @@ def plot(output_path, ylabel, vals1, vals2):
   print("Wrote to %s" % output_path)
 
 def main():
-  vals1 = [0.9186, 0.933, 0.8856]
-  vals2 = [0.922, 0.932, 0.9057]
-  plot("9-7/elasticity-3jobs-accuracy.pdf", "Val accuracy", vals1, vals2)
-  vals1 = [1262, 2025, 1562]
-  vals2 = [928, 2594, 3152]
+  vals1 = [0.9141, 0.9273, 0.8867]
+  vals2 = [0.9220, 0.9279, 0.8894]
+  plot("9-9/elasticity-3jobs-accuracy.pdf", "Val accuracy", vals1, vals2)
+  vals1 = [1470, 2341, 2281]
+  vals2 = [927, 2614, 4523]
   vals1 = [v / 60 for v in vals1]
   vals2 = [v / 60 for v in vals2]
-  plot("9-7/elasticity-3jobs-jct.pdf", "JCT (min)", vals1, vals2)
+  plot("9-9/elasticity-3jobs-jct.pdf", "JCT (min)", vals1, vals2)
 
 if __name__ == "__main__":
   main()
