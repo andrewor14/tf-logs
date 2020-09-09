@@ -24,6 +24,8 @@ def main():
   group_bars = os.getenv("GROUP_BARS", "").lower() == "true"
   num_total_examples = os.getenv("NUM_TOTAL_EXAMPLES")
   space_yticks_apart = os.getenv("SPACE_YTICKS_APART")
+  legend_ncol = int(os.getenv("LEGEND_NCOL", "1"))
+  ylim_factor = float(os.getenv("YLIM_FACTOR", 1.15))
 
   # Sort the labels
   def sort_key(label):
@@ -127,14 +129,14 @@ def main():
         continue
       merged_labels.append(labels[i].split("\n")[0])
     plt.xticks(positions, merged_labels, fontsize=16)
-    ax.legend(["baseline", "virtual node"], fontsize=16)
+    ax.legend(["baseline", "virtual node"], fontsize=16, loc="upper left", ncol=legend_ncol)
   else:
     plt.xticks(fontsize=16)
 
   if space_yticks_apart:
     ax.set_yticks([max(yy, 0) for yy in ax.get_yticks()[::2]])
   plt.yticks(fontsize=16)
-  plt.ylim(0, max(y_values) * 1.15)
+  plt.ylim(0, max(y_values) * ylim_factor)
   plt.title(title, fontsize=24, pad=20)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
