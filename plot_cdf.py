@@ -43,27 +43,41 @@ def parse_job_times(scheduler_log):
         job_times[job_id][list_index] = seconds_elapsed
   return job_times
 
-def plot(scheduler_logs):
-  output_file = os.getenv("OUTPUT_FILE", "jct_cdf.pdf")
+def plot(scheduler_logs, metric="jct"):
+  output_file = os.getenv("OUTPUT_FILE", "9-9/elasticity-20jobs-%s.pdf" % metric)
+  space_xticks_apart = os.getenv("SPACE_XTICKS_APART", "").lower() == "true"
+
   title = os.getenv("TITLE")
-  fig = plt.figure()
+  fig = plt.figure(figsize=(3,2.5))
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("Duration (s)", fontsize=24, labelpad=15)
-  ax.set_ylabel("JCT CDF", fontsize=24, labelpad=15)
+  ax.set_xlabel("Duration (s)", fontsize=14, labelpad=10)
+  ylabel = "JCT CDF" if metric == "jct" else "Queuing delay CDF"
+  ax.set_ylabel(ylabel, fontsize=14, labelpad=10)
 
   for scheduler_log in scheduler_logs:
-    label = scheduler_log.replace(".log", "").split("/")[-1]
+    if "WFS" in scheduler_log:
+      label = "WFS"
+    elif "Priority" in scheduler_log:
+      label = "Priority"
+    else:
+      label = scheduler_log.replace(".log", "").split("/")[-1]
     job_times = parse_job_times(scheduler_log)
-    all_jcts = []
+    all_values = []
     for job_id in job_times.keys():
       submit, start, end = job_times[job_id]
-      all_jcts.append(end - submit)
-    all_jcts = np.sort(all_jcts)
-    cdf = 1. * np.arange(len(all_jcts)) / (len(all_jcts) - 1)
-    ax.plot(all_jcts, cdf, label=label, linewidth=3)
-  ax.legend(fontsize=12)
-  plt.xticks(fontsize=16)
-  plt.yticks(fontsize=16)
+      if metric == "jct":
+        all_values.append(end - submit)
+      else:
+        all_values.append(start - submit)
+    all_values = np.sort(all_values)
+    print("%s median: %s" % (label, all_values[int(len(all_values)/2)]))
+    cdf = 1. * np.arange(len(all_values)) / (len(all_values) - 1)
+    ax.plot(all_values, cdf, label=label, linewidth=3)
+  ax.legend(fontsize=12, handlelength=1)
+  if space_xticks_apart:
+    ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::3]])
+  plt.xticks(fontsize=10)
+  plt.yticks(fontsize=10)
   if title is not None:
     plt.title(title, fontsize=20, pad=15)
   fig.set_tight_layout({"pad": 1.5})
@@ -75,7 +89,8 @@ def main():
   if len(args) < 2:
     print("Usage: ./plot_cdf.py [scheduler1.log] [scheduler2.log] ...")
     sys.exit(1)
-  plot(args[1:])
+  plot(args[1:], "jct")
+  plot(args[1:], "queuing")
 
 if __name__ == "__main__":
   main()

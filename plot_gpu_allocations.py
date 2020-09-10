@@ -86,6 +86,24 @@ def align_time(gpu_allocations):
     gpu_allocations[job_id] = new_allocs
   return gpu_allocations
 
+def compute_avg_gpu_utilization(gpu_allocations, max_num_gpus):
+  """
+  Compute the average GPU utilization across the entire duration of the trace.
+  `gpu_allocations` is assumed to have aligned timestamps across all jobs.
+  """
+  any_job_id = list(gpu_allocations.keys())[0]
+  all_timestamps = [t for t, _ in gpu_allocations[any_job_id]]
+  sum_allocs = [0] * len(all_timestamps)
+  for _, allocs in gpu_allocations.items():
+    for i, (_, num_gpus) in enumerate(allocs):
+      sum_allocs[i] += num_gpus
+  gpu_utilization = 0
+  for i in range(len(sum_allocs)-1):
+    gpu_utilization += sum_allocs[i] *\
+      (all_timestamps[i+1] - all_timestamps[i]) / max_num_gpus
+  gpu_utilization /= all_timestamps[-1]
+  return gpu_utilization
+
 def plot(scheduler_log):
   """
   Plot GPU allocations over time, one line per job.
@@ -93,19 +111,33 @@ def plot(scheduler_log):
   gpu_allocations = align_time(parse_gpu_allocations(scheduler_log))
   output_file = scheduler_log.replace(".log", ".pdf")
   title = os.getenv("TITLE", scheduler_log.split("/")[-1].replace(".log", ""))
+  space_xticks_apart = os.getenv("SPACE_XTICKS_APART", "").lower() == "true"
+
+  # Parse max num GPUs
+  with open(scheduler_log) as f:
+    max_num_gpus = int(re.match(".*with ([0-9]+) GPU.*", f.readlines()[0]).groups()[0])
+  print("Average GPU utilization: %.3g" %\
+    compute_avg_gpu_utilization(gpu_allocations, max_num_gpus))
 
   # Optionally resize figure
   if "3jobs" in scheduler_log:
     fig = plt.figure(figsize=(7,3.5))
     title = ""
+  elif "20jobs" in scheduler_log:
+    fig = plt.figure(figsize=(7,3))
+    title = ""
+    space_xticks_apart = True
   else:
     fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("Time (s)", fontsize=28, labelpad=15)
-  ax.set_ylabel("GPUs allocated", fontsize=28, labelpad=15)
+  if "20jobs" in scheduler_log:
+    ax.set_xlabel("Time (s)", fontsize=20, labelpad=10)
+    ax.set_ylabel("GPUs allocated", fontsize=20, labelpad=15)
+  else:
+    ax.set_xlabel("Time (s)", fontsize=28, labelpad=15)
+    ax.set_ylabel("GPUs allocated", fontsize=28, labelpad=15)
 
   # Find max num GPUs to set the y-axis
-  max_num_gpus = -1
   the_x = None
   all_ys = []
   all_labels = []
@@ -123,12 +155,11 @@ def plot(scheduler_log):
       if i+1 < len(gpu_allocations[job_id]):
         x.append(gpu_allocations[job_id][i+1][0] - 0.00001)
         y.append(num_gpus)
-      max_num_gpus = max(num_gpus, max_num_gpus)
     assert(the_x is None or the_x == x)
     the_x = x
     all_ys.append(y)
     all_labels.append("Job %s" % job_id)
-  stacks = ax.stackplot(the_x, *all_ys, labels=all_labels, colors=colors)
+  stacks = ax.stackplot(the_x, *all_ys, labels=all_labels, colors=colors, edgecolor="black", linewidth=0.5)
 
   if "3jobs" in scheduler_log:
     # Set some hatches
@@ -160,11 +191,16 @@ def plot(scheduler_log):
   if xmax is not None:
     plt.xlim(0, int(xmax))
 
-  plt.yticks(range(0, max_num_gpus+1))
+  if space_xticks_apart:
+    ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
   if len(all_ys) <= 10:
     ax.legend(fontsize=20)
-  plt.xticks(fontsize=20)
-  plt.yticks(fontsize=20)
+  if "20jobs" in scheduler_log:
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+  else:
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
   plt.title(title.replace(r'\n', "\n"), fontsize=32, pad=25)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
