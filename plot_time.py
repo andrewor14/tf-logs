@@ -22,8 +22,8 @@ def main():
   time_unit = os.getenv("TIME_UNIT", "s")
   hatch_max_accuracy = os.getenv("HATCH_MAX_ACCURACY", "").lower() == "true"
   group_bars = os.getenv("GROUP_BARS", "").lower() == "true"
-  num_total_examples = os.getenv("NUM_TOTAL_EXAMPLES")
-  space_yticks_apart = os.getenv("SPACE_YTICKS_APART")
+  plot_throughput = os.getenv("PLOT_THROUGHPUT", "").lower() == "true"
+  space_yticks_apart = os.getenv("SPACE_YTICKS_APART", "").lower() == "true"
   legend_ncol = int(os.getenv("LEGEND_NCOL", "1"))
   ylim_factor = float(os.getenv("YLIM_FACTOR", 1.15))
 
@@ -67,35 +67,34 @@ def main():
     fig = plt.figure()
 
   # Y-axis can be either completion time or throughput
-  ylabel = "Completion time (%s)" % time_unit
-  if num_total_examples is not None:
-    ylabel = "Throughput\n(examples/%s)" % time_unit
+  if plot_throughput:
+    ylabel = "Throughput\n(examples/s)"
+  else:
+    ylabel = "Completion time (%s)" % time_unit
 
   ax = fig.add_subplot(1, 1, 1)
   ax.set_xlabel("Configuration", fontsize=20, labelpad=15)
   ax.set_ylabel(ylabel, fontsize=20, labelpad=15)
   labels = []
   colors = []
-  elapsed_time = []
+  values = []
   final_accuracies = []
   for data_file in data_files:
     labels.append(get_label(data_file))
     with open(data_file) as f:
       split = f.readlines()[-1].strip().split(" ")
-      elapsed_seconds = int(split[0])
-      if time_unit == "s":
-        elapsed_time.append(elapsed_seconds)
+      value = float(split[0])
+      if time_unit == "s" or plot_throughput:
+        values.append(value)
       else:
-        elapsed_time.append(elapsed_seconds / 60)
+        values.append(value / 60)
       final_accuracies.append(float(split[1]))
       colors.append("cornflowerblue" if "baseline" in data_file else "orange")
 
   # Plot the bars
   bars = []
   bar_width = 0.35 if group_bars else 0.7
-  y_values = elapsed_time
-  if num_total_examples:
-    y_values = [int(num_total_examples) / t for t in elapsed_time]
+  y_values = values
   for i in range(len(labels)):
     if group_bars:
       r1 = np.arange(int(len(labels)/2))
