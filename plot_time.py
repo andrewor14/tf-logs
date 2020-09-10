@@ -115,7 +115,7 @@ def main():
   for i, bar in enumerate(bars):
     rect = bar.patches[0]
     plt.text(rect.get_x() + rect.get_width() / 2.0, rect.get_height(),\
-      "%.3f" % final_accuracies[i], ha='center', va='bottom', fontsize=12)
+      "%.3g" % (final_accuracies[i] * 100), ha='center', va='bottom', fontsize=12)
 
   # If we grouped the bars, just display num GPUs and add a legend
   if group_bars:

@@ -32,7 +32,7 @@ for glue_task in $GLUE_TASKS; do
     DATA_FILE_SUFFIX="-time.txt" ./plot_accuracy.py "$DATA_FILE_PREFIX"*-time*.txt
   export LEGEND_NCOL="2"
   export YLIM_FACTOR="1.45"
-  OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-time-2.pdf" FIGURE_SIZE="8,4"\
+  OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-time-2.pdf" FIGURE_SIZE="6.5,4"\
     ./plot_time.py "$DATA_FILE_PREFIX"*-time.txt
   unset LEGEND_NCOL
   unset YLIM_FACTOR
