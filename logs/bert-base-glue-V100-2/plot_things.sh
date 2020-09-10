@@ -19,7 +19,7 @@ for glue_task in $GLUE_TASKS; do
   OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-time.pdf" XLABEL="Time elapsed (s)"\
     DATA_FILE_SUFFIX="-time.txt" ./plot_accuracy.py "$DATA_FILE_PREFIX"*-time*.txt
   export LEGEND_NCOL="2"
-  export YLIM_FACTOR="1.5"
+  export YLIM_FACTOR="1.35"
   OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-throughput.pdf" FIGURE_SIZE="6.5,4"\
     ./plot_time.py "$DATA_FILE_PREFIX"*-throughput.txt
   unset LEGEND_NCOL

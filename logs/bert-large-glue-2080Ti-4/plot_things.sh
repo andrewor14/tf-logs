@@ -22,11 +22,14 @@ for glue_task in $GLUE_TASKS; do
     ./plot_accuracy.py $(ls ${DATA_FILE_PREFIX}*vn*txt | grep -v time | grep -v throughput | xargs)
   OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-time.pdf" XLABEL="Time elapsed (s)"\
     DATA_FILE_SUFFIX="-time.txt" ./plot_accuracy.py "$DATA_FILE_PREFIX"*time.txt
-  OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-throughput.pdf" DATA_FILE_SUFFIX="-time.txt"\
+  export LEGEND_NCOL="2"
+  export YLIM_FACTOR="1.3"
+  OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-throughput.pdf" DATA_FILE_SUFFIX="-throughput.txt"\
     HATCH_MAX_ACCURACY="true" ./plot_time.py "$DATA_FILE_PREFIX"*throughput.txt
   unset LEGEND_NCOL
   unset NUM_TOTAL_EXAMPLES
   unset YLIM
+  unset YLIM_FACTOR
   if [[ "$glue_task" == "RTE" ]]; then
     OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-2lines.pdf" LEGEND_FONT_SIZE=16\
       ./plot_accuracy.py "$DATA_FILE_PREFIX"4bs*vn_baseline.txt "$DATA_FILE_PREFIX"16bs*vn.txt

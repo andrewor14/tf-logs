@@ -49,14 +49,12 @@ def main():
       num_gpus = "%s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
       batch_size = "%sbs" % batch_size
       num_vns = "%sVN" % num_vns
-      maybe_baseline = "(baseline)" if "baseline" in data_file else ""
-      return "%s\n%s\n%s\n%s" % (num_gpus, batch_size, num_vns, maybe_baseline)
+      return "%s\n%s\n%s" % (num_gpus, batch_size, num_vns)
     else:
       batch_size, num_vns = re.match("([0-9]+)bs_([0-9]+)vn.*", label).groups()
       batch_size = "%sbs" % batch_size
       num_vns = "%sVN" % num_vns
-      maybe_baseline = "(baseline)" if "baseline" in data_file else ""
-      return "%s\n%s\n%s" % (batch_size, num_vns, maybe_baseline)
+      return "%s\n%s" % (batch_size, num_vns)
 
   # Optionally resize figure
   if figure_size is not None:
@@ -89,7 +87,7 @@ def main():
       else:
         values.append(value / 60)
       final_accuracies.append(float(split[1]))
-      colors.append("cornflowerblue" if "baseline" in data_file else "orange")
+      colors.append("lightskyblue" if "baseline" in data_file else "lightsalmon")
 
   # Plot the bars
   bars = []
@@ -108,13 +106,17 @@ def main():
       x_value = labels[i]
       label = None
     hatch = "/" if hatch_max_accuracy and i == int(np.argmax(final_accuracies)) else ""
-    bars.append(ax.bar(x_value, y_values[i], color=colors[i], hatch=hatch, width=bar_width, label=label))
+    bars.append(ax.bar(x_value, y_values[i], color=colors[i], hatch=hatch,\
+      width=bar_width, label=label, edgecolor="white"))
 
   # Add final accuracy on top of each bar
   for i, bar in enumerate(bars):
     rect = bar.patches[0]
-    plt.text(rect.get_x() + rect.get_width() / 2.0, rect.get_height(),\
-      "%.2f" % final_accuracies[i], ha='center', va='bottom', fontsize=12)
+    text = "%.2f" % final_accuracies[i]
+    if i == 0:
+      text = "Acc\n%s" % text
+    plt.text(rect.get_x() + rect.get_width() / 2.0, 0,\
+      text, ha='center', va='bottom', fontsize=12)
 
   # If we grouped the bars, just display num GPUs and add a legend
   if group_bars:
@@ -131,6 +133,7 @@ def main():
     ax.legend(["baseline", "virtual node"], fontsize=16, loc="upper left", ncol=legend_ncol)
   else:
     plt.xticks(fontsize=16)
+    ax.legend(["baseline", "virtual node"], fontsize=16, loc="upper left", ncol=legend_ncol)
 
   if space_yticks_apart:
     ax.set_yticks([max(yy, 0) for yy in ax.get_yticks()[::2]])
