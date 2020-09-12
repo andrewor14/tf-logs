@@ -35,7 +35,7 @@ def should_ignore_line(line):
     line.startswith("+") or\
     line.startswith("-") or\
     line.startswith(" ") or\
-    "(allocated null ptr)" in line
+    "null ptr" in line
 
 def parse_allocation_events(log_file):
   '''
