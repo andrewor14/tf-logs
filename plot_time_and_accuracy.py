@@ -21,8 +21,9 @@ def plot(output_path, ylabel, vals1, vals2):
   # Add values on the top
   label_values = [v for v in vals1 + vals2]
   for i, rect in enumerate(bars1 + bars2):
+    value = "{:.3f}".format(label_values[i]) if "accuracy" in ylabel else "%.2g" % label_values[i]
     plt.text(rect.get_x() + rect.get_width() / 2.0, rect.get_height(),\
-      "%.2g" % label_values[i], ha='center', va='bottom', size=14)
+      value, ha='center', va='bottom', size=13)
   # Legend
   box = ax.get_position()
   ax.set_position([box.x0, box.y0, box.width, box.height * 0.8])
@@ -35,14 +36,14 @@ def plot(output_path, ylabel, vals1, vals2):
   print("Wrote to %s" % output_path)
 
 def main():
-  vals1 = [0.9141, 0.9273, 0.8867]
-  vals2 = [0.9220, 0.9279, 0.8894]
-  plot("9-9/elasticity-3jobs-accuracy.pdf", "Val accuracy", vals1, vals2)
-  vals1 = [1470, 2341, 2281]
-  vals2 = [927, 2614, 4523]
+  vals1 = [0.9129, 0.9137, 0.8997]
+  vals2 = [0.9107, 0.9175, 0.9084]
+  plot("9-13/elasticity-3jobs-accuracy.pdf", "Val accuracy", vals1, vals2)
+  vals1 = [610.2, 1944.5, 2491.3]
+  vals2 = [590.3, 2281.9, 3944.1]
   vals1 = [v / 60 for v in vals1]
   vals2 = [v / 60 for v in vals2]
-  plot("9-9/elasticity-3jobs-jct.pdf", "JCT (min)", vals1, vals2)
+  plot("9-13/elasticity-3jobs-jct.pdf", "JCT (min)", vals1, vals2)
 
 if __name__ == "__main__":
   main()
