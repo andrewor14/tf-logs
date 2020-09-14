@@ -1,0 +1,191 @@
+[    0.0000] Running SchedulerMode.PRIORITY scheduler on hosts 4465c88dda1f with 8 GPU(s) per host
+[    0.0007] Listening for scheduler requests on port 18383
+[    0.0010] Started event loop...
+[    0.0013] Running with trace: scheduler_traces/medium20_10jph.json
+[    1.0027] Job 0 submitted
+[    2.0033] * Processing event ScheduleEvent: 1 job(s) in queue
+2020-09-13 00:36:40.695900: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+[    4.4875] * Processing event RunJobEvent(job=Job(0, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=128, num_steps=None, num_epochs=20, num_virtual_nodes_per_device=1), 5), initial_allocation=1)
+[    4.4881] Job 0 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [0, None, None, None, None, None, None, None]}
+[    4.5029] Job 0 started with 1 GPUs (PID = 55868)
+[   71.0835] Job 1 submitted
+[   71.5820] * Processing event ScheduleEvent: 1 job(s) in queue
+[   71.5822] * Processing event RunJobEvent(job=Job(1, BERTGlueWorkload(task=SST-2, gpu_demand=2, batch_size=32, num_steps=None, num_epochs=1, num_virtual_nodes_per_device=2), 10), initial_allocation=2)
+[   71.5823] Job 1 was assigned 2 GPUs, new GPU assignment = {'4465c88dda1f': [0, 1, 1, None, None, None, None, None]}
+[   71.5957] Job 1 started with 2 GPUs (PID = 56477)
+[  126.8065] Job 1 successfully resized to 2 GPUs
+[  406.4324] Job 2 submitted
+[  406.9489] * Processing event ScheduleEvent: 1 job(s) in queue
+[  425.7445] Job 0 finished, took 421.3 seconds
+[  425.7446] Waiting 10 seconds before releasing Job 0's GPUs
+[  435.7547] Job 0 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, 1, 1, None, None, None, None, None]}
+[  435.9810] * Processing event ScheduleEvent: 1 job(s) in queue
+[  959.7560] Job 1 finished, took 888.2 seconds
+[  959.7561] Waiting 10 seconds before releasing Job 1's GPUs
+[  969.7589] Job 1 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[  970.5644] * Processing event ScheduleEvent: 1 job(s) in queue
+[  970.5647] * Processing event RunJobEvent(job=Job(2, BERTGlueWorkload(task=CoLA, gpu_demand=8, batch_size=64, num_steps=None, num_epochs=10, num_virtual_nodes_per_device=1), 5), initial_allocation=8)
+[  970.5647] Job 2 was assigned 8 GPUs, new GPU assignment = {'4465c88dda1f': [2, 2, 2, 2, 2, 2, 2, 2]}
+[  970.5794] Job 2 started with 8 GPUs (PID = 57728)
+[  977.0485] Job 3 submitted
+[  977.5880] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 1049.7139] Job 2 successfully resized to 8 GPUs
+[ 1070.1470] Job 4 submitted
+[ 1070.6854] * Processing event ScheduleEvent: 2 job(s) in queue
+[ 1364.4290] Job 5 submitted
+[ 1364.9692] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 1419.4796] Job 6 submitted
+[ 1420.0224] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 2002.2122] Job 2 finished, took 1031.6 seconds
+[ 2002.2124] Waiting 10 seconds before releasing Job 2's GPUs
+[ 2012.2225] Job 2 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 2012.5903] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 2012.5905] * Processing event RunJobEvent(job=Job(4, BERTGlueWorkload(task=SST-2, gpu_demand=4, batch_size=64, num_steps=None, num_epochs=2, num_virtual_nodes_per_device=2), 10), initial_allocation=4)
+[ 2012.5905] Job 4 was assigned 4 GPUs, new GPU assignment = {'4465c88dda1f': [4, 4, 4, 4, None, None, None, None]}
+[ 2012.6038] Job 4 started with 4 GPUs (PID = 62645)
+[ 2100.2720] Job 4 successfully resized to 4 GPUs
+[ 2102.1370] Job 7 submitted
+[ 2102.7079] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 2102.7081] * Processing event RunJobEvent(job=Job(7, BERTGlueWorkload(task=SST-2, gpu_demand=1, batch_size=8, num_steps=None, num_epochs=1, num_virtual_nodes_per_device=1), 5), initial_allocation=1)
+[ 2102.7082] Job 7 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [4, 4, 4, 4, 7, None, None, None]}
+[ 2102.7226] Job 7 started with 1 GPUs (PID = 65113)
+[ 2919.3762] Job 7 finished, took 816.7 seconds
+[ 2919.3763] Waiting 10 seconds before releasing Job 7's GPUs
+[ 2929.3865] Job 7 released its GPUs, new GPU assignment = {'4465c88dda1f': [4, 4, 4, 4, None, None, None, None]}
+[ 2929.5711] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 3046.1163] Job 8 submitted
+[ 3046.6950] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 3046.6952] * Processing event RunJobEvent(job=Job(8, BERTGlueWorkload(task=CoLA, gpu_demand=1, batch_size=8, num_steps=None, num_epochs=10, num_virtual_nodes_per_device=1), 10), initial_allocation=1)
+[ 3046.6952] Job 8 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [4, 4, 4, 4, 8, None, None, None]}
+[ 3046.7133] Job 8 started with 1 GPUs (PID = 517)
+[ 3267.3400] Job 9 submitted
+[ 3267.9449] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 3267.9451] * Processing event RunJobEvent(job=Job(9, BERTGlueWorkload(task=CoLA, gpu_demand=2, batch_size=16, num_steps=None, num_epochs=10, num_virtual_nodes_per_device=1), 10), initial_allocation=2)
+[ 3267.9451] Job 9 was assigned 2 GPUs, new GPU assignment = {'4465c88dda1f': [4, 4, 4, 4, 8, 9, 9, None]}
+[ 3267.9587] Job 9 started with 2 GPUs (PID = 1152)
+[ 3333.9679] Job 9 successfully resized to 2 GPUs
+[ 3698.3981] Job 4 finished, took 1685.8 seconds
+[ 3698.3982] Waiting 10 seconds before releasing Job 4's GPUs
+[ 3708.4083] Job 4 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, 8, 9, 9, None]}
+[ 3709.3964] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 3819.8963] Job 10 submitted
+[ 3820.5138] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 4089.5547] Job 8 finished, took 1042.9 seconds
+[ 4089.5548] Waiting 10 seconds before releasing Job 8's GPUs
+[ 4099.5614] Job 8 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, 9, 9, None]}
+[ 4099.8051] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 4664.2042] Job 9 finished, took 1396.3 seconds
+[ 4664.2042] Waiting 10 seconds before releasing Job 9's GPUs
+[ 4674.2145] Job 9 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 4674.4215] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 4674.4217] * Processing event RunJobEvent(job=Job(3, ResNetWorkload(dataset=imagenet, gpu_demand=8, batch_size=4096, num_steps=None, num_epochs=3, num_virtual_nodes_per_device=2), 1), initial_allocation=8)
+[ 4674.4217] Job 3 was assigned 8 GPUs, new GPU assignment = {'4465c88dda1f': [3, 3, 3, 3, 3, 3, 3, 3]}
+[ 4674.4347] Job 3 started with 8 GPUs (PID = 2403)
+[ 4737.8779] Job 11 submitted
+[ 4738.5006] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 4747.2634] Job 3 finished, took 72.8 seconds
+[ 4747.2638] Waiting 10 seconds before releasing Job 3's GPUs
+[ 4757.2741] Job 3 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 4757.5218] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 4757.5219] * Processing event RunJobEvent(job=Job(5, ResNetWorkload(dataset=imagenet, gpu_demand=8, batch_size=2048, num_steps=None, num_epochs=2, num_virtual_nodes_per_device=1), 1), initial_allocation=8)
+[ 4757.5220] Job 5 was assigned 8 GPUs, new GPU assignment = {'4465c88dda1f': [5, 5, 5, 5, 5, 5, 5, 5]}
+[ 4757.5504] Job 5 started with 8 GPUs (PID = 7414)
+[ 4848.6529] Job 5 finished, took 91.1 seconds
+[ 4848.6530] Waiting 10 seconds before releasing Job 5's GPUs
+[ 4858.6635] Job 5 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 4859.6641] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 4859.6642] * Processing event RunJobEvent(job=Job(6, ResNetWorkload(dataset=imagenet, gpu_demand=1, batch_size=512, num_steps=None, num_epochs=1, num_virtual_nodes_per_device=2), 1), initial_allocation=1)
+[ 4859.6642] Job 6 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [6, None, None, None, None, None, None, None]}
+[ 4859.6770] Job 6 started with 1 GPUs (PID = 12426)
+[ 4909.0669] Job 12 submitted
+[ 4909.7373] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 4909.7375] * Processing event RunJobEvent(job=Job(12, BERTGlueWorkload(task=CoLA, gpu_demand=2, batch_size=32, num_steps=None, num_epochs=10, num_virtual_nodes_per_device=2), 10), initial_allocation=2)
+[ 4909.7375] Job 12 was assigned 2 GPUs, new GPU assignment = {'4465c88dda1f': [6, 12, 12, None, None, None, None, None]}
+[ 4909.7509] Job 12 started with 2 GPUs (PID = 13075)
+[ 4999.9260] Job 12 successfully resized to 2 GPUs
+[ 5230.4066] Job 13 submitted
+[ 5231.0974] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 5231.0976] * Processing event RunJobEvent(job=Job(13, ResNetWorkload(dataset=imagenet, gpu_demand=1, batch_size=1024, num_steps=None, num_epochs=1, num_virtual_nodes_per_device=4), 5), initial_allocation=1)
+[ 5231.0977] Job 13 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [6, 12, 12, 13, None, None, None, None]}
+[ 5231.1127] Job 13 started with 1 GPUs (PID = 14329)
+[ 5254.4319] Job 14 submitted
+[ 5255.1383] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 5255.1385] * Processing event RunJobEvent(job=Job(14, BERTGlueWorkload(task=SST-2, gpu_demand=1, batch_size=16, num_steps=None, num_epochs=1, num_virtual_nodes_per_device=2), 10), initial_allocation=1)
+[ 5255.1386] Job 14 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [6, 12, 12, 13, 14, None, None, None]}
+[ 5255.1539] Job 14 started with 1 GPUs (PID = 14924)
+[ 5324.5035] Job 15 submitted
+[ 5325.2288] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 5325.2289] * Processing event RunJobEvent(job=Job(15, ResNetWorkload(dataset=cifar10, gpu_demand=1, batch_size=128, num_steps=None, num_epochs=20, num_virtual_nodes_per_device=1), 10), initial_allocation=1)
+[ 5325.2290] Job 15 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [6, 12, 12, 13, 14, 15, None, None]}
+[ 5325.2421] Job 15 started with 1 GPUs (PID = 15616)
+[ 5718.8913] Job 16 submitted
+[ 5719.6344] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 5719.6346] * Processing event RunJobEvent(job=Job(16, ResNetWorkload(dataset=imagenet, gpu_demand=1, batch_size=256, num_steps=None, num_epochs=1, num_virtual_nodes_per_device=1), 5), initial_allocation=1)
+[ 5719.6347] Job 16 was assigned 1 GPUs, new GPU assignment = {'4465c88dda1f': [6, 12, 12, 13, 14, 15, 16, None]}
+[ 5719.6482] Job 16 started with 1 GPUs (PID = 16225)
+[ 5752.4380] Job 15 finished, took 427.2 seconds
+[ 5752.4380] Waiting 10 seconds before releasing Job 15's GPUs
+[ 5762.4400] Job 15 released its GPUs, new GPU assignment = {'4465c88dda1f': [6, 12, 12, 13, 14, None, 16, None]}
+[ 5762.6957] * Processing event ScheduleEvent: 2 job(s) in queue
+[ 5772.9447] Job 17 submitted
+[ 5773.7061] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 6040.4437] Job 14 finished, took 785.3 seconds
+[ 6040.4438] Waiting 10 seconds before releasing Job 14's GPUs
+[ 6050.4440] Job 14 released its GPUs, new GPU assignment = {'4465c88dda1f': [6, 12, 12, 13, None, None, 16, None]}
+[ 6050.9900] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 6169.1748] Job 12 finished, took 1259.4 seconds
+[ 6169.1749] Waiting 10 seconds before releasing Job 12's GPUs
+[ 6179.1851] Job 12 released its GPUs, new GPU assignment = {'4465c88dda1f': [6, None, None, 13, None, None, 16, None]}
+[ 6180.1273] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 6228.9183] Job 6 finished, took 1369.3 seconds
+[ 6228.9183] Waiting 10 seconds before releasing Job 6's GPUs
+[ 6238.9285] Job 6 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, 13, None, None, 16, None]}
+[ 6239.1875] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 6552.7404] Job 18 submitted
+[ 6553.5190] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 6578.4868] Job 13 finished, took 1347.4 seconds
+[ 6578.4868] Waiting 10 seconds before releasing Job 13's GPUs
+[ 6588.4969] Job 13 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, 16, None]}
+[ 6588.5559] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 6594.7867] Job 19 submitted
+[ 6595.5635] * Processing event ScheduleEvent: 5 job(s) in queue
+[ 7096.2055] Job 16 finished, took 1376.6 seconds
+[ 7096.2056] Waiting 10 seconds before releasing Job 16's GPUs
+[ 7106.2158] Job 16 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 7107.1244] * Processing event ScheduleEvent: 5 job(s) in queue
+[ 7107.1246] * Processing event RunJobEvent(job=Job(17, TransformerWorkload(gpu_demand=8, batch_size=32768, num_steps=1000, num_epochs=None), 5), initial_allocation=8)
+[ 7107.1246] Job 17 was assigned 8 GPUs, new GPU assignment = {'4465c88dda1f': [17, 17, 17, 17, 17, 17, 17, 17]}
+[ 7107.1374] Job 17 started with 8 GPUs (PID = 16877)
+[ 7188.7050] Job 17 finished, took 81.6 seconds
+[ 7188.7050] Waiting 10 seconds before releasing Job 17's GPUs
+[ 7198.7154] Job 17 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 7199.2399] * Processing event ScheduleEvent: 4 job(s) in queue
+[ 7199.2401] * Processing event RunJobEvent(job=Job(18, ResNetWorkload(dataset=imagenet, gpu_demand=2, batch_size=1024, num_steps=None, num_epochs=1, num_virtual_nodes_per_device=2), 5), initial_allocation=2)
+[ 7199.2401] Job 18 was assigned 2 GPUs, new GPU assignment = {'4465c88dda1f': [18, 18, None, None, None, None, None, None]}
+[ 7199.2550] Job 18 started with 2 GPUs (PID = 23657)
+[ 7264.6898] Job 18 finished, took 65.4 seconds
+[ 7264.6899] Waiting 10 seconds before releasing Job 18's GPUs
+[ 7274.7001] Job 18 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 7275.3417] * Processing event ScheduleEvent: 3 job(s) in queue
+[ 7275.3419] * Processing event RunJobEvent(job=Job(10, TransformerWorkload(gpu_demand=8, batch_size=32768, num_steps=500, num_epochs=None), 1), initial_allocation=8)
+[ 7275.3419] Job 10 was assigned 8 GPUs, new GPU assignment = {'4465c88dda1f': [10, 10, 10, 10, 10, 10, 10, 10]}
+[ 7275.3573] Job 10 started with 8 GPUs (PID = 24930)
+[ 7358.6226] Job 10 finished, took 83.3 seconds
+[ 7358.6227] Waiting 10 seconds before releasing Job 10's GPUs
+[ 7368.6329] Job 10 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 7369.4606] * Processing event ScheduleEvent: 2 job(s) in queue
+[ 7369.4608] * Processing event RunJobEvent(job=Job(11, TransformerWorkload(gpu_demand=8, batch_size=32768, num_steps=500, num_epochs=None), 1), initial_allocation=8)
+[ 7369.4608] Job 11 was assigned 8 GPUs, new GPU assignment = {'4465c88dda1f': [11, 11, 11, 11, 11, 11, 11, 11]}
+[ 7369.4741] Job 11 started with 8 GPUs (PID = 31710)
+[ 7461.3657] Job 11 finished, took 91.9 seconds
+[ 7461.3658] Waiting 10 seconds before releasing Job 11's GPUs
+[ 7471.3762] Job 11 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 7471.5882] * Processing event ScheduleEvent: 1 job(s) in queue
+[ 7471.5884] * Processing event RunJobEvent(job=Job(19, TransformerWorkload(gpu_demand=2, batch_size=16384, num_steps=500, num_epochs=None), 1), initial_allocation=2)
+[ 7471.5885] Job 19 was assigned 2 GPUs, new GPU assignment = {'4465c88dda1f': [19, 19, None, None, None, None, None, None]}
+[ 7471.6016] Job 19 started with 2 GPUs (PID = 38490)
+[ 7563.8346] Job 19 finished, took 92.2 seconds
+[ 7563.8347] Waiting 10 seconds before releasing Job 19's GPUs
+[ 7573.8450] Job 19 released its GPUs, new GPU assignment = {'4465c88dda1f': [None, None, None, None, None, None, None, None]}
+[ 7573.8451] Reached maximum number of 20 jobs
+[ 7574.7219] Exiting event loop.
