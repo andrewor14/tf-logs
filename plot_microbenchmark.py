@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 
 def plot(metric):
   width = 0.1
-  xticks = ["1VN", "2VN", "4VN", "8VN", "16VN", "32VN"]
   labels = ["ResNet-50", "Transformer", "BERT-LARGE"]
   output_file = "output/%s-microbenchmark.pdf" % metric
 
@@ -42,12 +41,12 @@ def plot(metric):
   ax.margins(0.1, 0)
 
   colors = iter(plt.get_cmap("Set3").colors[2:])
-  ax.bar(p1, _1vn, color=next(colors), width=width, edgecolor="white", label="1VN")
-  ax.bar(p2, _2vn, color=next(colors), width=width, edgecolor="white", label="2VN")
-  ax.bar(p3, _4vn, color=next(colors), width=width, edgecolor="white", label="4VN")
-  ax.bar(p4, _8vn, color=next(colors), width=width, edgecolor="white", label="8VN")
-  ax.bar(p5, _16vn, color=next(colors), width=width, edgecolor="white", label="16VN")
-  ax.bar(p6, _32vn, color=next(colors), width=width, edgecolor="white", label="32VN")
+  ax.bar(p1, _1vn, color=next(colors), width=width, edgecolor="white", label="TF")
+  ax.bar(p2, _2vn, color=next(colors), width=width, edgecolor="white", label="VF (2VN)")
+  ax.bar(p3, _4vn, color=next(colors), width=width, edgecolor="white", label="VF (4VN)")
+  ax.bar(p4, _8vn, color=next(colors), width=width, edgecolor="white", label="VF (8VN)")
+  ax.bar(p5, _16vn, color=next(colors), width=width, edgecolor="white", label="VF (16VN)")
+  ax.bar(p6, _32vn, color=next(colors), width=width, edgecolor="white", label="VF (32VN)")
   plt.axhline(y=1, color="black", linestyle='--')
  
   ax.set_ylabel(ylabel, fontsize=16, labelpad=15)
