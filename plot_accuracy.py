@@ -53,13 +53,18 @@ def main():
     m = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label)
     if m is not None:
       batch_size, num_gpus, num_vns = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label).groups()
-      num_gpus = ", %s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
+      num_gpus = "%s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
     else:
       batch_size, num_vns = re.match("([0-9]+)bs_([0-9]+)vn.*", label).groups()
       num_gpus = ""
-    vns = "(baseline)" if "baseline" in label else "(%s VN)" % num_vns
-    batch_size_text = "Batch size" if "2lines" in output_file else "BS"
-    return "%s %s%s %s" % (batch_size_text, batch_size, num_gpus, vns)
+    if "2lines" in output_file:
+      vns = "no VN" if "baseline" in label else "%s VN" % num_vns
+      return "Batch size %s %s (%s)" % (batch_size, num_gpus, vns)
+    else:
+      # This is for the eval, use VF and don't include batch size
+      baseline_name = "TF" if bold_baseline else "TF*"
+      system_name = baseline_name if "baseline" in label else "VF"
+      return "%s %s (BS %s)" % (system_name, num_gpus, batch_size)
 
   # Plot it
   if figure_size is not None:
@@ -69,8 +74,9 @@ def main():
   else:
     fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel(xlabel, fontsize=24, labelpad=15)
-  ax.set_ylabel(ylabel, fontsize=24, labelpad=15)
+  label_font_size = 20 if "resnet-imagenet-V100" in data_files[0] else 24
+  ax.set_xlabel(xlabel, fontsize=label_font_size, labelpad=15)
+  ax.set_ylabel(ylabel, fontsize=label_font_size, labelpad=15)
 
   # Figure out colors
   color_cycle = plt.rcParams['axes.prop_cycle'].by_key()['color'] * 10
@@ -109,7 +115,7 @@ def main():
     baseline_linestyle = "-" if bold_baseline else "--"
     baseline_linewidth = 6 if bold_baseline else 2
     virtual_linestyle = "--" if bold_baseline else "-"
-    virtual_linewidth = 2 if bold_baseline else 3
+    virtual_linewidth = 2 if bold_baseline else 4
     virtual_marker = "" if bold_baseline else "x"
     if "baseline" in data_file:
       ax.plot(x, y, label=label, linestyle=baseline_linestyle, linewidth=baseline_linewidth,\
@@ -129,7 +135,8 @@ def main():
     ax.legend(handles, labels, loc='center left', bbox_to_anchor=(1, 0.5),\
       fontsize=legend_font_size, ncol=legend_ncol, columnspacing=1)
   else:
-    ax.legend(handles, labels, fontsize=legend_font_size, ncol=legend_ncol, columnspacing=1)
+    ax.legend(handles, labels, loc='lower right',
+      fontsize=legend_font_size, ncol=legend_ncol, columnspacing=1)
 
   if space_xticks_apart:
     ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
@@ -139,7 +146,7 @@ def main():
     plt.ylim(lower, upper)
   plt.xticks(fontsize=16)
   plt.yticks(fontsize=16)
-  plt.title(title, fontsize=24, pad=20)
+  plt.title(title, fontsize=label_font_size, pad=20)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")
   print("Saved to %s" % output_file)

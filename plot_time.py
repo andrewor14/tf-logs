@@ -25,7 +25,7 @@ def main():
   plot_throughput = os.getenv("PLOT_THROUGHPUT", "").lower() == "true"
   space_yticks_apart = os.getenv("SPACE_YTICKS_APART", "").lower() == "true"
   legend_ncol = int(os.getenv("LEGEND_NCOL", "1"))
-  ylim_factor = float(os.getenv("YLIM_FACTOR", 1.15))
+  ylim_factor = float(os.getenv("YLIM_FACTOR", 1.05))
 
   # Sort the labels
   def sort_key(label):
@@ -71,8 +71,8 @@ def main():
     ylabel = "Completion time (%s)" % time_unit
 
   ax = fig.add_subplot(1, 1, 1)
-  ax.set_xlabel("Configuration", fontsize=20, labelpad=15)
-  ax.set_ylabel(ylabel, fontsize=20, labelpad=15)
+  ax.set_xlabel("Configuration", fontsize=24, labelpad=15)
+  ax.set_ylabel(ylabel, fontsize=24, labelpad=15)
   labels = []
   colors = []
   values = []
@@ -100,8 +100,8 @@ def main():
       if i == 8:
         x_value = 4
       else:
-        x_value = r1[int(i/2)] if "baseline" in labels[i] else r2[int(i/2)]
-      label = "baseline" if "baseline" in labels[i] else "virtual node"
+        x_value = r1[int(i/2)] if "baseline" in data_files[i] else r2[int(i/2)]
+      label = "baseline" if "baseline" in data_files[i] else "virtual node"
     else:
       x_value = labels[i]
       label = None
@@ -121,19 +121,19 @@ def main():
   # If we grouped the bars, just display num GPUs and add a legend
   if group_bars:
     positions = [r.patches[0].get_x() for i, r in enumerate(bars)\
-      if "baseline" not in labels[i]]
+      if "baseline" not in data_files[i]]
     if len(labels) % 2 == 1:
       positions[-1] += bar_width / 2
     merged_labels = []
-    for i, label in enumerate(labels):
-      if "baseline" in label:
+    for i, df in enumerate(data_files):
+      if "baseline" in df:
         continue
       merged_labels.append(labels[i].split("\n")[0])
     plt.xticks(positions, merged_labels, fontsize=16)
-    ax.legend(["baseline", "virtual node"], fontsize=16, loc="upper left", ncol=legend_ncol)
+    ax.legend(["TF*", "VF"], fontsize=16, loc="upper left", ncol=legend_ncol)
   else:
     plt.xticks(fontsize=16)
-    ax.legend(["baseline", "virtual node"], fontsize=16, loc="upper left", ncol=legend_ncol)
+    ax.legend(["TF", "VF"], fontsize=16, loc="upper left", ncol=legend_ncol)
 
   if space_yticks_apart:
     ax.set_yticks([max(yy, 0) for yy in ax.get_yticks()[::2]])
