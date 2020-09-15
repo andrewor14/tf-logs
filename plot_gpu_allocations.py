@@ -143,9 +143,12 @@ def plot(scheduler_log):
   all_labels = []
   if "3jobs" in scheduler_log:
     colors = ["lightskyblue", "orange", "pink"]
+  elif "20jobs" in scheduler_log:
+    colors = list(plt.get_cmap("Pastel1").colors) + ["paleturquoise"]\
+      + list(plt.get_cmap("Dark2").colors) + ["black", "tab:red"]
   else:
     colors = plt.rcParams['axes.prop_cycle'].by_key()['color'] * 10
-  for job_id in gpu_allocations.keys():
+  for job_id in sorted(list(gpu_allocations.keys())):
     # For every change in allocation, append a fake point right before it so
     # matplotlib draws a "vertical" line connecting the two points
     x, y = [], []
@@ -191,10 +194,16 @@ def plot(scheduler_log):
   if xmax is not None:
     plt.xlim(0, int(xmax))
 
-  if space_xticks_apart:
-    ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
+  # Legend
   if len(all_ys) <= 10:
     ax.legend(fontsize=20)
+  elif os.getenv("DEBUG", "").lower() == "true":
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize=14, ncol=2)
+
+  if space_xticks_apart:
+    ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::2]])
   if "20jobs" in scheduler_log:
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)

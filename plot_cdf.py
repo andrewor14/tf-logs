@@ -44,7 +44,7 @@ def parse_job_times(scheduler_log):
   return job_times
 
 def plot(scheduler_logs, metric="jct"):
-  output_file = os.getenv("OUTPUT_FILE", "9-9/elasticity-20jobs-%s.pdf" % metric)
+  output_file = os.getenv("OUTPUT_FILE", "9-14-2/elasticity-20jobs-%s.pdf" % metric)
   space_xticks_apart = os.getenv("SPACE_XTICKS_APART", "").lower() == "true"
 
   title = os.getenv("TITLE")
