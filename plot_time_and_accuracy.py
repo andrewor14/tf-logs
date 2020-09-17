@@ -27,7 +27,7 @@ def plot(output_path, ylabel, vals1, vals2):
   # Legend
   box = ax.get_position()
   ax.set_position([box.x0, box.y0, box.width, box.height * 0.8])
-  ax.legend(labels=["WFS", "Priority"], loc="upper center", bbox_to_anchor=(0.5, 1.5), fontsize=24, ncol=2)
+  ax.legend(labels=["VF", "Priority"], loc="upper center", bbox_to_anchor=(0.5, 1.5), fontsize=24, ncol=2)
   ax.set_ylabel(ylabel, fontsize=28, labelpad=10)
   plt.xticks([r + bar_width/2 for r in range(len(vals1))], labels, fontsize=28)
   plt.yticks(fontsize=20)

@@ -56,7 +56,7 @@ def plot(scheduler_logs, metric="jct"):
 
   for scheduler_log in scheduler_logs:
     if "WFS" in scheduler_log:
-      label = "WFS"
+      label = "VF"
     elif "Priority" in scheduler_log:
       label = "Priority"
     else:
