@@ -60,6 +60,8 @@ def do_plot(log_file, zoom_start=None, zoom_end=None):
   labels = ["%s (%s)" % (c, prettify_bytes(max(allocations_by_category[c])))\
     for c in all_categories]
   ax1.legend(labels, loc='upper left', fontsize=14)
+  if "resnet_1gpu_1vn_192" in log_file:
+    ax1.text(21.7, 1500000000, "Activations", fontsize=13)
   print_peak_breakdown(time_elapsed, allocations_by_category)
   from matplotlib.ticker import MaxNLocator
   ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
