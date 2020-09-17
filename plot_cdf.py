@@ -73,7 +73,8 @@ def plot(scheduler_logs, metric="jct"):
     print("%s median: %s" % (label, all_values[int(len(all_values)/2)]))
     cdf = 1. * np.arange(len(all_values)) / (len(all_values) - 1)
     style = "-" if label == "VF" else "--"
-    ax.plot(all_values, cdf, label=label, linestyle=style, linewidth=3)
+    width = 3 if label == "VF" else 1.5
+    ax.plot(all_values, cdf, label=label, linestyle=style, linewidth=width)
   ax.legend(fontsize=12, handlelength=1)
   if space_xticks_apart:
     ax.set_xticks([max(xx, 0) for xx in ax.get_xticks()[::3]])
