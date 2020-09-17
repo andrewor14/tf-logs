@@ -41,7 +41,7 @@ def plot(metric):
   ax.margins(0.1, 0)
 
   colors = iter(plt.get_cmap("Set3").colors[2:])
-  ax.bar(p1, _1vn, color=next(colors), width=width, edgecolor="white", label="TF")
+  ax.bar(p1, _1vn, color=next(colors), width=width, edgecolor="white", label="TF", hatch="//")
   ax.bar(p2, _2vn, color=next(colors), width=width, edgecolor="white", label="VF (2VN)")
   ax.bar(p3, _4vn, color=next(colors), width=width, edgecolor="white", label="VF (4VN)")
   ax.bar(p4, _8vn, color=next(colors), width=width, edgecolor="white", label="VF (8VN)")
