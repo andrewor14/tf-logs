@@ -48,12 +48,12 @@ def main():
       batch_size, num_gpus, num_vns = re.match("([0-9]+)bs_([0-9]+)gpu_([0-9]+)vn.*", label).groups()
       num_gpus = "%s GPU%s" % (num_gpus, "s" if int(num_gpus) > 1 else "")
       batch_size = "%sbs" % batch_size
-      num_vns = "%sVN" % num_vns
+      num_vns = "%sVN" % num_vns if int(num_vns) > 1 else "(TF)"
       return "%s\n%s\n%s" % (num_gpus, batch_size, num_vns)
     else:
       batch_size, num_vns = re.match("([0-9]+)bs_([0-9]+)vn.*", label).groups()
       batch_size = "%sbs" % batch_size
-      num_vns = "%sVN" % num_vns
+      num_vns = "%sVN" % num_vns if int(num_vns) > 1 else "(TF)"
       return "%s\n%s" % (batch_size, num_vns)
 
   # Optionally resize figure
@@ -87,7 +87,7 @@ def main():
       else:
         values.append(value / 60)
       final_accuracies.append(float(split[1]))
-      colors.append("lightskyblue" if "baseline" in data_file else "lightsalmon")
+      colors.append("paleturquoise" if "baseline" in data_file else "lightsalmon")
 
   # Plot the bars
   bars = []
