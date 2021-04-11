@@ -1,0 +1,1826 @@
+My commit is 7dcb8a2c Add basic structure for simulator (/root/dev/models/deploy)
+
+==========================================================================
+My environment variables:
+--------------------------------------------------------------------------
+CUDNN_VERSION=7.6.2.24-1+cuda10.1
+PMIX_ID=2910846977.1
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+CVD_SPLIT=0:0:0:0
+OMPI_FIRST_RANKS=0
+MPI_HOSTS=a3c81d8a0284,18b032b3809a,9d349c752124,ca62f7b7257d
+OMPI_MCA_orte_top_session_dir=/tmp/ompi.18b032b3809a.0
+LOG_MEMORY_ENABLED=false
+SSH_CONNECTION=10.0.1.5 38422 10.0.1.8 22
+PMIX_SYSTEM_TMPDIR=/tmp
+OMPI_MCA_orte_num_nodes=4
+OMPI_COMMAND=run_resnet.sh
+MODEL=resnet
+LANG=C.UTF-8
+HFI_NO_BACKTRACE=1
+OMPI_MCA_ess_base_vpid=1
+OLDPWD=/root
+OMPI_MCA_initial_wdir=/root/dev/models/deploy
+ENVIRONMENT=docker
+TF_DIR=/root/dev/tensorflow
+HETEROGENEOUS_SHARD_BY_FILE=true
+DATA_DIR=/root/dev/dataset/imagenet
+HOST_FLAG=--host a3c81d8a0284,18b032b3809a,9d349c752124,ca62f7b7257d
+ENABLE_HETEROGENEOUS=true
+OMPI_MCA_btl_tcp_if_exclude=lo,docker0,eth1
+DATASET=imagenet
+DTYPE=fp16
+HETEROGENEOUS_SPLIT=3072:3072:1024:1024
+NUM_CHECKPOINTS_TO_KEEP=5
+OMPI_COMM_WORLD_NODE_RANK=0
+NVIDIA_VISIBLE_DEVICES=all
+OMPI_MCA_orte_precondition_transports=c6498e0dc59bfa41-ff3a56ee06b53d60
+BASE_DIR=/root/dev
+OMPI_MCA_orte_ess_node_rank=0
+OMPI_MCA_shmem_RUNTIME_QUERY_hint=mmap
+OMPI_MCA_plm=rsh
+VN_SPLIT=32:32:4:4
+OMPI_COMM_WORLD_RANK=1
+LOG_STEPS=1
+PMIX_RANK=1
+USER=root
+OMPI_FILE_LOCATION=/tmp/ompi.18b032b3809a.0/jf.44416/0/1
+NCCL_VERSION=2.4.7-1+cuda10.1
+OMPI_MCA_orte_local_daemon_uri=2910846976.1;tcp://10.0.1.8,172.18.0.3:59117
+EPOCHS_BETWEEN_EVALS=4
+HOROVOD_GPU_OPERATIONS=NCCL
+PWD=/root/dev/models/deploy
+NUM_GPUS_PER_NODE=8
+OMPI_MCA_ess_base_num_procs=4
+HOME=/root
+ENABLE_XLA=true
+PMIX_SERVER_TMPDIR=/tmp/ompi.18b032b3809a.0/jf.44416
+NUM_VALIDATION_FILES=128
+RUN_SCRIPT=run_resnet.sh
+SSH_CLIENT=10.0.1.5 38422 22
+PMIX_PTL_MODULE=tcp,usock
+IPATH_NO_BACKTRACE=1
+JOB_NAME=resnet-imagenet-virtual-d1c-04_10_21_1618096642417
+OMPI_MCA_rmaps_base_oversubscribe=1
+OMPI_MCA_orte_launch=1
+NUM_TRAIN_FILES=1024
+CODE_DIR=/root/dev/models/official/vision/image_classification/resnet
+OMPI_MCA_orte_tmpdir_base=/tmp
+LOG_DIR=/root/dev/logs
+TIMESTAMP=04_10_21_1618096643123
+MPI_HOST_FILE=/root/container_hosts/hosts.txt
+NUM_VIRTUAL_NODES_PER_DEVICE=32
+OMPI_APP_CTX_NUM_PROCS=4
+OMPI_MCA_orte_output_filename=/root/dev/logs/resnet-imagenet-virtual-d1c-04_10_21_1618096642417
+LOG_FILE=/dev/stderr
+MODELS_DIR=/root/dev/models
+OMPI_MCA_orte_app_num=0
+PMIX_MCA_mca_base_component_show_load_errors=1
+SHARD_DATASET_VERBOSE=true
+OMPI_MCA_orte_parent_uri=2910846976.0;tcp://10.0.1.5,172.18.0.3:42695
+NUM_NODES=4
+OMPI_MCA_pml=ob1
+PYTHON_COMMAND=/usr/bin/python3
+IN_DOCKER_CONTAINER=true
+MAIL=/var/mail/root
+LEARNING_RATE_BATCH_SIZE=0
+NUM_EPOCHS=1
+PMIX_BFROP_BUFFER_TYPE=PMIX_BFROP_BUFFER_NON_DESC
+MPI_HOME=/usr/local
+SHELL=/bin/bash
+TERM=xterm
+CUDA_PKG_VERSION=10-1=10.1.243-1
+CUDA_VERSION=10.1.243
+SKIP_EVAL=false
+PMIX_DSTORE_ESH_BASE_PATH=/tmp/ompi.18b032b3809a.0/jf.44416/pmix_dstor_ds12_884
+OMPI_MCA_hwloc_base_binding_policy=none
+OMPI_MCA_rmaps_base_mapping_policy=node
+PMIX_SERVER_URI3=2910846976.1;tcp4://127.0.0.1:36615
+PMIX_SERVER_URI2=2910846976.1;tcp4://127.0.0.1:36615
+NUM_STEPS=20
+OMPI_MCA_orte_hnp_uri=2910846976.0;tcp://10.0.1.5,172.18.0.3:42695
+HETEROGENEOUS_VERBOSE=true
+TRAIN_DIR=/root/dev/logs/resnet-imagenet-virtual-d1c-04_10_21_1618096642417
+ENABLE_EAGER=true
+OMPI_MCA_mpi_yield_when_idle=0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+DEFAULT_NUM_GPUS_PER_NODE=8
+ENABLE_CHECKPOINTS=false
+DISTRIBUTION_STRATEGY=multi_worker_mirrored
+OMPI_COMM_WORLD_LOCAL_SIZE=1
+CUDA_VISIBLE_DEVICES=0
+OMPI_COMM_WORLD_SIZE=4
+SHLVL=3
+PYTHONPATH=:/root/dev/models:/root/dev/models
+OMPI_NUM_APP_CTX=1
+NVIDIA_REQUIRE_CUDA=cuda>=10.1 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419
+OMPI_MCA_pmix=^s1,s2,cray,isolated
+DEFAULT_DISTRIBUTION_STRATEGY=multi_worker_mirrored
+RUN_TAG=virtual-d1c
+OMPI_MCA_orte_node_regex=a[1:3]c81d8a0284,[2:18]b032b3809a,[1:9]d349c752124,ca[2:62]f7b7257d@0(4)
+PMIX_SERVER_URI21=2910846976.1;tcp4://127.0.0.1:36615
+SAVED_CHECKPOINT_PATH=
+PMIX_DSTORE_21_BASE_PATH=/tmp/ompi.18b032b3809a.0/jf.44416/pmix_dstor_ds21_884
+ENABLE_MONITOR_MEMORY=false
+LOGNAME=root
+CUBLAS_VERSION=10.1.0.105-1
+BATCH_SIZE=8192
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN_FILE=resnet_imagenet_main.py
+PMIX_SECURITY_MODE=native
+OMPI_MCA_ess=^singleton
+NCCL_DEBUG=INFO
+PMIX_NAMESPACE=2910846977
+OMPI_MCA_orte_ess_num_procs=4
+NCCL_SOCKET_IFNAME=^lo,docker0,eth1
+OMPI_MCA_ess_base_jobid=2910846977
+OMPI_COMM_WORLD_LOCAL_RANK=0
+OMPI_UNIVERSE_SIZE=4
+OMPI_MCA_orte_jobfam_session_dir=/tmp/ompi.18b032b3809a.0/jf.44416
+DEFAULT_NUM_EPOCHS=1
+PMIX_GDS_MODULE=ds21,ds12,hash
+ENABLE_ELASTICITY=false
+NUM_GPUS=1
+OMPI_MCA_btl=^openib
+_=/usr/bin/printenv
+==========================================================================
+
+2021-04-10 23:17:23.341400: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+I0410 23:17:25.329484 140644088661824 virtual_helper.py:219] Setting TF_CONFIG to {"cluster": {"worker": ["a3c81d8a0284:2222", "18b032b3809a:2223", "9d349c752124:2224", "ca62f7b7257d:2225"]}, "task": {"type": "worker", "index": 1}}
+I0410 23:17:25.329737 140644088661824 virtual_helper.py:143] Sharding by file: reducing heterogeneous split to [3, 3, 1, 1]
+I0410 23:17:25.329866 140644088661824 virtual_helper.py:81] Heterogeneous mode is enabled: our range = [3, 6), size = 3
+2021-04-10 23:17:25.330212: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 23:17:25.330363: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-10 23:17:25.370476: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:17:25.370957: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-10 23:17:25.370995: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 23:17:25.373153: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 23:17:25.373240: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-10 23:17:25.375208: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-10 23:17:25.375602: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-10 23:17:25.377813: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-10 23:17:25.379085: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-10 23:17:25.383718: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 23:17:25.383866: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:17:25.384368: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:17:25.384748: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-10 23:17:25.384877: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 23:17:25.385007: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+INFO:tensorflow:Mixed precision compatibility check (mixed_float16): OK
+Your GPU will likely run quickly with dtype policy mixed_float16 as it has compute capability of at least 7.0. Your GPU: Tesla V100-SXM2-16GB, compute capability 7.0
+I0410 23:17:25.385507 140644088661824 device_compatibility_check.py:124] Mixed precision compatibility check (mixed_float16): OK
+Your GPU will likely run quickly with dtype policy mixed_float16 as it has compute capability of at least 7.0. Your GPU: Tesla V100-SXM2-16GB, compute capability 7.0
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/keras/mixed_precision/loss_scale.py:54: FixedLossScale.__init__ (from tensorflow.python.training.experimental.loss_scale) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras.mixed_precision.LossScaleOptimizer instead. LossScaleOptimizer now has all the functionality of FixedLossScale
+W0410 23:17:25.385808 140644088661824 deprecation.py:339] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/keras/mixed_precision/loss_scale.py:54: FixedLossScale.__init__ (from tensorflow.python.training.experimental.loss_scale) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras.mixed_precision.LossScaleOptimizer instead. LossScaleOptimizer now has all the functionality of FixedLossScale
+WARNING:tensorflow:From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+W0410 23:17:25.386173 140644088661824 deprecation.py:339] From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+2021-04-10 23:17:25.387183: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-10 23:17:25.388000: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 23:17:25.388158: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:17:25.388576: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-10 23:17:25.388602: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 23:17:25.388638: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 23:17:25.388667: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-10 23:17:25.388687: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-10 23:17:25.388712: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-10 23:17:25.388736: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-10 23:17:25.388763: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-10 23:17:25.388791: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 23:17:25.388903: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:17:25.389421: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:17:25.389831: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-10 23:17:25.389884: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 23:18:43.946150: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-10 23:18:43.946298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-10 23:18:43.946308: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-10 23:18:43.946610: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.947077: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.947537: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.947907: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14677 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:04.0, compute capability: 7.0)
+2021-04-10 23:18:43.949308: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 23:18:43.949467: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.949873: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-10 23:18:43.949911: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 23:18:43.949974: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 23:18:43.949996: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-10 23:18:43.950010: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-10 23:18:43.950026: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-10 23:18:43.950040: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-10 23:18:43.950053: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-10 23:18:43.950071: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 23:18:43.950152: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.950539: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.950866: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-10 23:18:43.950899: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-10 23:18:43.950908: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-10 23:18:43.950915: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-10 23:18:43.951003: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.951388: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 23:18:43.951729: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:worker/replica:0/task:1/device:GPU:0 with 14677 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:04.0, compute capability: 7.0)
+2021-04-10 23:18:43.955934: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:301] Initialize GrpcChannelCache for job worker -> {0 -> a3c81d8a0284:2222, 1 -> 18b032b3809a:2223, 2 -> 9d349c752124:2224, 3 -> ca62f7b7257d:2225}
+2021-04-10 23:18:43.956364: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:411] Started server with target: grpc://18b032b3809a:2223
+INFO:tensorflow:Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:1/device:CPU:0', '/job:worker/replica:0/task:1/device:GPU:0']
+I0410 23:18:43.957072 140644088661824 collective_all_reduce_strategy.py:468] Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:1/device:CPU:0', '/job:worker/replica:0/task:1/device:GPU:0']
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:worker/task:1/device:GPU:0',)
+I0410 23:18:43.962915 140644088661824 mirrored_strategy.py:350] Using MirroredStrategy with devices ('/job:worker/task:1/device:GPU:0',)
+INFO:tensorflow:Waiting for the cluster, timeout = inf
+I0410 23:18:44.352927 140644088661824 collective_all_reduce_strategy.py:829] Waiting for the cluster, timeout = inf
+INFO:tensorflow:Cluster is ready.
+I0410 23:18:44.358697 140644088661824 collective_all_reduce_strategy.py:844] Cluster is ready.
+INFO:tensorflow:MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['a3c81d8a0284:2222', '18b032b3809a:2223', '9d349c752124:2224', 'ca62f7b7257d:2225']}, task_type = 'worker', task_id = 1, num_workers = 4, local_devices = ('/job:worker/task:1/device:GPU:0',), communication = CommunicationImplementation.AUTO
+I0410 23:18:44.362416 140644088661824 collective_all_reduce_strategy.py:517] MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['a3c81d8a0284:2222', '18b032b3809a:2223', '9d349c752124:2224', 'ca62f7b7257d:2225']}, task_type = 'worker', task_id = 1, num_workers = 4, local_devices = ('/job:worker/task:1/device:GPU:0',), communication = CommunicationImplementation.AUTO
+I0410 23:18:44.363010 140644088661824 virtual_helper.py:272] Batching dataset by 96 instead of the global batch size 8192
+I0410 23:18:44.373522 140644088661824 imagenet_preprocessing.py:327] Sharding the dataset: input_pipeline_id=1 num_input_pipelines=4
+I0410 23:18:45.173586 140644088661824 imagenet_preprocessing.py:327] Sharding the dataset: input_pipeline_id=1 num_input_pipelines=4
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.521148 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.524511 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.580692 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.583955 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.641230 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.644656 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.699017 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.702355 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.753830 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.757282 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.813377 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.816642 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.872675 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.875906 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.930236 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.933536 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.989270 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:45.992496 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.048189 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.051442 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.107206 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.110655 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.168860 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.172057 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.239643 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.243094 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.301788 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.305044 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.365910 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.369318 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.428544 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.431746 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.493635 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.497004 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.556052 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.559531 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.619481 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.622793 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.685512 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.689170 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.746753 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.750133 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.811864 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.815176 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.879199 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.882465 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.940202 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:46.943582 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.008228 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.011490 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.118435 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.122147 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.195847 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.199312 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.281626 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.284910 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.358248 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.361601 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.454944 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.458410 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.530791 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.534338 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.604629 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.608031 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.702288 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.705980 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.777599 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.780930 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.858030 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.861253 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.962012 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:47.965389 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.035745 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.039448 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.113608 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.117083 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.204739 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.208389 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.278653 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.282192 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.355103 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.358579 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.444949 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.448398 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.519529 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.524844 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.613669 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.617225 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.866105 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.869584 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.992520 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:48.995854 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.166856 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.170300 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.294477 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.297961 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.496281 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.499750 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.611435 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.614843 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.731166 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.734448 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:49.940318 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:50.025910 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:50.141276 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:50.144882 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+WARNING:tensorflow:tf.keras.mixed_precision.experimental.LossScaleOptimizer is deprecated. Please use tf.keras.mixed_precision.LossScaleOptimizer instead. For example
+  opt = tf.keras.mixed_precision.experimental.LossScaleOptimizer(opt, dynamic=False, initial_scale=128.0)
+W0410 23:18:50.314815 140644088661824 loss_scale_optimizer.py:1035] tf.keras.mixed_precision.experimental.LossScaleOptimizer is deprecated. Please use tf.keras.mixed_precision.LossScaleOptimizer instead. For example
+  opt = tf.keras.mixed_precision.experimental.LossScaleOptimizer(opt, dynamic=False, initial_scale=128.0)
+2021-04-10 23:18:50.398267: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-10 23:18:50.400322: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2000175000 Hz
+2021-04-10 23:18:50.415131: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1642] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+W0410 23:18:51.369498 140618291791616 compile_utils.py:284] Overriding loss reduction to SUM for heterogeneous training
+INFO:tensorflow:Collective batch_all_reduce: 161 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:54.782831 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 161 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:56.099130 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:56.101819 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:56.106057 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:56.108473 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 161 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:18:59.778872 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 161 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:19:01.100817 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:19:01.103570 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:19:01.107478 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:19:01.110036 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+Training on virtual node 1 / 32
+2021-04-10 23:19:05.416565: I tensorflow/core/kernels/data/shard_dataset_op.cc:303] Heterogeneous range = [3, 6), range total = 8
+2021-04-10 23:19:05.416683: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 3, num_skipped = 3, next_index = 3
+2021-04-10 23:19:05.416701: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 4
+2021-04-10 23:19:05.416711: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 5
+2021-04-10 23:19:05.416728: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 11
+2021-04-10 23:19:05.416738: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 12
+2021-04-10 23:19:05.416748: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 13
+2021-04-10 23:19:05.416769: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 19
+2021-04-10 23:19:05.416787: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 20
+2021-04-10 23:19:05.416797: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 21
+2021-04-10 23:19:05.416813: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 27
+2021-04-10 23:19:05.416829: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 28
+2021-04-10 23:19:05.416841: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 29
+2021-04-10 23:19:05.416861: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 35
+2021-04-10 23:19:05.416878: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 36
+2021-04-10 23:19:05.416889: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 37
+2021-04-10 23:19:05.416913: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 43
+2021-04-10 23:19:05.416937: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 44
+2021-04-10 23:19:05.416948: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 45
+2021-04-10 23:19:05.416965: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 51
+2021-04-10 23:19:05.416975: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 52
+2021-04-10 23:19:05.416984: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 53
+2021-04-10 23:19:05.417005: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 59
+2021-04-10 23:19:05.417022: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 60
+2021-04-10 23:19:05.417033: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 61
+2021-04-10 23:19:05.417050: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 67
+2021-04-10 23:19:05.417060: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 68
+2021-04-10 23:19:05.417070: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 69
+2021-04-10 23:19:05.417090: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 75
+2021-04-10 23:19:05.417111: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 76
+2021-04-10 23:19:05.417123: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 77
+2021-04-10 23:19:05.417139: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 83
+2021-04-10 23:19:05.417165: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 84
+2021-04-10 23:19:05.417180: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 85
+2021-04-10 23:19:05.417197: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 91
+2021-04-10 23:19:05.417208: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 92
+2021-04-10 23:19:05.417219: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 93
+2021-04-10 23:19:05.417239: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 99
+2021-04-10 23:19:05.417257: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 100
+2021-04-10 23:19:05.417269: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 101
+2021-04-10 23:19:05.417285: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 107
+2021-04-10 23:19:05.417296: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 108
+2021-04-10 23:19:05.417307: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 109
+2021-04-10 23:19:05.417326: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 115
+2021-04-10 23:19:05.417339: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 116
+2021-04-10 23:19:05.417351: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 117
+2021-04-10 23:19:05.417366: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 123
+2021-04-10 23:19:05.417378: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 124
+2021-04-10 23:19:05.417393: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 125
+2021-04-10 23:19:05.417409: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 131
+2021-04-10 23:19:05.417419: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 132
+2021-04-10 23:19:05.417430: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 133
+2021-04-10 23:19:05.417457: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 139
+2021-04-10 23:19:05.417477: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 140
+2021-04-10 23:19:05.417488: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 141
+2021-04-10 23:19:05.417505: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 147
+2021-04-10 23:19:05.417515: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 148
+2021-04-10 23:19:05.417526: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 149
+2021-04-10 23:19:05.417546: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 155
+2021-04-10 23:19:05.417557: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 156
+2021-04-10 23:19:05.417568: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 157
+2021-04-10 23:19:05.417584: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 163
+2021-04-10 23:19:05.417595: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 164
+2021-04-10 23:19:05.417606: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 165
+2021-04-10 23:19:05.417625: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 171
+2021-04-10 23:19:05.417639: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 172
+2021-04-10 23:19:05.417651: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 173
+2021-04-10 23:19:05.417666: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 179
+2021-04-10 23:19:05.417681: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 180
+2021-04-10 23:19:05.417703: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 181
+2021-04-10 23:19:05.417721: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 187
+2021-04-10 23:19:05.417732: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 188
+2021-04-10 23:19:05.417742: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 189
+2021-04-10 23:19:05.417760: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 195
+2021-04-10 23:19:05.417769: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 196
+2021-04-10 23:19:05.417780: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 197
+2021-04-10 23:19:05.417795: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 203
+2021-04-10 23:19:05.417802: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 204
+2021-04-10 23:19:05.417808: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 205
+2021-04-10 23:19:05.417819: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 211
+2021-04-10 23:19:05.417826: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 212
+2021-04-10 23:19:05.417832: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 213
+2021-04-10 23:19:05.417840: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 219
+2021-04-10 23:19:05.417846: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 220
+2021-04-10 23:19:05.417855: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 221
+2021-04-10 23:19:05.417863: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 227
+2021-04-10 23:19:05.417869: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 228
+2021-04-10 23:19:05.417875: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 229
+2021-04-10 23:19:05.417886: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 235
+2021-04-10 23:19:05.417894: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 236
+2021-04-10 23:19:05.417904: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 237
+2021-04-10 23:19:05.417918: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 243
+2021-04-10 23:19:05.417930: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 244
+2021-04-10 23:19:05.417939: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 245
+2021-04-10 23:19:05.417952: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 251
+2021-04-10 23:19:05.417959: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 252
+2021-04-10 23:19:05.417965: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 253
+2021-04-10 23:19:05.417979: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 259
+2021-04-10 23:19:05.417989: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 260
+2021-04-10 23:19:05.417998: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 261
+2021-04-10 23:19:05.418015: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 267
+2021-04-10 23:19:05.418024: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 268
+2021-04-10 23:19:05.418031: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 269
+2021-04-10 23:19:05.418045: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 275
+2021-04-10 23:19:05.418060: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 276
+2021-04-10 23:19:05.418091: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 277
+2021-04-10 23:19:05.418107: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 283
+2021-04-10 23:19:05.418117: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 284
+2021-04-10 23:19:05.418144: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 285
+2021-04-10 23:19:05.418229: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 291
+2021-04-10 23:19:05.418273: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 292
+2021-04-10 23:19:05.418287: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 293
+2021-04-10 23:19:05.418306: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 299
+2021-04-10 23:19:05.418317: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 300
+2021-04-10 23:19:05.418327: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 301
+2021-04-10 23:19:05.418349: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 307
+2021-04-10 23:19:05.418367: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 308
+2021-04-10 23:19:05.418378: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 309
+2021-04-10 23:19:05.418394: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 315
+2021-04-10 23:19:05.418404: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 316
+2021-04-10 23:19:05.418416: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 317
+2021-04-10 23:19:05.418432: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 323
+2021-04-10 23:19:05.418444: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 324
+2021-04-10 23:19:05.418455: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 325
+2021-04-10 23:19:05.418476: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 331
+2021-04-10 23:19:05.418488: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 332
+2021-04-10 23:19:05.418499: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 333
+2021-04-10 23:19:05.418515: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 339
+2021-04-10 23:19:05.418528: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 340
+2021-04-10 23:19:05.418537: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 341
+2021-04-10 23:19:05.418564: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 347
+2021-04-10 23:19:05.418573: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 348
+2021-04-10 23:19:05.418580: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 349
+2021-04-10 23:19:05.418591: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 355
+2021-04-10 23:19:05.418598: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 356
+2021-04-10 23:19:05.418605: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 357
+2021-04-10 23:19:05.418618: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 363
+2021-04-10 23:19:05.418630: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 364
+2021-04-10 23:19:05.418637: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 365
+2021-04-10 23:19:05.418650: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 371
+2021-04-10 23:19:05.418658: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 372
+2021-04-10 23:19:05.418665: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 373
+2021-04-10 23:19:05.418675: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 379
+2021-04-10 23:19:05.418700: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 380
+2021-04-10 23:19:05.418709: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 381
+2021-04-10 23:19:05.418723: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 387
+2021-04-10 23:19:05.418730: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 388
+2021-04-10 23:19:05.418737: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 389
+2021-04-10 23:19:05.418747: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 395
+2021-04-10 23:19:05.418754: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 396
+2021-04-10 23:19:05.418761: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 397
+2021-04-10 23:19:05.418776: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 403
+2021-04-10 23:19:05.418783: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 404
+2021-04-10 23:19:05.418790: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 405
+2021-04-10 23:19:05.418801: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 411
+2021-04-10 23:19:05.418828: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 412
+2021-04-10 23:19:05.418869: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 413
+2021-04-10 23:19:05.418882: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 419
+2021-04-10 23:19:05.418889: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 420
+2021-04-10 23:19:05.418896: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 421
+2021-04-10 23:19:05.418906: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 427
+2021-04-10 23:19:05.418913: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 428
+2021-04-10 23:19:05.418920: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 429
+2021-04-10 23:19:05.418930: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 435
+2021-04-10 23:19:05.418937: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 436
+2021-04-10 23:19:05.418944: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 437
+2021-04-10 23:19:05.418954: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 443
+2021-04-10 23:19:05.418961: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 444
+2021-04-10 23:19:05.418969: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 445
+2021-04-10 23:19:05.418979: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 451
+2021-04-10 23:19:05.418986: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 452
+2021-04-10 23:19:05.418994: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 453
+2021-04-10 23:19:05.419004: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 459
+2021-04-10 23:19:05.419011: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 460
+2021-04-10 23:19:05.419018: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 461
+2021-04-10 23:19:05.419028: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 467
+2021-04-10 23:19:05.419035: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 468
+2021-04-10 23:19:05.419042: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 469
+2021-04-10 23:19:05.419053: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 475
+2021-04-10 23:19:05.419061: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 476
+2021-04-10 23:19:05.419068: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 477
+2021-04-10 23:19:05.419079: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 483
+2021-04-10 23:19:05.419086: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 484
+2021-04-10 23:19:05.419093: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 485
+2021-04-10 23:19:05.419104: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 491
+2021-04-10 23:19:05.419111: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 492
+2021-04-10 23:19:05.419119: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 493
+2021-04-10 23:19:05.419129: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 499
+2021-04-10 23:19:05.419136: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 500
+2021-04-10 23:19:05.419143: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 501
+2021-04-10 23:19:05.419165: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 507
+2021-04-10 23:19:05.419173: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 508
+2021-04-10 23:19:05.419180: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 509
+2021-04-10 23:19:05.419190: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 515
+2021-04-10 23:19:05.419197: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 516
+2021-04-10 23:19:05.419203: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 517
+2021-04-10 23:19:05.419225: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 523
+2021-04-10 23:19:05.419231: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 524
+2021-04-10 23:19:05.419237: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 525
+2021-04-10 23:19:05.419246: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 531
+2021-04-10 23:19:05.419252: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 532
+2021-04-10 23:19:05.419257: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 533
+2021-04-10 23:19:05.419266: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 539
+2021-04-10 23:19:05.419272: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 540
+2021-04-10 23:19:05.419278: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 541
+2021-04-10 23:19:05.419287: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 547
+2021-04-10 23:19:05.419293: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 548
+2021-04-10 23:19:05.419299: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 549
+2021-04-10 23:19:05.419307: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 555
+2021-04-10 23:19:05.419313: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 556
+2021-04-10 23:19:05.419319: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 557
+2021-04-10 23:19:05.419328: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 563
+2021-04-10 23:19:05.419334: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 564
+2021-04-10 23:19:05.419340: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 565
+2021-04-10 23:19:05.419348: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 571
+2021-04-10 23:19:05.419354: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 572
+2021-04-10 23:19:05.419360: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 573
+2021-04-10 23:19:05.419369: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 579
+2021-04-10 23:19:05.419375: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 580
+2021-04-10 23:19:05.419381: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 581
+2021-04-10 23:19:05.419390: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 587
+2021-04-10 23:19:05.419396: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 588
+2021-04-10 23:19:05.419402: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 589
+2021-04-10 23:19:05.419411: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 595
+2021-04-10 23:19:05.419418: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 596
+2021-04-10 23:19:05.419424: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 597
+2021-04-10 23:19:05.419432: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 603
+2021-04-10 23:19:05.419438: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 604
+2021-04-10 23:19:05.419444: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 605
+2021-04-10 23:19:05.419453: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 611
+2021-04-10 23:19:05.419459: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 612
+2021-04-10 23:19:05.419465: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 613
+2021-04-10 23:19:05.419473: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 619
+2021-04-10 23:19:05.419479: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 620
+2021-04-10 23:19:05.419485: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 621
+2021-04-10 23:19:05.419494: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 627
+2021-04-10 23:19:05.419500: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 628
+2021-04-10 23:19:05.419506: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 629
+2021-04-10 23:19:05.419514: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 635
+2021-04-10 23:19:05.419520: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 636
+2021-04-10 23:19:05.419526: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 637
+2021-04-10 23:19:05.419535: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 643
+2021-04-10 23:19:05.419541: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 644
+2021-04-10 23:19:05.419547: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 645
+2021-04-10 23:19:05.419555: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 651
+2021-04-10 23:19:05.419561: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 652
+2021-04-10 23:19:05.419567: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 653
+2021-04-10 23:19:05.419585: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 659
+2021-04-10 23:19:05.419592: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 660
+2021-04-10 23:19:05.419600: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 661
+2021-04-10 23:19:05.419609: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 667
+2021-04-10 23:19:05.419615: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 668
+2021-04-10 23:19:05.419621: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 669
+2021-04-10 23:19:05.419630: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 675
+2021-04-10 23:19:05.419636: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 676
+2021-04-10 23:19:05.419642: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 677
+2021-04-10 23:19:05.419651: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 683
+2021-04-10 23:19:05.419657: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 684
+2021-04-10 23:19:05.419663: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 685
+2021-04-10 23:19:05.419672: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 691
+2021-04-10 23:19:05.419678: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 692
+2021-04-10 23:19:05.419689: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 693
+2021-04-10 23:19:05.419697: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 699
+2021-04-10 23:19:05.419703: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 700
+2021-04-10 23:19:05.419709: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 701
+2021-04-10 23:19:05.419718: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 707
+2021-04-10 23:19:05.419723: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 708
+2021-04-10 23:19:05.419729: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 709
+2021-04-10 23:19:05.419738: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 715
+2021-04-10 23:19:05.419744: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 716
+2021-04-10 23:19:05.419749: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 717
+2021-04-10 23:19:05.419758: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 723
+2021-04-10 23:19:05.419764: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 724
+2021-04-10 23:19:05.419770: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 725
+2021-04-10 23:19:05.419778: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 731
+2021-04-10 23:19:05.419784: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 732
+2021-04-10 23:19:05.419790: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 733
+2021-04-10 23:19:05.419799: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 739
+2021-04-10 23:19:05.419805: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 740
+2021-04-10 23:19:05.419810: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 741
+2021-04-10 23:19:05.419819: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 747
+2021-04-10 23:19:05.419825: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 748
+2021-04-10 23:19:05.419831: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 749
+2021-04-10 23:19:05.419840: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 755
+2021-04-10 23:19:05.419846: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 756
+2021-04-10 23:19:05.419852: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 757
+2021-04-10 23:19:05.419861: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 763
+2021-04-10 23:19:05.419868: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 764
+2021-04-10 23:19:05.419874: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 765
+2021-04-10 23:19:05.419884: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 771
+2021-04-10 23:19:05.419890: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 772
+2021-04-10 23:19:05.419896: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 773
+2021-04-10 23:19:05.419905: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 779
+2021-04-10 23:19:05.419911: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 780
+2021-04-10 23:19:05.419918: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 781
+2021-04-10 23:19:05.419927: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 787
+2021-04-10 23:19:05.419932: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 788
+2021-04-10 23:19:05.419938: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 789
+2021-04-10 23:19:05.419948: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 795
+2021-04-10 23:19:05.419954: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 796
+2021-04-10 23:19:05.419960: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 797
+2021-04-10 23:19:05.419969: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 803
+2021-04-10 23:19:05.419975: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 804
+2021-04-10 23:19:05.419981: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 805
+2021-04-10 23:19:05.419990: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 811
+2021-04-10 23:19:05.419996: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 812
+2021-04-10 23:19:05.420002: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 813
+2021-04-10 23:19:05.420010: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 819
+2021-04-10 23:19:05.420016: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 820
+2021-04-10 23:19:05.420022: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 821
+2021-04-10 23:19:05.420038: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 827
+2021-04-10 23:19:05.420044: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 828
+2021-04-10 23:19:05.420050: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 829
+2021-04-10 23:19:05.420059: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 835
+2021-04-10 23:19:05.420065: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 836
+2021-04-10 23:19:05.420070: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 837
+2021-04-10 23:19:05.420081: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 843
+2021-04-10 23:19:05.420089: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 844
+2021-04-10 23:19:05.420095: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 845
+2021-04-10 23:19:05.420104: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 851
+2021-04-10 23:19:05.420110: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 852
+2021-04-10 23:19:05.420116: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 853
+2021-04-10 23:19:05.420125: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 859
+2021-04-10 23:19:05.420131: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 860
+2021-04-10 23:19:05.420137: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 861
+2021-04-10 23:19:05.420146: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 867
+2021-04-10 23:19:05.420152: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 868
+2021-04-10 23:19:05.420158: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 869
+2021-04-10 23:19:05.420166: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 875
+2021-04-10 23:19:05.420172: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 876
+2021-04-10 23:19:05.420178: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 877
+2021-04-10 23:19:05.420186: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 883
+2021-04-10 23:19:05.420192: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 884
+2021-04-10 23:19:05.420198: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 885
+2021-04-10 23:19:05.420207: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 891
+2021-04-10 23:19:05.420213: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 892
+2021-04-10 23:19:05.420219: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 893
+2021-04-10 23:19:05.420227: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 899
+2021-04-10 23:19:05.420233: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 900
+2021-04-10 23:19:05.420239: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 901
+2021-04-10 23:19:05.420248: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 907
+2021-04-10 23:19:05.420254: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 908
+2021-04-10 23:19:05.420260: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 909
+2021-04-10 23:19:05.420268: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 915
+2021-04-10 23:19:05.420274: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 916
+2021-04-10 23:19:05.420280: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 917
+2021-04-10 23:19:05.420289: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 923
+2021-04-10 23:19:05.420295: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 924
+2021-04-10 23:19:05.420301: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 925
+2021-04-10 23:19:05.420310: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 931
+2021-04-10 23:19:05.420316: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 932
+2021-04-10 23:19:05.420322: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 933
+2021-04-10 23:19:05.420331: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 939
+2021-04-10 23:19:05.420337: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 940
+2021-04-10 23:19:05.420344: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 941
+2021-04-10 23:19:05.420353: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 947
+2021-04-10 23:19:05.420359: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 948
+2021-04-10 23:19:05.420365: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 949
+2021-04-10 23:19:05.420378: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 955
+2021-04-10 23:19:05.420385: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 956
+2021-04-10 23:19:05.420393: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 957
+2021-04-10 23:19:05.420402: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 963
+2021-04-10 23:19:05.420408: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 964
+2021-04-10 23:19:05.420414: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 965
+2021-04-10 23:19:05.420423: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 971
+2021-04-10 23:19:05.420429: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 972
+2021-04-10 23:19:05.420435: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 973
+2021-04-10 23:19:05.420444: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 979
+2021-04-10 23:19:05.420450: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 980
+2021-04-10 23:19:05.420456: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 981
+2021-04-10 23:19:05.420464: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 987
+2021-04-10 23:19:05.420470: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 988
+2021-04-10 23:19:05.420476: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 989
+2021-04-10 23:19:05.420485: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 995
+2021-04-10 23:19:05.420491: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 996
+2021-04-10 23:19:05.420497: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 997
+2021-04-10 23:19:05.420506: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 1003
+2021-04-10 23:19:05.420512: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 1004
+2021-04-10 23:19:05.420538: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 1005
+2021-04-10 23:19:05.420555: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 1011
+2021-04-10 23:19:05.420564: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 1012
+2021-04-10 23:19:05.420571: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 1013
+2021-04-10 23:19:05.420579: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 1019
+2021-04-10 23:19:05.420586: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 1020
+2021-04-10 23:19:05.420591: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 1021
+2021-04-10 23:19:05.420623: I tensorflow/core/kernels/data/shard_dataset_op.cc:303] Heterogeneous range = [3, 6), range total = 8
+2021-04-10 23:19:06.457605: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fe8e4015b50 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-04-10 23:19:06.457659: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-16GB, Compute Capability 7.0
+2021-04-10 23:19:07.109575: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 23:19:08.895402: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 23:19:21.966790: I tensorflow/compiler/jit/xla_compilation_cache.cc:333] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:19:36.918061 140644088661824 keras_utils.py:162] TimeHistory: 46.46 seconds, 176.31 examples/second between steps 0 and 1
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:19:41.875970 140644088661824 keras_utils.py:162] TimeHistory: 4.96 seconds, 1652.48 examples/second between steps 1 and 2
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:19:46.628334 140644088661824 keras_utils.py:162] TimeHistory: 4.75 seconds, 1723.88 examples/second between steps 2 and 3
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:19:51.223498 140644088661824 keras_utils.py:162] TimeHistory: 4.59 seconds, 1782.86 examples/second between steps 3 and 4
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:19:55.977771 140644088661824 keras_utils.py:162] TimeHistory: 4.75 seconds, 1723.18 examples/second between steps 4 and 5
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:00.599648 140644088661824 keras_utils.py:162] TimeHistory: 4.62 seconds, 1772.55 examples/second between steps 5 and 6
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:05.252860 140644088661824 keras_utils.py:162] TimeHistory: 4.65 seconds, 1760.62 examples/second between steps 6 and 7
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:09.993173 140644088661824 keras_utils.py:162] TimeHistory: 4.74 seconds, 1728.25 examples/second between steps 7 and 8
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:14.736071 140644088661824 keras_utils.py:162] TimeHistory: 4.74 seconds, 1727.33 examples/second between steps 8 and 9
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:19.471676 140644088661824 keras_utils.py:162] TimeHistory: 4.74 seconds, 1729.99 examples/second between steps 9 and 10
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:24.098217 140644088661824 keras_utils.py:162] TimeHistory: 4.63 seconds, 1770.77 examples/second between steps 10 and 11
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:28.745539 140644088661824 keras_utils.py:162] TimeHistory: 4.65 seconds, 1762.84 examples/second between steps 11 and 12
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:33.480598 140644088661824 keras_utils.py:162] TimeHistory: 4.73 seconds, 1730.20 examples/second between steps 12 and 13
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:38.096188 140644088661824 keras_utils.py:162] TimeHistory: 4.62 seconds, 1774.97 examples/second between steps 13 and 14
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:42.836899 140644088661824 keras_utils.py:162] TimeHistory: 4.74 seconds, 1728.12 examples/second between steps 14 and 15
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:47.491527 140644088661824 keras_utils.py:162] TimeHistory: 4.65 seconds, 1760.07 examples/second between steps 15 and 16
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:52.131763 140644088661824 keras_utils.py:162] TimeHistory: 4.64 seconds, 1765.53 examples/second between steps 16 and 17
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:20:56.761047 140644088661824 keras_utils.py:162] TimeHistory: 4.63 seconds, 1769.71 examples/second between steps 17 and 18
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:21:01.393980 140644088661824 keras_utils.py:162] TimeHistory: 4.63 seconds, 1768.31 examples/second between steps 18 and 19
+Training on virtual node 1 / 32
+Training on virtual node 2 / 32
+Training on virtual node 3 / 32
+Training on virtual node 4 / 32
+Training on virtual node 5 / 32
+Training on virtual node 6 / 32
+Training on virtual node 7 / 32
+Training on virtual node 8 / 32
+Training on virtual node 9 / 32
+Training on virtual node 10 / 32
+Training on virtual node 11 / 32
+Training on virtual node 12 / 32
+Training on virtual node 13 / 32
+Training on virtual node 14 / 32
+Training on virtual node 15 / 32
+Training on virtual node 16 / 32
+Training on virtual node 17 / 32
+Training on virtual node 18 / 32
+Training on virtual node 19 / 32
+Training on virtual node 20 / 32
+Training on virtual node 21 / 32
+Training on virtual node 22 / 32
+Training on virtual node 23 / 32
+Training on virtual node 24 / 32
+Training on virtual node 25 / 32
+Training on virtual node 26 / 32
+Training on virtual node 27 / 32
+Training on virtual node 28 / 32
+Training on virtual node 29 / 32
+Training on virtual node 30 / 32
+Training on virtual node 31 / 32
+Training on virtual node 32 / 32
+I0410 23:21:06.117626 140644088661824 keras_utils.py:162] TimeHistory: 4.72 seconds, 1734.35 examples/second between steps 19 and 20
+20/20 - 136s - loss: 3784.3228 - sparse_categorical_accuracy: 0.0011
+2021-04-10 23:21:06.195775: I tensorflow/core/kernels/data/shard_dataset_op.cc:303] Heterogeneous range = [3, 6), range total = 8
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:21:07.019701 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:21:07.022382 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:21:07.026134 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 23:21:07.028302 140644088661824 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+2021-04-10 23:21:08.297713: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=while/body/_1/while/resnet50/permute/transpose pad=while/body/_1/while/resnet50/conv1_pad/Pad transpose_after=while/body/_1/while/resnet50/conv1/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+Evaluating on virtual node  1 / 32
+2021-04-10 23:21:08.670198: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 3, num_skipped = 3, next_index = 3
+2021-04-10 23:21:08.673264: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 4
+2021-04-10 23:21:08.673534: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 5
+2021-04-10 23:21:08.676211: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 11
+2021-04-10 23:21:08.676489: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 12
+2021-04-10 23:21:08.676751: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 13
+2021-04-10 23:21:08.677012: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 19
+2021-04-10 23:21:08.677247: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 20
+2021-04-10 23:21:08.677484: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 21
+2021-04-10 23:21:08.677769: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 27
+2021-04-10 23:21:08.677966: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 28
+2021-04-10 23:21:08.678248: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 29
+2021-04-10 23:21:08.678507: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 35
+2021-04-10 23:21:08.678700: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 36
+2021-04-10 23:21:08.678901: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 37
+2021-04-10 23:21:08.679134: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 43
+2021-04-10 23:21:08.679340: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 44
+2021-04-10 23:21:08.679681: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 45
+2021-04-10 23:21:08.679932: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 51
+2021-04-10 23:21:08.680205: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 52
+2021-04-10 23:21:08.680411: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 53
+2021-04-10 23:21:08.680720: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 59
+2021-04-10 23:21:08.680934: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 60
+2021-04-10 23:21:08.681137: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 61
+2021-04-10 23:21:08.681482: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 67
+2021-04-10 23:21:08.681723: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 68
+2021-04-10 23:21:08.681984: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 69
+2021-04-10 23:21:08.682259: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 75
+2021-04-10 23:21:08.682532: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 76
+2021-04-10 23:21:08.682857: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 77
+Evaluating on virtual node  2 / 32
+Evaluating on virtual node  3 / 32
+Evaluating on virtual node  4 / 32
+Evaluating on virtual node  5 / 32
+Evaluating on virtual node  6 / 32
+Evaluating on virtual node  7 / 32
+Evaluating on virtual node  8 / 32
+Evaluating on virtual node  9 / 32
+Evaluating on virtual node  10 / 32
+Evaluating on virtual node  11 / 32
+Evaluating on virtual node  12 / 32
+Evaluating on virtual node  13 / 32
+Evaluating on virtual node  14 / 32
+Evaluating on virtual node  15 / 32
+Evaluating on virtual node  16 / 32
+Evaluating on virtual node  17 / 32
+Evaluating on virtual node  18 / 32
+Evaluating on virtual node  19 / 32
+Evaluating on virtual node  20 / 32
+Evaluating on virtual node  21 / 32
+Evaluating on virtual node  22 / 32
+Evaluating on virtual node  23 / 32
+Evaluating on virtual node  24 / 32
+Evaluating on virtual node  25 / 32
+Evaluating on virtual node  26 / 32
+Evaluating on virtual node  27 / 32
+Evaluating on virtual node  28 / 32
+Evaluating on virtual node  29 / 32
+Evaluating on virtual node  30 / 32
+Evaluating on virtual node  31 / 32
+Evaluating on virtual node  32 / 32
+Evaluating on virtual node  1 / 32
+Evaluating on virtual node  2 / 32
+Evaluating on virtual node  3 / 32
+Evaluating on virtual node  4 / 32
+Evaluating on virtual node  5 / 32
+Evaluating on virtual node  6 / 32
+Evaluating on virtual node  7 / 32
+Evaluating on virtual node  8 / 32
+Evaluating on virtual node  9 / 32
+2021-04-10 23:21:14.464869: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 83
+2021-04-10 23:21:14.465468: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 84
+2021-04-10 23:21:14.466675: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 85
+2021-04-10 23:21:14.467357: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 91
+2021-04-10 23:21:14.467844: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 92
+2021-04-10 23:21:14.468111: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 93
+2021-04-10 23:21:14.468351: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 99
+2021-04-10 23:21:14.468645: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 100
+2021-04-10 23:21:14.469049: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 101
+2021-04-10 23:21:14.469319: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 107
+Evaluating on virtual node  10 / 32
+Evaluating on virtual node  11 / 32
+Evaluating on virtual node  12 / 32
+Evaluating on virtual node  13 / 32
+Evaluating on virtual node  14 / 32
+Evaluating on virtual node  15 / 32
+Evaluating on virtual node  16 / 32
+Evaluating on virtual node  17 / 32
+Evaluating on virtual node  18 / 32
+Evaluating on virtual node  19 / 32
+Evaluating on virtual node  20 / 32
+Evaluating on virtual node  21 / 32
+Evaluating on virtual node  22 / 32
+Evaluating on virtual node  23 / 32
+Evaluating on virtual node  24 / 32
+Evaluating on virtual node  25 / 32
+Evaluating on virtual node  26 / 32
+Evaluating on virtual node  27 / 32
+Evaluating on virtual node  28 / 32
+Evaluating on virtual node  29 / 32
+Evaluating on virtual node  30 / 32
+Evaluating on virtual node  31 / 32
+Evaluating on virtual node  32 / 32
+Evaluating on virtual node  1 / 32
+Evaluating on virtual node  2 / 32
+Evaluating on virtual node  3 / 32
+Evaluating on virtual node  4 / 32
+Evaluating on virtual node  5 / 32
+Evaluating on virtual node  6 / 32
+Evaluating on virtual node  7 / 32
+Evaluating on virtual node  8 / 32
+Evaluating on virtual node  9 / 32
+Evaluating on virtual node  10 / 32
+Evaluating on virtual node  11 / 32
+Evaluating on virtual node  12 / 32
+Evaluating on virtual node  13 / 32
+Evaluating on virtual node  14 / 32
+Evaluating on virtual node  15 / 32
+Evaluating on virtual node  16 / 32
+Evaluating on virtual node  17 / 32
+2021-04-10 23:21:17.287332: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 108
+2021-04-10 23:21:17.288969: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 109
+2021-04-10 23:21:17.289582: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 115
+2021-04-10 23:21:17.289833: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 116
+2021-04-10 23:21:17.290194: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 117
+2021-04-10 23:21:17.290501: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 123
+2021-04-10 23:21:17.290790: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 124
+2021-04-10 23:21:17.291003: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 125
+Evaluating on virtual node  18 / 32
+Evaluating on virtual node  19 / 32
+Evaluating on virtual node  20 / 32
+Evaluating on virtual node  21 / 32
+Evaluating on virtual node  22 / 32
+Evaluating on virtual node  23 / 32
+Evaluating on virtual node  24 / 32
+Evaluating on virtual node  25 / 32
+Evaluating on virtual node  26 / 32
+Evaluating on virtual node  27 / 32
+Evaluating on virtual node  28 / 32
+Evaluating on virtual node  29 / 32
+Evaluating on virtual node  30 / 32
+Evaluating on virtual node  31 / 32
+Evaluating on virtual node  32 / 32
+Evaluating on virtual node  1 / 32
+Evaluating on virtual node  2 / 32
+Evaluating on virtual node  3 / 32
+Evaluating on virtual node  4 / 32
+Evaluating on virtual node  5 / 32
+Evaluating on virtual node  6 / 32
+Evaluating on virtual node  7 / 32
+Evaluating on virtual node  8 / 32
+Evaluating on virtual node  9 / 32
+Evaluating on virtual node  10 / 32
+Evaluating on virtual node  11 / 32
+Evaluating on virtual node  12 / 32
+Evaluating on virtual node  13 / 32
+Evaluating on virtual node  14 / 32
+Evaluating on virtual node  15 / 32
+Evaluating on virtual node  16 / 32
+Evaluating on virtual node  17 / 32
+Evaluating on virtual node  18 / 32
+Evaluating on virtual node  19 / 32
+Evaluating on virtual node  20 / 32
+Evaluating on virtual node  21 / 32
+Evaluating on virtual node  22 / 32
+Evaluating on virtual node  23 / 32
+Evaluating on virtual node  24 / 32
+Evaluating on virtual node  25 / 32
+Evaluating on virtual node  26 / 32
+Evaluating on virtual node  27 / 32
+Evaluating on virtual node  28 / 32
+Evaluating on virtual node  29 / 32
+Evaluating on virtual node  30 / 32
+Evaluating on virtual node  31 / 32
+Evaluating on virtual node  32 / 32
+Evaluating on virtual node  1 / 32
+Evaluating on virtual node  2 / 32
+Evaluating on virtual node  3 / 32
+Evaluating on virtual node  4 / 32
+Evaluating on virtual node  5 / 32
+Evaluating on virtual node  6 / 32
+Evaluating on virtual node  7 / 32
+Evaluating on virtual node  8 / 32
+Evaluating on virtual node  9 / 32
+Evaluating on virtual node  10 / 32
+Evaluating on virtual node  11 / 32
+Evaluating on virtual node  12 / 32
+Evaluating on virtual node  13 / 32
+Evaluating on virtual node  14 / 32
+Evaluating on virtual node  15 / 32
+Evaluating on virtual node  16 / 32
+Evaluating on virtual node  17 / 32
+Evaluating on virtual node  18 / 32
+Evaluating on virtual node  19 / 32
+Evaluating on virtual node  20 / 32
+Evaluating on virtual node  21 / 32
+Evaluating on virtual node  22 / 32
+Evaluating on virtual node  23 / 32
+Evaluating on virtual node  24 / 32
+Evaluating on virtual node  25 / 32
+Evaluating on virtual node  26 / 32
+Evaluating on virtual node  27 / 32
+Evaluating on virtual node  28 / 32
+Evaluating on virtual node  29 / 32
+Evaluating on virtual node  30 / 32
+Evaluating on virtual node  31 / 32
+Evaluating on virtual node  32 / 32
+Evaluating on virtual node  1 / 32
+Evaluating on virtual node  2 / 32
+Evaluating on virtual node  3 / 32
+Evaluating on virtual node  4 / 32
+Evaluating on virtual node  5 / 32
+Evaluating on virtual node  6 / 32
+Evaluating on virtual node  7 / 32
+Evaluating on virtual node  8 / 32
+Evaluating on virtual node  9 / 32
+Evaluating on virtual node  10 / 32
+Evaluating on virtual node  11 / 32
+Evaluating on virtual node  12 / 32
+Evaluating on virtual node  13 / 32
+Evaluating on virtual node  14 / 32
+Evaluating on virtual node  15 / 32
+Evaluating on virtual node  16 / 32
+Evaluating on virtual node  17 / 32
+Evaluating on virtual node  18 / 32
+Evaluating on virtual node  19 / 32
+Evaluating on virtual node  20 / 32
+Evaluating on virtual node  21 / 32
+Evaluating on virtual node  22 / 32
+Evaluating on virtual node  23 / 32
+Evaluating on virtual node  24 / 32
+Evaluating on virtual node  25 / 32
+Evaluating on virtual node  26 / 32
+Evaluating on virtual node  27 / 32
+Evaluating on virtual node  28 / 32
+Evaluating on virtual node  29 / 32
+Evaluating on virtual node  30 / 32
+Evaluating on virtual node  31 / 32
+Evaluating on virtual node  32 / 32
+6/6 - 19s - loss: 3827.5259 - sparse_categorical_accuracy: 0.0019
+2021-04-10 23:21:25.053396: I tensorflow/core/kernels/data/shard_dataset_op.cc:303] Heterogeneous range = [3, 6), range total = 8
+2021-04-10 23:21:25.059099: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 3, num_skipped = 3, next_index = 3
+2021-04-10 23:21:25.063105: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 4
+2021-04-10 23:21:25.067138: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 5
+2021-04-10 23:21:25.067431: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 11
+2021-04-10 23:21:25.067718: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 12
+2021-04-10 23:21:25.067980: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 13
+2021-04-10 23:21:25.068183: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 19
+2021-04-10 23:21:25.068404: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 20
+2021-04-10 23:21:25.068662: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 21
+2021-04-10 23:21:25.068898: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 27
+2021-04-10 23:21:25.069220: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 28
+2021-04-10 23:21:25.069436: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 29
+2021-04-10 23:21:25.069646: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 35
+2021-04-10 23:21:25.069838: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 36
+2021-04-10 23:21:25.070060: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 37
+2021-04-10 23:21:25.070303: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 43
+2021-04-10 23:21:25.070613: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 44
+2021-04-10 23:21:25.070881: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 45
+2021-04-10 23:21:25.071215: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 51
+2021-04-10 23:21:25.071431: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 52
+2021-04-10 23:21:25.071693: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 53
+2021-04-10 23:21:25.071938: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 59
+2021-04-10 23:21:25.072136: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 60
+2021-04-10 23:21:25.072383: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 61
+2021-04-10 23:21:25.072630: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 67
+2021-04-10 23:21:25.072808: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 68
+2021-04-10 23:21:25.073026: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 69
+2021-04-10 23:21:25.073253: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 5, num_skipped = 5, next_index = 75
+2021-04-10 23:21:25.073467: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 76
+2021-04-10 23:21:25.073660: I tensorflow/core/kernels/data/shard_dataset_op.cc:204] GetNextInternal: num_to_skip = 0, num_skipped = 0, next_index = 77
+I0410 23:21:25.172282 140644088661824 resnet_imagenet_main.py:367] Run stats:
+{'accuracy_top_1': 0.0019327799091115594, 'eval_loss': 3827.52587890625, 'loss': 3784.32275390625, 'training_accuracy_top_1': 0.0010925292735919356, 'step_timestamp_log': ['BatchTimestamp<batch_index: 0, timestamp: 1618096730.4555857>', 'BatchTimestamp<batch_index: 1, timestamp: 1618096776.9178998>', 'BatchTimestamp<batch_index: 2, timestamp: 1618096781.8759162>', 'BatchTimestamp<batch_index: 3, timestamp: 1618096786.6282804>', 'BatchTimestamp<batch_index: 4, timestamp: 1618096791.223447>', 'BatchTimestamp<batch_index: 5, timestamp: 1618096795.97772>', 'BatchTimestamp<batch_index: 6, timestamp: 1618096800.5995932>', 'BatchTimestamp<batch_index: 7, timestamp: 1618096805.2528102>', 'BatchTimestamp<batch_index: 8, timestamp: 1618096809.9931197>', 'BatchTimestamp<batch_index: 9, timestamp: 1618096814.7360086>', 'BatchTimestamp<batch_index: 10, timestamp: 1618096819.4716134>', 'BatchTimestamp<batch_index: 11, timestamp: 1618096824.098168>', 'BatchTimestamp<batch_index: 12, timestamp: 1618096828.745456>', 'BatchTimestamp<batch_index: 13, timestamp: 1618096833.4805467>', 'BatchTimestamp<batch_index: 14, timestamp: 1618096838.0961356>', 'BatchTimestamp<batch_index: 15, timestamp: 1618096842.8368464>', 'BatchTimestamp<batch_index: 16, timestamp: 1618096847.4914744>', 'BatchTimestamp<batch_index: 17, timestamp: 1618096852.131712>', 'BatchTimestamp<batch_index: 18, timestamp: 1618096856.7609856>', 'BatchTimestamp<batch_index: 19, timestamp: 1618096861.3939266>', 'BatchTimestamp<batch_index: 20, timestamp: 1618096866.1175733>'], 'train_finish_time': 1618096866.1186957, 'avg_exp_per_second': 1207.7000217470259}

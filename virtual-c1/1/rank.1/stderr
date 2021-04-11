@@ -1,0 +1,967 @@
+My commit is 7dcb8a2c Add basic structure for simulator (/root/dev/models/deploy)
+
+==========================================================================
+My environment variables:
+--------------------------------------------------------------------------
+CUDNN_VERSION=7.6.2.24-1+cuda10.1
+PMIX_ID=832503809.1
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+OMPI_FIRST_RANKS=0
+MPI_HOSTS=9d349c752124,ca62f7b7257d
+OMPI_MCA_orte_top_session_dir=/tmp/ompi.ca62f7b7257d.0
+LOG_MEMORY_ENABLED=false
+SSH_CONNECTION=10.0.1.2 58974 10.0.1.4 22
+PMIX_SYSTEM_TMPDIR=/tmp
+OMPI_MCA_orte_num_nodes=2
+OMPI_COMMAND=run_resnet.sh
+MODEL=resnet
+LANG=C.UTF-8
+HFI_NO_BACKTRACE=1
+OMPI_MCA_ess_base_vpid=1
+OLDPWD=/root
+OMPI_MCA_initial_wdir=/root/dev/models/deploy
+ENVIRONMENT=docker
+TF_DIR=/root/dev/tensorflow
+DATA_DIR=/root/dev/dataset/imagenet
+HOST_FLAG=--host 9d349c752124,ca62f7b7257d
+OMPI_MCA_btl_tcp_if_exclude=lo,docker0,eth1
+DATASET=imagenet
+DTYPE=fp16
+NUM_CHECKPOINTS_TO_KEEP=5
+OMPI_COMM_WORLD_NODE_RANK=0
+NVIDIA_VISIBLE_DEVICES=all
+OMPI_MCA_orte_precondition_transports=62c36e9ce0473866-ea603ff617e509be
+BASE_DIR=/root/dev
+OMPI_MCA_orte_ess_node_rank=0
+OMPI_MCA_shmem_RUNTIME_QUERY_hint=mmap
+OMPI_MCA_plm=rsh
+OMPI_COMM_WORLD_RANK=1
+LOG_STEPS=1
+PMIX_RANK=1
+USER=root
+OMPI_FILE_LOCATION=/tmp/ompi.ca62f7b7257d.0/jf.12703/0/1
+NCCL_VERSION=2.4.7-1+cuda10.1
+OMPI_MCA_orte_local_daemon_uri=832503808.1;tcp://10.0.1.4,172.18.0.3:56781
+EPOCHS_BETWEEN_EVALS=4
+HOROVOD_GPU_OPERATIONS=NCCL
+PWD=/root/dev/models/deploy
+NUM_GPUS_PER_NODE=8
+OMPI_MCA_ess_base_num_procs=2
+HOME=/root
+ENABLE_XLA=true
+PMIX_SERVER_TMPDIR=/tmp/ompi.ca62f7b7257d.0/jf.12703
+RUN_SCRIPT=run_resnet.sh
+SSH_CLIENT=10.0.1.2 58974 22
+PMIX_PTL_MODULE=tcp,usock
+IPATH_NO_BACKTRACE=1
+JOB_NAME=resnet-imagenet-virtual-c1-04_10_21_1618091588112
+OMPI_MCA_rmaps_base_oversubscribe=1
+OMPI_MCA_orte_launch=1
+CODE_DIR=/root/dev/models/official/vision/image_classification/resnet
+OMPI_MCA_orte_tmpdir_base=/tmp
+LOG_DIR=/root/dev/logs
+TIMESTAMP=04_10_21_1618091588846
+MPI_HOST_FILE=/root/container_hosts/hosts.txt
+NUM_VIRTUAL_NODES_PER_DEVICE=8
+OMPI_APP_CTX_NUM_PROCS=2
+OMPI_MCA_orte_output_filename=/root/dev/logs/resnet-imagenet-virtual-c1-04_10_21_1618091588112
+LOG_FILE=/dev/stderr
+MODELS_DIR=/root/dev/models
+OMPI_MCA_orte_app_num=0
+PMIX_MCA_mca_base_component_show_load_errors=1
+OMPI_MCA_orte_parent_uri=832503808.0;tcp://10.0.1.2,172.18.0.3:52099
+NUM_NODES=2
+OMPI_MCA_pml=ob1
+PYTHON_COMMAND=/usr/bin/python3
+IN_DOCKER_CONTAINER=true
+MAIL=/var/mail/root
+LEARNING_RATE_BATCH_SIZE=0
+NUM_EPOCHS=1
+PMIX_BFROP_BUFFER_TYPE=PMIX_BFROP_BUFFER_NON_DESC
+MPI_HOME=/usr/local
+SHELL=/bin/bash
+TERM=xterm
+CUDA_PKG_VERSION=10-1=10.1.243-1
+CUDA_VERSION=10.1.243
+SKIP_EVAL=false
+PMIX_DSTORE_ESH_BASE_PATH=/tmp/ompi.ca62f7b7257d.0/jf.12703/pmix_dstor_ds12_158
+OMPI_MCA_hwloc_base_binding_policy=none
+OMPI_MCA_rmaps_base_mapping_policy=node
+PMIX_SERVER_URI3=832503808.1;tcp4://127.0.0.1:47875
+PMIX_SERVER_URI2=832503808.1;tcp4://127.0.0.1:47875
+NUM_STEPS=20
+OMPI_MCA_orte_hnp_uri=832503808.0;tcp://10.0.1.2,172.18.0.3:52099
+TRAIN_DIR=/root/dev/logs/resnet-imagenet-virtual-c1-04_10_21_1618091588112
+ENABLE_EAGER=true
+OMPI_MCA_mpi_yield_when_idle=0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+DEFAULT_NUM_GPUS_PER_NODE=8
+ENABLE_CHECKPOINTS=false
+DISTRIBUTION_STRATEGY=multi_worker_mirrored
+OMPI_COMM_WORLD_LOCAL_SIZE=1
+CUDA_VISIBLE_DEVICES=0,1
+OMPI_COMM_WORLD_SIZE=2
+SHLVL=3
+PYTHONPATH=:/root/dev/models:/root/dev/models
+OMPI_NUM_APP_CTX=1
+NVIDIA_REQUIRE_CUDA=cuda>=10.1 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419
+OMPI_MCA_pmix=^s1,s2,cray,isolated
+DEFAULT_DISTRIBUTION_STRATEGY=multi_worker_mirrored
+RUN_TAG=virtual-c1
+OMPI_MCA_orte_node_regex=[1:9]d349c752124,ca[2:62]f7b7257d@0(2)
+PMIX_SERVER_URI21=832503808.1;tcp4://127.0.0.1:47875
+SAVED_CHECKPOINT_PATH=
+PMIX_DSTORE_21_BASE_PATH=/tmp/ompi.ca62f7b7257d.0/jf.12703/pmix_dstor_ds21_158
+ENABLE_MONITOR_MEMORY=false
+LOGNAME=root
+CUBLAS_VERSION=10.1.0.105-1
+BATCH_SIZE=8192
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN_FILE=resnet_imagenet_main.py
+PMIX_SECURITY_MODE=native
+OMPI_MCA_ess=^singleton
+NCCL_DEBUG=INFO
+PMIX_NAMESPACE=832503809
+OMPI_MCA_orte_ess_num_procs=2
+NCCL_SOCKET_IFNAME=^lo,docker0,eth1
+OMPI_MCA_ess_base_jobid=832503809
+OMPI_COMM_WORLD_LOCAL_RANK=0
+OMPI_UNIVERSE_SIZE=2
+OMPI_MCA_orte_jobfam_session_dir=/tmp/ompi.ca62f7b7257d.0/jf.12703
+DEFAULT_NUM_EPOCHS=1
+PMIX_GDS_MODULE=ds21,ds12,hash
+ENABLE_ELASTICITY=false
+NUM_GPUS=2
+OMPI_MCA_btl=^openib
+_=/usr/bin/printenv
+==========================================================================
+
+2021-04-10 21:53:09.103535: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+I0410 21:53:12.113050 140191594637120 virtual_helper.py:219] Setting TF_CONFIG to {"cluster": {"worker": ["9d349c752124:2222", "ca62f7b7257d:2223"]}, "task": {"type": "worker", "index": 1}}
+2021-04-10 21:53:12.113406: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 21:53:12.113488: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-10 21:53:12.179937: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.180653: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-10 21:53:12.180752: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.181444: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties: 
+pciBusID: 0000:00:05.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-10 21:53:12.181466: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 21:53:12.263513: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 21:53:12.263589: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-10 21:53:12.304891: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-10 21:53:12.316082: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-10 21:53:12.390798: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-10 21:53:12.404223: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-10 21:53:12.529497: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 21:53:12.529676: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.530471: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.531137: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.531758: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.532333: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0, 1
+2021-04-10 21:53:12.532443: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 21:53:12.532526: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.533156: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 21:53:12.533239: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+WARNING:tensorflow:Mixed precision compatibility check (mixed_float16): WARNING
+Your GPUs may run slowly with dtype policy mixed_float16 because they do not have compute capability of at least 7.0. Your GPUs:
+  Tesla P100-PCIE-16GB, compute capability 6.0 (x2)
+See https://developer.nvidia.com/cuda-gpus for a list of GPUs and their compute capabilities.
+If you will use compatible GPU(s) not attached to this host, e.g. by running a multi-worker model, you can ignore this warning. This message will only be logged once
+W0410 21:53:12.533873 140191594637120 device_compatibility_check.py:111] Mixed precision compatibility check (mixed_float16): WARNING
+Your GPUs may run slowly with dtype policy mixed_float16 because they do not have compute capability of at least 7.0. Your GPUs:
+  Tesla P100-PCIE-16GB, compute capability 6.0 (x2)
+See https://developer.nvidia.com/cuda-gpus for a list of GPUs and their compute capabilities.
+If you will use compatible GPU(s) not attached to this host, e.g. by running a multi-worker model, you can ignore this warning. This message will only be logged once
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/keras/mixed_precision/loss_scale.py:54: FixedLossScale.__init__ (from tensorflow.python.training.experimental.loss_scale) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras.mixed_precision.LossScaleOptimizer instead. LossScaleOptimizer now has all the functionality of FixedLossScale
+W0410 21:53:12.534118 140191594637120 deprecation.py:339] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/keras/mixed_precision/loss_scale.py:54: FixedLossScale.__init__ (from tensorflow.python.training.experimental.loss_scale) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras.mixed_precision.LossScaleOptimizer instead. LossScaleOptimizer now has all the functionality of FixedLossScale
+WARNING:tensorflow:From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+W0410 21:53:12.534343 140191594637120 deprecation.py:339] From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+2021-04-10 21:53:12.535190: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-10 21:53:12.537688: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 21:53:12.780186: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.780864: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-10 21:53:12.780976: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.781631: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties: 
+pciBusID: 0000:00:05.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-10 21:53:12.781659: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 21:53:12.781712: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 21:53:12.781729: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-10 21:53:12.781740: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-10 21:53:12.781750: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-10 21:53:12.781761: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-10 21:53:12.781771: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-10 21:53:12.781782: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 21:53:12.781841: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.782484: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.783108: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.783721: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 21:53:12.784290: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0, 1
+2021-04-10 21:53:12.784364: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 22:04:49.689900: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-10 22:04:49.690066: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 1 
+2021-04-10 22:04:49.690113: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N Y 
+2021-04-10 22:04:49.690118: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 1:   Y N 
+2021-04-10 22:04:49.691035: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.691825: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.692506: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.693208: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.693872: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14871 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0)
+2021-04-10 22:04:49.694641: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.695321: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.695923: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 14966 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:05.0, compute capability: 6.0)
+2021-04-10 22:04:49.699468: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-10 22:04:49.699597: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.700282: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-10 22:04:49.700354: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.700929: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties: 
+pciBusID: 0000:00:05.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-10 22:04:49.700986: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-10 22:04:49.701116: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 22:04:49.701141: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-10 22:04:49.701153: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-10 22:04:49.701165: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-10 22:04:49.701175: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-10 22:04:49.701187: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-10 22:04:49.701201: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 22:04:49.701258: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.701880: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.702488: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.703104: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.703684: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0, 1
+2021-04-10 22:04:49.703736: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-10 22:04:49.703767: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 1 
+2021-04-10 22:04:49.703772: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N Y 
+2021-04-10 22:04:49.703777: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 1:   Y N 
+2021-04-10 22:04:49.703928: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.704565: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.705203: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.705782: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:worker/replica:0/task:1/device:GPU:0 with 14871 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:04.0, compute capability: 6.0)
+2021-04-10 22:04:49.705847: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-10 22:04:49.706424: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:worker/replica:0/task:1/device:GPU:1 with 14966 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:05.0, compute capability: 6.0)
+2021-04-10 22:04:49.712490: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:301] Initialize GrpcChannelCache for job worker -> {0 -> 9d349c752124:2222, 1 -> ca62f7b7257d:2223}
+2021-04-10 22:04:49.714530: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:411] Started server with target: grpc://ca62f7b7257d:2223
+INFO:tensorflow:Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:1/device:CPU:0', '/job:worker/replica:0/task:1/device:GPU:0', '/job:worker/replica:0/task:1/device:GPU:1']
+I0410 22:04:49.715581 140191594637120 collective_all_reduce_strategy.py:468] Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:1/device:CPU:0', '/job:worker/replica:0/task:1/device:GPU:0', '/job:worker/replica:0/task:1/device:GPU:1']
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:worker/task:1/device:GPU:0', '/job:worker/task:1/device:GPU:1')
+I0410 22:04:49.720028 140191594637120 mirrored_strategy.py:350] Using MirroredStrategy with devices ('/job:worker/task:1/device:GPU:0', '/job:worker/task:1/device:GPU:1')
+INFO:tensorflow:Waiting for the cluster, timeout = inf
+I0410 22:04:50.080886 140191594637120 collective_all_reduce_strategy.py:829] Waiting for the cluster, timeout = inf
+INFO:tensorflow:Cluster is ready.
+I0410 22:04:50.087958 140191594637120 collective_all_reduce_strategy.py:844] Cluster is ready.
+INFO:tensorflow:MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['9d349c752124:2222', 'ca62f7b7257d:2223']}, task_type = 'worker', task_id = 1, num_workers = 2, local_devices = ('/job:worker/task:1/device:GPU:0', '/job:worker/task:1/device:GPU:1'), communication = CommunicationImplementation.AUTO
+I0410 22:04:50.089032 140191594637120 collective_all_reduce_strategy.py:517] MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['9d349c752124:2222', 'ca62f7b7257d:2223']}, task_type = 'worker', task_id = 1, num_workers = 2, local_devices = ('/job:worker/task:1/device:GPU:0', '/job:worker/task:1/device:GPU:1'), communication = CommunicationImplementation.AUTO
+I0410 22:04:50.089454 140191594637120 virtual_helper.py:272] Batching dataset by 1024 instead of the global batch size 8192
+I0410 22:04:50.099217 140191594637120 imagenet_preprocessing.py:327] Sharding the dataset: input_pipeline_id=1 num_input_pipelines=2
+I0410 22:04:50.868515 140191594637120 imagenet_preprocessing.py:327] Sharding the dataset: input_pipeline_id=1 num_input_pipelines=2
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.466449 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.471926 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.526233 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.531460 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.587638 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.592856 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.644397 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.649638 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.698711 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.703752 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.758721 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.763838 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.817961 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.823190 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.874341 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.879297 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.935352 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.940488 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.994290 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:51.999447 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.050998 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.056008 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.112681 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.117619 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.178614 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.183959 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.239291 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.244360 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.300710 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.305884 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.363283 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.368389 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.428629 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.433902 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.488879 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.494327 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.551774 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.556852 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.614145 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.619115 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.673903 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.678854 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.735451 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.740718 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.797782 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.802939 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.860493 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.865629 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.925420 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:52.930507 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.008341 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.013679 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.074416 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.079514 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.144762 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.149935 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.211752 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.216811 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.287590 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.293098 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.352760 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.358094 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.421210 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.426305 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.495092 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.500574 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.560479 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.565770 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.628156 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.633468 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.700927 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.706180 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.765353 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.770545 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.832890 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.838043 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.908476 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.913932 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.973949 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:53.979050 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.041655 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.047116 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.116394 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.121929 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.185348 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.190753 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.261457 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.266690 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.411750 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.416992 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.503908 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.509139 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.692702 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.698271 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.782055 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.787249 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.902533 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.907908 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.989552 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:54.994916 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:55.079560 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:55.084825 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:55.200693 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:55.205967 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:55.288146 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:04:55.296239 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+WARNING:tensorflow:tf.keras.mixed_precision.experimental.LossScaleOptimizer is deprecated. Please use tf.keras.mixed_precision.LossScaleOptimizer instead. For example
+  opt = tf.keras.mixed_precision.experimental.LossScaleOptimizer(opt, dynamic=False, initial_scale=128.0)
+W0410 22:04:55.410930 140191594637120 loss_scale_optimizer.py:1035] tf.keras.mixed_precision.experimental.LossScaleOptimizer is deprecated. Please use tf.keras.mixed_precision.LossScaleOptimizer instead. For example
+  opt = tf.keras.mixed_precision.experimental.LossScaleOptimizer(opt, dynamic=False, initial_scale=128.0)
+2021-04-10 22:04:55.491145: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-10 22:04:55.493886: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2000189999 Hz
+2021-04-10 22:04:55.509519: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1642] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Collective batch_all_reduce: 161 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:01.693334 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 161 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:03.276768 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:03.280395 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:03.285790 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:03.288915 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 161 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:09.627001 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 161 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:11.217011 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:11.220614 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:11.225576 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:05:11.228701 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+2021-04-10 22:05:23.288673: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f7d74005bb0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-04-10 22:05:23.288996: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0
+2021-04-10 22:05:23.289144: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): Tesla P100-PCIE-16GB, Compute Capability 6.0
+2021-04-10 22:05:24.761605: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-10 22:05:25.349062: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-10 22:05:51.669759: I tensorflow/compiler/jit/xla_compilation_cache.cc:333] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:01.962948 140191594637120 keras_utils.py:162] TimeHistory: 66.39 seconds, 123.40 examples/second between steps 0 and 1
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:10.049126 140191594637120 keras_utils.py:162] TimeHistory: 8.09 seconds, 1013.15 examples/second between steps 1 and 2
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:18.113760 140191594637120 keras_utils.py:162] TimeHistory: 8.06 seconds, 1015.83 examples/second between steps 2 and 3
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:26.170182 140191594637120 keras_utils.py:162] TimeHistory: 8.06 seconds, 1016.87 examples/second between steps 3 and 4
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:34.249220 140191594637120 keras_utils.py:162] TimeHistory: 8.08 seconds, 1014.02 examples/second between steps 4 and 5
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:42.317070 140191594637120 keras_utils.py:162] TimeHistory: 8.07 seconds, 1015.43 examples/second between steps 5 and 6
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:50.420119 140191594637120 keras_utils.py:162] TimeHistory: 8.10 seconds, 1011.02 examples/second between steps 6 and 7
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:06:58.514392 140191594637120 keras_utils.py:162] TimeHistory: 8.09 seconds, 1012.11 examples/second between steps 7 and 8
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:07:06.587108 140191594637120 keras_utils.py:162] TimeHistory: 8.07 seconds, 1014.81 examples/second between steps 8 and 9
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:07:14.659519 140191594637120 keras_utils.py:162] TimeHistory: 8.07 seconds, 1014.85 examples/second between steps 9 and 10
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:07:22.792507 140191594637120 keras_utils.py:162] TimeHistory: 8.13 seconds, 1007.29 examples/second between steps 10 and 11
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:07:30.871567 140191594637120 keras_utils.py:162] TimeHistory: 8.08 seconds, 1014.02 examples/second between steps 11 and 12
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:07:38.936733 140191594637120 keras_utils.py:162] TimeHistory: 8.06 seconds, 1015.76 examples/second between steps 12 and 13
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:07:46.997985 140191594637120 keras_utils.py:162] TimeHistory: 8.06 seconds, 1016.25 examples/second between steps 13 and 14
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:07:55.073967 140191594637120 keras_utils.py:162] TimeHistory: 8.08 seconds, 1014.40 examples/second between steps 14 and 15
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:08:03.204147 140191594637120 keras_utils.py:162] TimeHistory: 8.13 seconds, 1007.64 examples/second between steps 15 and 16
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:08:11.337973 140191594637120 keras_utils.py:162] TimeHistory: 8.13 seconds, 1007.18 examples/second between steps 16 and 17
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:08:19.411969 140191594637120 keras_utils.py:162] TimeHistory: 8.07 seconds, 1014.65 examples/second between steps 17 and 18
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:08:27.465596 140191594637120 keras_utils.py:162] TimeHistory: 8.05 seconds, 1017.22 examples/second between steps 18 and 19
+Training on virtual node 1 / 8
+Training on virtual node 1 / 8
+Training on virtual node 2 / 8
+Training on virtual node 2 / 8
+Training on virtual node 3 / 8
+Training on virtual node 3 / 8
+Training on virtual node 4 / 8
+Training on virtual node 4 / 8
+Training on virtual node 5 / 8
+Training on virtual node 5 / 8
+Training on virtual node 6 / 8
+Training on virtual node 6 / 8
+Training on virtual node 7 / 8
+Training on virtual node 7 / 8
+Training on virtual node 8 / 8
+Training on virtual node 8 / 8
+I0410 22:08:35.599762 140191594637120 keras_utils.py:162] TimeHistory: 8.13 seconds, 1007.14 examples/second between steps 19 and 20
+20/20 - 220s - loss: 12.2787 - sparse_categorical_accuracy: 0.0012
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:08:37.190503 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:08:37.194330 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:08:37.199447 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+I0410 22:08:37.202861 140191594637120 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 2, group_size = 4, implementation = AUTO, num_packs = 1
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  1 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  2 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  3 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  4 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  5 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  6 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  7 / 8
+Evaluating on virtual node  8 / 8
+Evaluating on virtual node  8 / 8
+6/6 - 19s - loss: 12.2936 - sparse_categorical_accuracy: 0.0020
+I0410 22:08:55.098812 140191594637120 resnet_imagenet_main.py:367] Run stats:
+{'accuracy_top_1': 0.00201416015625, 'eval_loss': 12.293628692626953, 'loss': 12.278715133666992, 'training_accuracy_top_1': 0.0011962890857830644, 'step_timestamp_log': ['BatchTimestamp<batch_index: 0, timestamp: 1618092295.5757525>', 'BatchTimestamp<batch_index: 1, timestamp: 1618092361.962786>', 'BatchTimestamp<batch_index: 2, timestamp: 1618092370.049043>', 'BatchTimestamp<batch_index: 3, timestamp: 1618092378.1137085>', 'BatchTimestamp<batch_index: 4, timestamp: 1618092386.170117>', 'BatchTimestamp<batch_index: 5, timestamp: 1618092394.2491608>', 'BatchTimestamp<batch_index: 6, timestamp: 1618092402.317016>', 'BatchTimestamp<batch_index: 7, timestamp: 1618092410.4200635>', 'BatchTimestamp<batch_index: 8, timestamp: 1618092418.5143414>', 'BatchTimestamp<batch_index: 9, timestamp: 1618092426.5870576>', 'BatchTimestamp<batch_index: 10, timestamp: 1618092434.6594675>', 'BatchTimestamp<batch_index: 11, timestamp: 1618092442.7924545>', 'BatchTimestamp<batch_index: 12, timestamp: 1618092450.8715143>', 'BatchTimestamp<batch_index: 13, timestamp: 1618092458.9366846>', 'BatchTimestamp<batch_index: 14, timestamp: 1618092466.9979324>', 'BatchTimestamp<batch_index: 15, timestamp: 1618092475.0739176>', 'BatchTimestamp<batch_index: 16, timestamp: 1618092483.2040982>', 'BatchTimestamp<batch_index: 17, timestamp: 1618092491.3379214>', 'BatchTimestamp<batch_index: 18, timestamp: 1618092499.4119139>', 'BatchTimestamp<batch_index: 19, timestamp: 1618092507.465546>', 'BatchTimestamp<batch_index: 20, timestamp: 1618092515.5997024>'], 'train_finish_time': 1618092515.6012414, 'avg_exp_per_second': 744.642193185432}
