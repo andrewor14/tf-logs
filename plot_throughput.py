@@ -12,14 +12,13 @@ def plot():
   output_file = "het_throughputs.pdf"
 
   # Data
-  batch_size = 8192
   labels = ["H1 (a,b,c)", "H2 (a,b,c,d)", "H3"]
-  v = batch_size / np.array([6.69632] * 3)
-  p = batch_size / np.array([15.38, 8.08526, 4.45421])
-  ha = batch_size / np.array([8.37579, 3.73684, 2.92316])
-  hb = batch_size / np.array([4.69368, 3.98842])
-  hc = batch_size / np.array([4.69368, 3.77789])
-  hd = batch_size / np.array([-1, 3.76842])
+  v = np.array([1969] * 3)
+  p = np.array([532.657, 1013.14, 1838.94])
+  ha = np.array([978.248, 2139.48, 2803.32])
+  hb = np.array([1745.47, 2054.21])
+  hc = np.array([1745.58, 2169.04])
+  hd = np.array([-1, 2174.31])
 
   # Bar indexes
   width = 0.125
@@ -35,7 +34,7 @@ def plot():
       i[g] -= width
   
   # Plot the bars
-  colors = iter(plt.get_cmap("Set3").colors[2:])
+  colors = iter(plt.get_cmap("Set2").colors)
   bars = []
   ax.bar(i1, v, color=next(colors), width=width, edgecolor="white", label="V100 only", hatch="//")
   ax.bar(i2, p, color=next(colors), width=width, edgecolor="white", label="P100 only", hatch="\\\\")
@@ -54,14 +53,17 @@ def plot():
   mult2 = max(ha[1], hb[1], hc[1], hd[1]) / max(v[1], p[1])
   mult3 = ha[2] / max(v[2], p[2])
   mults = [mult1, mult2, mult3]
-  rects = [b5.patches[0], b3.patches[1], b3.patches[2]]
+  rects = [b5.patches[0], b6.patches[1], b3.patches[2]]
   for i in range(len(mults)):
+    if mults[i] < 1:
+      continue
     plt.text(rects[i].get_x() + rects[i].get_width() / 2.0, rects[i].get_height() + 100,\
-      "%.2fx" % mults[i], ha='center', va='bottom', fontsize=10)
+      "%.2fx" % mults[i], ha='center', va='bottom', fontsize=12)
 
   # Legends and labels
   plt.xticks([0.25, 1.1875, 2], labels, fontsize=16)
-  plt.ylim(0, max(itertools.chain.from_iterable([v, p, ha, hb, hc, hd])) * 1.2)
+  plt.yticks(fontsize=16)
+  plt.ylim(0, max(itertools.chain.from_iterable([v, p, ha, hb, hc, hd])) * 1.25)
   ax.set_ylabel("Throughput (img/s)", fontsize=16, labelpad=15)
   ax.legend(fontsize=12, loc='lower center', bbox_to_anchor=(0.5, 1.05), ncol=3)
   fig.set_tight_layout({"pad": 1.5})
