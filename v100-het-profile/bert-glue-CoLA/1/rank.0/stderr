@@ -1,0 +1,545 @@
+My commit is 46f9d67f Simulator: Refactor to compute job allocations once (/root/dev/models/deploy)
+
+==========================================================================
+My environment variables:
+--------------------------------------------------------------------------
+CUDNN_VERSION=7.6.2.24-1+cuda10.1
+PMIX_ID=2932342785.0
+BERT_CONFIG_FILE=/root/dev/dataset/bert/uncased_L-12_H-768_A-12/bert_config.json
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+OMPI_FIRST_RANKS=0
+MPI_HOSTS=f69df1f52c58
+OMPI_MCA_orte_top_session_dir=/tmp/ompi.f69df1f52c58.0
+LOG_MEMORY_ENABLED=false
+PMIX_SYSTEM_TMPDIR=/tmp
+EVAL_BATCH_SIZE=48
+OMPI_MCA_orte_num_nodes=1
+OMPI_COMMAND=run_bert_glue.sh
+MODEL=bert
+LANG=C.UTF-8
+HFI_NO_BACKTRACE=1
+HOSTNAME=f69df1f52c58
+OMPI_MCA_ess_base_vpid=0
+OLDPWD=/root
+OMPI_MCA_initial_wdir=/root/dev/models/deploy
+ENVIRONMENT=docker
+TF_DIR=/root/dev/tensorflow
+USE_KERAS_COMPILE_FIT=true
+DATA_DIR=/root/dev/dataset/bert/finetuning
+HOST_FLAG=--host f69df1f52c58
+OMPI_MCA_btl_tcp_if_exclude=lo,docker0,eth1
+DTYPE=fp32
+NUM_CHECKPOINTS_TO_KEEP=5
+OMPI_COMM_WORLD_NODE_RANK=0
+NVIDIA_VISIBLE_DEVICES=all
+OMPI_MCA_orte_precondition_transports=2e0d2d6664e72e2c-483856ff4544304f
+BASE_DIR=/root/dev
+OMPI_MCA_orte_ess_node_rank=0
+OMPI_MCA_shmem_RUNTIME_QUERY_hint=mmap
+OMPI_COMM_WORLD_RANK=0
+LOG_STEPS=1
+PMIX_RANK=0
+OMPI_FILE_LOCATION=/tmp/ompi.f69df1f52c58.0/pid.493/0/0
+TRAIN_BATCH_SIZE=48
+NCCL_VERSION=2.4.7-1+cuda10.1
+OMPI_MCA_orte_local_daemon_uri=2932342784.0;tcp://10.0.1.2,172.18.0.3:46743
+GLUE_TASK=CoLA
+LEARNING_RATE=2e-5
+HOROVOD_GPU_OPERATIONS=NCCL
+PWD=/root/dev/models/deploy
+NUM_GPUS_PER_NODE=8
+HOME=/root
+ENABLE_XLA=true
+PMIX_SERVER_TMPDIR=/tmp/ompi.f69df1f52c58.0/pid.493
+RUN_SCRIPT=run_bert_glue.sh
+PMIX_PTL_MODULE=tcp,usock
+IPATH_NO_BACKTRACE=1
+JOB_NAME=bert-glue-04_17_21_1618694713572
+OMPI_MCA_rmaps_base_oversubscribe=1
+OMPI_MCA_orte_launch=1
+CODE_DIR=/root/dev/models/official/nlp/bert
+OMPI_MCA_orte_tmpdir_base=/tmp
+LOG_DIR=/root/dev/logs
+TIMESTAMP=04_17_21_1618694713615
+MPI_HOST_FILE=/root/container_hosts/hosts.txt
+NUM_VIRTUAL_NODES_PER_DEVICE=1
+BERT_MODEL_NAME=uncased_L-12_H-768_A-12
+OMPI_APP_CTX_NUM_PROCS=1
+OMPI_MCA_orte_output_filename=/root/dev/logs/bert-glue-04_17_21_1618694713572
+LOG_FILE=/dev/stderr
+STEPS_PER_LOOP=1
+MODELS_DIR=/root/dev/models
+OMPI_MCA_orte_app_num=0
+DISABLE_VIRTUAL_NODES=true
+PMIX_MCA_mca_base_component_show_load_errors=1
+NUM_NODES=1
+OMPI_MCA_pml=ob1
+PYTHON_COMMAND=/usr/bin/python3
+IN_DOCKER_CONTAINER=true
+BERT_MODEL_DIR=/root/dev/dataset/bert/uncased_L-12_H-768_A-12
+NUM_EPOCHS=100000
+PMIX_BFROP_BUFFER_TYPE=PMIX_BFROP_BUFFER_NON_DESC
+MPI_HOME=/usr/local
+CHECKPOINT_NAME=bert_model.ckpt
+TERM=xterm
+CUDA_PKG_VERSION=10-1=10.1.243-1
+CUDA_VERSION=10.1.243
+SKIP_EVAL=true
+PMIX_DSTORE_ESH_BASE_PATH=/tmp/ompi.f69df1f52c58.0/pid.493/pmix_dstor_ds12_493
+OMPI_MCA_hwloc_base_binding_policy=none
+OMPI_MCA_rmaps_base_mapping_policy=node
+PMIX_SERVER_URI3=2932342784.0;tcp4://127.0.0.1:40053
+PMIX_SERVER_URI2=2932342784.0;tcp4://127.0.0.1:40053
+NUM_STEPS=100000
+OMPI_MCA_orte_hnp_uri=2932342784.0;tcp://10.0.1.2,172.18.0.3:46743
+TRAIN_DIR=/root/dev/logs/bert-glue-04_17_21_1618694713572
+OMPI_MCA_mpi_yield_when_idle=0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+DEFAULT_NUM_GPUS_PER_NODE=8
+ENABLE_CHECKPOINTS=false
+DISTRIBUTION_STRATEGY=mirrored
+OMPI_COMM_WORLD_LOCAL_SIZE=1
+CUDA_VISIBLE_DEVICES=0
+OMPI_COMM_WORLD_SIZE=1
+SHLVL=3
+PYTHONPATH=:/root/dev/models:/root/dev/models
+OMPI_NUM_APP_CTX=1
+NVIDIA_REQUIRE_CUDA=cuda>=10.1 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419
+OMPI_MCA_pmix=^s1,s2,cray,isolated
+DEFAULT_DISTRIBUTION_STRATEGY=mirrored
+PMIX_SERVER_URI21=2932342784.0;tcp4://127.0.0.1:40053
+SAVED_CHECKPOINT_PATH=/root/dev/dataset/bert/uncased_L-12_H-768_A-12/bert_model.ckpt
+PMIX_DSTORE_21_BASE_PATH=/tmp/ompi.f69df1f52c58.0/pid.493/pmix_dstor_ds21_493
+ENABLE_MONITOR_MEMORY=false
+ENABLE_HETEROGENEOUS_PROFILE=true
+CUBLAS_VERSION=10.1.0.105-1
+BATCH_SIZE=48
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PMIX_SECURITY_MODE=native
+OMPI_MCA_ess=^singleton
+NCCL_DEBUG=INFO
+PMIX_NAMESPACE=2932342785
+OMPI_MCA_orte_ess_num_procs=1
+NCCL_SOCKET_IFNAME=^lo,docker0,eth1
+OMPI_MCA_ess_base_jobid=2932342785
+OMPI_COMM_WORLD_LOCAL_RANK=0
+OMPI_UNIVERSE_SIZE=1
+OMPI_MCA_orte_jobfam_session_dir=/tmp/ompi.f69df1f52c58.0/pid.493
+DEFAULT_NUM_EPOCHS=1
+PMIX_GDS_MODULE=ds21,ds12,hash
+ENABLE_ELASTICITY=false
+NUM_GPUS=1
+OMPI_MCA_btl=^openib
+_=/usr/bin/printenv
+==========================================================================
+
+2021-04-17 21:25:13.839565: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+/usr/local/lib/python3.6/dist-packages/absl/flags/_validators.py:356: UserWarning: Flag --model_dir has a non-None default value; therefore, mark_flag_as_required will pass even if flag is not specified in the command line!
+  'command line!' % flag_name)
+I0417 21:25:16.202217 139931434379072 virtual_helper.py:221] Setting TF_CONFIG to {"cluster": {"worker": ["f69df1f52c58:2222"]}, "task": {"type": "worker", "index": 0}}
+INFO:tensorflow:Initializing local devices since in-graph multi-worker training with `MirroredStrategy` is not supported in eager mode. TF_CONFIG will be ignored when when initializing `MirroredStrategy`.
+I0417 21:25:16.204696 139931434379072 mirrored_strategy.py:306] Initializing local devices since in-graph multi-worker training with `MirroredStrategy` is not supported in eager mode. TF_CONFIG will be ignored when when initializing `MirroredStrategy`.
+2021-04-17 21:25:16.204971: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-17 21:25:16.205055: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-17 21:25:16.244238: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:16.244660: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-17 21:25:16.244687: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-17 21:25:16.246667: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-17 21:25:16.246753: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-17 21:25:16.248730: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-17 21:25:16.249137: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-17 21:25:16.251421: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-17 21:25:16.252765: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-17 21:25:16.257289: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-17 21:25:16.257484: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:16.257930: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:16.258270: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-17 21:25:16.258654: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-17 21:25:16.259391: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-17 21:25:16.259541: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:16.259909: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-17 21:25:16.259932: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-17 21:25:16.259959: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-17 21:25:16.259977: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-17 21:25:16.259989: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-17 21:25:16.260001: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-17 21:25:16.260015: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-17 21:25:16.260027: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-17 21:25:16.260041: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-17 21:25:16.260120: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:16.260501: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:16.260830: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-17 21:25:16.260864: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-17 21:25:17.019401: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-17 21:25:17.019454: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-17 21:25:17.019464: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-17 21:25:17.019731: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:17.020213: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:17.020629: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:25:17.020971: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14677 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:04.0, compute capability: 7.0)
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I0417 21:25:17.024254 139931434379072 mirrored_strategy.py:350] Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+2021-04-17 21:25:17.027200: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-04-17 21:25:17.027230: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-04-17 21:25:17.027256: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1365] Profiler found 1 GPUs
+2021-04-17 21:25:17.048706: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcupti.so.10.1
+2021-04-17 21:25:17.150636: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2021-04-17 21:25:17.150737: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+I0417 21:25:17.150922 139931434379072 run_classifier.py:187] Training using TF 2.x Keras compile/fit API with distribution strategy.
+I0417 21:25:20.139597 139931434379072 optimization.py:89] using Adamw optimizer
+I0417 21:25:20.139928 139931434379072 optimization.py:142] gradient_clip_norm=1.000000
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.284915 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.286093 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.289826 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.290653 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+WARNING:tensorflow:The argument `steps_per_execution` is no longer experimental. Pass `steps_per_execution` instead of `experimental_steps_per_execution`.
+W0417 21:25:22.291442 139931434379072 training.py:532] The argument `steps_per_execution` is no longer experimental. Pass `steps_per_execution` instead of `experimental_steps_per_execution`.
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.305541 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.306560 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.308012 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:22.308710 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+2021-04-17 21:25:22.343392: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-17 21:25:22.343939: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2000155000 Hz
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 1
+I0417 21:25:22.386339 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 1
+INFO:tensorflow:Running non-virtual train step
+I0417 21:25:22.437043 139925110376192 training.py:940] Running non-virtual train step
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:25.694768 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:25:25.696679 139931434379072 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Running non-virtual train step
+I0417 21:25:27.143194 139925110376192 training.py:940] Running non-virtual train step
+2021-04-17 21:25:33.715780: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f42e00015d0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-04-17 21:25:33.715822: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-16GB, Compute Capability 7.0
+2021-04-17 21:25:33.835299: I tensorflow/compiler/jit/xla_compilation_cache.cc:333] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2021-04-17 21:25:35.378079: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+Epoch 1/100000
+     1/100000 [..............................] - ETA: 823:44:49 - loss: 0.7650 - accuracy: 0.0000e+00I0417 21:25:52.041974 139931434379072 keras_utils.py:163] TimeHistory: 29.66 seconds, 0.03 examples/second between steps 0 and 1
+2021-04-17 21:25:52.341786: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-04-17 21:25:52.341843: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-04-17 21:25:52.342853: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+     2/100000 [..............................] - ETA: 43:57:02 - loss: 0.8177 - accuracy: 0.0000e+00 I0417 21:25:53.623933 139931434379072 keras_utils.py:163] TimeHistory: 1.28 seconds, 0.78 examples/second between steps 1 and 2
+2021-04-17 21:25:53.626898: I tensorflow/core/profiler/lib/profiler_session.cc:71] Profiler session collecting data.
+2021-04-17 21:25:53.646805: I tensorflow/core/profiler/internal/gpu/cupti_collector.cc:228]  GpuTracer has collected 0 callback api events and 0 activity events. 
+2021-04-17 21:25:53.654359: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-04-17 21:25:53.662630: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53
+2021-04-17 21:25:53.666622: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for trace.json.gz to /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53/f69df1f52c58.trace.json.gz
+2021-04-17 21:25:53.708435: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53
+2021-04-17 21:25:53.715682: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for memory_profile.json.gz to /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53/f69df1f52c58.memory_profile.json.gz
+2021-04-17 21:25:53.716286: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53Dumped tool data for xplane.pb to /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53/f69df1f52c58.xplane.pb
+Dumped tool data for overview_page.pb to /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53/f69df1f52c58.overview_page.pb
+Dumped tool data for input_pipeline.pb to /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53/f69df1f52c58.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53/f69df1f52c58.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /root/dev/logs/bert-glue-04_17_21_1618694713572/summaries/train/plugins/profile/2021_04_17_21_25_53/f69df1f52c58.kernel_stats.pb
+
+     3/100000 [..............................] - ETA: 23:52:32 - loss: 0.8210 - accuracy: 0.0000e+00I0417 21:25:53.760764 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 25.60 examples/second between steps 2 and 3
+     4/100000 [..............................] - ETA: 178:27:38 - loss: 0.8244 - accuracy: 0.0000e+00I0417 21:26:11.316481 139931434379072 keras_utils.py:163] TimeHistory: 17.55 seconds, 0.06 examples/second between steps 3 and 4
+I0417 21:26:11.361120 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 23.74 examples/second between steps 4 and 5
+     6/100000 [..............................] - ETA: 107:33:38 - loss: 0.8064 - accuracy: 0.0889    I0417 21:26:11.403745 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 24.63 examples/second between steps 5 and 6
+I0417 21:26:11.446207 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 24.64 examples/second between steps 6 and 7
+     8/100000 [..............................] - ETA: 77:07:47 - loss: 0.7842 - accuracy: 0.1827 I0417 21:26:11.480020 139931434379072 keras_utils.py:163] TimeHistory: 0.03 seconds, 31.29 examples/second between steps 7 and 8
+     9/100000 [..............................] - ETA: 130:30:48 - loss: 0.7742 - accuracy: 0.2242I0417 21:26:29.633167 139931434379072 keras_utils.py:163] TimeHistory: 18.15 seconds, 0.06 examples/second between steps 8 and 9
+I0417 21:26:29.669167 139931434379072 keras_utils.py:163] TimeHistory: 0.03 seconds, 30.06 examples/second between steps 9 and 10
+    11/100000 [..............................] - ETA: 154:54:49 - loss: 0.7588 - accuracy: 0.2875I0417 21:26:47.817011 139931434379072 keras_utils.py:163] TimeHistory: 18.15 seconds, 0.06 examples/second between steps 10 and 11
+    12/100000 [..............................] - ETA: 188:32:23 - loss: 0.7535 - accuracy: 0.3052I0417 21:27:06.712714 139931434379072 keras_utils.py:163] TimeHistory: 18.89 seconds, 0.05 examples/second between steps 11 and 12
+I0417 21:27:06.759517 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 22.67 examples/second between steps 12 and 13
+    14/100000 [..............................] - ETA: 199:37:20 - loss: 0.7423 - accuracy: 0.3409I0417 21:27:25.478289 139931434379072 keras_utils.py:163] TimeHistory: 18.72 seconds, 0.05 examples/second between steps 13 and 14
+I0417 21:27:25.523772 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 23.46 examples/second between steps 14 and 15
+    16/100000 [..............................] - ETA: 173:09:42 - loss: 0.7348 - accuracy: 0.3668I0417 21:27:25.563994 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 26.02 examples/second between steps 15 and 16
+I0417 21:27:25.602935 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 26.80 examples/second between steps 16 and 17
+    18/100000 [..............................] - ETA: 152:54:29 - loss: 0.7279 - accuracy: 0.3927I0417 21:27:25.638313 139931434379072 keras_utils.py:163] TimeHistory: 0.03 seconds, 29.68 examples/second between steps 17 and 18
+    19/100000 [..............................] - ETA: 172:10:27 - loss: 0.7248 - accuracy: 0.4052I0417 21:27:43.632030 139931434379072 keras_utils.py:163] TimeHistory: 17.99 seconds, 0.06 examples/second between steps 18 and 19
+    20/100000 [..............................] - ETA: 189:40:08 - loss: 0.7224 - accuracy: 0.4150I0417 21:28:01.801441 139931434379072 keras_utils.py:163] TimeHistory: 18.17 seconds, 0.06 examples/second between steps 19 and 20
+I0417 21:28:01.804551 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 2
+I0417 21:28:01.804877 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 2
+INFO:tensorflow:Running non-virtual train step
+I0417 21:28:01.817653 139925101983488 training.py:940] Running non-virtual train step
+    21/100000 [..............................] - ETA: 216:48:25 - loss: 0.7203 - accuracy: 0.4234I0417 21:28:28.175868 139931434379072 keras_utils.py:163] TimeHistory: 26.37 seconds, 0.08 examples/second between steps 20 and 21
+    22/100000 [..............................] - ETA: 206:32:58 - loss: 0.7184 - accuracy: 0.4325I0417 21:28:28.227552 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 41.20 examples/second between steps 21 and 22
+    23/100000 [..............................] - ETA: 198:28:43 - loss: 0.7170 - accuracy: 0.4388I0417 21:28:29.272941 139931434379072 keras_utils.py:163] TimeHistory: 1.04 seconds, 1.92 examples/second between steps 22 and 23
+I0417 21:28:29.321341 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 42.82 examples/second between steps 23 and 24
+    25/100000 [..............................] - ETA: 182:02:41 - loss: 0.7150 - accuracy: 0.4479I0417 21:28:29.367727 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 44.52 examples/second between steps 24 and 25
+I0417 21:28:29.413873 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 45.04 examples/second between steps 25 and 26
+    27/100000 [..............................] - ETA: 168:08:11 - loss: 0.7143 - accuracy: 0.4507I0417 21:28:29.460052 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 44.76 examples/second between steps 26 and 27
+I0417 21:28:29.505578 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 45.55 examples/second between steps 27 and 28
+    29/100000 [..............................] - ETA: 174:25:35 - loss: 0.7137 - accuracy: 0.4541I0417 21:28:47.914765 139931434379072 keras_utils.py:163] TimeHistory: 18.41 seconds, 0.11 examples/second between steps 28 and 29
+I0417 21:28:47.964185 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 42.64 examples/second between steps 29 and 30
+    31/100000 [..............................] - ETA: 162:52:58 - loss: 0.7129 - accuracy: 0.4570I0417 21:28:48.009742 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 45.47 examples/second between steps 30 and 31
+I0417 21:28:48.049370 139931434379072 keras_utils.py:163] TimeHistory: 0.04 seconds, 52.39 examples/second between steps 31 and 32
+    33/100000 [..............................] - ETA: 168:43:04 - loss: 0.7120 - accuracy: 0.4610I0417 21:29:06.469118 139931434379072 keras_utils.py:163] TimeHistory: 18.42 seconds, 0.11 examples/second between steps 32 and 33
+    34/100000 [..............................] - ETA: 163:38:51 - loss: 0.7115 - accuracy: 0.4627I0417 21:29:06.521197 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 40.38 examples/second between steps 33 and 34
+    35/100000 [..............................] - ETA: 173:49:53 - loss: 0.7109 - accuracy: 0.4649I0417 21:29:24.886296 139931434379072 keras_utils.py:163] TimeHistory: 18.36 seconds, 0.11 examples/second between steps 34 and 35
+    36/100000 [..............................] - ETA: 168:54:14 - loss: 0.7105 - accuracy: 0.4665I0417 21:29:24.937469 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 41.22 examples/second between steps 35 and 36
+    37/100000 [..............................] - ETA: 178:24:27 - loss: 0.7101 - accuracy: 0.4679I0417 21:29:43.343854 139931434379072 keras_utils.py:163] TimeHistory: 18.40 seconds, 0.11 examples/second between steps 36 and 37
+    38/100000 [..............................] - ETA: 173:37:26 - loss: 0.7096 - accuracy: 0.4692I0417 21:29:43.396882 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 39.66 examples/second between steps 37 and 38
+I0417 21:29:43.445653 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 42.47 examples/second between steps 38 and 39
+    40/100000 [..............................] - ETA: 177:53:33 - loss: 0.7090 - accuracy: 0.4711I0417 21:30:01.903048 139931434379072 keras_utils.py:163] TimeHistory: 18.46 seconds, 0.11 examples/second between steps 39 and 40
+I0417 21:30:01.906006 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 4
+I0417 21:30:01.906337 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 4
+INFO:tensorflow:Running non-virtual train step
+I0417 21:30:01.915540 139925085202176 training.py:940] Running non-virtual train step
+    41/100000 [..............................] - ETA: 191:14:21 - loss: 0.7088 - accuracy: 0.4715I0417 21:30:27.539542 139931434379072 keras_utils.py:163] TimeHistory: 25.63 seconds, 0.16 examples/second between steps 40 and 41
+    42/100000 [..............................] - ETA: 187:21:10 - loss: 0.7087 - accuracy: 0.4718I0417 21:30:28.690861 139931434379072 keras_utils.py:163] TimeHistory: 1.15 seconds, 3.48 examples/second between steps 41 and 42
+    43/100000 [..............................] - ETA: 182:55:55 - loss: 0.7085 - accuracy: 0.4725I0417 21:30:28.754124 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 65.00 examples/second between steps 42 and 43
+    44/100000 [..............................] - ETA: 178:42:51 - loss: 0.7082 - accuracy: 0.4734I0417 21:30:28.813167 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 69.44 examples/second between steps 43 and 44
+    45/100000 [..............................] - ETA: 174:41:16 - loss: 0.7079 - accuracy: 0.4742I0417 21:30:28.871739 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 70.05 examples/second between steps 44 and 45
+    46/100000 [..............................] - ETA: 170:50:25 - loss: 0.7075 - accuracy: 0.4756I0417 21:30:28.930524 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 69.69 examples/second between steps 45 and 46
+    47/100000 [..............................] - ETA: 178:29:43 - loss: 0.7070 - accuracy: 0.4771I0417 21:30:47.769489 139931434379072 keras_utils.py:163] TimeHistory: 18.84 seconds, 0.21 examples/second between steps 46 and 47
+    48/100000 [..............................] - ETA: 174:43:58 - loss: 0.7066 - accuracy: 0.4782I0417 21:30:47.831881 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 66.91 examples/second between steps 47 and 48
+    49/100000 [..............................] - ETA: 171:07:29 - loss: 0.7062 - accuracy: 0.4793I0417 21:30:47.890574 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 70.09 examples/second between steps 48 and 49
+    50/100000 [..............................] - ETA: 167:39:48 - loss: 0.7058 - accuracy: 0.4805I0417 21:30:47.947873 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 71.81 examples/second between steps 49 and 50
+    51/100000 [..............................] - ETA: 174:43:38 - loss: 0.7054 - accuracy: 0.4817I0417 21:31:06.711608 139931434379072 keras_utils.py:163] TimeHistory: 18.76 seconds, 0.21 examples/second between steps 50 and 51
+    52/100000 [..............................] - ETA: 181:30:16 - loss: 0.7050 - accuracy: 0.4825I0417 21:31:25.457583 139931434379072 keras_utils.py:163] TimeHistory: 18.74 seconds, 0.21 examples/second between steps 51 and 52
+    53/100000 [..............................] - ETA: 178:02:36 - loss: 0.7047 - accuracy: 0.4832I0417 21:31:25.515909 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 71.83 examples/second between steps 52 and 53
+    54/100000 [..............................] - ETA: 174:42:42 - loss: 0.7044 - accuracy: 0.4837I0417 21:31:25.571777 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 73.92 examples/second between steps 53 and 54
+    55/100000 [..............................] - ETA: 171:30:23 - loss: 0.7042 - accuracy: 0.4841I0417 21:31:25.633768 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 66.15 examples/second between steps 54 and 55
+    56/100000 [..............................] - ETA: 168:25:00 - loss: 0.7040 - accuracy: 0.4846I0417 21:31:25.693966 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 68.33 examples/second between steps 55 and 56
+    57/100000 [..............................] - ETA: 165:25:57 - loss: 0.7039 - accuracy: 0.4847I0417 21:31:25.744166 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 82.22 examples/second between steps 56 and 57
+    58/100000 [..............................] - ETA: 162:33:26 - loss: 0.7038 - accuracy: 0.4847I0417 21:31:25.803144 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 69.48 examples/second between steps 57 and 58
+I0417 21:31:25.851423 139931434379072 keras_utils.py:163] TimeHistory: 0.05 seconds, 85.46 examples/second between steps 58 and 59
+    60/100000 [..............................] - ETA: 157:05:36 - loss: 0.7036 - accuracy: 0.4850I0417 21:31:25.908718 139931434379072 keras_utils.py:163] TimeHistory: 0.06 seconds, 71.60 examples/second between steps 59 and 60
+I0417 21:31:25.910550 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 8
+I0417 21:31:25.910750 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 8
+INFO:tensorflow:Running non-virtual train step
+I0417 21:31:25.919032 139924627519232 training.py:940] Running non-virtual train step
+    61/100000 [..............................] - ETA: 166:48:09 - loss: 0.7036 - accuracy: 0.4851I0417 21:31:52.555545 139931434379072 keras_utils.py:163] TimeHistory: 26.64 seconds, 0.30 examples/second between steps 60 and 61
+    62/100000 [..............................] - ETA: 164:43:09 - loss: 0.7035 - accuracy: 0.4854I0417 21:31:53.989444 139931434379072 keras_utils.py:163] TimeHistory: 1.43 seconds, 5.59 examples/second between steps 61 and 62
+    63/100000 [..............................] - ETA: 162:06:06 - loss: 0.7034 - accuracy: 0.4857I0417 21:31:54.080835 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 89.25 examples/second between steps 62 and 63
+    64/100000 [..............................] - ETA: 159:33:58 - loss: 0.7033 - accuracy: 0.4860I0417 21:31:54.169754 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 91.85 examples/second between steps 63 and 64
+    65/100000 [..............................] - ETA: 157:06:32 - loss: 0.7033 - accuracy: 0.4863I0417 21:31:54.256430 139931434379072 keras_utils.py:163] TimeHistory: 0.08 seconds, 94.13 examples/second between steps 64 and 65
+    66/100000 [..............................] - ETA: 163:15:52 - loss: 0.7032 - accuracy: 0.4867I0417 21:32:14.333306 139931434379072 keras_utils.py:163] TimeHistory: 20.08 seconds, 0.40 examples/second between steps 65 and 66
+    67/100000 [..............................] - ETA: 169:03:00 - loss: 0.7031 - accuracy: 0.4872I0417 21:32:33.974624 139931434379072 keras_utils.py:163] TimeHistory: 19.64 seconds, 0.41 examples/second between steps 66 and 67
+    68/100000 [..............................] - ETA: 166:33:30 - loss: 0.7029 - accuracy: 0.4877I0417 21:32:34.054166 139931434379072 keras_utils.py:163] TimeHistory: 0.08 seconds, 103.96 examples/second between steps 67 and 68
+    69/100000 [..............................] - ETA: 164:08:37 - loss: 0.7028 - accuracy: 0.4884I0417 21:32:34.142818 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 91.81 examples/second between steps 68 and 69
+    70/100000 [..............................] - ETA: 161:47:54 - loss: 0.7026 - accuracy: 0.4893I0417 21:32:34.230701 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 92.67 examples/second between steps 69 and 70
+    71/100000 [..............................] - ETA: 159:31:10 - loss: 0.7024 - accuracy: 0.4900I0417 21:32:34.316377 139931434379072 keras_utils.py:163] TimeHistory: 0.08 seconds, 95.01 examples/second between steps 70 and 71
+    72/100000 [..............................] - ETA: 164:53:20 - loss: 0.7022 - accuracy: 0.4908I0417 21:32:53.801883 139931434379072 keras_utils.py:163] TimeHistory: 19.48 seconds, 0.41 examples/second between steps 71 and 72
+    73/100000 [..............................] - ETA: 170:05:57 - loss: 0.7020 - accuracy: 0.4917I0417 21:33:13.261167 139931434379072 keras_utils.py:163] TimeHistory: 19.46 seconds, 0.41 examples/second between steps 72 and 73
+    74/100000 [..............................] - ETA: 167:48:07 - loss: 0.7018 - accuracy: 0.4927I0417 21:33:13.351824 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 90.96 examples/second between steps 73 and 74
+    75/100000 [..............................] - ETA: 165:33:36 - loss: 0.7016 - accuracy: 0.4938I0417 21:33:13.424962 139931434379072 keras_utils.py:163] TimeHistory: 0.07 seconds, 112.32 examples/second between steps 74 and 75
+    76/100000 [..............................] - ETA: 163:22:58 - loss: 0.7014 - accuracy: 0.4949I0417 21:33:13.511304 139931434379072 keras_utils.py:163] TimeHistory: 0.08 seconds, 94.39 examples/second between steps 75 and 76
+    77/100000 [..............................] - ETA: 161:15:48 - loss: 0.7012 - accuracy: 0.4958I0417 21:33:13.598743 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 93.49 examples/second between steps 76 and 77
+    78/100000 [..............................] - ETA: 166:12:34 - loss: 0.7010 - accuracy: 0.4967I0417 21:33:33.134281 139931434379072 keras_utils.py:163] TimeHistory: 19.53 seconds, 0.41 examples/second between steps 77 and 78
+    79/100000 [..............................] - ETA: 164:06:41 - loss: 0.7008 - accuracy: 0.4977I0417 21:33:33.231489 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 84.80 examples/second between steps 78 and 79
+    80/100000 [..............................] - ETA: 162:03:50 - loss: 0.7006 - accuracy: 0.4987I0417 21:33:33.320653 139931434379072 keras_utils.py:163] TimeHistory: 0.09 seconds, 91.28 examples/second between steps 79 and 80
+I0417 21:33:33.322622 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 12
+I0417 21:33:33.322834 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 12
+INFO:tensorflow:Running non-virtual train step
+I0417 21:33:33.331598 139908447815424 training.py:940] Running non-virtual train step
+    81/100000 [..............................] - ETA: 169:41:54 - loss: 0.7003 - accuracy: 0.4997I0417 21:34:01.169838 139931434379072 keras_utils.py:163] TimeHistory: 27.85 seconds, 0.43 examples/second between steps 80 and 81
+    82/100000 [..............................] - ETA: 168:04:56 - loss: 0.7002 - accuracy: 0.5004I0417 21:34:02.572062 139931434379072 keras_utils.py:163] TimeHistory: 1.40 seconds, 8.58 examples/second between steps 81 and 82
+    83/100000 [..............................] - ETA: 166:04:13 - loss: 0.7000 - accuracy: 0.5012I0417 21:34:02.689073 139931434379072 keras_utils.py:163] TimeHistory: 0.12 seconds, 104.12 examples/second between steps 82 and 83
+    84/100000 [..............................] - ETA: 164:06:25 - loss: 0.6998 - accuracy: 0.5020I0417 21:34:02.806212 139931434379072 keras_utils.py:163] TimeHistory: 0.12 seconds, 103.90 examples/second between steps 83 and 84
+    85/100000 [..............................] - ETA: 162:11:24 - loss: 0.6996 - accuracy: 0.5029I0417 21:34:02.921938 139931434379072 keras_utils.py:163] TimeHistory: 0.11 seconds, 105.30 examples/second between steps 84 and 85
+    86/100000 [..............................] - ETA: 160:19:06 - loss: 0.6994 - accuracy: 0.5037I0417 21:34:03.038151 139931434379072 keras_utils.py:163] TimeHistory: 0.11 seconds, 104.70 examples/second between steps 85 and 86
+    87/100000 [..............................] - ETA: 158:29:24 - loss: 0.6992 - accuracy: 0.5045I0417 21:34:03.154190 139931434379072 keras_utils.py:163] TimeHistory: 0.11 seconds, 104.84 examples/second between steps 86 and 87
+    88/100000 [..............................] - ETA: 156:42:13 - loss: 0.6990 - accuracy: 0.5053I0417 21:34:03.270360 139931434379072 keras_utils.py:163] TimeHistory: 0.11 seconds, 104.79 examples/second between steps 87 and 88
+    89/100000 [..............................] - ETA: 154:57:29 - loss: 0.6988 - accuracy: 0.5061I0417 21:34:03.386541 139931434379072 keras_utils.py:163] TimeHistory: 0.11 seconds, 104.67 examples/second between steps 88 and 89
+    90/100000 [..............................] - ETA: 153:15:06 - loss: 0.6987 - accuracy: 0.5069I0417 21:34:03.502902 139931434379072 keras_utils.py:163] TimeHistory: 0.11 seconds, 104.84 examples/second between steps 89 and 90
+    91/100000 [..............................] - ETA: 157:53:32 - loss: 0.6985 - accuracy: 0.5075I0417 21:34:24.079490 139931434379072 keras_utils.py:163] TimeHistory: 20.57 seconds, 0.58 examples/second between steps 90 and 91
+    92/100000 [..............................] - ETA: 156:11:36 - loss: 0.6983 - accuracy: 0.5082I0417 21:34:24.202773 139931434379072 keras_utils.py:163] TimeHistory: 0.12 seconds, 99.45 examples/second between steps 91 and 92
+    93/100000 [..............................] - ETA: 154:31:46 - loss: 0.6982 - accuracy: 0.5088I0417 21:34:24.319796 139931434379072 keras_utils.py:163] TimeHistory: 0.12 seconds, 104.04 examples/second between steps 92 and 93
+    94/100000 [..............................] - ETA: 159:01:03 - loss: 0.6980 - accuracy: 0.5095I0417 21:34:44.933858 139931434379072 keras_utils.py:163] TimeHistory: 20.61 seconds, 0.58 examples/second between steps 93 and 94
+    95/100000 [..............................] - ETA: 163:25:20 - loss: 0.6979 - accuracy: 0.5100I0417 21:35:05.588674 139931434379072 keras_utils.py:163] TimeHistory: 20.65 seconds, 0.58 examples/second between steps 94 and 95
+    96/100000 [..............................] - ETA: 167:43:15 - loss: 0.6977 - accuracy: 0.5106I0417 21:35:26.198386 139931434379072 keras_utils.py:163] TimeHistory: 20.61 seconds, 0.58 examples/second between steps 95 and 96
+    97/100000 [..............................] - ETA: 166:00:29 - loss: 0.6976 - accuracy: 0.5111I0417 21:35:26.322703 139931434379072 keras_utils.py:163] TimeHistory: 0.12 seconds, 98.60 examples/second between steps 96 and 97
+    98/100000 [..............................] - ETA: 164:19:45 - loss: 0.6974 - accuracy: 0.5117I0417 21:35:26.442573 139931434379072 keras_utils.py:163] TimeHistory: 0.12 seconds, 101.74 examples/second between steps 97 and 98
+    99/100000 [..............................] - ETA: 168:30:31 - loss: 0.6973 - accuracy: 0.5123I0417 21:35:47.129529 139931434379072 keras_utils.py:163] TimeHistory: 20.68 seconds, 0.58 examples/second between steps 98 and 99
+   100/100000 [..............................] - ETA: 172:36:48 - loss: 0.6971 - accuracy: 0.5130I0417 21:36:07.852066 139931434379072 keras_utils.py:163] TimeHistory: 20.72 seconds, 0.58 examples/second between steps 99 and 100
+I0417 21:36:07.855259 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 16
+I0417 21:36:07.855569 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 16
+INFO:tensorflow:Running non-virtual train step
+I0417 21:36:07.865600 139908433917696 training.py:940] Running non-virtual train step
+   101/100000 [..............................] - ETA: 179:02:16 - loss: 0.6969 - accuracy: 0.5136I0417 21:36:37.229778 139931434379072 keras_utils.py:163] TimeHistory: 29.37 seconds, 0.54 examples/second between steps 100 and 101
+   102/100000 [..............................] - ETA: 177:37:47 - loss: 0.6968 - accuracy: 0.5142I0417 21:36:38.563476 139931434379072 keras_utils.py:163] TimeHistory: 1.33 seconds, 12.02 examples/second between steps 101 and 102
+   103/100000 [..............................] - ETA: 175:55:35 - loss: 0.6966 - accuracy: 0.5148I0417 21:36:38.709888 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 110.61 examples/second between steps 102 and 103
+   104/100000 [..............................] - ETA: 174:15:21 - loss: 0.6965 - accuracy: 0.5154I0417 21:36:38.855460 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 111.02 examples/second between steps 103 and 104
+   105/100000 [..............................] - ETA: 172:37:02 - loss: 0.6963 - accuracy: 0.5160I0417 21:36:39.000583 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 111.32 examples/second between steps 104 and 105
+   106/100000 [..............................] - ETA: 171:00:37 - loss: 0.6962 - accuracy: 0.5166I0417 21:36:39.146770 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 110.60 examples/second between steps 105 and 106
+   107/100000 [..............................] - ETA: 175:19:56 - loss: 0.6960 - accuracy: 0.5173I0417 21:37:01.827312 139931434379072 keras_utils.py:163] TimeHistory: 22.68 seconds, 0.71 examples/second between steps 106 and 107
+   108/100000 [..............................] - ETA: 173:43:51 - loss: 0.6958 - accuracy: 0.5179I0417 21:37:01.976576 139931434379072 keras_utils.py:163] TimeHistory: 0.15 seconds, 109.00 examples/second between steps 107 and 108
+   109/100000 [..............................] - ETA: 172:09:30 - loss: 0.6957 - accuracy: 0.5186I0417 21:37:02.124259 139931434379072 keras_utils.py:163] TimeHistory: 0.15 seconds, 109.85 examples/second between steps 108 and 109
+   110/100000 [..............................] - ETA: 170:36:53 - loss: 0.6955 - accuracy: 0.5192I0417 21:37:02.271222 139931434379072 keras_utils.py:163] TimeHistory: 0.15 seconds, 110.21 examples/second between steps 109 and 110
+   111/100000 [..............................] - ETA: 169:05:56 - loss: 0.6953 - accuracy: 0.5199I0417 21:37:02.417634 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 110.72 examples/second between steps 110 and 111
+   112/100000 [..............................] - ETA: 167:36:37 - loss: 0.6952 - accuracy: 0.5205I0417 21:37:02.563719 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 110.88 examples/second between steps 111 and 112
+   113/100000 [..............................] - ETA: 166:08:54 - loss: 0.6950 - accuracy: 0.5212I0417 21:37:02.709681 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 110.93 examples/second between steps 112 and 113
+   114/100000 [..............................] - ETA: 164:42:44 - loss: 0.6948 - accuracy: 0.5218I0417 21:37:02.856129 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 110.72 examples/second between steps 113 and 114
+   115/100000 [..............................] - ETA: 163:18:05 - loss: 0.6947 - accuracy: 0.5224I0417 21:37:03.003162 139931434379072 keras_utils.py:163] TimeHistory: 0.15 seconds, 110.20 examples/second between steps 114 and 115
+   116/100000 [..............................] - ETA: 167:17:50 - loss: 0.6945 - accuracy: 0.5230I0417 21:37:25.457498 139931434379072 keras_utils.py:163] TimeHistory: 22.45 seconds, 0.71 examples/second between steps 115 and 116
+   117/100000 [..............................] - ETA: 165:53:26 - loss: 0.6944 - accuracy: 0.5235I0417 21:37:25.612347 139931434379072 keras_utils.py:163] TimeHistory: 0.15 seconds, 105.25 examples/second between steps 116 and 117
+   118/100000 [..............................] - ETA: 164:29:58 - loss: 0.6942 - accuracy: 0.5241I0417 21:37:25.733020 139931434379072 keras_utils.py:163] TimeHistory: 0.12 seconds, 134.57 examples/second between steps 117 and 118
+   119/100000 [..............................] - ETA: 163:08:18 - loss: 0.6941 - accuracy: 0.5247I0417 21:37:25.879268 139931434379072 keras_utils.py:163] TimeHistory: 0.14 seconds, 110.71 examples/second between steps 118 and 119
+   120/100000 [..............................] - ETA: 166:54:43 - loss: 0.6939 - accuracy: 0.5254I0417 21:37:47.952114 139931434379072 keras_utils.py:163] TimeHistory: 22.07 seconds, 0.72 examples/second between steps 119 and 120
+I0417 21:37:47.955150 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 24
+I0417 21:37:47.955430 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 24
+INFO:tensorflow:Running non-virtual train step
+I0417 21:37:47.964868 139907506894592 training.py:940] Running non-virtual train step
+   121/100000 [..............................] - ETA: 172:52:26 - loss: 0.6937 - accuracy: 0.5260I0417 21:38:19.762172 139931434379072 keras_utils.py:163] TimeHistory: 31.81 seconds, 0.75 examples/second between steps 120 and 121
+   122/100000 [..............................] - ETA: 171:46:02 - loss: 0.6936 - accuracy: 0.5266I0417 21:38:21.174201 139931434379072 keras_utils.py:163] TimeHistory: 1.41 seconds, 17.03 examples/second between steps 121 and 122
+   123/100000 [..............................] - ETA: 170:24:15 - loss: 0.6934 - accuracy: 0.5272I0417 21:38:21.378770 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.31 examples/second between steps 122 and 123
+   124/100000 [..............................] - ETA: 169:03:48 - loss: 0.6933 - accuracy: 0.5278I0417 21:38:21.584280 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 117.76 examples/second between steps 123 and 124
+   125/100000 [..............................] - ETA: 167:44:38 - loss: 0.6931 - accuracy: 0.5284I0417 21:38:21.788421 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.58 examples/second between steps 124 and 125
+   126/100000 [..............................] - ETA: 166:26:44 - loss: 0.6930 - accuracy: 0.5290I0417 21:38:21.992367 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.67 examples/second between steps 125 and 126
+   127/100000 [..............................] - ETA: 165:10:04 - loss: 0.6928 - accuracy: 0.5296I0417 21:38:22.196077 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.81 examples/second between steps 126 and 127
+   128/100000 [..............................] - ETA: 163:54:36 - loss: 0.6927 - accuracy: 0.5302I0417 21:38:22.399871 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.87 examples/second between steps 127 and 128
+   129/100000 [..............................] - ETA: 162:40:20 - loss: 0.6925 - accuracy: 0.5307I0417 21:38:22.604561 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.24 examples/second between steps 128 and 129
+   130/100000 [..............................] - ETA: 161:27:12 - loss: 0.6924 - accuracy: 0.5313I0417 21:38:22.808215 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.88 examples/second between steps 129 and 130
+   131/100000 [..............................] - ETA: 160:15:13 - loss: 0.6922 - accuracy: 0.5319I0417 21:38:23.012974 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.20 examples/second between steps 130 and 131
+   132/100000 [..............................] - ETA: 159:04:19 - loss: 0.6920 - accuracy: 0.5325I0417 21:38:23.216664 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.80 examples/second between steps 131 and 132
+   133/100000 [..............................] - ETA: 157:54:28 - loss: 0.6919 - accuracy: 0.5331I0417 21:38:23.419978 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 119.08 examples/second between steps 132 and 133
+   134/100000 [..............................] - ETA: 156:45:42 - loss: 0.6917 - accuracy: 0.5336I0417 21:38:23.623843 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.70 examples/second between steps 133 and 134
+   135/100000 [..............................] - ETA: 155:37:57 - loss: 0.6916 - accuracy: 0.5342I0417 21:38:23.827969 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.61 examples/second between steps 134 and 135
+   136/100000 [..............................] - ETA: 154:31:11 - loss: 0.6914 - accuracy: 0.5347I0417 21:38:24.031220 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 119.03 examples/second between steps 135 and 136
+   137/100000 [..............................] - ETA: 153:25:25 - loss: 0.6913 - accuracy: 0.5353I0417 21:38:24.235201 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.62 examples/second between steps 136 and 137
+   138/100000 [..............................] - ETA: 152:20:37 - loss: 0.6911 - accuracy: 0.5359I0417 21:38:24.439535 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.63 examples/second between steps 137 and 138
+   139/100000 [..............................] - ETA: 151:16:46 - loss: 0.6910 - accuracy: 0.5364I0417 21:38:24.644579 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.01 examples/second between steps 138 and 139
+   140/100000 [..............................] - ETA: 150:13:49 - loss: 0.6908 - accuracy: 0.5370I0417 21:38:24.849173 139931434379072 keras_utils.py:163] TimeHistory: 0.20 seconds, 118.37 examples/second between steps 139 and 140
+I0417 21:38:24.851363 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 32
+I0417 21:38:24.851574 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 32
+INFO:tensorflow:Running non-virtual train step
+I0417 21:38:24.859903 139907049191168 training.py:940] Running non-virtual train step
+   141/100000 [..............................] - ETA: 154:29:20 - loss: 0.6907 - accuracy: 0.5376I0417 21:38:51.766077 139931434379072 keras_utils.py:163] TimeHistory: 26.91 seconds, 1.19 examples/second between steps 140 and 141
+   142/100000 [..............................] - ETA: 153:41:23 - loss: 0.6905 - accuracy: 0.5381I0417 21:38:53.280888 139931434379072 keras_utils.py:163] TimeHistory: 1.51 seconds, 21.17 examples/second between steps 141 and 142
+   143/100000 [..............................] - ETA: 152:39:26 - loss: 0.6904 - accuracy: 0.5387I0417 21:38:53.544077 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 122.47 examples/second between steps 142 and 143
+   144/100000 [..............................] - ETA: 151:38:21 - loss: 0.6903 - accuracy: 0.5392I0417 21:38:53.806033 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.03 examples/second between steps 143 and 144
+   145/100000 [..............................] - ETA: 150:38:06 - loss: 0.6901 - accuracy: 0.5398I0417 21:38:54.068044 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 122.93 examples/second between steps 144 and 145
+   146/100000 [..............................] - ETA: 149:38:40 - loss: 0.6900 - accuracy: 0.5404I0417 21:38:54.328888 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.49 examples/second between steps 145 and 146
+   147/100000 [..............................] - ETA: 148:40:04 - loss: 0.6898 - accuracy: 0.5409I0417 21:38:54.589909 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.49 examples/second between steps 146 and 147
+   148/100000 [..............................] - ETA: 147:42:15 - loss: 0.6897 - accuracy: 0.5415I0417 21:38:54.850983 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.46 examples/second between steps 147 and 148
+   149/100000 [..............................] - ETA: 146:45:13 - loss: 0.6896 - accuracy: 0.5420I0417 21:38:55.111796 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.48 examples/second between steps 148 and 149
+   150/100000 [..............................] - ETA: 145:48:58 - loss: 0.6894 - accuracy: 0.5426I0417 21:38:55.374797 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 122.58 examples/second between steps 149 and 150
+   151/100000 [..............................] - ETA: 144:53:27 - loss: 0.6893 - accuracy: 0.5432I0417 21:38:55.635761 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.46 examples/second between steps 150 and 151
+   152/100000 [..............................] - ETA: 143:58:40 - loss: 0.6891 - accuracy: 0.5437I0417 21:38:55.897217 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.22 examples/second between steps 151 and 152
+   153/100000 [..............................] - ETA: 143:04:36 - loss: 0.6890 - accuracy: 0.5443I0417 21:38:56.158125 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.59 examples/second between steps 152 and 153
+   154/100000 [..............................] - ETA: 142:11:16 - loss: 0.6889 - accuracy: 0.5449I0417 21:38:56.420187 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.07 examples/second between steps 153 and 154
+   155/100000 [..............................] - ETA: 141:18:36 - loss: 0.6887 - accuracy: 0.5454I0417 21:38:56.681965 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.08 examples/second between steps 154 and 155
+   156/100000 [..............................] - ETA: 140:26:38 - loss: 0.6886 - accuracy: 0.5460I0417 21:38:56.943436 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.19 examples/second between steps 155 and 156
+   157/100000 [..............................] - ETA: 139:35:19 - loss: 0.6885 - accuracy: 0.5466I0417 21:38:57.205053 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.09 examples/second between steps 156 and 157
+   158/100000 [..............................] - ETA: 138:44:39 - loss: 0.6883 - accuracy: 0.5471I0417 21:38:57.466276 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.36 examples/second between steps 157 and 158
+   159/100000 [..............................] - ETA: 137:54:38 - loss: 0.6882 - accuracy: 0.5476I0417 21:38:57.727138 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.49 examples/second between steps 158 and 159
+   160/100000 [..............................] - ETA: 137:05:15 - loss: 0.6881 - accuracy: 0.5482I0417 21:38:57.989104 139931434379072 keras_utils.py:163] TimeHistory: 0.26 seconds, 123.03 examples/second between steps 159 and 160
+I0417 21:38:57.991470 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 48
+I0417 21:38:57.991739 139931434379072 training.py:1298] Heterogeneous profiling: now profiling batch size 48
+INFO:tensorflow:Running non-virtual train step
+I0417 21:38:58.000010 139907027953408 training.py:940] Running non-virtual train step
+   161/100000 [..............................] - ETA: 141:02:38 - loss: 0.6879 - accuracy: 0.5487I0417 21:39:25.765474 139931434379072 keras_utils.py:163] TimeHistory: 27.77 seconds, 1.73 examples/second between steps 160 and 161
+   162/100000 [..............................] - ETA: 140:26:54 - loss: 0.6878 - accuracy: 0.5492I0417 21:39:27.402670 139931434379072 keras_utils.py:163] TimeHistory: 1.63 seconds, 29.37 examples/second between steps 161 and 162
+   163/100000 [..............................] - ETA: 139:38:40 - loss: 0.6877 - accuracy: 0.5497I0417 21:39:27.777765 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 128.65 examples/second between steps 162 and 163
+   164/100000 [..............................] - ETA: 138:51:00 - loss: 0.6876 - accuracy: 0.5502I0417 21:39:28.151999 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 128.92 examples/second between steps 163 and 164
+   165/100000 [..............................] - ETA: 138:03:55 - loss: 0.6874 - accuracy: 0.5507I0417 21:39:28.527165 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 128.58 examples/second between steps 164 and 165
+   166/100000 [..............................] - ETA: 137:17:24 - loss: 0.6873 - accuracy: 0.5512I0417 21:39:28.901908 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 128.75 examples/second between steps 165 and 166
+   167/100000 [..............................] - ETA: 136:31:27 - loss: 0.6872 - accuracy: 0.5517I0417 21:39:29.275355 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 129.14 examples/second between steps 166 and 167
+   168/100000 [..............................] - ETA: 139:01:47 - loss: 0.6871 - accuracy: 0.5521I0417 21:39:49.295748 139931434379072 keras_utils.py:163] TimeHistory: 20.02 seconds, 2.40 examples/second between steps 167 and 168
+   169/100000 [..............................] - ETA: 138:15:49 - loss: 0.6870 - accuracy: 0.5526I0417 21:39:49.675654 139931434379072 keras_utils.py:163] TimeHistory: 0.38 seconds, 127.22 examples/second between steps 168 and 169
+   170/100000 [..............................] - ETA: 137:30:19 - loss: 0.6869 - accuracy: 0.5530I0417 21:39:50.049168 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 129.10 examples/second between steps 169 and 170
+   171/100000 [..............................] - ETA: 136:44:31 - loss: 0.6868 - accuracy: 0.5535I0417 21:39:50.337468 139931434379072 keras_utils.py:163] TimeHistory: 0.29 seconds, 167.50 examples/second between steps 170 and 171
+   172/100000 [..............................] - ETA: 136:00:07 - loss: 0.6867 - accuracy: 0.5539I0417 21:39:50.713206 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 128.38 examples/second between steps 171 and 172
+   173/100000 [..............................] - ETA: 138:24:26 - loss: 0.6865 - accuracy: 0.5543I0417 21:40:10.546377 139931434379072 keras_utils.py:163] TimeHistory: 19.83 seconds, 2.42 examples/second between steps 172 and 173
+   174/100000 [..............................] - ETA: 137:39:09 - loss: 0.6864 - accuracy: 0.5548I0417 21:40:10.836861 139931434379072 keras_utils.py:163] TimeHistory: 0.29 seconds, 166.64 examples/second between steps 173 and 174
+   175/100000 [..............................] - ETA: 140:04:46 - loss: 0.6863 - accuracy: 0.5552I0417 21:40:31.038451 139931434379072 keras_utils.py:163] TimeHistory: 20.20 seconds, 2.38 examples/second between steps 174 and 175
+   176/100000 [..............................] - ETA: 139:20:15 - loss: 0.6862 - accuracy: 0.5556I0417 21:40:31.416267 139931434379072 keras_utils.py:163] TimeHistory: 0.38 seconds, 127.89 examples/second between steps 175 and 176
+   177/100000 [..............................] - ETA: 141:40:43 - loss: 0.6861 - accuracy: 0.5560I0417 21:40:51.309477 139931434379072 keras_utils.py:163] TimeHistory: 19.89 seconds, 2.41 examples/second between steps 176 and 177
+   178/100000 [..............................] - ETA: 140:56:10 - loss: 0.6860 - accuracy: 0.5564I0417 21:40:51.688065 139931434379072 keras_utils.py:163] TimeHistory: 0.38 seconds, 127.67 examples/second between steps 177 and 178
+   179/100000 [..............................] - ETA: 140:12:04 - loss: 0.6859 - accuracy: 0.5568I0417 21:40:52.062476 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 128.81 examples/second between steps 178 and 179
+   180/100000 [..............................] - ETA: 139:28:28 - loss: 0.6858 - accuracy: 0.5572I0417 21:40:52.437081 139931434379072 keras_utils.py:163] TimeHistory: 0.37 seconds, 128.77 examples/second between steps 179 and 180
+I0417 21:40:52.439369 139931434379072 keras_utils.py:179] Wrote to /root/dev/logs/bert-glue-04_17_21_1618694713572/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling complete
+I0417 21:40:52.439590 139931434379072 training.py:1295] Heterogeneous profiling complete
+100000/100000 [==============================] - 930s 9ms/step - loss: 0.6687 - accuracy: 0.6274 
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax
+W0417 21:40:55.057035 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._dropout
+W0417 21:40:55.057230 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax
+W0417 21:40:55.057292 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._dropout
+W0417 21:40:55.057342 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax
+W0417 21:40:55.057440 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._dropout
+W0417 21:40:55.057514 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax
+W0417 21:40:55.057566 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._dropout
+W0417 21:40:55.057613 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax
+W0417 21:40:55.057661 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._dropout
+W0417 21:40:55.057708 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax
+W0417 21:40:55.057756 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._dropout
+W0417 21:40:55.057802 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax
+W0417 21:40:55.057850 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._dropout
+W0417 21:40:55.057896 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax
+W0417 21:40:55.057952 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._dropout
+W0417 21:40:55.058003 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax
+W0417 21:40:55.058057 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._dropout
+W0417 21:40:55.058104 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax
+W0417 21:40:55.058152 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._dropout
+W0417 21:40:55.058198 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax
+W0417 21:40:55.058246 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._dropout
+W0417 21:40:55.058293 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax
+W0417 21:40:55.058342 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._dropout
+W0417 21:40:55.058392 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058459 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058518 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058570 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058620 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058670 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058720 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058774 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058825 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058874 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058929 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.058980 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax._mask_expansion_axes
+W0417 21:40:55.059031 139931434379072 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/guide/checkpoint#loading_mechanics for details.
+W0417 21:40:55.059083 139931434379072 util.py:169] A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/guide/checkpoint#loading_mechanics for details.

@@ -1,0 +1,518 @@
+My commit is 46f9d67f Simulator: Refactor to compute job allocations once (/root/dev/models/deploy)
+
+==========================================================================
+My environment variables:
+--------------------------------------------------------------------------
+CUDNN_VERSION=7.6.2.24-1+cuda10.1
+PMIX_ID=2927427585.0
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+OMPI_FIRST_RANKS=0
+MPI_HOSTS=f69df1f52c58
+OMPI_MCA_orte_top_session_dir=/tmp/ompi.f69df1f52c58.0
+LOG_MEMORY_ENABLED=false
+PMIX_SYSTEM_TMPDIR=/tmp
+OMPI_MCA_orte_num_nodes=1
+OMPI_COMMAND=run_resnet.sh
+MODEL=resnet
+LANG=C.UTF-8
+HFI_NO_BACKTRACE=1
+HOSTNAME=f69df1f52c58
+OMPI_MCA_ess_base_vpid=0
+OLDPWD=/root
+OMPI_MCA_initial_wdir=/root/dev/models/deploy
+ENVIRONMENT=docker
+TF_DIR=/root/dev/tensorflow
+DATA_DIR=/root/dev/dataset/cifar10/cifar-10-batches-bin
+HOST_FLAG=--host f69df1f52c58
+OMPI_MCA_btl_tcp_if_exclude=lo,docker0,eth1
+DATASET=cifar10
+DTYPE=fp16
+NUM_CHECKPOINTS_TO_KEEP=5
+OMPI_COMM_WORLD_NODE_RANK=0
+NVIDIA_VISIBLE_DEVICES=all
+OMPI_MCA_orte_precondition_transports=06c6282c0f139c86-7cd72bef8b70fde6
+BASE_DIR=/root/dev
+OMPI_MCA_orte_ess_node_rank=0
+OMPI_MCA_shmem_RUNTIME_QUERY_hint=mmap
+OMPI_COMM_WORLD_RANK=0
+LOG_STEPS=1
+PMIX_RANK=0
+OMPI_FILE_LOCATION=/tmp/ompi.f69df1f52c58.0/pid.344/0/0
+NCCL_VERSION=2.4.7-1+cuda10.1
+OMPI_MCA_orte_local_daemon_uri=2927427584.0;tcp://10.0.1.2,172.18.0.3:50439
+EPOCHS_BETWEEN_EVALS=4
+HOROVOD_GPU_OPERATIONS=NCCL
+PWD=/root/dev/models/deploy
+NUM_GPUS_PER_NODE=8
+HOME=/root
+ENABLE_XLA=true
+PMIX_SERVER_TMPDIR=/tmp/ompi.f69df1f52c58.0/pid.344
+RUN_SCRIPT=run_resnet.sh
+PMIX_PTL_MODULE=tcp,usock
+IPATH_NO_BACKTRACE=1
+JOB_NAME=resnet-cifar10-04_17_21_1618694477096
+OMPI_MCA_rmaps_base_oversubscribe=1
+OMPI_MCA_orte_launch=1
+CODE_DIR=/root/dev/models/official/vision/image_classification/resnet
+OMPI_MCA_orte_tmpdir_base=/tmp
+LOG_DIR=/root/dev/logs
+TIMESTAMP=04_17_21_1618694477144
+MPI_HOST_FILE=/root/container_hosts/hosts.txt
+NUM_VIRTUAL_NODES_PER_DEVICE=1
+OMPI_APP_CTX_NUM_PROCS=1
+OMPI_MCA_orte_output_filename=/root/dev/logs/resnet-cifar10-04_17_21_1618694477096
+LOG_FILE=/dev/stderr
+MODELS_DIR=/root/dev/models
+OMPI_MCA_orte_app_num=0
+DISABLE_VIRTUAL_NODES=true
+PMIX_MCA_mca_base_component_show_load_errors=1
+NUM_NODES=1
+OMPI_MCA_pml=ob1
+PYTHON_COMMAND=/usr/bin/python3
+IN_DOCKER_CONTAINER=true
+LEARNING_RATE_BATCH_SIZE=0
+NUM_EPOCHS=100000
+PMIX_BFROP_BUFFER_TYPE=PMIX_BFROP_BUFFER_NON_DESC
+MPI_HOME=/usr/local
+TERM=xterm
+CUDA_PKG_VERSION=10-1=10.1.243-1
+CUDA_VERSION=10.1.243
+SKIP_EVAL=true
+PMIX_DSTORE_ESH_BASE_PATH=/tmp/ompi.f69df1f52c58.0/pid.344/pmix_dstor_ds12_344
+OMPI_MCA_hwloc_base_binding_policy=none
+OMPI_MCA_rmaps_base_mapping_policy=node
+PMIX_SERVER_URI3=2927427584.0;tcp4://127.0.0.1:38635
+PMIX_SERVER_URI2=2927427584.0;tcp4://127.0.0.1:38635
+NUM_STEPS=100000
+OMPI_MCA_orte_hnp_uri=2927427584.0;tcp://10.0.1.2,172.18.0.3:50439
+TRAIN_DIR=/root/dev/logs/resnet-cifar10-04_17_21_1618694477096
+ENABLE_EAGER=true
+OMPI_MCA_mpi_yield_when_idle=0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+DEFAULT_NUM_GPUS_PER_NODE=8
+ENABLE_CHECKPOINTS=false
+DISTRIBUTION_STRATEGY=mirrored
+OMPI_COMM_WORLD_LOCAL_SIZE=1
+CUDA_VISIBLE_DEVICES=0
+OMPI_COMM_WORLD_SIZE=1
+SHLVL=3
+PYTHONPATH=:/root/dev/models:/root/dev/models
+OMPI_NUM_APP_CTX=1
+NVIDIA_REQUIRE_CUDA=cuda>=10.1 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419
+OMPI_MCA_pmix=^s1,s2,cray,isolated
+DEFAULT_DISTRIBUTION_STRATEGY=mirrored
+PMIX_SERVER_URI21=2927427584.0;tcp4://127.0.0.1:38635
+SAVED_CHECKPOINT_PATH=
+PMIX_DSTORE_21_BASE_PATH=/tmp/ompi.f69df1f52c58.0/pid.344/pmix_dstor_ds21_344
+ENABLE_MONITOR_MEMORY=false
+ENABLE_HETEROGENEOUS_PROFILE=true
+CUBLAS_VERSION=10.1.0.105-1
+BATCH_SIZE=128
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN_FILE=resnet_cifar_main.py
+PMIX_SECURITY_MODE=native
+OMPI_MCA_ess=^singleton
+NCCL_DEBUG=INFO
+PMIX_NAMESPACE=2927427585
+OMPI_MCA_orte_ess_num_procs=1
+NCCL_SOCKET_IFNAME=^lo,docker0,eth1
+OMPI_MCA_ess_base_jobid=2927427585
+OMPI_COMM_WORLD_LOCAL_RANK=0
+OMPI_UNIVERSE_SIZE=1
+OMPI_MCA_orte_jobfam_session_dir=/tmp/ompi.f69df1f52c58.0/pid.344
+DEFAULT_NUM_EPOCHS=1
+PMIX_GDS_MODULE=ds21,ds12,hash
+ENABLE_ELASTICITY=false
+NUM_GPUS=1
+OMPI_MCA_btl=^openib
+_=/usr/bin/printenv
+==========================================================================
+
+2021-04-17 21:21:17.516328: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+I0417 21:21:19.569695 140176187688768 virtual_helper.py:221] Setting TF_CONFIG to {"cluster": {"worker": ["f69df1f52c58:2222"]}, "task": {"type": "worker", "index": 0}}
+2021-04-17 21:21:19.570076: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-17 21:21:19.570200: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-17 21:21:19.625037: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:19.625454: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-17 21:21:19.625484: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-17 21:21:19.695765: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-17 21:21:19.695897: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-17 21:21:19.735158: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-17 21:21:19.745933: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-17 21:21:19.828228: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-17 21:21:19.839203: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-17 21:21:19.985879: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-17 21:21:19.986123: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:19.986594: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:19.986976: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+INFO:tensorflow:Initializing local devices since in-graph multi-worker training with `MirroredStrategy` is not supported in eager mode. TF_CONFIG will be ignored when when initializing `MirroredStrategy`.
+I0417 21:21:19.987425 140176187688768 mirrored_strategy.py:306] Initializing local devices since in-graph multi-worker training with `MirroredStrategy` is not supported in eager mode. TF_CONFIG will be ignored when when initializing `MirroredStrategy`.
+2021-04-17 21:21:19.987999: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-17 21:21:19.988784: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-17 21:21:19.988961: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:19.989359: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-17 21:21:19.989419: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-17 21:21:19.989479: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-17 21:21:19.989504: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-17 21:21:19.989516: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-17 21:21:19.989531: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-17 21:21:19.989544: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-17 21:21:19.989559: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-17 21:21:19.989572: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-17 21:21:19.989653: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:19.990060: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:19.990405: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-17 21:21:19.990452: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-17 21:21:20.800761: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-17 21:21:20.800808: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-17 21:21:20.800817: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-17 21:21:20.801098: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:20.801584: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:20.802014: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-17 21:21:20.802390: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14660 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:04.0, compute capability: 7.0)
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I0417 21:21:20.805547 140176187688768 mirrored_strategy.py:350] Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I0417 21:21:20.834735 140176187688768 cifar_preprocessing.py:146] Sharding the dataset: input_pipeline_id=0 num_input_pipelines=1
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.504439 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.505739 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.509273 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.510180 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.514091 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.516848 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.533633 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.534556 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.536044 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0417 21:21:21.536919 140176187688768 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+2021-04-17 21:21:23.164591: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-17 21:21:23.166506: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2000155000 Hz
+2021-04-17 21:21:23.181417: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1642] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/keras/backend.py:434: UserWarning: `tf.keras.backend.set_learning_phase` is deprecated and will be removed after 2020-10-11. To update it, simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+  warnings.warn('`tf.keras.backend.set_learning_phase` is deprecated and '
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 1
+I0417 21:21:23.221712 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 1
+INFO:tensorflow:Running non-virtual train step
+I0417 21:21:23.273988 140171114702592 training.py:940] Running non-virtual train step
+INFO:tensorflow:Running non-virtual train step
+I0417 21:21:26.322470 140171114702592 training.py:940] Running non-virtual train step
+2021-04-17 21:21:30.239148: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f7be0007bc0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-04-17 21:21:30.239190: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-16GB, Compute Capability 7.0
+2021-04-17 21:21:30.426898: I tensorflow/compiler/jit/xla_compilation_cache.cc:333] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2021-04-17 21:21:31.751078: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-17 21:21:32.506894: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+I0417 21:21:47.704800 140176187688768 keras_utils.py:163] TimeHistory: 24.48 seconds, 0.04 examples/second between steps 0 and 1
+I0417 21:21:47.729792 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 40.90 examples/second between steps 1 and 2
+I0417 21:21:47.751270 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 47.19 examples/second between steps 2 and 3
+I0417 21:21:47.772318 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 48.17 examples/second between steps 3 and 4
+I0417 21:21:47.794291 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 46.12 examples/second between steps 4 and 5
+I0417 21:21:47.815533 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 47.70 examples/second between steps 5 and 6
+I0417 21:21:47.837721 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 45.68 examples/second between steps 6 and 7
+I0417 21:21:47.858936 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 47.77 examples/second between steps 7 and 8
+I0417 21:21:47.880056 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 48.01 examples/second between steps 8 and 9
+I0417 21:21:47.900941 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 48.54 examples/second between steps 9 and 10
+I0417 21:21:47.922075 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 48.02 examples/second between steps 10 and 11
+I0417 21:21:47.943434 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 47.44 examples/second between steps 11 and 12
+I0417 21:21:47.964211 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 48.79 examples/second between steps 12 and 13
+I0417 21:21:47.985633 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 47.33 examples/second between steps 13 and 14
+I0417 21:21:48.007383 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 46.58 examples/second between steps 14 and 15
+I0417 21:21:48.028115 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 48.95 examples/second between steps 15 and 16
+I0417 21:21:48.049605 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 47.14 examples/second between steps 16 and 17
+I0417 21:21:48.071241 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 46.87 examples/second between steps 17 and 18
+I0417 21:21:48.091659 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 49.72 examples/second between steps 18 and 19
+I0417 21:21:48.111292 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 51.67 examples/second between steps 19 and 20
+I0417 21:21:48.114150 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 2
+I0417 21:21:48.114439 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 2
+INFO:tensorflow:Running non-virtual train step
+I0417 21:21:48.126787 140173919192832 training.py:940] Running non-virtual train step
+I0417 21:22:05.955879 140176187688768 keras_utils.py:163] TimeHistory: 17.84 seconds, 0.11 examples/second between steps 20 and 21
+I0417 21:22:05.979151 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 88.10 examples/second between steps 21 and 22
+I0417 21:22:05.999589 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 99.13 examples/second between steps 22 and 23
+I0417 21:22:06.021773 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 91.25 examples/second between steps 23 and 24
+I0417 21:22:06.043095 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 95.02 examples/second between steps 24 and 25
+I0417 21:22:06.064515 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 94.52 examples/second between steps 25 and 26
+I0417 21:22:06.085529 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 96.50 examples/second between steps 26 and 27
+I0417 21:22:06.106096 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 98.60 examples/second between steps 27 and 28
+I0417 21:22:06.127045 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 96.74 examples/second between steps 28 and 29
+I0417 21:22:06.148693 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 93.55 examples/second between steps 29 and 30
+I0417 21:22:06.169460 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 97.66 examples/second between steps 30 and 31
+I0417 21:22:06.189591 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 100.69 examples/second between steps 31 and 32
+I0417 21:22:06.209791 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 100.28 examples/second between steps 32 and 33
+I0417 21:22:06.230821 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 96.43 examples/second between steps 33 and 34
+I0417 21:22:06.252240 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 94.59 examples/second between steps 34 and 35
+I0417 21:22:06.272925 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 97.94 examples/second between steps 35 and 36
+I0417 21:22:06.296410 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 86.14 examples/second between steps 36 and 37
+I0417 21:22:06.318742 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 90.68 examples/second between steps 37 and 38
+I0417 21:22:06.340508 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 93.25 examples/second between steps 38 and 39
+I0417 21:22:06.361263 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 97.74 examples/second between steps 39 and 40
+I0417 21:22:06.362100 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 4
+I0417 21:22:06.362346 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 4
+INFO:tensorflow:Running non-virtual train step
+I0417 21:22:06.370702 140174061803264 training.py:940] Running non-virtual train step
+I0417 21:22:24.240427 140176187688768 keras_utils.py:163] TimeHistory: 17.88 seconds, 0.22 examples/second between steps 40 and 41
+I0417 21:22:24.267059 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 153.44 examples/second between steps 41 and 42
+I0417 21:22:24.290104 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 175.65 examples/second between steps 42 and 43
+I0417 21:22:24.310981 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 194.09 examples/second between steps 43 and 44
+I0417 21:22:24.334384 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 172.86 examples/second between steps 44 and 45
+I0417 21:22:24.355559 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 191.27 examples/second between steps 45 and 46
+I0417 21:22:24.376538 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 193.21 examples/second between steps 46 and 47
+I0417 21:22:24.397523 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 193.13 examples/second between steps 47 and 48
+I0417 21:22:24.418497 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 193.18 examples/second between steps 48 and 49
+I0417 21:22:24.439584 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 192.31 examples/second between steps 49 and 50
+I0417 21:22:24.459587 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 202.96 examples/second between steps 50 and 51
+I0417 21:22:24.481328 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 186.39 examples/second between steps 51 and 52
+I0417 21:22:24.501399 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 202.18 examples/second between steps 52 and 53
+I0417 21:22:24.522058 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 196.11 examples/second between steps 53 and 54
+I0417 21:22:24.544656 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 179.30 examples/second between steps 54 and 55
+I0417 21:22:24.567233 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 179.33 examples/second between steps 55 and 56
+I0417 21:22:24.590045 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 177.43 examples/second between steps 56 and 57
+I0417 21:22:24.610847 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 195.04 examples/second between steps 57 and 58
+I0417 21:22:24.631278 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 198.37 examples/second between steps 58 and 59
+I0417 21:22:24.652508 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 190.72 examples/second between steps 59 and 60
+I0417 21:22:24.653282 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 8
+I0417 21:22:24.653518 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 8
+INFO:tensorflow:Running non-virtual train step
+I0417 21:22:24.661681 140176079128320 training.py:940] Running non-virtual train step
+I0417 21:22:42.014977 140176187688768 keras_utils.py:163] TimeHistory: 17.36 seconds, 0.46 examples/second between steps 60 and 61
+I0417 21:22:42.038302 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 350.54 examples/second between steps 61 and 62
+I0417 21:22:42.058871 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 394.02 examples/second between steps 62 and 63
+I0417 21:22:42.078902 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 404.53 examples/second between steps 63 and 64
+I0417 21:22:42.101064 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 364.93 examples/second between steps 64 and 65
+I0417 21:22:42.123677 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 358.47 examples/second between steps 65 and 66
+I0417 21:22:42.146722 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 351.45 examples/second between steps 66 and 67
+I0417 21:22:42.166770 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 404.10 examples/second between steps 67 and 68
+I0417 21:22:42.186649 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 406.69 examples/second between steps 68 and 69
+I0417 21:22:42.207223 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 393.27 examples/second between steps 69 and 70
+I0417 21:22:42.226581 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 418.31 examples/second between steps 70 and 71
+I0417 21:22:42.247419 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 388.23 examples/second between steps 71 and 72
+I0417 21:22:42.267206 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 408.72 examples/second between steps 72 and 73
+I0417 21:22:42.287149 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 405.15 examples/second between steps 73 and 74
+I0417 21:22:42.306417 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 420.22 examples/second between steps 74 and 75
+I0417 21:22:42.327596 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 382.35 examples/second between steps 75 and 76
+I0417 21:22:42.346678 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 425.56 examples/second between steps 76 and 77
+I0417 21:22:42.364651 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 450.95 examples/second between steps 77 and 78
+I0417 21:22:42.382867 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 444.23 examples/second between steps 78 and 79
+I0417 21:22:42.404212 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 378.48 examples/second between steps 79 and 80
+I0417 21:22:42.404977 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 12
+I0417 21:22:42.405188 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 12
+INFO:tensorflow:Running non-virtual train step
+I0417 21:22:42.413618 140153666381568 training.py:940] Running non-virtual train step
+I0417 21:22:59.931532 140176187688768 keras_utils.py:163] TimeHistory: 17.53 seconds, 0.68 examples/second between steps 80 and 81
+I0417 21:22:59.954489 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 534.34 examples/second between steps 81 and 82
+I0417 21:22:59.976340 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 555.37 examples/second between steps 82 and 83
+I0417 21:22:59.997559 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 570.99 examples/second between steps 83 and 84
+I0417 21:23:00.017932 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 594.94 examples/second between steps 84 and 85
+I0417 21:23:00.039695 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 556.65 examples/second between steps 85 and 86
+I0417 21:23:00.060847 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 573.56 examples/second between steps 86 and 87
+I0417 21:23:00.082310 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 565.31 examples/second between steps 87 and 88
+I0417 21:23:00.104714 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 541.94 examples/second between steps 88 and 89
+I0417 21:23:00.125809 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 575.11 examples/second between steps 89 and 90
+I0417 21:23:00.144947 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 634.19 examples/second between steps 90 and 91
+I0417 21:23:00.164810 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 610.58 examples/second between steps 91 and 92
+I0417 21:23:00.186640 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 555.24 examples/second between steps 92 and 93
+I0417 21:23:00.207182 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 591.21 examples/second between steps 93 and 94
+I0417 21:23:00.226722 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 621.89 examples/second between steps 94 and 95
+I0417 21:23:00.247381 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 588.01 examples/second between steps 95 and 96
+I0417 21:23:00.267962 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 590.09 examples/second between steps 96 and 97
+I0417 21:23:00.287132 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 633.00 examples/second between steps 97 and 98
+I0417 21:23:00.306740 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 619.00 examples/second between steps 98 and 99
+I0417 21:23:00.327965 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 571.69 examples/second between steps 99 and 100
+I0417 21:23:00.328678 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 16
+I0417 21:23:00.328875 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 16
+INFO:tensorflow:Running non-virtual train step
+I0417 21:23:00.337291 140153657988864 training.py:940] Running non-virtual train step
+I0417 21:23:18.125465 140176187688768 keras_utils.py:163] TimeHistory: 17.80 seconds, 0.90 examples/second between steps 100 and 101
+I0417 21:23:18.147503 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 743.32 examples/second between steps 101 and 102
+I0417 21:23:18.171069 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 685.82 examples/second between steps 102 and 103
+I0417 21:23:18.191973 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 775.49 examples/second between steps 103 and 104
+I0417 21:23:18.213870 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 738.91 examples/second between steps 104 and 105
+I0417 21:23:18.233213 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 837.82 examples/second between steps 105 and 106
+I0417 21:23:18.253048 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 815.04 examples/second between steps 106 and 107
+I0417 21:23:18.276691 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 685.02 examples/second between steps 107 and 108
+I0417 21:23:18.297818 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 766.63 examples/second between steps 108 and 109
+I0417 21:23:18.317836 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 809.22 examples/second between steps 109 and 110
+I0417 21:23:18.338463 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 785.93 examples/second between steps 110 and 111
+I0417 21:23:18.360229 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 744.81 examples/second between steps 111 and 112
+I0417 21:23:18.380576 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 797.26 examples/second between steps 112 and 113
+I0417 21:23:18.400000 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 831.83 examples/second between steps 113 and 114
+I0417 21:23:18.419406 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 832.39 examples/second between steps 114 and 115
+I0417 21:23:18.440840 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 754.10 examples/second between steps 115 and 116
+I0417 21:23:18.460573 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 820.31 examples/second between steps 116 and 117
+I0417 21:23:18.479155 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 870.79 examples/second between steps 117 and 118
+I0417 21:23:18.496985 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 906.99 examples/second between steps 118 and 119
+I0417 21:23:18.518033 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 767.25 examples/second between steps 119 and 120
+I0417 21:23:18.518774 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 24
+I0417 21:23:18.518980 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 24
+INFO:tensorflow:Running non-virtual train step
+I0417 21:23:18.527363 140153339246336 training.py:940] Running non-virtual train step
+I0417 21:23:36.630762 140176187688768 keras_utils.py:163] TimeHistory: 18.11 seconds, 1.33 examples/second between steps 120 and 121
+I0417 21:23:36.653316 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1088.59 examples/second between steps 121 and 122
+I0417 21:23:36.677431 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1005.68 examples/second between steps 122 and 123
+I0417 21:23:36.700342 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1058.64 examples/second between steps 123 and 124
+I0417 21:23:36.720476 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1207.08 examples/second between steps 124 and 125
+I0417 21:23:36.740278 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1227.33 examples/second between steps 125 and 126
+I0417 21:23:36.761841 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1124.97 examples/second between steps 126 and 127
+I0417 21:23:36.782397 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1180.73 examples/second between steps 127 and 128
+I0417 21:23:36.802226 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1224.35 examples/second between steps 128 and 129
+I0417 21:23:36.825071 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1061.71 examples/second between steps 129 and 130
+I0417 21:23:36.849147 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1006.69 examples/second between steps 130 and 131
+I0417 21:23:36.870790 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1121.12 examples/second between steps 131 and 132
+I0417 21:23:36.889793 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1278.38 examples/second between steps 132 and 133
+I0417 21:23:36.910039 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1198.23 examples/second between steps 133 and 134
+I0417 21:23:36.929456 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1250.66 examples/second between steps 134 and 135
+I0417 21:23:36.948267 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1291.90 examples/second between steps 135 and 136
+I0417 21:23:36.967076 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1289.93 examples/second between steps 136 and 137
+I0417 21:23:36.987936 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1163.70 examples/second between steps 137 and 138
+I0417 21:23:37.010781 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1062.14 examples/second between steps 138 and 139
+I0417 21:23:37.032051 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1142.36 examples/second between steps 139 and 140
+I0417 21:23:37.032803 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 32
+I0417 21:23:37.033006 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 32
+INFO:tensorflow:Running non-virtual train step
+I0417 21:23:37.041259 140153330853632 training.py:940] Running non-virtual train step
+I0417 21:23:54.690450 140176187688768 keras_utils.py:163] TimeHistory: 17.66 seconds, 1.81 examples/second between steps 140 and 141
+I0417 21:23:54.712299 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1501.01 examples/second between steps 141 and 142
+I0417 21:23:54.733774 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1508.23 examples/second between steps 142 and 143
+I0417 21:23:54.753786 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1619.72 examples/second between steps 143 and 144
+I0417 21:23:54.772171 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1761.46 examples/second between steps 144 and 145
+I0417 21:23:54.790523 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1763.49 examples/second between steps 145 and 146
+I0417 21:23:54.813732 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1391.68 examples/second between steps 146 and 147
+I0417 21:23:54.833831 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1615.15 examples/second between steps 147 and 148
+I0417 21:23:54.856193 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1448.56 examples/second between steps 148 and 149
+I0417 21:23:54.875580 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1669.67 examples/second between steps 149 and 150
+I0417 21:23:54.894491 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1709.24 examples/second between steps 150 and 151
+I0417 21:23:54.913609 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1689.14 examples/second between steps 151 and 152
+I0417 21:23:54.933972 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1589.13 examples/second between steps 152 and 153
+I0417 21:23:54.952848 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1715.35 examples/second between steps 153 and 154
+I0417 21:23:54.973204 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1588.94 examples/second between steps 154 and 155
+I0417 21:23:54.992620 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1668.57 examples/second between steps 155 and 156
+I0417 21:23:55.012812 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1604.23 examples/second between steps 156 and 157
+I0417 21:23:55.033010 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1602.14 examples/second between steps 157 and 158
+I0417 21:23:55.053956 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1545.74 examples/second between steps 158 and 159
+I0417 21:23:55.076990 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 1404.52 examples/second between steps 159 and 160
+I0417 21:23:55.077821 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 48
+I0417 21:23:55.078032 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 48
+INFO:tensorflow:Running non-virtual train step
+I0417 21:23:55.086522 140153322460928 training.py:940] Running non-virtual train step
+I0417 21:24:13.261058 140176187688768 keras_utils.py:163] TimeHistory: 18.18 seconds, 2.64 examples/second between steps 160 and 161
+I0417 21:24:13.285562 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2001.58 examples/second between steps 161 and 162
+I0417 21:24:13.306616 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2309.43 examples/second between steps 162 and 163
+I0417 21:24:13.329714 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2099.82 examples/second between steps 163 and 164
+I0417 21:24:13.352401 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2143.48 examples/second between steps 164 and 165
+I0417 21:24:13.373956 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2250.74 examples/second between steps 165 and 166
+I0417 21:24:13.397362 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2072.69 examples/second between steps 166 and 167
+I0417 21:24:13.418883 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2256.67 examples/second between steps 167 and 168
+I0417 21:24:13.443009 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2011.88 examples/second between steps 168 and 169
+I0417 21:24:13.464095 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2306.25 examples/second between steps 169 and 170
+I0417 21:24:13.484861 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2343.27 examples/second between steps 170 and 171
+I0417 21:24:13.505103 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2395.52 examples/second between steps 171 and 172
+I0417 21:24:13.525455 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2386.21 examples/second between steps 172 and 173
+I0417 21:24:13.545158 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2460.21 examples/second between steps 173 and 174
+I0417 21:24:13.565434 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2388.75 examples/second between steps 174 and 175
+I0417 21:24:13.585088 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2469.42 examples/second between steps 175 and 176
+I0417 21:24:13.605389 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2391.88 examples/second between steps 176 and 177
+I0417 21:24:13.627133 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2229.16 examples/second between steps 177 and 178
+I0417 21:24:13.649939 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2126.84 examples/second between steps 178 and 179
+I0417 21:24:13.671718 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2228.59 examples/second between steps 179 and 180
+I0417 21:24:13.672460 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 64
+I0417 21:24:13.672646 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 64
+INFO:tensorflow:Running non-virtual train step
+I0417 21:24:13.681132 140152332613376 training.py:940] Running non-virtual train step
+I0417 21:24:31.722595 140176187688768 keras_utils.py:163] TimeHistory: 18.05 seconds, 3.55 examples/second between steps 180 and 181
+I0417 21:24:31.748403 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 2532.65 examples/second between steps 181 and 182
+I0417 21:24:31.772039 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2738.86 examples/second between steps 182 and 183
+I0417 21:24:31.795363 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2770.75 examples/second between steps 183 and 184
+I0417 21:24:31.817959 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2860.84 examples/second between steps 184 and 185
+I0417 21:24:31.842403 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2646.14 examples/second between steps 185 and 186
+I0417 21:24:31.866745 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2659.28 examples/second between steps 186 and 187
+I0417 21:24:31.889625 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2837.28 examples/second between steps 187 and 188
+I0417 21:24:31.912845 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2788.71 examples/second between steps 188 and 189
+I0417 21:24:31.935898 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2813.35 examples/second between steps 189 and 190
+I0417 21:24:31.961129 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2562.61 examples/second between steps 190 and 191
+I0417 21:24:31.986421 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 2558.62 examples/second between steps 191 and 192
+I0417 21:24:32.009226 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2835.64 examples/second between steps 192 and 193
+I0417 21:24:32.031493 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2902.73 examples/second between steps 193 and 194
+I0417 21:24:32.052894 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3021.36 examples/second between steps 194 and 195
+I0417 21:24:32.076251 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2772.43 examples/second between steps 195 and 196
+I0417 21:24:32.099303 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2809.58 examples/second between steps 196 and 197
+I0417 21:24:32.120897 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2997.70 examples/second between steps 197 and 198
+I0417 21:24:32.142894 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2942.82 examples/second between steps 198 and 199
+I0417 21:24:32.166267 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 2772.06 examples/second between steps 199 and 200
+I0417 21:24:32.167020 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 96
+I0417 21:24:32.167220 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 96
+INFO:tensorflow:Running non-virtual train step
+I0417 21:24:32.175742 140152324220672 training.py:940] Running non-virtual train step
+I0417 21:24:50.405192 140176187688768 keras_utils.py:163] TimeHistory: 18.24 seconds, 5.26 examples/second between steps 200 and 201
+I0417 21:24:50.434720 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 3311.73 examples/second between steps 201 and 202
+I0417 21:24:50.459455 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3922.74 examples/second between steps 202 and 203
+I0417 21:24:50.484399 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3887.06 examples/second between steps 203 and 204
+I0417 21:24:50.510486 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 3723.00 examples/second between steps 204 and 205
+I0417 21:24:50.535398 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3894.13 examples/second between steps 205 and 206
+I0417 21:24:50.561068 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 3771.96 examples/second between steps 206 and 207
+I0417 21:24:50.588108 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 3581.30 examples/second between steps 207 and 208
+I0417 21:24:50.612698 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3943.52 examples/second between steps 208 and 209
+I0417 21:24:50.636289 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 4109.59 examples/second between steps 209 and 210
+I0417 21:24:50.660276 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 4037.15 examples/second between steps 210 and 211
+I0417 21:24:50.685058 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3908.50 examples/second between steps 211 and 212
+I0417 21:24:50.709205 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 4013.53 examples/second between steps 212 and 213
+I0417 21:24:50.735039 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 3751.61 examples/second between steps 213 and 214
+I0417 21:24:50.759708 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3927.86 examples/second between steps 214 and 215
+I0417 21:24:50.784721 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3875.13 examples/second between steps 215 and 216
+I0417 21:24:50.809204 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3957.98 examples/second between steps 216 and 217
+I0417 21:24:50.834423 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3846.15 examples/second between steps 217 and 218
+I0417 21:24:50.858940 140176187688768 keras_utils.py:163] TimeHistory: 0.02 seconds, 3955.18 examples/second between steps 218 and 219
+I0417 21:24:50.885581 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 3635.73 examples/second between steps 219 and 220
+I0417 21:24:50.886271 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 128
+I0417 21:24:50.886449 140176187688768 training.py:1298] Heterogeneous profiling: now profiling batch size 128
+INFO:tensorflow:Running non-virtual train step
+I0417 21:24:50.894447 140152315827968 training.py:940] Running non-virtual train step
+I0417 21:25:08.931808 140176187688768 keras_utils.py:163] TimeHistory: 18.05 seconds, 7.09 examples/second between steps 220 and 221
+I0417 21:25:08.966463 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 3753.82 examples/second between steps 221 and 222
+I0417 21:25:08.997751 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4124.16 examples/second between steps 222 and 223
+I0417 21:25:09.028936 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4137.35 examples/second between steps 223 and 224
+I0417 21:25:09.059657 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4203.89 examples/second between steps 224 and 225
+I0417 21:25:09.088538 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4470.46 examples/second between steps 225 and 226
+I0417 21:25:09.115946 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4712.62 examples/second between steps 226 and 227
+I0417 21:25:09.143618 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4678.57 examples/second between steps 227 and 228
+I0417 21:25:09.172932 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4408.35 examples/second between steps 228 and 229
+I0417 21:25:09.200829 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4631.59 examples/second between steps 229 and 230
+I0417 21:25:09.228099 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4736.65 examples/second between steps 230 and 231
+I0417 21:25:09.256704 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4515.88 examples/second between steps 231 and 232
+I0417 21:25:09.285418 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4503.23 examples/second between steps 232 and 233
+I0417 21:25:09.312562 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4750.52 examples/second between steps 233 and 234
+I0417 21:25:09.339665 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4763.80 examples/second between steps 234 and 235
+I0417 21:25:09.367980 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4570.40 examples/second between steps 235 and 236
+I0417 21:25:09.395275 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4728.85 examples/second between steps 236 and 237
+I0417 21:25:09.423163 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4628.76 examples/second between steps 237 and 238
+I0417 21:25:09.451656 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4532.43 examples/second between steps 238 and 239
+I0417 21:25:09.478089 140176187688768 keras_utils.py:163] TimeHistory: 0.03 seconds, 4884.06 examples/second between steps 239 and 240
+I0417 21:25:09.478801 140176187688768 keras_utils.py:179] Wrote to /root/dev/logs/resnet-cifar10-04_17_21_1618694477096/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling complete
+I0417 21:25:09.478972 140176187688768 training.py:1295] Heterogeneous profiling complete
+Epoch 1/100000
+390/390 - 226s - loss: 7.4259 - sparse_categorical_accuracy: 0.1005
+{'loss': 7.4259185791015625, 'training_accuracy_top_1': 0.10045976936817169, 'step_timestamp_log': ['BatchTimestamp<batch_index: 0, timestamp: 1618694483.2216666>', 'BatchTimestamp<batch_index: 1, timestamp: 1618694507.7046325>', 'BatchTimestamp<batch_index: 2, timestamp: 1618694507.7297366>', 'BatchTimestamp<batch_index: 3, timestamp: 1618694507.7512152>', 'BatchTimestamp<batch_index: 4, timestamp: 1618694507.7722635>', 'BatchTimestamp<batch_index: 5, timestamp: 1618694507.7942376>', 'BatchTimestamp<batch_index: 6, timestamp: 1618694507.8154757>', 'BatchTimestamp<batch_index: 7, timestamp: 1618694507.837666>', 'BatchTimestamp<batch_index: 8, timestamp: 1618694507.8588812>', 'BatchTimestamp<batch_index: 9, timestamp: 1618694507.879988>', 'BatchTimestamp<batch_index: 10, timestamp: 1618694507.9008756>', 'BatchTimestamp<batch_index: 11, timestamp: 1618694507.9220235>', 'BatchTimestamp<batch_index: 12, timestamp: 1618694507.9433749>', 'BatchTimestamp<batch_index: 13, timestamp: 1618694507.9641533>', 'BatchTimestamp<batch_index: 14, timestamp: 1618694507.985576>', 'BatchTimestamp<batch_index: 15, timestamp: 1618694508.0073245>', 'BatchTimestamp<batch_index: 16, timestamp: 1618694508.0280597>', 'BatchTimestamp<batch_index: 17, timestamp: 1618694508.0495508>', 'BatchTimestamp<batch_index: 18, timestamp: 1618694508.0711849>', 'BatchTimestamp<batch_index: 19, timestamp: 1618694508.0916028>', 'BatchTimestamp<batch_index: 20, timestamp: 1618694508.1112356>', 'BatchTimestamp<batch_index: 21, timestamp: 1618694525.9557154>', 'BatchTimestamp<batch_index: 22, timestamp: 1618694525.9791002>', 'BatchTimestamp<batch_index: 23, timestamp: 1618694525.9995387>', 'BatchTimestamp<batch_index: 24, timestamp: 1618694526.0217214>', 'BatchTimestamp<batch_index: 25, timestamp: 1618694526.0430403>', 'BatchTimestamp<batch_index: 26, timestamp: 1618694526.0644624>', 'BatchTimestamp<batch_index: 27, timestamp: 1618694526.0854669>', 'BatchTimestamp<batch_index: 28, timestamp: 1618694526.10604>', 'BatchTimestamp<batch_index: 29, timestamp: 1618694526.1269927>', 'BatchTimestamp<batch_index: 30, timestamp: 1618694526.1486409>', 'BatchTimestamp<batch_index: 31, timestamp: 1618694526.1694136>', 'BatchTimestamp<batch_index: 32, timestamp: 1618694526.189543>', 'BatchTimestamp<batch_index: 33, timestamp: 1618694526.2097409>', 'BatchTimestamp<batch_index: 34, timestamp: 1618694526.2307706>', 'BatchTimestamp<batch_index: 35, timestamp: 1618694526.2521842>', 'BatchTimestamp<batch_index: 36, timestamp: 1618694526.2728755>', 'BatchTimestamp<batch_index: 37, timestamp: 1618694526.296357>', 'BatchTimestamp<batch_index: 38, timestamp: 1618694526.3186853>', 'BatchTimestamp<batch_index: 39, timestamp: 1618694526.3404627>', 'BatchTimestamp<batch_index: 40, timestamp: 1618694526.3612149>', 'BatchTimestamp<batch_index: 41, timestamp: 1618694544.2402365>', 'BatchTimestamp<batch_index: 42, timestamp: 1618694544.2670057>', 'BatchTimestamp<batch_index: 43, timestamp: 1618694544.2900522>', 'BatchTimestamp<batch_index: 44, timestamp: 1618694544.310932>', 'BatchTimestamp<batch_index: 45, timestamp: 1618694544.3343334>', 'BatchTimestamp<batch_index: 46, timestamp: 1618694544.3555057>', 'BatchTimestamp<batch_index: 47, timestamp: 1618694544.376489>', 'BatchTimestamp<batch_index: 48, timestamp: 1618694544.3974702>', 'BatchTimestamp<batch_index: 49, timestamp: 1618694544.418447>', 'BatchTimestamp<batch_index: 50, timestamp: 1618694544.4395325>', 'BatchTimestamp<batch_index: 51, timestamp: 1618694544.4595344>', 'BatchTimestamp<batch_index: 52, timestamp: 1618694544.481279>', 'BatchTimestamp<batch_index: 53, timestamp: 1618694544.5013356>', 'BatchTimestamp<batch_index: 54, timestamp: 1618694544.5220027>', 'BatchTimestamp<batch_index: 55, timestamp: 1618694544.5446024>', 'BatchTimestamp<batch_index: 56, timestamp: 1618694544.5671828>', 'BatchTimestamp<batch_index: 57, timestamp: 1618694544.5899901>', 'BatchTimestamp<batch_index: 58, timestamp: 1618694544.6107945>', 'BatchTimestamp<batch_index: 59, timestamp: 1618694544.6312273>', 'BatchTimestamp<batch_index: 60, timestamp: 1618694544.6524565>', 'BatchTimestamp<batch_index: 61, timestamp: 1618694562.0148146>', 'BatchTimestamp<batch_index: 62, timestamp: 1618694562.0382504>', 'BatchTimestamp<batch_index: 63, timestamp: 1618694562.0588272>', 'BatchTimestamp<batch_index: 64, timestamp: 1618694562.0788598>', 'BatchTimestamp<batch_index: 65, timestamp: 1618694562.1010215>', 'BatchTimestamp<batch_index: 66, timestamp: 1618694562.1236358>', 'BatchTimestamp<batch_index: 67, timestamp: 1618694562.146677>', 'BatchTimestamp<batch_index: 68, timestamp: 1618694562.1667216>', 'BatchTimestamp<batch_index: 69, timestamp: 1618694562.1866114>', 'BatchTimestamp<batch_index: 70, timestamp: 1618694562.2071793>', 'BatchTimestamp<batch_index: 71, timestamp: 1618694562.2265396>', 'BatchTimestamp<batch_index: 72, timestamp: 1618694562.2473807>', 'BatchTimestamp<batch_index: 73, timestamp: 1618694562.2671711>', 'BatchTimestamp<batch_index: 74, timestamp: 1618694562.287113>', 'BatchTimestamp<batch_index: 75, timestamp: 1618694562.3063667>', 'BatchTimestamp<batch_index: 76, timestamp: 1618694562.327549>', 'BatchTimestamp<batch_index: 77, timestamp: 1618694562.346639>', 'BatchTimestamp<batch_index: 78, timestamp: 1618694562.3646176>', 'BatchTimestamp<batch_index: 79, timestamp: 1618694562.3828366>', 'BatchTimestamp<batch_index: 80, timestamp: 1618694562.4041574>', 'BatchTimestamp<batch_index: 81, timestamp: 1618694579.9313731>', 'BatchTimestamp<batch_index: 82, timestamp: 1618694579.9544387>', 'BatchTimestamp<batch_index: 83, timestamp: 1618694579.9763045>', 'BatchTimestamp<batch_index: 84, timestamp: 1618694579.9975235>', 'BatchTimestamp<batch_index: 85, timestamp: 1618694580.017897>', 'BatchTimestamp<batch_index: 86, timestamp: 1618694580.0396557>', 'BatchTimestamp<batch_index: 87, timestamp: 1618694580.0608058>', 'BatchTimestamp<batch_index: 88, timestamp: 1618694580.0822632>', 'BatchTimestamp<batch_index: 89, timestamp: 1618694580.104672>', 'BatchTimestamp<batch_index: 90, timestamp: 1618694580.1257715>', 'BatchTimestamp<batch_index: 91, timestamp: 1618694580.1449094>', 'BatchTimestamp<batch_index: 92, timestamp: 1618694580.164774>', 'BatchTimestamp<batch_index: 93, timestamp: 1618694580.1865935>', 'BatchTimestamp<batch_index: 94, timestamp: 1618694580.2071373>', 'BatchTimestamp<batch_index: 95, timestamp: 1618694580.2266877>', 'BatchTimestamp<batch_index: 96, timestamp: 1618694580.2473412>', 'BatchTimestamp<batch_index: 97, timestamp: 1618694580.2679234>', 'BatchTimestamp<batch_index: 98, timestamp: 1618694580.2870944>', 'BatchTimestamp<batch_index: 99, timestamp: 1618694580.3066967>', 'BatchTimestamp<batch_index: 100, timestamp: 1618694580.3279204>', 'BatchTimestamp<batch_index: 101, timestamp: 1618694598.1252766>', 'BatchTimestamp<batch_index: 102, timestamp: 1618694598.1474652>', 'BatchTimestamp<batch_index: 103, timestamp: 1618694598.171015>', 'BatchTimestamp<batch_index: 104, timestamp: 1618694598.1919158>', 'BatchTimestamp<batch_index: 105, timestamp: 1618694598.2138333>', 'BatchTimestamp<batch_index: 106, timestamp: 1618694598.233168>', 'BatchTimestamp<batch_index: 107, timestamp: 1618694598.2529988>', 'BatchTimestamp<batch_index: 108, timestamp: 1618694598.2766402>', 'BatchTimestamp<batch_index: 109, timestamp: 1618694598.2977734>', 'BatchTimestamp<batch_index: 110, timestamp: 1618694598.3177981>', 'BatchTimestamp<batch_index: 111, timestamp: 1618694598.338412>', 'BatchTimestamp<batch_index: 112, timestamp: 1618694598.3601825>', 'BatchTimestamp<batch_index: 113, timestamp: 1618694598.3805447>', 'BatchTimestamp<batch_index: 114, timestamp: 1618694598.3999703>', 'BatchTimestamp<batch_index: 115, timestamp: 1618694598.419371>', 'BatchTimestamp<batch_index: 116, timestamp: 1618694598.4407983>', 'BatchTimestamp<batch_index: 117, timestamp: 1618694598.4605372>', 'BatchTimestamp<batch_index: 118, timestamp: 1618694598.4791245>', 'BatchTimestamp<batch_index: 119, timestamp: 1618694598.4969535>', 'BatchTimestamp<batch_index: 120, timestamp: 1618694598.5179963>', 'BatchTimestamp<batch_index: 121, timestamp: 1618694616.6305983>', 'BatchTimestamp<batch_index: 122, timestamp: 1618694616.653269>', 'BatchTimestamp<batch_index: 123, timestamp: 1618694616.6773863>', 'BatchTimestamp<batch_index: 124, timestamp: 1618694616.7002983>', 'BatchTimestamp<batch_index: 125, timestamp: 1618694616.7204354>', 'BatchTimestamp<batch_index: 126, timestamp: 1618694616.7402184>', 'BatchTimestamp<batch_index: 127, timestamp: 1618694616.7618008>', 'BatchTimestamp<batch_index: 128, timestamp: 1618694616.7823555>', 'BatchTimestamp<batch_index: 129, timestamp: 1618694616.8021839>', 'BatchTimestamp<batch_index: 130, timestamp: 1618694616.8250263>', 'BatchTimestamp<batch_index: 131, timestamp: 1618694616.8491025>', 'BatchTimestamp<batch_index: 132, timestamp: 1618694616.870746>', 'BatchTimestamp<batch_index: 133, timestamp: 1618694616.8897564>', 'BatchTimestamp<batch_index: 134, timestamp: 1618694616.909995>', 'BatchTimestamp<batch_index: 135, timestamp: 1618694616.929414>', 'BatchTimestamp<batch_index: 136, timestamp: 1618694616.948233>', 'BatchTimestamp<batch_index: 137, timestamp: 1618694616.9670343>', 'BatchTimestamp<batch_index: 138, timestamp: 1618694616.9878945>', 'BatchTimestamp<batch_index: 139, timestamp: 1618694617.01073>', 'BatchTimestamp<batch_index: 140, timestamp: 1618694617.032004>', 'BatchTimestamp<batch_index: 141, timestamp: 1618694634.6902883>', 'BatchTimestamp<batch_index: 142, timestamp: 1618694634.7122512>', 'BatchTimestamp<batch_index: 143, timestamp: 1618694634.7337222>', 'BatchTimestamp<batch_index: 144, timestamp: 1618694634.7537446>', 'BatchTimestamp<batch_index: 145, timestamp: 1618694634.772137>', 'BatchTimestamp<batch_index: 146, timestamp: 1618694634.7904916>', 'BatchTimestamp<batch_index: 147, timestamp: 1618694634.8136816>', 'BatchTimestamp<batch_index: 148, timestamp: 1618694634.833763>', 'BatchTimestamp<batch_index: 149, timestamp: 1618694634.8561528>', 'BatchTimestamp<batch_index: 150, timestamp: 1618694634.8755474>', 'BatchTimestamp<batch_index: 151, timestamp: 1618694634.8944633>', 'BatchTimestamp<batch_index: 152, timestamp: 1618694634.9135773>', 'BatchTimestamp<batch_index: 153, timestamp: 1618694634.933938>', 'BatchTimestamp<batch_index: 154, timestamp: 1618694634.9528086>', 'BatchTimestamp<batch_index: 155, timestamp: 1618694634.9731624>', 'BatchTimestamp<batch_index: 156, timestamp: 1618694634.992578>', 'BatchTimestamp<batch_index: 157, timestamp: 1618694635.0127714>', 'BatchTimestamp<batch_index: 158, timestamp: 1618694635.032964>', 'BatchTimestamp<batch_index: 159, timestamp: 1618694635.053905>', 'BatchTimestamp<batch_index: 160, timestamp: 1618694635.0769446>', 'BatchTimestamp<batch_index: 161, timestamp: 1618694653.2609026>', 'BatchTimestamp<batch_index: 162, timestamp: 1618694653.285492>', 'BatchTimestamp<batch_index: 163, timestamp: 1618694653.3065724>', 'BatchTimestamp<batch_index: 164, timestamp: 1618694653.32966>', 'BatchTimestamp<batch_index: 165, timestamp: 1618694653.3523598>', 'BatchTimestamp<batch_index: 166, timestamp: 1618694653.3739066>', 'BatchTimestamp<batch_index: 167, timestamp: 1618694653.3973174>', 'BatchTimestamp<batch_index: 168, timestamp: 1618694653.4188378>', 'BatchTimestamp<batch_index: 169, timestamp: 1618694653.4429486>', 'BatchTimestamp<batch_index: 170, timestamp: 1618694653.464048>', 'BatchTimestamp<batch_index: 171, timestamp: 1618694653.4847863>', 'BatchTimestamp<batch_index: 172, timestamp: 1618694653.5050685>', 'BatchTimestamp<batch_index: 173, timestamp: 1618694653.5254056>', 'BatchTimestamp<batch_index: 174, timestamp: 1618694653.545128>', 'BatchTimestamp<batch_index: 175, timestamp: 1618694653.5654013>', 'BatchTimestamp<batch_index: 176, timestamp: 1618694653.5850508>', 'BatchTimestamp<batch_index: 177, timestamp: 1618694653.6053274>', 'BatchTimestamp<batch_index: 178, timestamp: 1618694653.6270895>', 'BatchTimestamp<batch_index: 179, timestamp: 1618694653.6498847>', 'BatchTimestamp<batch_index: 180, timestamp: 1618694653.6716752>', 'BatchTimestamp<batch_index: 181, timestamp: 1618694671.722414>', 'BatchTimestamp<batch_index: 182, timestamp: 1618694671.7483485>', 'BatchTimestamp<batch_index: 183, timestamp: 1618694671.7719977>', 'BatchTimestamp<batch_index: 184, timestamp: 1618694671.7953205>', 'BatchTimestamp<batch_index: 185, timestamp: 1618694671.8179224>', 'BatchTimestamp<batch_index: 186, timestamp: 1618694671.842358>', 'BatchTimestamp<batch_index: 187, timestamp: 1618694671.8666978>', 'BatchTimestamp<batch_index: 188, timestamp: 1618694671.8895774>', 'BatchTimestamp<batch_index: 189, timestamp: 1618694671.912796>', 'BatchTimestamp<batch_index: 190, timestamp: 1618694671.9358406>', 'BatchTimestamp<batch_index: 191, timestamp: 1618694671.9610813>', 'BatchTimestamp<batch_index: 192, timestamp: 1618694671.9863734>', 'BatchTimestamp<batch_index: 193, timestamp: 1618694672.0091949>', 'BatchTimestamp<batch_index: 194, timestamp: 1618694672.0314622>', 'BatchTimestamp<batch_index: 195, timestamp: 1618694672.0528395>', 'BatchTimestamp<batch_index: 196, timestamp: 1618694672.0761983>', 'BatchTimestamp<batch_index: 197, timestamp: 1618694672.0992568>', 'BatchTimestamp<batch_index: 198, timestamp: 1618694672.1208532>', 'BatchTimestamp<batch_index: 199, timestamp: 1618694672.1428492>', 'BatchTimestamp<batch_index: 200, timestamp: 1618694672.166219>', 'BatchTimestamp<batch_index: 201, timestamp: 1618694690.4049168>', 'BatchTimestamp<batch_index: 202, timestamp: 1618694690.434678>', 'BatchTimestamp<batch_index: 203, timestamp: 1618694690.4594114>', 'BatchTimestamp<batch_index: 204, timestamp: 1618694690.4843473>', 'BatchTimestamp<batch_index: 205, timestamp: 1618694690.5104399>', 'BatchTimestamp<batch_index: 206, timestamp: 1618694690.53536>', 'BatchTimestamp<batch_index: 207, timestamp: 1618694690.5610244>', 'BatchTimestamp<batch_index: 208, timestamp: 1618694690.5880628>', 'BatchTimestamp<batch_index: 209, timestamp: 1618694690.612655>', 'BatchTimestamp<batch_index: 210, timestamp: 1618694690.6362545>', 'BatchTimestamp<batch_index: 211, timestamp: 1618694690.6602259>', 'BatchTimestamp<batch_index: 212, timestamp: 1618694690.6850166>', 'BatchTimestamp<batch_index: 213, timestamp: 1618694690.70916>', 'BatchTimestamp<batch_index: 214, timestamp: 1618694690.7349927>', 'BatchTimestamp<batch_index: 215, timestamp: 1618694690.7596645>', 'BatchTimestamp<batch_index: 216, timestamp: 1618694690.7846668>', 'BatchTimestamp<batch_index: 217, timestamp: 1618694690.8091578>', 'BatchTimestamp<batch_index: 218, timestamp: 1618694690.8343732>', 'BatchTimestamp<batch_index: 219, timestamp: 1618694690.8588996>', 'BatchTimestamp<batch_index: 220, timestamp: 1618694690.885536>', 'BatchTimestamp<batch_index: 221, timestamp: 1618694708.9316308>', 'BatchTimestamp<batch_index: 222, timestamp: 1618694708.966414>', 'BatchTimestamp<batch_index: 223, timestamp: 1618694708.997705>', 'BatchTimestamp<batch_index: 224, timestamp: 1618694709.0288908>', 'BatchTimestamp<batch_index: 225, timestamp: 1618694709.059608>', 'BatchTimestamp<batch_index: 226, timestamp: 1618694709.0884912>', 'BatchTimestamp<batch_index: 227, timestamp: 1618694709.1158953>', 'BatchTimestamp<batch_index: 228, timestamp: 1618694709.1435413>', 'BatchTimestamp<batch_index: 229, timestamp: 1618694709.1728828>', 'BatchTimestamp<batch_index: 230, timestamp: 1618694709.2007856>', 'BatchTimestamp<batch_index: 231, timestamp: 1618694709.2280514>', 'BatchTimestamp<batch_index: 232, timestamp: 1618694709.2566495>', 'BatchTimestamp<batch_index: 233, timestamp: 1618694709.285349>', 'BatchTimestamp<batch_index: 234, timestamp: 1618694709.312532>', 'BatchTimestamp<batch_index: 235, timestamp: 1618694709.33961>', 'BatchTimestamp<batch_index: 236, timestamp: 1618694709.3679388>', 'BatchTimestamp<batch_index: 237, timestamp: 1618694709.3952353>', 'BatchTimestamp<batch_index: 238, timestamp: 1618694709.4231002>', 'BatchTimestamp<batch_index: 239, timestamp: 1618694709.4516106>', 'BatchTimestamp<batch_index: 240, timestamp: 1618694709.4780562>'], 'train_finish_time': 1618694709.479697, 'avg_exp_per_second': 135.7742609579733}
