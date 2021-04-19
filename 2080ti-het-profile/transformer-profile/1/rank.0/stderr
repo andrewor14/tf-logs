@@ -1,0 +1,821 @@
+My commit is c03187b2 Add script to run virtual e1, e2, e3 more easily (/root/dev/models/deploy)
+
+==========================================================================
+git diff (/root/dev/models/deploy)
+--------------------------------------------------------------------------
+diff --git a/deploy/run_virtual_e123.sh b/deploy/run_virtual_e123.sh
+index 05e68ceb..dd04aa8d 100755
+--- a/deploy/run_virtual_e123.sh
++++ b/deploy/run_virtual_e123.sh
+@@ -45,6 +45,8 @@ else
+   exit 1
+ fi
+ 
++export BATCH_SIZE=128 NUM_NODES=2 CVD_SPLIT=0:1 VN_SPLIT=1:1 HETEROGENEOUS_SPLIT=64:64 NUM_STEPS=10 ENABLE_XLA=false SKIP_EVAL=true
++
+ EPOCHS_SO_FAR=0
+ ORIG_RUN_TAG="$RUN_TAG"
+ while [[ "$EPOCHS_SO_FAR" -lt "$NUM_TOTAL_EPOCHS" ]]; do
+==========================================================================
+
+
+==========================================================================
+My environment variables:
+--------------------------------------------------------------------------
+CUDNN_VERSION=7.6.2.24-1+cuda10.1
+PMIX_ID=2915106817.0
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+USE_RANK_FOR_CVD=true
+OMPI_FIRST_RANKS=0
+MPI_HOSTS=1e40712cf66c,30a78b1b79e6
+OMPI_MCA_orte_top_session_dir=/tmp/ompi.30a78b1b79e6.0
+LOG_MEMORY_ENABLED=false
+PMIX_SYSTEM_TMPDIR=/tmp
+OMPI_MCA_orte_num_nodes=1
+OMPI_COMMAND=run_transformer.sh
+MODEL=transformer
+LANG=C.UTF-8
+PARAM_SET=big
+HFI_NO_BACKTRACE=1
+HOSTNAME=30a78b1b79e6
+DECODE_BATCH_SIZE=32
+OMPI_MCA_ess_base_vpid=0
+OLDPWD=/root/dev/logs
+OMPI_MCA_initial_wdir=/root/dev/models/deploy
+VOCAB_FILE=/root/dev/dataset/transformer/vocab.ende.32768
+ENVIRONMENT=docker
+TF_DIR=/root/dev/tensorflow
+STEPS_BETWEEN_EVALS=100000
+DATA_DIR=/root/dev/dataset/transformer
+HOST_FLAG=--host 1e40712cf66c,30a78b1b79e6
+OMPI_MCA_btl_tcp_if_exclude=lo,docker0,eth1
+DTYPE=fp16
+NUM_CHECKPOINTS_TO_KEEP=5
+OMPI_COMM_WORLD_NODE_RANK=0
+NVIDIA_VISIBLE_DEVICES=all
+OMPI_MCA_orte_precondition_transports=9b4d9b0d9c3d13d1-5018f8fbcfa1bf10
+BASE_DIR=/root/dev
+OMPI_MCA_orte_ess_node_rank=0
+OMPI_MCA_shmem_RUNTIME_QUERY_hint=mmap
+OMPI_COMM_WORLD_RANK=0
+LOG_STEPS=1
+PMIX_RANK=0
+OMPI_FILE_LOCATION=/tmp/ompi.30a78b1b79e6.0/pid.7064/0/0
+NCCL_VERSION=2.4.7-1+cuda10.1
+TF_FORCE_GPU_ALLOW_GROWTH=true
+OMPI_MCA_orte_local_daemon_uri=2915106816.0;tcp://10.0.1.2,172.19.0.3:36923
+HOROVOD_GPU_OPERATIONS=NCCL
+PWD=/root/dev/models/deploy
+NUM_GPUS_PER_NODE=8
+HOME=/root
+ENABLE_XLA=true
+PMIX_SERVER_TMPDIR=/tmp/ompi.30a78b1b79e6.0/pid.7064
+RUN_SCRIPT=run_transformer.sh
+PMIX_PTL_MODULE=tcp,usock
+IPATH_NO_BACKTRACE=1
+JOB_NAME=transformer-04_19_21_1618867835380
+OMPI_MCA_rmaps_base_oversubscribe=1
+OMPI_MCA_orte_launch=1
+CODE_DIR=/root/dev/models/official/nlp/transformer
+OMPI_MCA_orte_tmpdir_base=/tmp
+LOG_DIR=/root/dev/logs
+TIMESTAMP=04_19_21_1618867836307
+MPI_HOST_FILE=/root/container_hosts/hosts.txt
+BLEU_SOURCE=
+NUM_VIRTUAL_NODES_PER_DEVICE=1
+OMPI_APP_CTX_NUM_PROCS=1
+OMPI_MCA_orte_output_filename=/root/dev/logs/transformer-04_19_21_1618867835380
+LOG_FILE=/dev/stderr
+MODELS_DIR=/root/dev/models
+OMPI_MCA_orte_app_num=0
+DISABLE_VIRTUAL_NODES=true
+PMIX_MCA_mca_base_component_show_load_errors=1
+NUM_NODES=1
+MAX_LENGTH=64
+OMPI_MCA_pml=ob1
+PYTHON_COMMAND=/usr/bin/python3
+IN_DOCKER_CONTAINER=true
+NUM_EPOCHS=100000
+PMIX_BFROP_BUFFER_TYPE=PMIX_BFROP_BUFFER_NON_DESC
+MPI_HOME=/usr/local
+TERM=xterm
+CUDA_PKG_VERSION=10-1=10.1.243-1
+CUDA_VERSION=10.1.243
+SKIP_EVAL=true
+PMIX_DSTORE_ESH_BASE_PATH=/tmp/ompi.30a78b1b79e6.0/pid.7064/pmix_dstor_ds12_7064
+OMPI_MCA_hwloc_base_binding_policy=none
+BLEU_REF=
+OMPI_MCA_rmaps_base_mapping_policy=node
+PMIX_SERVER_URI3=2915106816.0;tcp4://127.0.0.1:58647
+PMIX_SERVER_URI2=2915106816.0;tcp4://127.0.0.1:58647
+NUM_STEPS=100000
+OMPI_MCA_orte_hnp_uri=2915106816.0;tcp://10.0.1.2,172.19.0.3:36923
+TRAIN_DIR=/root/dev/logs/transformer-04_19_21_1618867835380
+OMPI_MCA_mpi_yield_when_idle=0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+DEFAULT_NUM_GPUS_PER_NODE=8
+ENABLE_CHECKPOINTS=false
+DISTRIBUTION_STRATEGY=mirrored
+OMPI_COMM_WORLD_LOCAL_SIZE=1
+CUDA_VISIBLE_DEVICES=0
+OMPI_COMM_WORLD_SIZE=1
+SHLVL=3
+PYTHONPATH=$PYTHONPATH:/root/dev/models:/root/dev/models:/root/dev/models
+OMPI_NUM_APP_CTX=1
+NVIDIA_REQUIRE_CUDA=cuda>=10.1 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419
+OMPI_MCA_pmix=^s1,s2,cray,isolated
+DEFAULT_DISTRIBUTION_STRATEGY=mirrored
+PMIX_SERVER_URI21=2915106816.0;tcp4://127.0.0.1:58647
+SAVED_CHECKPOINT_PATH=
+PMIX_DSTORE_21_BASE_PATH=/tmp/ompi.30a78b1b79e6.0/pid.7064/pmix_dstor_ds21_7064
+ENABLE_MONITOR_MEMORY=false
+ENABLE_HETEROGENEOUS_PROFILE=true
+CUBLAS_VERSION=10.1.0.105-1
+BATCH_SIZE=3072
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PMIX_SECURITY_MODE=native
+OMPI_MCA_ess=^singleton
+NCCL_DEBUG=INFO
+PMIX_NAMESPACE=2915106817
+OMPI_MCA_orte_ess_num_procs=1
+NCCL_SOCKET_IFNAME=^lo,docker0,eth1
+OMPI_MCA_ess_base_jobid=2915106817
+OMPI_COMM_WORLD_LOCAL_RANK=0
+OMPI_UNIVERSE_SIZE=2
+OMPI_MCA_orte_jobfam_session_dir=/tmp/ompi.30a78b1b79e6.0/pid.7064
+PMIX_GDS_MODULE=ds21,ds12,hash
+ENABLE_ELASTICITY=false
+NUM_GPUS=1
+OMPI_MCA_btl=^openib
+_=/usr/bin/printenv
+==========================================================================
+
+2021-04-19 21:30:36.595066: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+I0419 21:30:41.927481 140206176712512 virtual_helper.py:221] Setting TF_CONFIG to {"cluster": {"worker": ["30a78b1b79e6:2222"]}, "task": {"type": "worker", "index": 0}}
+INFO:tensorflow:Initializing local devices since in-graph multi-worker training with `MirroredStrategy` is not supported in eager mode. TF_CONFIG will be ignored when when initializing `MirroredStrategy`.
+I0419 21:30:41.928165 140206176712512 mirrored_strategy.py:306] Initializing local devices since in-graph multi-worker training with `MirroredStrategy` is not supported in eager mode. TF_CONFIG will be ignored when when initializing `MirroredStrategy`.
+2021-04-19 21:30:41.928665: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-19 21:30:41.928755: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-19 21:30:48.785358: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.665GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2021-04-19 21:30:48.785402: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-19 21:30:48.787948: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-19 21:30:48.787990: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-19 21:30:48.790332: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-19 21:30:48.790687: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-19 21:30:48.793357: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-19 21:30:48.794655: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-19 21:30:48.799905: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-19 21:30:48.801377: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-19 21:30:48.803754: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-19 21:30:48.804644: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:03:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.665GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2021-04-19 21:30:48.804670: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-19 21:30:48.804694: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-19 21:30:48.804714: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-19 21:30:48.804733: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-19 21:30:48.804751: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-19 21:30:48.804770: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-19 21:30:48.804788: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-19 21:30:48.804806: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-19 21:30:48.806342: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-19 21:30:48.806396: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-19 21:30:49.833886: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-19 21:30:49.833942: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-19 21:30:49.833951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-19 21:30:49.836153: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2021-04-19 21:30:49.836197: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10097 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:03:00.0, compute capability: 7.5)
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I0419 21:30:49.844453 140206176712512 mirrored_strategy.py:350] Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I0419 21:30:49.846191 140206176712512 transformer_main.py:180] Running transformer with num_gpus = 1
+I0419 21:30:49.846786 140206176712512 transformer_main.py:184] For training, using distribution strategy: <tensorflow.python.distribute.mirrored_strategy.MirroredStrategy object at 0x7f83741537f0>
+WARNING:tensorflow:From /root/dev/models/official/nlp/transformer/attention_layer.py:63: DenseEinsum.__init__ (from official.nlp.modeling.layers.dense_einsum) is deprecated and will be removed in a future version.
+Instructions for updating:
+DenseEinsum is deprecated. Please use tf.keras.experimental.EinsumDense layer instead.
+W0419 21:30:51.400043 140206176712512 deprecation.py:339] From /root/dev/models/official/nlp/transformer/attention_layer.py:63: DenseEinsum.__init__ (from official.nlp.modeling.layers.dense_einsum) is deprecated and will be removed in a future version.
+Instructions for updating:
+DenseEinsum is deprecated. Please use tf.keras.experimental.EinsumDense layer instead.
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:30:54.551266 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:30:54.553152 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:30:54.556922 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:30:54.557743 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:30:55.138814 140206176712512 transformer_main.py:314] Start train iteration at global step:0
+2021-04-19 21:30:55.186383: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-19 21:30:55.204867: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2095335000 Hz
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 1
+I0419 21:30:55.280809 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 1
+INFO:tensorflow:Running non-virtual train step
+I0419 21:30:55.340373 140184486135552 training.py:940] Running non-virtual train step
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:30:59.958899 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:30:59.961200 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Running non-virtual train step
+I0419 21:31:01.700021 140184486135552 training.py:940] Running non-virtual train step
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:31:06.044236 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:31:06.046469 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+2021-04-19 21:31:11.179501: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+I0419 21:31:11.922090 140206176712512 keras_utils.py:163] TimeHistory: 16.64 seconds, 0.06 examples/second between steps 0 and 1
+I0419 21:31:12.001068 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 12.81 examples/second between steps 1 and 2
+I0419 21:31:12.076381 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 13.37 examples/second between steps 2 and 3
+I0419 21:31:12.144055 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 14.88 examples/second between steps 3 and 4
+I0419 21:31:12.216007 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 13.99 examples/second between steps 4 and 5
+I0419 21:31:12.285180 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 14.56 examples/second between steps 5 and 6
+I0419 21:31:12.349403 140206176712512 keras_utils.py:163] TimeHistory: 0.06 seconds, 15.72 examples/second between steps 6 and 7
+I0419 21:31:12.423181 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 13.64 examples/second between steps 7 and 8
+I0419 21:31:12.493550 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 14.32 examples/second between steps 8 and 9
+I0419 21:31:12.564306 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 14.24 examples/second between steps 9 and 10
+I0419 21:31:12.634991 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 14.26 examples/second between steps 10 and 11
+I0419 21:31:12.707824 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 13.82 examples/second between steps 11 and 12
+I0419 21:31:12.773233 140206176712512 keras_utils.py:163] TimeHistory: 0.06 seconds, 15.40 examples/second between steps 12 and 13
+I0419 21:31:12.834245 140206176712512 keras_utils.py:163] TimeHistory: 0.06 seconds, 16.49 examples/second between steps 13 and 14
+I0419 21:31:12.898803 140206176712512 keras_utils.py:163] TimeHistory: 0.06 seconds, 15.57 examples/second between steps 14 and 15
+I0419 21:31:12.965297 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 15.11 examples/second between steps 15 and 16
+I0419 21:31:13.031473 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 15.18 examples/second between steps 16 and 17
+I0419 21:31:13.094383 140206176712512 keras_utils.py:163] TimeHistory: 0.06 seconds, 15.98 examples/second between steps 17 and 18
+I0419 21:31:13.160469 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 15.20 examples/second between steps 18 and 19
+I0419 21:31:13.227664 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 14.95 examples/second between steps 19 and 20
+I0419 21:31:13.229470 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 2
+I0419 21:31:13.229902 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 2
+INFO:tensorflow:Running non-virtual train step
+I0419 21:31:13.245312 140180736427776 training.py:940] Running non-virtual train step
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:31:17.689650 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:31:17.691724 140206176712512 cross_device_ops.py:565] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0419 21:31:22.927667 140206176712512 keras_utils.py:163] TimeHistory: 9.70 seconds, 0.21 examples/second between steps 20 and 21
+I0419 21:31:23.004393 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 26.29 examples/second between steps 21 and 22
+I0419 21:31:23.084401 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 25.10 examples/second between steps 22 and 23
+I0419 21:31:23.159451 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 26.73 examples/second between steps 23 and 24
+I0419 21:31:23.233474 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 27.13 examples/second between steps 24 and 25
+I0419 21:31:23.303423 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 28.70 examples/second between steps 25 and 26
+I0419 21:31:23.373335 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 28.69 examples/second between steps 26 and 27
+I0419 21:31:23.444360 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 28.31 examples/second between steps 27 and 28
+I0419 21:31:23.507308 140206176712512 keras_utils.py:163] TimeHistory: 0.06 seconds, 32.06 examples/second between steps 28 and 29
+I0419 21:31:23.583172 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 26.47 examples/second between steps 29 and 30
+I0419 21:31:23.658647 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 26.62 examples/second between steps 30 and 31
+I0419 21:31:23.732447 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 27.22 examples/second between steps 31 and 32
+I0419 21:31:23.801986 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 28.90 examples/second between steps 32 and 33
+I0419 21:31:23.868582 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 30.18 examples/second between steps 33 and 34
+I0419 21:31:23.938205 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 28.86 examples/second between steps 34 and 35
+I0419 21:31:24.017199 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 25.40 examples/second between steps 35 and 36
+I0419 21:31:24.088070 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 28.34 examples/second between steps 36 and 37
+I0419 21:31:24.156693 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 29.28 examples/second between steps 37 and 38
+I0419 21:31:24.227524 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 28.36 examples/second between steps 38 and 39
+I0419 21:31:24.301302 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 27.23 examples/second between steps 39 and 40
+I0419 21:31:24.302874 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 4
+I0419 21:31:24.303254 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 4
+INFO:tensorflow:Running non-virtual train step
+I0419 21:31:24.316712 140180585445120 training.py:940] Running non-virtual train step
+I0419 21:31:33.702556 140206176712512 keras_utils.py:163] TimeHistory: 9.40 seconds, 0.43 examples/second between steps 40 and 41
+I0419 21:31:33.794886 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 43.52 examples/second between steps 41 and 42
+I0419 21:31:33.869851 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 53.50 examples/second between steps 42 and 43
+I0419 21:31:33.949311 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 50.52 examples/second between steps 43 and 44
+I0419 21:31:34.024051 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 53.66 examples/second between steps 44 and 45
+I0419 21:31:34.095966 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 55.86 examples/second between steps 45 and 46
+I0419 21:31:34.165568 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 57.69 examples/second between steps 46 and 47
+I0419 21:31:34.237781 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 55.63 examples/second between steps 47 and 48
+I0419 21:31:34.313344 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 53.16 examples/second between steps 48 and 49
+I0419 21:31:34.398951 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 46.89 examples/second between steps 49 and 50
+I0419 21:31:34.472124 140206176712512 keras_utils.py:163] TimeHistory: 0.07 seconds, 54.90 examples/second between steps 50 and 51
+I0419 21:31:34.563148 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 44.06 examples/second between steps 51 and 52
+I0419 21:31:34.648922 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 46.74 examples/second between steps 52 and 53
+I0419 21:31:34.743149 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 42.55 examples/second between steps 53 and 54
+I0419 21:31:34.827722 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 47.45 examples/second between steps 54 and 55
+I0419 21:31:34.908321 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 49.76 examples/second between steps 55 and 56
+I0419 21:31:35.000208 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 43.63 examples/second between steps 56 and 57
+I0419 21:31:35.086922 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 46.28 examples/second between steps 57 and 58
+I0419 21:31:35.163399 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 52.51 examples/second between steps 58 and 59
+I0419 21:31:35.242474 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 50.79 examples/second between steps 59 and 60
+I0419 21:31:35.243381 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 8
+I0419 21:31:35.243654 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 8
+INFO:tensorflow:Running non-virtual train step
+I0419 21:31:35.255359 140180577052416 training.py:940] Running non-virtual train step
+I0419 21:31:45.072841 140206176712512 keras_utils.py:163] TimeHistory: 9.83 seconds, 0.81 examples/second between steps 60 and 61
+I0419 21:31:45.198652 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 63.79 examples/second between steps 61 and 62
+I0419 21:31:45.284064 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 93.87 examples/second between steps 62 and 63
+I0419 21:31:45.400538 140206176712512 keras_utils.py:163] TimeHistory: 0.12 seconds, 68.80 examples/second between steps 63 and 64
+I0419 21:31:45.499093 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 81.32 examples/second between steps 64 and 65
+I0419 21:31:45.605706 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 75.16 examples/second between steps 65 and 66
+I0419 21:31:45.688557 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 96.88 examples/second between steps 66 and 67
+I0419 21:31:45.767367 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 101.92 examples/second between steps 67 and 68
+I0419 21:31:45.867219 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 80.28 examples/second between steps 68 and 69
+I0419 21:31:45.948340 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 98.82 examples/second between steps 69 and 70
+I0419 21:31:46.031943 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 95.92 examples/second between steps 70 and 71
+I0419 21:31:46.143306 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 71.95 examples/second between steps 71 and 72
+I0419 21:31:46.236874 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 85.68 examples/second between steps 72 and 73
+I0419 21:31:46.333068 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 83.34 examples/second between steps 73 and 74
+I0419 21:31:46.415521 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 97.28 examples/second between steps 74 and 75
+I0419 21:31:46.525491 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 72.96 examples/second between steps 75 and 76
+I0419 21:31:46.610432 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 94.52 examples/second between steps 76 and 77
+I0419 21:31:46.727988 140206176712512 keras_utils.py:163] TimeHistory: 0.12 seconds, 68.17 examples/second between steps 77 and 78
+I0419 21:31:46.824438 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 83.14 examples/second between steps 78 and 79
+I0419 21:31:46.928375 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 77.19 examples/second between steps 79 and 80
+I0419 21:31:46.929539 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 12
+I0419 21:31:46.929785 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 12
+INFO:tensorflow:Running non-virtual train step
+I0419 21:31:46.943412 140180568659712 training.py:940] Running non-virtual train step
+I0419 21:31:56.450417 140206176712512 keras_utils.py:163] TimeHistory: 9.52 seconds, 1.26 examples/second between steps 80 and 81
+I0419 21:31:56.549632 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 121.36 examples/second between steps 81 and 82
+I0419 21:31:56.661476 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 107.46 examples/second between steps 82 and 83
+I0419 21:31:56.777479 140206176712512 keras_utils.py:163] TimeHistory: 0.12 seconds, 103.60 examples/second between steps 83 and 84
+I0419 21:31:56.861604 140206176712512 keras_utils.py:163] TimeHistory: 0.08 seconds, 142.93 examples/second between steps 84 and 85
+I0419 21:31:56.961179 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 120.71 examples/second between steps 85 and 86
+I0419 21:31:57.066941 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 113.65 examples/second between steps 86 and 87
+I0419 21:31:57.192032 140206176712512 keras_utils.py:163] TimeHistory: 0.12 seconds, 96.07 examples/second between steps 87 and 88
+I0419 21:31:57.325989 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 89.70 examples/second between steps 88 and 89
+I0419 21:31:57.427340 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 118.59 examples/second between steps 89 and 90
+I0419 21:31:57.553874 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 94.95 examples/second between steps 90 and 91
+I0419 21:31:57.684815 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 91.77 examples/second between steps 91 and 92
+I0419 21:31:57.826769 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 84.71 examples/second between steps 92 and 93
+I0419 21:31:57.942843 140206176712512 keras_utils.py:163] TimeHistory: 0.12 seconds, 103.52 examples/second between steps 93 and 94
+I0419 21:31:58.030079 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 137.83 examples/second between steps 94 and 95
+I0419 21:31:58.134181 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 115.46 examples/second between steps 95 and 96
+I0419 21:31:58.260781 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 94.93 examples/second between steps 96 and 97
+I0419 21:31:58.378952 140206176712512 keras_utils.py:163] TimeHistory: 0.12 seconds, 101.71 examples/second between steps 97 and 98
+I0419 21:31:58.487529 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 110.69 examples/second between steps 98 and 99
+I0419 21:31:58.618994 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 91.40 examples/second between steps 99 and 100
+I0419 21:31:58.619605 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 16
+I0419 21:31:58.619776 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 16
+INFO:tensorflow:Running non-virtual train step
+I0419 21:31:58.629035 140179813693184 training.py:940] Running non-virtual train step
+I0419 21:32:08.725454 140206176712512 keras_utils.py:163] TimeHistory: 10.11 seconds, 1.58 examples/second between steps 100 and 101
+I0419 21:32:08.871890 140206176712512 keras_utils.py:163] TimeHistory: 0.15 seconds, 109.52 examples/second between steps 101 and 102
+I0419 21:32:08.978118 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 150.88 examples/second between steps 102 and 103
+I0419 21:32:09.105961 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 125.33 examples/second between steps 103 and 104
+I0419 21:32:09.213583 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 148.91 examples/second between steps 104 and 105
+I0419 21:32:09.305729 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 174.00 examples/second between steps 105 and 106
+I0419 21:32:09.465805 140206176712512 keras_utils.py:163] TimeHistory: 0.16 seconds, 100.06 examples/second between steps 106 and 107
+I0419 21:32:09.560492 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 169.33 examples/second between steps 107 and 108
+I0419 21:32:09.650524 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 178.35 examples/second between steps 108 and 109
+I0419 21:32:09.781259 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 122.57 examples/second between steps 109 and 110
+I0419 21:32:09.911651 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 122.87 examples/second between steps 110 and 111
+I0419 21:32:10.028787 140206176712512 keras_utils.py:163] TimeHistory: 0.12 seconds, 136.80 examples/second between steps 111 and 112
+I0419 21:32:10.199550 140206176712512 keras_utils.py:163] TimeHistory: 0.17 seconds, 93.80 examples/second between steps 112 and 113
+I0419 21:32:10.339225 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 114.71 examples/second between steps 113 and 114
+I0419 21:32:10.449280 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 145.68 examples/second between steps 114 and 115
+I0419 21:32:10.606294 140206176712512 keras_utils.py:163] TimeHistory: 0.16 seconds, 102.02 examples/second between steps 115 and 116
+I0419 21:32:10.752648 140206176712512 keras_utils.py:163] TimeHistory: 0.15 seconds, 109.48 examples/second between steps 116 and 117
+I0419 21:32:10.838455 140206176712512 keras_utils.py:163] TimeHistory: 0.09 seconds, 186.84 examples/second between steps 117 and 118
+I0419 21:32:10.936119 140206176712512 keras_utils.py:163] TimeHistory: 0.10 seconds, 164.13 examples/second between steps 118 and 119
+I0419 21:32:11.063641 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 125.64 examples/second between steps 119 and 120
+I0419 21:32:11.065734 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 24
+I0419 21:32:11.065999 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 24
+INFO:tensorflow:Running non-virtual train step
+I0419 21:32:11.075280 140179805300480 training.py:940] Running non-virtual train step
+I0419 21:32:20.698439 140206176712512 keras_utils.py:163] TimeHistory: 9.63 seconds, 2.49 examples/second between steps 120 and 121
+I0419 21:32:20.834264 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 177.38 examples/second between steps 121 and 122
+I0419 21:32:21.014206 140206176712512 keras_utils.py:163] TimeHistory: 0.18 seconds, 133.50 examples/second between steps 122 and 123
+I0419 21:32:21.177059 140206176712512 keras_utils.py:163] TimeHistory: 0.16 seconds, 147.52 examples/second between steps 123 and 124
+I0419 21:32:21.335670 140206176712512 keras_utils.py:163] TimeHistory: 0.16 seconds, 151.50 examples/second between steps 124 and 125
+I0419 21:32:21.462904 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 188.90 examples/second between steps 125 and 126
+I0419 21:32:21.592420 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 185.55 examples/second between steps 126 and 127
+I0419 21:32:21.805133 140206176712512 keras_utils.py:163] TimeHistory: 0.21 seconds, 112.92 examples/second between steps 127 and 128
+I0419 21:32:22.047835 140206176712512 keras_utils.py:163] TimeHistory: 0.24 seconds, 98.95 examples/second between steps 128 and 129
+I0419 21:32:22.189680 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 169.39 examples/second between steps 129 and 130
+I0419 21:32:22.386048 140206176712512 keras_utils.py:163] TimeHistory: 0.20 seconds, 122.32 examples/second between steps 130 and 131
+I0419 21:32:22.523071 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 175.37 examples/second between steps 131 and 132
+I0419 21:32:22.688474 140206176712512 keras_utils.py:163] TimeHistory: 0.17 seconds, 145.25 examples/second between steps 132 and 133
+I0419 21:32:22.920997 140206176712512 keras_utils.py:163] TimeHistory: 0.23 seconds, 103.29 examples/second between steps 133 and 134
+I0419 21:32:23.031644 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 217.22 examples/second between steps 134 and 135
+I0419 21:32:23.180438 140206176712512 keras_utils.py:163] TimeHistory: 0.15 seconds, 161.48 examples/second between steps 135 and 136
+I0419 21:32:23.286537 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 226.59 examples/second between steps 136 and 137
+I0419 21:32:23.444060 140206176712512 keras_utils.py:163] TimeHistory: 0.16 seconds, 152.52 examples/second between steps 137 and 138
+I0419 21:32:23.659447 140206176712512 keras_utils.py:163] TimeHistory: 0.22 seconds, 111.51 examples/second between steps 138 and 139
+I0419 21:32:23.842323 140206176712512 keras_utils.py:163] TimeHistory: 0.18 seconds, 131.35 examples/second between steps 139 and 140
+I0419 21:32:23.843063 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 32
+I0419 21:32:23.843244 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 32
+INFO:tensorflow:Running non-virtual train step
+I0419 21:32:23.852733 140179796907776 training.py:940] Running non-virtual train step
+I0419 21:32:33.873146 140206176712512 keras_utils.py:163] TimeHistory: 10.03 seconds, 3.19 examples/second between steps 140 and 141
+I0419 21:32:34.123143 140206176712512 keras_utils.py:163] TimeHistory: 0.25 seconds, 128.35 examples/second between steps 141 and 142
+I0419 21:32:34.253558 140206176712512 keras_utils.py:163] TimeHistory: 0.13 seconds, 245.69 examples/second between steps 142 and 143
+I0419 21:32:34.563329 140206176712512 keras_utils.py:163] TimeHistory: 0.31 seconds, 103.35 examples/second between steps 143 and 144
+I0419 21:32:34.713498 140206176712512 keras_utils.py:163] TimeHistory: 0.15 seconds, 213.30 examples/second between steps 144 and 145
+I0419 21:32:34.935332 140206176712512 keras_utils.py:163] TimeHistory: 0.22 seconds, 144.35 examples/second between steps 145 and 146
+I0419 21:32:35.230110 140206176712512 keras_utils.py:163] TimeHistory: 0.29 seconds, 108.63 examples/second between steps 146 and 147
+I0419 21:32:35.377228 140206176712512 keras_utils.py:163] TimeHistory: 0.15 seconds, 217.84 examples/second between steps 147 and 148
+I0419 21:32:35.654913 140206176712512 keras_utils.py:163] TimeHistory: 0.28 seconds, 115.32 examples/second between steps 148 and 149
+I0419 21:32:35.796817 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 225.82 examples/second between steps 149 and 150
+I0419 21:32:35.984256 140206176712512 keras_utils.py:163] TimeHistory: 0.19 seconds, 170.91 examples/second between steps 150 and 151
+I0419 21:32:36.218614 140206176712512 keras_utils.py:163] TimeHistory: 0.23 seconds, 136.66 examples/second between steps 151 and 152
+I0419 21:32:36.383639 140206176712512 keras_utils.py:163] TimeHistory: 0.16 seconds, 194.14 examples/second between steps 152 and 153
+I0419 21:32:36.584227 140206176712512 keras_utils.py:163] TimeHistory: 0.20 seconds, 159.69 examples/second between steps 153 and 154
+I0419 21:32:36.698215 140206176712512 keras_utils.py:163] TimeHistory: 0.11 seconds, 281.22 examples/second between steps 154 and 155
+I0419 21:32:36.947149 140206176712512 keras_utils.py:163] TimeHistory: 0.25 seconds, 128.66 examples/second between steps 155 and 156
+I0419 21:32:37.116876 140206176712512 keras_utils.py:163] TimeHistory: 0.17 seconds, 188.76 examples/second between steps 156 and 157
+I0419 21:32:37.336448 140206176712512 keras_utils.py:163] TimeHistory: 0.22 seconds, 145.88 examples/second between steps 157 and 158
+I0419 21:32:37.612788 140206176712512 keras_utils.py:163] TimeHistory: 0.28 seconds, 115.89 examples/second between steps 158 and 159
+I0419 21:32:37.851974 140206176712512 keras_utils.py:163] TimeHistory: 0.24 seconds, 133.90 examples/second between steps 159 and 160
+I0419 21:32:37.853181 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 48
+I0419 21:32:37.853424 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 48
+INFO:tensorflow:Running non-virtual train step
+I0419 21:32:37.867552 140179788515072 training.py:940] Running non-virtual train step
+I0419 21:32:47.525478 140206176712512 keras_utils.py:163] TimeHistory: 9.67 seconds, 4.96 examples/second between steps 160 and 161
+I0419 21:32:47.746672 140206176712512 keras_utils.py:163] TimeHistory: 0.22 seconds, 217.64 examples/second between steps 161 and 162
+I0419 21:32:48.028351 140206176712512 keras_utils.py:163] TimeHistory: 0.28 seconds, 170.49 examples/second between steps 162 and 163
+I0419 21:32:48.512153 140206176712512 keras_utils.py:163] TimeHistory: 0.48 seconds, 99.25 examples/second between steps 163 and 164
+I0419 21:32:48.796697 140206176712512 keras_utils.py:163] TimeHistory: 0.28 seconds, 168.87 examples/second between steps 164 and 165
+I0419 21:32:49.218695 140206176712512 keras_utils.py:163] TimeHistory: 0.42 seconds, 113.80 examples/second between steps 165 and 166
+I0419 21:32:49.386392 140206176712512 keras_utils.py:163] TimeHistory: 0.17 seconds, 286.47 examples/second between steps 166 and 167
+I0419 21:32:49.573731 140206176712512 keras_utils.py:163] TimeHistory: 0.19 seconds, 256.42 examples/second between steps 167 and 168
+I0419 21:32:49.890596 140206176712512 keras_utils.py:163] TimeHistory: 0.32 seconds, 151.55 examples/second between steps 168 and 169
+I0419 21:32:50.193414 140206176712512 keras_utils.py:163] TimeHistory: 0.30 seconds, 158.59 examples/second between steps 169 and 170
+I0419 21:32:50.391576 140206176712512 keras_utils.py:163] TimeHistory: 0.20 seconds, 242.40 examples/second between steps 170 and 171
+I0419 21:32:50.775581 140206176712512 keras_utils.py:163] TimeHistory: 0.38 seconds, 125.05 examples/second between steps 171 and 172
+I0419 21:32:51.135710 140206176712512 keras_utils.py:163] TimeHistory: 0.36 seconds, 133.35 examples/second between steps 172 and 173
+I0419 21:32:51.277764 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 338.38 examples/second between steps 173 and 174
+I0419 21:32:51.518943 140206176712512 keras_utils.py:163] TimeHistory: 0.24 seconds, 199.19 examples/second between steps 174 and 175
+I0419 21:32:51.746017 140206176712512 keras_utils.py:163] TimeHistory: 0.23 seconds, 211.57 examples/second between steps 175 and 176
+I0419 21:32:52.017006 140206176712512 keras_utils.py:163] TimeHistory: 0.27 seconds, 177.26 examples/second between steps 176 and 177
+I0419 21:32:52.170503 140206176712512 keras_utils.py:163] TimeHistory: 0.15 seconds, 313.11 examples/second between steps 177 and 178
+I0419 21:32:52.488342 140206176712512 keras_utils.py:163] TimeHistory: 0.32 seconds, 151.11 examples/second between steps 178 and 179
+I0419 21:32:52.911653 140206176712512 keras_utils.py:163] TimeHistory: 0.42 seconds, 113.44 examples/second between steps 179 and 180
+I0419 21:32:52.917458 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 64
+I0419 21:32:52.917661 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 64
+INFO:tensorflow:Running non-virtual train step
+I0419 21:32:52.928777 140179780122368 training.py:940] Running non-virtual train step
+I0419 21:33:02.718681 140206176712512 keras_utils.py:163] TimeHistory: 9.80 seconds, 6.53 examples/second between steps 180 and 181
+I0419 21:33:03.162073 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 144.56 examples/second between steps 181 and 182
+I0419 21:33:03.436644 140206176712512 keras_utils.py:163] TimeHistory: 0.27 seconds, 233.21 examples/second between steps 182 and 183
+I0419 21:33:03.869381 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 147.95 examples/second between steps 183 and 184
+I0419 21:33:04.307159 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 146.24 examples/second between steps 184 and 185
+I0419 21:33:04.655253 140206176712512 keras_utils.py:163] TimeHistory: 0.35 seconds, 183.93 examples/second between steps 185 and 186
+I0419 21:33:05.039388 140206176712512 keras_utils.py:163] TimeHistory: 0.38 seconds, 166.67 examples/second between steps 186 and 187
+I0419 21:33:05.347653 140206176712512 keras_utils.py:163] TimeHistory: 0.31 seconds, 207.71 examples/second between steps 187 and 188
+I0419 21:33:05.634259 140206176712512 keras_utils.py:163] TimeHistory: 0.29 seconds, 223.43 examples/second between steps 188 and 189
+I0419 21:33:05.774861 140206176712512 keras_utils.py:163] TimeHistory: 0.14 seconds, 455.71 examples/second between steps 189 and 190
+I0419 21:33:06.211906 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 146.49 examples/second between steps 190 and 191
+I0419 21:33:06.640010 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 149.56 examples/second between steps 191 and 192
+I0419 21:33:06.889839 140206176712512 keras_utils.py:163] TimeHistory: 0.25 seconds, 256.34 examples/second between steps 192 and 193
+I0419 21:33:07.108831 140206176712512 keras_utils.py:163] TimeHistory: 0.22 seconds, 292.46 examples/second between steps 193 and 194
+I0419 21:33:07.476085 140206176712512 keras_utils.py:163] TimeHistory: 0.37 seconds, 174.36 examples/second between steps 194 and 195
+I0419 21:33:07.710466 140206176712512 keras_utils.py:163] TimeHistory: 0.23 seconds, 273.40 examples/second between steps 195 and 196
+I0419 21:33:08.153110 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 144.64 examples/second between steps 196 and 197
+I0419 21:33:08.604203 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 141.93 examples/second between steps 197 and 198
+I0419 21:33:09.044754 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 145.33 examples/second between steps 198 and 199
+I0419 21:33:09.352710 140206176712512 keras_utils.py:163] TimeHistory: 0.31 seconds, 207.93 examples/second between steps 199 and 200
+I0419 21:33:09.353660 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 96
+I0419 21:33:09.353839 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 96
+INFO:tensorflow:Running non-virtual train step
+I0419 21:33:09.364583 140179771729664 training.py:940] Running non-virtual train step
+I0419 21:33:19.870943 140206176712512 keras_utils.py:163] TimeHistory: 10.52 seconds, 9.13 examples/second between steps 200 and 201
+I0419 21:33:20.306681 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 220.50 examples/second between steps 201 and 202
+I0419 21:33:20.688100 140206176712512 keras_utils.py:163] TimeHistory: 0.38 seconds, 251.80 examples/second between steps 202 and 203
+I0419 21:33:21.125833 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 219.39 examples/second between steps 203 and 204
+I0419 21:33:21.392711 140206176712512 keras_utils.py:163] TimeHistory: 0.27 seconds, 359.94 examples/second between steps 204 and 205
+I0419 21:33:21.828673 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 220.29 examples/second between steps 205 and 206
+I0419 21:33:22.272536 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 216.36 examples/second between steps 206 and 207
+I0419 21:33:22.710967 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 219.06 examples/second between steps 207 and 208
+I0419 21:33:23.146716 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 220.40 examples/second between steps 208 and 209
+I0419 21:33:23.393574 140206176712512 keras_utils.py:163] TimeHistory: 0.25 seconds, 389.14 examples/second between steps 209 and 210
+I0419 21:33:23.807051 140206176712512 keras_utils.py:163] TimeHistory: 0.41 seconds, 232.27 examples/second between steps 210 and 211
+I0419 21:33:24.241473 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 221.07 examples/second between steps 211 and 212
+I0419 21:33:24.685244 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 216.43 examples/second between steps 212 and 213
+I0419 21:33:25.125075 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 218.35 examples/second between steps 213 and 214
+I0419 21:33:25.563164 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 219.22 examples/second between steps 214 and 215
+I0419 21:33:26.003270 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 218.21 examples/second between steps 215 and 216
+I0419 21:33:26.290962 140206176712512 keras_utils.py:163] TimeHistory: 0.29 seconds, 333.94 examples/second between steps 216 and 217
+I0419 21:33:26.730878 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 218.31 examples/second between steps 217 and 218
+I0419 21:33:27.098253 140206176712512 keras_utils.py:163] TimeHistory: 0.37 seconds, 261.43 examples/second between steps 218 and 219
+I0419 21:33:27.323679 140206176712512 keras_utils.py:163] TimeHistory: 0.23 seconds, 426.18 examples/second between steps 219 and 220
+I0419 21:33:27.324370 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 128
+I0419 21:33:27.324552 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 128
+INFO:tensorflow:Running non-virtual train step
+I0419 21:33:27.333949 140179763336960 training.py:940] Running non-virtual train step
+I0419 21:33:37.181239 140206176712512 keras_utils.py:163] TimeHistory: 9.86 seconds, 12.99 examples/second between steps 220 and 221
+I0419 21:33:37.612643 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 297.06 examples/second between steps 221 and 222
+I0419 21:33:38.003058 140206176712512 keras_utils.py:163] TimeHistory: 0.39 seconds, 328.02 examples/second between steps 222 and 223
+I0419 21:33:38.442146 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 291.61 examples/second between steps 223 and 224
+I0419 21:33:38.876088 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 295.07 examples/second between steps 224 and 225
+I0419 21:33:39.318393 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 289.49 examples/second between steps 225 and 226
+I0419 21:33:39.754410 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 293.66 examples/second between steps 226 and 227
+I0419 21:33:40.193848 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 291.38 examples/second between steps 227 and 228
+I0419 21:33:40.632874 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 291.65 examples/second between steps 228 and 229
+I0419 21:33:41.076114 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 288.88 examples/second between steps 229 and 230
+I0419 21:33:41.513389 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 292.82 examples/second between steps 230 and 231
+I0419 21:33:41.952174 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 291.81 examples/second between steps 231 and 232
+I0419 21:33:42.392913 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 290.63 examples/second between steps 232 and 233
+I0419 21:33:42.835155 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 289.53 examples/second between steps 233 and 234
+I0419 21:33:43.274435 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 291.48 examples/second between steps 234 and 235
+I0419 21:33:43.711627 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 292.87 examples/second between steps 235 and 236
+I0419 21:33:44.152300 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 290.56 examples/second between steps 236 and 237
+I0419 21:33:44.589423 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 292.92 examples/second between steps 237 and 238
+I0419 21:33:45.029894 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 290.69 examples/second between steps 238 and 239
+I0419 21:33:45.475460 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 287.38 examples/second between steps 239 and 240
+I0419 21:33:45.476128 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 192
+I0419 21:33:45.476294 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 192
+INFO:tensorflow:Running non-virtual train step
+I0419 21:33:45.485791 140172767262464 training.py:940] Running non-virtual train step
+I0419 21:33:55.279417 140206176712512 keras_utils.py:163] TimeHistory: 9.80 seconds, 19.59 examples/second between steps 240 and 241
+I0419 21:33:55.667290 140206176712512 keras_utils.py:163] TimeHistory: 0.39 seconds, 495.80 examples/second between steps 241 and 242
+I0419 21:33:56.103707 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 440.11 examples/second between steps 242 and 243
+I0419 21:33:56.541660 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 438.59 examples/second between steps 243 and 244
+I0419 21:33:56.981840 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 436.38 examples/second between steps 244 and 245
+I0419 21:33:57.414557 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 443.91 examples/second between steps 245 and 246
+I0419 21:33:57.856631 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 434.51 examples/second between steps 246 and 247
+I0419 21:33:58.294662 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 438.52 examples/second between steps 247 and 248
+I0419 21:33:58.725407 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 445.95 examples/second between steps 248 and 249
+I0419 21:33:59.156009 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 446.08 examples/second between steps 249 and 250
+I0419 21:33:59.599287 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 433.28 examples/second between steps 250 and 251
+I0419 21:34:00.037500 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 438.34 examples/second between steps 251 and 252
+I0419 21:34:00.476536 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 437.61 examples/second between steps 252 and 253
+I0419 21:34:00.916134 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 436.94 examples/second between steps 253 and 254
+I0419 21:34:01.354597 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 438.04 examples/second between steps 254 and 255
+I0419 21:34:01.794133 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 436.97 examples/second between steps 255 and 256
+I0419 21:34:02.238544 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 432.17 examples/second between steps 256 and 257
+I0419 21:34:02.674780 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 440.28 examples/second between steps 257 and 258
+I0419 21:34:03.113157 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 438.12 examples/second between steps 258 and 259
+I0419 21:34:03.561501 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 428.38 examples/second between steps 259 and 260
+I0419 21:34:03.562375 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 256
+I0419 21:34:03.562554 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 256
+INFO:tensorflow:Running non-virtual train step
+I0419 21:34:03.572486 140172758869760 training.py:940] Running non-virtual train step
+I0419 21:34:14.116602 140206176712512 keras_utils.py:163] TimeHistory: 10.55 seconds, 24.26 examples/second between steps 260 and 261
+I0419 21:34:14.552094 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 588.73 examples/second between steps 261 and 262
+I0419 21:34:14.991203 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 583.31 examples/second between steps 262 and 263
+I0419 21:34:15.423581 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 592.47 examples/second between steps 263 and 264
+I0419 21:34:15.861045 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 585.38 examples/second between steps 264 and 265
+I0419 21:34:16.314321 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 564.96 examples/second between steps 265 and 266
+I0419 21:34:16.844471 140206176712512 keras_utils.py:163] TimeHistory: 0.53 seconds, 483.08 examples/second between steps 266 and 267
+I0419 21:34:17.288572 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 576.64 examples/second between steps 267 and 268
+I0419 21:34:17.726310 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 585.04 examples/second between steps 268 and 269
+I0419 21:34:18.170359 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 576.70 examples/second between steps 269 and 270
+I0419 21:34:18.600492 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 595.36 examples/second between steps 270 and 271
+I0419 21:34:19.041760 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 580.34 examples/second between steps 271 and 272
+I0419 21:34:19.483040 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 580.32 examples/second between steps 272 and 273
+I0419 21:34:19.920006 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 586.05 examples/second between steps 273 and 274
+I0419 21:34:20.357038 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 585.96 examples/second between steps 274 and 275
+I0419 21:34:20.788327 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 593.77 examples/second between steps 275 and 276
+I0419 21:34:21.227755 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 582.77 examples/second between steps 276 and 277
+I0419 21:34:21.666710 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 583.40 examples/second between steps 277 and 278
+I0419 21:34:22.105835 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 583.17 examples/second between steps 278 and 279
+I0419 21:34:22.545663 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 582.25 examples/second between steps 279 and 280
+I0419 21:34:22.546760 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 384
+I0419 21:34:22.546940 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 384
+INFO:tensorflow:Running non-virtual train step
+I0419 21:34:22.558367 140172750477056 training.py:940] Running non-virtual train step
+I0419 21:34:32.400490 140206176712512 keras_utils.py:163] TimeHistory: 9.85 seconds, 38.97 examples/second between steps 280 and 281
+I0419 21:34:32.843827 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 867.30 examples/second between steps 281 and 282
+I0419 21:34:33.280449 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 879.77 examples/second between steps 282 and 283
+I0419 21:34:33.711013 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 892.20 examples/second between steps 283 and 284
+I0419 21:34:34.152131 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 870.88 examples/second between steps 284 and 285
+I0419 21:34:34.592805 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 871.68 examples/second between steps 285 and 286
+I0419 21:34:35.035969 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 866.78 examples/second between steps 286 and 287
+I0419 21:34:35.473250 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 878.44 examples/second between steps 287 and 288
+I0419 21:34:35.910526 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 878.45 examples/second between steps 288 and 289
+I0419 21:34:36.342830 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 888.61 examples/second between steps 289 and 290
+I0419 21:34:36.774935 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 889.27 examples/second between steps 290 and 291
+I0419 21:34:37.212219 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 878.43 examples/second between steps 291 and 292
+I0419 21:34:37.653369 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 870.73 examples/second between steps 292 and 293
+I0419 21:34:38.092390 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 874.96 examples/second between steps 293 and 294
+I0419 21:34:38.524412 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 889.14 examples/second between steps 294 and 295
+I0419 21:34:38.965762 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 870.34 examples/second between steps 295 and 296
+I0419 21:34:39.403588 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 877.34 examples/second between steps 296 and 297
+I0419 21:34:39.847826 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 864.70 examples/second between steps 297 and 298
+I0419 21:34:40.289529 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 869.74 examples/second between steps 298 and 299
+I0419 21:34:40.730413 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 871.26 examples/second between steps 299 and 300
+I0419 21:34:40.731243 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 512
+I0419 21:34:40.731420 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 512
+INFO:tensorflow:Running non-virtual train step
+I0419 21:34:40.741755 140172742084352 training.py:940] Running non-virtual train step
+I0419 21:34:50.569339 140206176712512 keras_utils.py:163] TimeHistory: 9.83 seconds, 52.07 examples/second between steps 300 and 301
+I0419 21:34:51.014014 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1152.48 examples/second between steps 301 and 302
+I0419 21:34:51.457932 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1153.81 examples/second between steps 302 and 303
+I0419 21:34:51.898451 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1163.05 examples/second between steps 303 and 304
+I0419 21:34:52.334889 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1173.52 examples/second between steps 304 and 305
+I0419 21:34:52.775380 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1162.72 examples/second between steps 305 and 306
+I0419 21:34:53.214061 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1167.52 examples/second between steps 306 and 307
+I0419 21:34:53.653038 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1166.79 examples/second between steps 307 and 308
+I0419 21:34:54.089821 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1172.91 examples/second between steps 308 and 309
+I0419 21:34:54.526605 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1172.59 examples/second between steps 309 and 310
+I0419 21:34:55.046008 140206176712512 keras_utils.py:163] TimeHistory: 0.52 seconds, 986.02 examples/second between steps 310 and 311
+I0419 21:34:55.478743 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1183.64 examples/second between steps 311 and 312
+I0419 21:34:55.924969 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 1148.15 examples/second between steps 312 and 313
+I0419 21:34:56.356746 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1186.24 examples/second between steps 313 and 314
+I0419 21:34:56.797889 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1161.00 examples/second between steps 314 and 315
+I0419 21:34:57.233940 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1174.56 examples/second between steps 315 and 316
+I0419 21:34:57.674521 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1162.48 examples/second between steps 316 and 317
+I0419 21:34:58.117525 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1156.12 examples/second between steps 317 and 318
+I0419 21:34:58.548679 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1187.96 examples/second between steps 318 and 319
+I0419 21:34:58.988407 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1164.76 examples/second between steps 319 and 320
+I0419 21:34:58.989057 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 768
+I0419 21:34:58.989213 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 768
+INFO:tensorflow:Running non-virtual train step
+I0419 21:34:58.998305 140172733429504 training.py:940] Running non-virtual train step
+I0419 21:35:08.994742 140206176712512 keras_utils.py:163] TimeHistory: 10.01 seconds, 76.76 examples/second between steps 320 and 321
+I0419 21:35:09.429960 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1766.21 examples/second between steps 321 and 322
+I0419 21:35:09.869149 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1749.26 examples/second between steps 322 and 323
+I0419 21:35:10.313595 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1728.75 examples/second between steps 323 and 324
+I0419 21:35:10.747043 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1773.07 examples/second between steps 324 and 325
+I0419 21:35:11.188763 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1740.44 examples/second between steps 325 and 326
+I0419 21:35:11.627060 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1753.07 examples/second between steps 326 and 327
+I0419 21:35:12.032262 140206176712512 keras_utils.py:163] TimeHistory: 0.40 seconds, 1896.41 examples/second between steps 327 and 328
+I0419 21:35:12.470719 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1752.65 examples/second between steps 328 and 329
+I0419 21:35:12.917453 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 1720.07 examples/second between steps 329 and 330
+I0419 21:35:13.358776 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1740.79 examples/second between steps 330 and 331
+I0419 21:35:13.796721 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1754.27 examples/second between steps 331 and 332
+I0419 21:35:14.238269 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1740.22 examples/second between steps 332 and 333
+I0419 21:35:14.671324 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1774.13 examples/second between steps 333 and 334
+I0419 21:35:15.111099 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1747.19 examples/second between steps 334 and 335
+I0419 21:35:15.550366 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1749.54 examples/second between steps 335 and 336
+I0419 21:35:15.983492 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1773.76 examples/second between steps 336 and 337
+I0419 21:35:16.424323 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1742.73 examples/second between steps 337 and 338
+I0419 21:35:16.861688 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 1756.65 examples/second between steps 338 and 339
+I0419 21:35:17.294543 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 1775.46 examples/second between steps 339 and 340
+I0419 21:35:17.295460 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 1024
+I0419 21:35:17.295648 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 1024
+INFO:tensorflow:Running non-virtual train step
+I0419 21:35:17.306569 140172297500416 training.py:940] Running non-virtual train step
+I0419 21:35:28.025893 140206176712512 keras_utils.py:163] TimeHistory: 10.73 seconds, 95.43 examples/second between steps 340 and 341
+I0419 21:35:28.472390 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 2295.34 examples/second between steps 341 and 342
+I0419 21:35:28.913120 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2324.21 examples/second between steps 342 and 343
+I0419 21:35:29.351178 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2338.36 examples/second between steps 343 and 344
+I0419 21:35:29.790422 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2332.05 examples/second between steps 344 and 345
+I0419 21:35:30.228467 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2339.53 examples/second between steps 345 and 346
+I0419 21:35:30.670998 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2317.06 examples/second between steps 346 and 347
+I0419 21:35:31.110736 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2330.05 examples/second between steps 347 and 348
+I0419 21:35:31.552880 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2317.62 examples/second between steps 348 and 349
+I0419 21:35:31.991089 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2338.92 examples/second between steps 349 and 350
+I0419 21:35:32.434922 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2308.72 examples/second between steps 350 and 351
+I0419 21:35:32.865423 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 2379.63 examples/second between steps 351 and 352
+I0419 21:35:33.305617 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2327.43 examples/second between steps 352 and 353
+I0419 21:35:33.739836 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 2359.61 examples/second between steps 353 and 354
+I0419 21:35:34.181985 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2317.30 examples/second between steps 354 and 355
+I0419 21:35:34.630053 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 2286.34 examples/second between steps 355 and 356
+I0419 21:35:35.070910 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2323.51 examples/second between steps 356 and 357
+I0419 21:35:35.511727 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2323.72 examples/second between steps 357 and 358
+I0419 21:35:35.944397 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 2367.49 examples/second between steps 358 and 359
+I0419 21:35:36.389074 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 2303.93 examples/second between steps 359 and 360
+I0419 21:35:36.390019 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 1536
+I0419 21:35:36.390199 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 1536
+INFO:tensorflow:Running non-virtual train step
+I0419 21:35:36.401638 140172280719104 training.py:940] Running non-virtual train step
+I0419 21:35:46.470966 140206176712512 keras_utils.py:163] TimeHistory: 10.08 seconds, 152.37 examples/second between steps 360 and 361
+I0419 21:35:46.911802 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3487.41 examples/second between steps 361 and 362
+I0419 21:35:47.344539 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 3550.71 examples/second between steps 362 and 363
+I0419 21:35:47.780698 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3523.20 examples/second between steps 363 and 364
+I0419 21:35:48.222873 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3474.87 examples/second between steps 364 and 365
+I0419 21:35:48.658346 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3528.37 examples/second between steps 365 and 366
+I0419 21:35:49.096168 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3510.09 examples/second between steps 366 and 367
+I0419 21:35:49.538283 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3476.76 examples/second between steps 367 and 368
+I0419 21:35:49.983422 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3451.73 examples/second between steps 368 and 369
+I0419 21:35:50.423539 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3491.31 examples/second between steps 369 and 370
+I0419 21:35:50.859603 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3524.78 examples/second between steps 370 and 371
+I0419 21:35:51.292590 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 3548.63 examples/second between steps 371 and 372
+I0419 21:35:51.731769 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3498.73 examples/second between steps 372 and 373
+I0419 21:35:52.158993 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 3596.50 examples/second between steps 373 and 374
+I0419 21:35:52.598250 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3498.18 examples/second between steps 374 and 375
+I0419 21:35:53.037356 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3499.84 examples/second between steps 375 and 376
+I0419 21:35:53.469248 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 3557.64 examples/second between steps 376 and 377
+I0419 21:35:53.910882 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3479.44 examples/second between steps 377 and 378
+I0419 21:35:54.351617 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 3486.50 examples/second between steps 378 and 379
+I0419 21:35:54.783674 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 3556.26 examples/second between steps 379 and 380
+I0419 21:35:54.784637 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 2048
+I0419 21:35:54.784832 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 2048
+INFO:tensorflow:Running non-virtual train step
+I0419 21:35:54.796165 140172255811328 training.py:940] Running non-virtual train step
+I0419 21:36:04.872026 140206176712512 keras_utils.py:163] TimeHistory: 10.09 seconds, 203.03 examples/second between steps 380 and 381
+I0419 21:36:05.313287 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4645.05 examples/second between steps 381 and 382
+I0419 21:36:05.758214 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4604.59 examples/second between steps 382 and 383
+I0419 21:36:06.197352 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4665.24 examples/second between steps 383 and 384
+I0419 21:36:06.636200 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4668.30 examples/second between steps 384 and 385
+I0419 21:36:07.082210 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 4593.31 examples/second between steps 385 and 386
+I0419 21:36:07.519462 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4685.34 examples/second between steps 386 and 387
+I0419 21:36:07.957595 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4675.93 examples/second between steps 387 and 388
+I0419 21:36:08.390035 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 4737.49 examples/second between steps 388 and 389
+I0419 21:36:08.827651 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4681.57 examples/second between steps 389 and 390
+I0419 21:36:09.266840 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4665.05 examples/second between steps 390 and 391
+I0419 21:36:09.708173 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4642.19 examples/second between steps 391 and 392
+I0419 21:36:10.149219 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4645.21 examples/second between steps 392 and 393
+I0419 21:36:10.591412 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4633.45 examples/second between steps 393 and 394
+I0419 21:36:11.030768 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4662.89 examples/second between steps 394 and 395
+I0419 21:36:11.462543 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 4744.79 examples/second between steps 395 and 396
+I0419 21:36:11.901463 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4667.53 examples/second between steps 396 and 397
+I0419 21:36:12.339729 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4674.49 examples/second between steps 397 and 398
+I0419 21:36:12.774120 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 4716.26 examples/second between steps 398 and 399
+I0419 21:36:13.214250 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 4654.69 examples/second between steps 399 and 400
+I0419 21:36:13.214795 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling: now profiling batch size 3072
+I0419 21:36:13.214953 140206176712512 training.py:1298] Heterogeneous profiling: now profiling batch size 3072
+INFO:tensorflow:Running non-virtual train step
+I0419 21:36:13.224126 140172029064960 training.py:940] Running non-virtual train step
+I0419 21:36:23.019077 140206176712512 keras_utils.py:163] TimeHistory: 9.80 seconds, 313.34 examples/second between steps 400 and 401
+I0419 21:36:23.464650 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 6902.31 examples/second between steps 401 and 402
+I0419 21:36:23.905570 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6969.80 examples/second between steps 402 and 403
+I0419 21:36:24.335685 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 7144.66 examples/second between steps 403 and 404
+I0419 21:36:24.778786 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6935.51 examples/second between steps 404 and 405
+I0419 21:36:25.219403 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6974.33 examples/second between steps 405 and 406
+I0419 21:36:25.658313 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 7001.41 examples/second between steps 406 and 407
+I0419 21:36:26.096083 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 7019.68 examples/second between steps 407 and 408
+I0419 21:36:26.536097 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6984.18 examples/second between steps 408 and 409
+I0419 21:36:26.974107 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 7016.20 examples/second between steps 409 and 410
+I0419 21:36:27.419049 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6906.95 examples/second between steps 410 and 411
+I0419 21:36:27.865321 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 6886.33 examples/second between steps 411 and 412
+I0419 21:36:28.297672 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 7107.71 examples/second between steps 412 and 413
+I0419 21:36:28.745369 140206176712512 keras_utils.py:163] TimeHistory: 0.45 seconds, 6863.97 examples/second between steps 413 and 414
+I0419 21:36:29.184204 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 7002.65 examples/second between steps 414 and 415
+I0419 21:36:29.624871 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6973.52 examples/second between steps 415 and 416
+I0419 21:36:30.059383 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 7072.33 examples/second between steps 416 and 417
+I0419 21:36:30.491759 140206176712512 keras_utils.py:163] TimeHistory: 0.43 seconds, 7107.72 examples/second between steps 417 and 418
+I0419 21:36:30.932133 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6980.47 examples/second between steps 418 and 419
+I0419 21:36:31.374309 140206176712512 keras_utils.py:163] TimeHistory: 0.44 seconds, 6949.71 examples/second between steps 419 and 420
+I0419 21:36:31.375094 140206176712512 keras_utils.py:179] Wrote to /root/dev/logs/transformer-04_19_21_1618867835380/heterogeneous_profile.txt
+INFO:tensorflow:Heterogeneous profiling complete
+I0419 21:36:31.375265 140206176712512 training.py:1295] Heterogeneous profiling complete
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+inputs (InputLayer)             [(None, None)]       0                                            
+__________________________________________________________________________________________________
+targets (InputLayer)            [(None, None)]       0                                            
+__________________________________________________________________________________________________
+transformer_v2 (Transformer)    (None, None, 33945)  211047424   inputs[0][0]                     
+                                                                 targets[0][0]                    
+__________________________________________________________________________________________________
+logits (Lambda)                 (None, None, 33945)  0           transformer_v2[0][0]             
+__________________________________________________________________________________________________
+tf.compat.v1.shape (TFOpLambda) (3,)                 0           logits[0][0]                     
+__________________________________________________________________________________________________
+tf.compat.v1.shape_1 (TFOpLambd (2,)                 0           targets[0][0]                    
+__________________________________________________________________________________________________
+tf.__operators__.getitem (Slici ()                   0           tf.compat.v1.shape[0][0]         
+__________________________________________________________________________________________________
+tf.__operators__.getitem_1 (Sli ()                   0           tf.compat.v1.shape_1[0][0]       
+__________________________________________________________________________________________________
+tf.math.maximum (TFOpLambda)    ()                   0           tf.__operators__.getitem[0][0]   
+                                                                 tf.__operators__.getitem_1[0][0] 
+__________________________________________________________________________________________________
+tf.math.subtract_1 (TFOpLambda) ()                   0           tf.math.maximum[0][0]            
+                                                                 tf.__operators__.getitem_1[0][0] 
+__________________________________________________________________________________________________
+tf.compat.v1.pad_1 (TFOpLambda) (None, None)         0           targets[0][0]                    
+                                                                 tf.math.subtract_1[0][0]         
+__________________________________________________________________________________________________
+tf.cast (TFOpLambda)            (None, None)         0           tf.compat.v1.pad_1[0][0]         
+__________________________________________________________________________________________________
+tf.math.subtract (TFOpLambda)   ()                   0           tf.math.maximum[0][0]            
+                                                                 tf.__operators__.getitem[0][0]   
+__________________________________________________________________________________________________
+tf.one_hot (TFOpLambda)         (None, None, 33945)  0           tf.cast[0][0]                    
+__________________________________________________________________________________________________
+tf.compat.v1.pad (TFOpLambda)   (None, None, 33945)  0           logits[0][0]                     
+                                                                 tf.math.subtract[0][0]           
+__________________________________________________________________________________________________
+tf.compat.v1.nn.softmax_cross_e (None, None)         0           tf.one_hot[0][0]                 
+                                                                 tf.compat.v1.pad[0][0]           
+__________________________________________________________________________________________________
+tf.math.not_equal (TFOpLambda)  (None, None)         0           tf.compat.v1.pad_1[0][0]         
+__________________________________________________________________________________________________
+tf.math.subtract_2 (TFOpLambda) (None, None)         0           tf.compat.v1.nn.softmax_cross_ent
+__________________________________________________________________________________________________
+tf.cast_1 (TFOpLambda)          (None, None)         0           tf.math.not_equal[0][0]          
+__________________________________________________________________________________________________
+tf.math.multiply (TFOpLambda)   (None, None)         0           tf.math.subtract_2[0][0]         
+                                                                 tf.cast_1[0][0]                  
+__________________________________________________________________________________________________
+tf.math.reduce_sum (TFOpLambda) ()                   0           tf.math.multiply[0][0]           
+__________________________________________________________________________________________________
+tf.math.reduce_sum_1 (TFOpLambd ()                   0           tf.cast_1[0][0]                  
+__________________________________________________________________________________________________
+tf.math.truediv (TFOpLambda)    ()                   0           tf.math.reduce_sum[0][0]         
+                                                                 tf.math.reduce_sum_1[0][0]       
+__________________________________________________________________________________________________
+add_loss (AddLoss)              ()                   0           tf.math.truediv[0][0]            
+==================================================================================================
+Total params: 211,047,424
+Trainable params: 211,047,424
+Non-trainable params: 0
+__________________________________________________________________________________________________
+100000/100000 - 336s - loss: 7.6448
+I0419 21:36:31.376194 140206176712512 transformer_main.py:369] Train history: {'loss': [7.644794464111328]}
+I0419 21:36:31.376280 140206176712512 transformer_main.py:371] End train iteration at global step:100000
