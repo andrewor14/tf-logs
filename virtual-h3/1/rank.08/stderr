@@ -1,0 +1,388 @@
+My commit is 8d87ed6e Fix transformer heterogeneous training, shard by files (/root/dev/models/deploy)
+
+==========================================================================
+My environment variables:
+--------------------------------------------------------------------------
+CUDNN_VERSION=7.6.2.24-1+cuda10.1
+PMIX_ID=1531379713.8
+LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+CVD_SPLIT=0:0:0:1:2:3:0:1:2:3
+OMPI_FIRST_RANKS=0
+MPI_HOSTS=1e5f06402211,a5729800c670,e32e23c823a5:4,232e432277ce:4
+OMPI_MCA_orte_top_session_dir=/tmp/ompi.232e432277ce.0
+LOG_MEMORY_ENABLED=false
+SSH_CONNECTION=10.0.1.8 58832 10.0.1.2 22
+PMIX_SYSTEM_TMPDIR=/tmp
+OMPI_MCA_orte_num_nodes=4
+OMPI_COMMAND=run_transformer.sh
+MODEL=transformer
+LANG=C.UTF-8
+PARAM_SET=big
+HFI_NO_BACKTRACE=1
+DECODE_BATCH_SIZE=32
+OMPI_MCA_ess_base_vpid=8
+OLDPWD=/root
+OMPI_MCA_initial_wdir=/root/dev/models/deploy
+VOCAB_FILE=/root/dev/dataset/transformer/vocab.ende.32768
+ENVIRONMENT=docker
+TF_DIR=/root/dev/tensorflow
+STEPS_BETWEEN_EVALS=20
+HETEROGENEOUS_SHARD_BY_FILE=true
+DATA_DIR=/root/dev/dataset/transformer
+HOST_FLAG=--host 1e5f06402211,a5729800c670,e32e23c823a5:4,232e432277ce:4
+ENABLE_HETEROGENEOUS=true
+OMPI_MCA_btl_tcp_if_exclude=lo,docker0,eth1
+DTYPE=fp16
+HETEROGENEOUS_SPLIT=8192:8192:6144:6144:6144:6144:6144:6144:6144:6144
+NUM_CHECKPOINTS_TO_KEEP=5
+OMPI_COMM_WORLD_NODE_RANK=2
+NVIDIA_VISIBLE_DEVICES=all
+OMPI_MCA_orte_precondition_transports=874368e82f93464f-586f2c8cec74678b
+BASE_DIR=/root/dev
+OMPI_MCA_orte_ess_node_rank=2
+OMPI_MCA_shmem_RUNTIME_QUERY_hint=mmap
+OMPI_MCA_plm=rsh
+VN_SPLIT=2:2:2:2:2:2:2:2:2:2
+OMPI_COMM_WORLD_RANK=8
+LOG_STEPS=1
+PMIX_RANK=8
+USER=root
+OMPI_FILE_LOCATION=/tmp/ompi.232e432277ce.0/jf.23367/0/3
+NCCL_VERSION=2.4.7-1+cuda10.1
+OMPI_MCA_orte_local_daemon_uri=1531379712.3;tcp://10.0.1.2,172.18.0.3:36127
+HOROVOD_GPU_OPERATIONS=NCCL
+PWD=/root/dev/models/deploy
+NUM_GPUS_PER_NODE=8
+OMPI_MCA_ess_base_num_procs=4
+HOME=/root
+ENABLE_XLA=true
+PMIX_SERVER_TMPDIR=/tmp/ompi.232e432277ce.0/jf.23367
+RUN_SCRIPT=run_transformer.sh
+SSH_CLIENT=10.0.1.8 58832 22
+PMIX_PTL_MODULE=tcp,usock
+IPATH_NO_BACKTRACE=1
+JOB_NAME=transformer-virtual-h3-04_20_21_1618889831784
+OMPI_MCA_rmaps_base_oversubscribe=1
+OMPI_MCA_orte_launch=1
+CODE_DIR=/root/dev/models/official/nlp/transformer
+OMPI_MCA_orte_tmpdir_base=/tmp
+LOG_DIR=/root/dev/logs
+TIMESTAMP=04_20_21_1618889832522
+MPI_HOST_FILE=/root/container_hosts/hosts.txt
+BLEU_SOURCE=
+NUM_VIRTUAL_NODES_PER_DEVICE=2
+OMPI_APP_CTX_NUM_PROCS=10
+OMPI_MCA_orte_output_filename=/root/dev/logs/transformer-virtual-h3-04_20_21_1618889831784
+LOG_FILE=/dev/stderr
+MODELS_DIR=/root/dev/models
+OMPI_MCA_orte_app_num=0
+PMIX_MCA_mca_base_component_show_load_errors=1
+OMPI_MCA_orte_parent_uri=1531379712.0;tcp://10.0.1.8,172.18.0.3:53697
+NUM_NODES=10
+MAX_LENGTH=64
+OMPI_MCA_pml=ob1
+PYTHON_COMMAND=/usr/bin/python3
+IN_DOCKER_CONTAINER=true
+MAIL=/var/mail/root
+PMIX_BFROP_BUFFER_TYPE=PMIX_BFROP_BUFFER_NON_DESC
+MPI_HOME=/usr/local
+SHELL=/bin/bash
+TERM=xterm
+CUDA_PKG_VERSION=10-1=10.1.243-1
+CUDA_VERSION=10.1.243
+SKIP_EVAL=true
+PMIX_DSTORE_ESH_BASE_PATH=/tmp/ompi.232e432277ce.0/jf.23367/pmix_dstor_ds12_18629
+OMPI_MCA_hwloc_base_binding_policy=none
+BLEU_REF=
+OMPI_MCA_rmaps_base_mapping_policy=slot
+PMIX_SERVER_URI3=1531379712.3;tcp4://127.0.0.1:46677
+PMIX_SERVER_URI2=1531379712.3;tcp4://127.0.0.1:46677
+NUM_STEPS=20
+OMPI_MCA_orte_hnp_uri=1531379712.0;tcp://10.0.1.8,172.18.0.3:53697
+HETEROGENEOUS_VERBOSE=true
+TRAIN_DIR=/root/dev/logs/transformer-virtual-h3-04_20_21_1618889831784
+OMPI_MCA_mpi_yield_when_idle=0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+DEFAULT_NUM_GPUS_PER_NODE=8
+ENABLE_CHECKPOINTS=false
+DISTRIBUTION_STRATEGY=multi_worker_mirrored
+OMPI_COMM_WORLD_LOCAL_SIZE=4
+CUDA_VISIBLE_DEVICES=2
+OMPI_COMM_WORLD_SIZE=10
+SHLVL=4
+PYTHONPATH=:/root/dev/models:/root/dev/models
+OMPI_NUM_APP_CTX=1
+NVIDIA_REQUIRE_CUDA=cuda>=10.1 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419
+OMPI_MCA_pmix=^s1,s2,cray,isolated
+DEFAULT_DISTRIBUTION_STRATEGY=multi_worker_mirrored
+RUN_TAG=virtual-h3
+OMPI_MCA_orte_node_regex=[1:1]e5f06402211,a[7:5729800]c670,e[2:32]e23c823a5,[3:232]e432277ce@0(4)
+PMIX_SERVER_URI21=1531379712.3;tcp4://127.0.0.1:46677
+SAVED_CHECKPOINT_PATH=
+PMIX_DSTORE_21_BASE_PATH=/tmp/ompi.232e432277ce.0/jf.23367/pmix_dstor_ds21_18629
+ENABLE_MONITOR_MEMORY=false
+LOGNAME=root
+CUBLAS_VERSION=10.1.0.105-1
+BATCH_SIZE=65536
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PMIX_SECURITY_MODE=native
+OMPI_MCA_ess=^singleton
+NCCL_DEBUG=INFO
+PMIX_NAMESPACE=1531379713
+OMPI_MCA_orte_ess_num_procs=10
+NCCL_SOCKET_IFNAME=^lo,docker0,eth1
+OMPI_MCA_ess_base_jobid=1531379713
+OMPI_COMM_WORLD_LOCAL_RANK=2
+OMPI_UNIVERSE_SIZE=10
+OMPI_MCA_orte_jobfam_session_dir=/tmp/ompi.232e432277ce.0/jf.23367
+PMIX_GDS_MODULE=ds21,ds12,hash
+ENABLE_ELASTICITY=false
+NUM_GPUS=1
+OMPI_MCA_btl=^openib
+_=/usr/bin/printenv
+==========================================================================
+
+2021-04-20 03:37:12.730392: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+I0420 03:37:17.273107 139993680975680 virtual_helper.py:221] Setting TF_CONFIG to {"cluster": {"worker": ["1e5f06402211:2222", "a5729800c670:2223", "e32e23c823a5:2224", "e32e23c823a5:2225", "e32e23c823a5:2226", "e32e23c823a5:2227", "232e432277ce:2228", "232e432277ce:2229", "232e432277ce:2230", "232e432277ce:2231"]}, "task": {"type": "worker", "index": 8}}
+I0420 03:37:17.273324 139993680975680 virtual_helper.py:145] Sharding by file: reducing heterogeneous split to [4, 4, 3, 3, 3, 3, 3, 3, 3, 3]
+I0420 03:37:17.273380 139993680975680 virtual_helper.py:83] Heterogeneous mode is enabled: our range = [26, 29), size = 3
+WARNING:tensorflow:From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+W0420 03:37:17.273557 139993680975680 deprecation.py:339] From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+2021-04-20 03:37:17.274225: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-20 03:37:17.274322: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-20 03:37:17.373602: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:17.380689: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:06.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-20 03:37:17.380724: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-20 03:37:17.382717: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-20 03:37:17.382781: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-20 03:37:17.384695: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-20 03:37:17.385050: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-20 03:37:17.387184: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-20 03:37:17.388498: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-20 03:37:17.392891: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-20 03:37:17.393032: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:17.403261: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:17.405803: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-20 03:37:17.406465: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-20 03:37:17.409146: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-20 03:37:17.409272: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:17.426192: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:06.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-20 03:37:17.426226: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-20 03:37:17.426264: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-20 03:37:17.426277: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-20 03:37:17.426296: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-20 03:37:17.426307: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-20 03:37:17.426318: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-20 03:37:17.426329: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-20 03:37:17.426341: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-20 03:37:17.426408: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:17.430872: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:17.433534: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-20 03:37:17.433588: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-20 03:37:46.026535: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-20 03:37:46.026572: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-20 03:37:46.026580: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-20 03:37:46.026863: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.027617: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.028306: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.028936: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14965 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:06.0, compute capability: 6.0)
+2021-04-20 03:37:46.032279: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-20 03:37:46.032430: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.033052: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:06.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2021-04-20 03:37:46.033084: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-20 03:37:46.033149: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-20 03:37:46.033169: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-20 03:37:46.033181: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-20 03:37:46.033193: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-20 03:37:46.033204: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-20 03:37:46.033218: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-20 03:37:46.033231: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-20 03:37:46.033300: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.033919: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.034491: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-20 03:37:46.034521: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-20 03:37:46.034527: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-20 03:37:46.034533: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-20 03:37:46.034639: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.035296: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-20 03:37:46.035887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:worker/replica:0/task:8/device:GPU:0 with 14965 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:00:06.0, compute capability: 6.0)
+2021-04-20 03:37:46.042348: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:301] Initialize GrpcChannelCache for job worker -> {0 -> 1e5f06402211:2222, 1 -> a5729800c670:2223, 2 -> e32e23c823a5:2224, 3 -> e32e23c823a5:2225, 4 -> e32e23c823a5:2226, 5 -> e32e23c823a5:2227, 6 -> 232e432277ce:2228, 7 -> 232e432277ce:2229, 8 -> 232e432277ce:2230, 9 -> 232e432277ce:2231}
+2021-04-20 03:37:46.045015: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:411] Started server with target: grpc://232e432277ce:2230
+INFO:tensorflow:Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:8/device:CPU:0', '/job:worker/replica:0/task:8/device:GPU:0']
+I0420 03:37:46.045553 139993680975680 collective_all_reduce_strategy.py:469] Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:8/device:CPU:0', '/job:worker/replica:0/task:8/device:GPU:0']
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:worker/task:8/device:GPU:0',)
+I0420 03:37:46.048161 139993680975680 mirrored_strategy.py:350] Using MirroredStrategy with devices ('/job:worker/task:8/device:GPU:0',)
+INFO:tensorflow:Waiting for the cluster, timeout = inf
+I0420 03:37:46.407100 139993680975680 collective_all_reduce_strategy.py:830] Waiting for the cluster, timeout = inf
+INFO:tensorflow:Cluster is ready.
+I0420 03:38:33.441072 139993680975680 collective_all_reduce_strategy.py:845] Cluster is ready.
+INFO:tensorflow:MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['1e5f06402211:2222', 'a5729800c670:2223', 'e32e23c823a5:2224', 'e32e23c823a5:2225', 'e32e23c823a5:2226', 'e32e23c823a5:2227', '232e432277ce:2228', '232e432277ce:2229', '232e432277ce:2230', '232e432277ce:2231']}, task_type = 'worker', task_id = 8, num_workers = 10, local_devices = ('/job:worker/task:8/device:GPU:0',), communication = CommunicationImplementation.AUTO
+I0420 03:38:33.447616 139993680975680 collective_all_reduce_strategy.py:518] MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['1e5f06402211:2222', 'a5729800c670:2223', 'e32e23c823a5:2224', 'e32e23c823a5:2225', 'e32e23c823a5:2226', 'e32e23c823a5:2227', '232e432277ce:2228', '232e432277ce:2229', '232e432277ce:2230', '232e432277ce:2231']}, task_type = 'worker', task_id = 8, num_workers = 10, local_devices = ('/job:worker/task:8/device:GPU:0',), communication = CommunicationImplementation.AUTO
+I0420 03:38:33.447932 139993680975680 transformer_main.py:180] Running transformer with num_gpus = 1
+I0420 03:38:33.448626 139993680975680 transformer_main.py:184] For training, using distribution strategy: <tensorflow.python.distribute.collective_all_reduce_strategy._CollectiveAllReduceStrategyExperimental object at 0x7f5144d5fc18>
+WARNING:tensorflow:From /root/dev/models/official/nlp/transformer/attention_layer.py:63: DenseEinsum.__init__ (from official.nlp.modeling.layers.dense_einsum) is deprecated and will be removed in a future version.
+Instructions for updating:
+DenseEinsum is deprecated. Please use tf.keras.experimental.EinsumDense layer instead.
+W0420 03:38:40.911118 139993680975680 deprecation.py:339] From /root/dev/models/official/nlp/transformer/attention_layer.py:63: DenseEinsum.__init__ (from official.nlp.modeling.layers.dense_einsum) is deprecated and will be removed in a future version.
+Instructions for updating:
+DenseEinsum is deprecated. Please use tf.keras.experimental.EinsumDense layer instead.
+I0420 03:39:08.639142 139993680975680 virtual_helper.py:274] Batching dataset by 3072 instead of the global batch size 65536
+I0420 03:39:08.643868 139993680975680 data_pipeline.py:239] Shard 8 of the dataset.
+I0420 03:39:08.952907 139993680975680 transformer_main.py:314] Start train iteration at global step:0
+2021-04-20 03:39:08.991997: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-20 03:39:08.992464: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2000170000 Hz
+I0420 03:39:10.804796 139947801204480 losses_utils.py:298] Heterogeneous mode is enabled: scaling loss by 0.09375 instead
+INFO:tensorflow:Collective batch_all_reduce: 185 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+I0420 03:40:13.411057 139993680975680 cross_device_ops.py:1154] Collective batch_all_reduce: 185 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+I0420 03:40:13.837570 139993680975680 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+I0420 03:40:13.839788 139993680975680 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+I0420 03:40:16.592267 139947801204480 losses_utils.py:298] Heterogeneous mode is enabled: scaling loss by 0.09375 instead
+INFO:tensorflow:Collective batch_all_reduce: 185 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+I0420 03:40:19.826837 139993680975680 cross_device_ops.py:1154] Collective batch_all_reduce: 185 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+I0420 03:40:20.250745 139993680975680 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+I0420 03:40:20.253049 139993680975680 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 10, implementation = AUTO, num_packs = 1
+2021-04-20 03:40:29.151807: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:40:38.861042 139993680975680 keras_utils.py:163] TimeHistory: 89.81 seconds, 729.76 examples/second between steps 0 and 1
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:40:47.200116 139993680975680 keras_utils.py:163] TimeHistory: 8.34 seconds, 7859.20 examples/second between steps 1 and 2
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:40:55.463387 139993680975680 keras_utils.py:163] TimeHistory: 8.26 seconds, 7931.29 examples/second between steps 2 and 3
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:41:03.830370 139993680975680 keras_utils.py:163] TimeHistory: 8.37 seconds, 7832.94 examples/second between steps 3 and 4
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:41:11.974888 139993680975680 keras_utils.py:163] TimeHistory: 8.14 seconds, 8046.92 examples/second between steps 4 and 5
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:41:20.169172 139993680975680 keras_utils.py:163] TimeHistory: 8.19 seconds, 7998.06 examples/second between steps 5 and 6
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:41:28.342457 139993680975680 keras_utils.py:163] TimeHistory: 8.17 seconds, 8018.66 examples/second between steps 6 and 7
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:41:36.891897 139993680975680 keras_utils.py:163] TimeHistory: 8.55 seconds, 7665.79 examples/second between steps 7 and 8
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:41:45.149196 139993680975680 keras_utils.py:163] TimeHistory: 8.26 seconds, 7937.04 examples/second between steps 8 and 9
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:41:53.395264 139993680975680 keras_utils.py:163] TimeHistory: 8.25 seconds, 7947.82 examples/second between steps 9 and 10
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:42:01.716754 139993680975680 keras_utils.py:163] TimeHistory: 8.32 seconds, 7875.77 examples/second between steps 10 and 11
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:42:10.361019 139993680975680 keras_utils.py:163] TimeHistory: 8.64 seconds, 7581.70 examples/second between steps 11 and 12
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:42:18.705116 139993680975680 keras_utils.py:163] TimeHistory: 8.34 seconds, 7854.43 examples/second between steps 12 and 13
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:42:26.920364 139993680975680 keras_utils.py:163] TimeHistory: 8.21 seconds, 7977.65 examples/second between steps 13 and 14
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:42:35.238856 139993680975680 keras_utils.py:163] TimeHistory: 8.32 seconds, 7878.60 examples/second between steps 14 and 15
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:42:43.668638 139993680975680 keras_utils.py:163] TimeHistory: 8.43 seconds, 7774.59 examples/second between steps 15 and 16
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:42:51.841763 139993680975680 keras_utils.py:163] TimeHistory: 8.17 seconds, 8018.73 examples/second between steps 16 and 17
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:43:00.476984 139993680975680 keras_utils.py:163] TimeHistory: 8.63 seconds, 7589.63 examples/second between steps 17 and 18
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:43:08.858180 139993680975680 keras_utils.py:163] TimeHistory: 8.38 seconds, 7819.71 examples/second between steps 18 and 19
+Training on virtual node 1 / 2
+Training on virtual node 2 / 2
+I0420 03:43:17.294684 139993680975680 keras_utils.py:163] TimeHistory: 8.44 seconds, 7768.39 examples/second between steps 19 and 20
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+inputs (InputLayer)             [(None, None)]       0                                            
+__________________________________________________________________________________________________
+targets (InputLayer)            [(None, None)]       0                                            
+__________________________________________________________________________________________________
+transformer_v2 (Transformer)    (None, None, 33945)  211047424   inputs[0][0]                     
+                                                                 targets[0][0]                    
+__________________________________________________________________________________________________
+logits (Lambda)                 (None, None, 33945)  0           transformer_v2[0][0]             
+__________________________________________________________________________________________________
+tf.compat.v1.shape (TFOpLambda) (3,)                 0           logits[0][0]                     
+__________________________________________________________________________________________________
+tf.compat.v1.shape_1 (TFOpLambd (2,)                 0           targets[0][0]                    
+__________________________________________________________________________________________________
+tf.__operators__.getitem (Slici ()                   0           tf.compat.v1.shape[0][0]         
+__________________________________________________________________________________________________
+tf.__operators__.getitem_1 (Sli ()                   0           tf.compat.v1.shape_1[0][0]       
+__________________________________________________________________________________________________
+tf.math.maximum (TFOpLambda)    ()                   0           tf.__operators__.getitem[0][0]   
+                                                                 tf.__operators__.getitem_1[0][0] 
+__________________________________________________________________________________________________
+tf.math.subtract_1 (TFOpLambda) ()                   0           tf.math.maximum[0][0]            
+                                                                 tf.__operators__.getitem_1[0][0] 
+__________________________________________________________________________________________________
+tf.compat.v1.pad_1 (TFOpLambda) (None, None)         0           targets[0][0]                    
+                                                                 tf.math.subtract_1[0][0]         
+__________________________________________________________________________________________________
+tf.cast (TFOpLambda)            (None, None)         0           tf.compat.v1.pad_1[0][0]         
+__________________________________________________________________________________________________
+tf.math.subtract (TFOpLambda)   ()                   0           tf.math.maximum[0][0]            
+                                                                 tf.__operators__.getitem[0][0]   
+__________________________________________________________________________________________________
+tf.one_hot (TFOpLambda)         (None, None, 33945)  0           tf.cast[0][0]                    
+__________________________________________________________________________________________________
+tf.compat.v1.pad (TFOpLambda)   (None, None, 33945)  0           logits[0][0]                     
+                                                                 tf.math.subtract[0][0]           
+__________________________________________________________________________________________________
+tf.compat.v1.nn.softmax_cross_e (None, None)         0           tf.one_hot[0][0]                 
+                                                                 tf.compat.v1.pad[0][0]           
+__________________________________________________________________________________________________
+tf.math.not_equal (TFOpLambda)  (None, None)         0           tf.compat.v1.pad_1[0][0]         
+__________________________________________________________________________________________________
+tf.math.subtract_2 (TFOpLambda) (None, None)         0           tf.compat.v1.nn.softmax_cross_ent
+__________________________________________________________________________________________________
+tf.cast_1 (TFOpLambda)          (None, None)         0           tf.math.not_equal[0][0]          
+__________________________________________________________________________________________________
+tf.math.multiply (TFOpLambda)   (None, None)         0           tf.math.subtract_2[0][0]         
+                                                                 tf.cast_1[0][0]                  
+__________________________________________________________________________________________________
+tf.math.reduce_sum (TFOpLambda) ()                   0           tf.math.multiply[0][0]           
+__________________________________________________________________________________________________
+tf.math.reduce_sum_1 (TFOpLambd ()                   0           tf.cast_1[0][0]                  
+__________________________________________________________________________________________________
+tf.math.truediv (TFOpLambda)    ()                   0           tf.math.reduce_sum[0][0]         
+                                                                 tf.math.reduce_sum_1[0][0]       
+__________________________________________________________________________________________________
+add_loss (AddLoss)              ()                   0           tf.math.truediv[0][0]            
+==================================================================================================
+Total params: 211,047,424
+Trainable params: 211,047,424
+Non-trainable params: 0
+__________________________________________________________________________________________________
+20/20 - 248s - loss: nan
+I0420 03:43:17.304869 139993680975680 transformer_main.py:369] Train history: {'loss': [nan]}
+I0420 03:43:17.305019 139993680975680 transformer_main.py:371] End train iteration at global step:20
