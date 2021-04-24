@@ -33,6 +33,7 @@ def main():
   ylim = os.getenv("YLIM")
   legend_font_size = int(os.getenv("LEGEND_FONT_SIZE", "14"))
   legend_ncol = int(os.getenv("LEGEND_NCOL", "1"))
+  legend_no_batch_size = os.getenv("LEGEND_NO_BATCH_SIZE", "").lower() == "true"
 
   # Sort the labels
   def sort_key(label, baseline_first=False):
@@ -64,7 +65,10 @@ def main():
       # This is for the eval, use VF and don't include batch size
       baseline_name = "TF" if bold_baseline else "TF*"
       system_name = baseline_name if "baseline" in label else "VF"
-      return "%s %s (BS %s)" % (system_name, num_gpus, batch_size)
+      if legend_no_batch_size:
+        return "%s %s" % (system_name, num_gpus)
+      else:
+        return "%s %s (BS %s)" % (system_name, num_gpus, batch_size)
 
   # Plot it
   if figure_size is not None:

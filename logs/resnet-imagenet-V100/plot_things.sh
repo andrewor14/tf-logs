@@ -7,8 +7,10 @@ export TITLE="ResNet-50 on ImageNet"
 export DATA_FILE_PREFIX="logs/${CURRENT_DIR}/resnet-imagenet-"
 export OUTPUT_FILE="output/resnet-imagenet-V100.pdf"
 export SMOOTH_FACTOR="2"
-export FIGURE_SIZE="7.2,5.7"
+export FIGURE_SIZE="7.2,4.2"
 export PLOT_BASELINE_FIRST="true"
+export LEGEND_NO_BATCH_SIZE="true"
+export LEGEND_NCOL="2"
 ./plot_accuracy.py $(ls ${DATA_FILE_PREFIX}*txt | grep -v time | grep -v throughput | xargs)
 
 export OUTPUT_FILE="output/resnet-imagenet-V100-throughput.pdf"
