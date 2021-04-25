@@ -8,10 +8,11 @@ import matplotlib.pyplot as plt
 
 def main():
   args = sys.argv
-  if len(args) != 2:
-    print("Usage: plot_simulator.py [log_dir]")
+  if len(args) < 2:
+    print("Usage: plot_simulator.py [log_dir] <jph1> <jph2> <jph3> ...")
     sys.exit(1)
   log_dir = args[1]
+  jph_filter = set([int(x) for x in args[2:]])
   output_file = "out.pdf"
 
   # Parse average JCT from all logs
@@ -34,19 +35,23 @@ def main():
   no_het_average_jcts.sort()
 
   # Calculate percent decrease
+  jphs = []
   jct_decrease = []
   for i in range(len(het_average_jcts)):
-    no_het = no_het_average_jcts[i][1]
-    het = het_average_jcts[i][1]
+    jph, no_het = no_het_average_jcts[i]
+    _, het = het_average_jcts[i]
+    if len(jph_filter) > 0 and jph not in jph_filter:
+      continue
+    jphs.append(jph)
     jct_decrease.append((no_het - het) / no_het * 100)
 
   # Plot it
   fig = plt.figure()
   ax = plt.axes()
-  jphs = [jph for jph, _ in het_average_jcts]
-  ax.plot(jphs, jct_decrease, linewidth=2)
+  ax.plot(jphs, jct_decrease, linewidth=2, marker="x", markeredgewidth=3, markersize=8)
   ax.set_ylabel("% decrease in average JCT", fontsize=16, labelpad=16)
   ax.set_xlabel("Jobs per hour", fontsize=16, labelpad=16)
+  ax.set_ylim(ymin=min(jct_decrease + [0]))
   plt.xticks(fontsize=14)
   plt.yticks(fontsize=14)
   plt.savefig(output_file, bbox_inches="tight")
