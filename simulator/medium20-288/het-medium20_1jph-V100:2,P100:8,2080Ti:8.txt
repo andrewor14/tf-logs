@@ -1,0 +1,3481 @@
+Running with trace: scheduler_traces/medium20_1jph.json
+===============================================
+* Job 0 arrived at t = 1
+Jobs = [0], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 0: [3443.4447344959626, 2854.011259309663, 4570.39774574987]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 1, 0, 0] <= 8
+  [0, 0, 0, 1, 0] <= 8
+  [0, 0, 0, 0, 1] <= 2
+EQ Constraints:
+  [0, -1, 0.09505404149752945, 0.07878311562812018, 0.12616284287435037] <= 0
+Result:
+  Min across all jobs = 0.12616284287436905
+  Scaled and normalized effective throughputs = [0.12616284]
+  Allocation matrix X:
+  Job 0: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 0: [0, 0, inf]
+Allocation order:
+  job = 0, gpu = V100, priority = inf
+  job = 0, gpu = P100, priority = 0
+  job = 0, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 0:
+  Homogeneous throughput: 4570.39774574987 (1 V100)
+  Heterogeneous throughput: 2181.8344495740944 (1 V100 + 1 V100)
+  Heterogeneous throughput: 2077.9150520571275 (1 V100 + 1 P100)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 0: workload = ResNetWorkload, steps finished = 0, assigned = ['V100']
+Rounds allocated:
+  Job 0: [0, 0, 1]
+GPU assignment:
+  Host V100: [0, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 0 finished at t = 220
+===============================================
+* Round ended at t = 580
+===============================================
+* Round ended at t = 940
+===============================================
+* Round ended at t = 1300
+===============================================
+* Job 1 arrived at t = 1428
+Jobs = [1], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 1: [703.8585336818948, 283.21693838612725, 584.8764951005297]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 6, 0, 0] <= 8
+  [0, 0, 0, 4, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 8.05969512484196, 2.162027422984938, 2.2324212468935447] <= 0
+Result:
+  Min across all jobs = 8.059695124671348
+  Scaled and normalized effective throughputs = [8.05969512]
+  Allocation matrix X:
+  Job 1: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 1: [inf, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = inf
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 0, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [1, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 1788
+Priority matrix:
+  Job 1: [1.0, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 1.0
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 247, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [2, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 2148
+Priority matrix:
+  Job 1: [0.5, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.5
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 21
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 494, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [3, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 2508
+Priority matrix:
+  Job 1: [0.3333333333333333, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.3333333333333333
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 22
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 741, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [4, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 2868
+Priority matrix:
+  Job 1: [0.25, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.25
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 23
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 988, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [5, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 3228
+Priority matrix:
+  Job 1: [0.2, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.2
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 24
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 1235, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [6, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 3588
+Priority matrix:
+  Job 1: [0.16666666666666666, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.16666666666666666
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 25
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 1482, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [7, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 3948
+Priority matrix:
+  Job 1: [0.14285714285714285, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.14285714285714285
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 26
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 1729, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [8, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 4308
+Priority matrix:
+  Job 1: [0.125, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.125
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 27
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 1976, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [9, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 4668
+Priority matrix:
+  Job 1: [0.1111111111111111, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.1111111111111111
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 28
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 2223, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [10, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Round ended at t = 5028
+Priority matrix:
+  Job 1: [0.1, 0, 0]
+Allocation order:
+  job = 1, gpu = 2080Ti, priority = 0.1
+  job = 1, gpu = V100, priority = 0
+  job = 1, gpu = P100, priority = 0
+Heterogeneous stats for job 1:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 29
+Queued jobs:
+Running jobs:
+  Job 1: workload = ResNetWorkload, steps finished = 2470, assigned = ['2080Ti']
+Rounds allocated:
+  Job 1: [11, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [1, 1, 1, 1, 1, 1, None, None]
+===============================================
+* Job 1 finished at t = 5075
+===============================================
+* Round ended at t = 5435
+===============================================
+* Round ended at t = 5795
+===============================================
+* Round ended at t = 6155
+===============================================
+* Round ended at t = 6515
+===============================================
+* Round ended at t = 6875
+===============================================
+* Round ended at t = 7235
+===============================================
+* Round ended at t = 7595
+===============================================
+* Round ended at t = 7955
+===============================================
+* Round ended at t = 8315
+===============================================
+* Job 2 arrived at t = 8634
+Jobs = [2], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 2: [6980.47072514018, 4533.610907138116, 4106.393493969914]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 6, 0, 0] <= 8
+  [0, 0, 0, 4, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0.8043831704029737, 0.3482821773726944, 0.157731187845995] <= 0
+Result:
+  Min across all jobs = 0.8043831704167257
+  Scaled and normalized effective throughputs = [0.80438317]
+  Allocation matrix X:
+  Job 2: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 2: [inf, 0, 0]
+Allocation order:
+  job = 2, gpu = 2080Ti, priority = inf
+  job = 2, gpu = V100, priority = 0
+  job = 2, gpu = P100, priority = 0
+Heterogeneous stats for job 2:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 2: workload = TransformerWorkload, steps finished = 0, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 2: [1, 0, 0]
+GPU assignment:
+  Host V100: [2, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [2, 2, 2, 2, None, None, None, None]
+===============================================
+* Round ended at t = 8994
+Priority matrix:
+  Job 2: [1.0, 0, 0]
+Allocation order:
+  job = 2, gpu = 2080Ti, priority = 1.0
+  job = 2, gpu = V100, priority = 0
+  job = 2, gpu = P100, priority = 0
+Heterogeneous stats for job 2:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 2: workload = TransformerWorkload, steps finished = 153, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 2: [2, 0, 0]
+GPU assignment:
+  Host V100: [2, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [2, 2, 2, 2, None, None, None, None]
+===============================================
+* Round ended at t = 9354
+Priority matrix:
+  Job 2: [0.5, 0, 0]
+Allocation order:
+  job = 2, gpu = 2080Ti, priority = 0.5
+  job = 2, gpu = V100, priority = 0
+  job = 2, gpu = P100, priority = 0
+Heterogeneous stats for job 2:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 2: workload = TransformerWorkload, steps finished = 306, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 2: [3, 0, 0]
+GPU assignment:
+  Host V100: [2, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [2, 2, 2, 2, None, None, None, None]
+===============================================
+* Round ended at t = 9714
+Priority matrix:
+  Job 2: [0.3333333333333333, 0, 0]
+Allocation order:
+  job = 2, gpu = 2080Ti, priority = 0.3333333333333333
+  job = 2, gpu = V100, priority = 0
+  job = 2, gpu = P100, priority = 0
+Heterogeneous stats for job 2:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 21
+Queued jobs:
+Running jobs:
+  Job 2: workload = TransformerWorkload, steps finished = 459, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 2: [4, 0, 0]
+GPU assignment:
+  Host V100: [2, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [2, 2, 2, 2, None, None, None, None]
+===============================================
+* Round ended at t = 10074
+Priority matrix:
+  Job 2: [0.25, 0, 0]
+Allocation order:
+  job = 2, gpu = 2080Ti, priority = 0.25
+  job = 2, gpu = V100, priority = 0
+  job = 2, gpu = P100, priority = 0
+Heterogeneous stats for job 2:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 22
+Queued jobs:
+Running jobs:
+  Job 2: workload = TransformerWorkload, steps finished = 612, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 2: [5, 0, 0]
+GPU assignment:
+  Host V100: [2, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [2, 2, 2, 2, None, None, None, None]
+===============================================
+* Round ended at t = 10434
+Priority matrix:
+  Job 2: [0.2, 0, 0]
+Allocation order:
+  job = 2, gpu = 2080Ti, priority = 0.2
+  job = 2, gpu = V100, priority = 0
+  job = 2, gpu = P100, priority = 0
+Heterogeneous stats for job 2:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 23
+Queued jobs:
+Running jobs:
+  Job 2: workload = TransformerWorkload, steps finished = 765, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 2: [6, 0, 0]
+GPU assignment:
+  Host V100: [2, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [2, 2, 2, 2, None, None, None, None]
+===============================================
+* Round ended at t = 10794
+Priority matrix:
+  Job 2: [0.16666666666666666, 0, 0]
+Allocation order:
+  job = 2, gpu = 2080Ti, priority = 0.16666666666666666
+  job = 2, gpu = V100, priority = 0
+  job = 2, gpu = P100, priority = 0
+Heterogeneous stats for job 2:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 24
+Queued jobs:
+Running jobs:
+  Job 2: workload = TransformerWorkload, steps finished = 918, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 2: [7, 0, 0]
+GPU assignment:
+  Host V100: [2, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [2, 2, 2, 2, None, None, None, None]
+===============================================
+* Job 2 finished at t = 10987
+===============================================
+* Round ended at t = 11347
+===============================================
+* Round ended at t = 11707
+===============================================
+* Round ended at t = 12067
+===============================================
+* Round ended at t = 12427
+===============================================
+* Job 3 arrived at t = 12555
+Jobs = [3], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 3: [703.8585336818948, 283.21693838612725, 1169.7529902010594]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 3, 0, 0] <= 8
+  [0, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0.5874112766921328, 0.1575741103239171, 0.6508183718813277] <= 0
+Result:
+  Min across all jobs = 0.6508183718819427
+  Scaled and normalized effective throughputs = [0.65081837]
+  Allocation matrix X:
+  Job 3: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 3: [0, 0, inf]
+Allocation order:
+  job = 3, gpu = V100, priority = inf
+  job = 3, gpu = P100, priority = 0
+  job = 3, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 3:
+  Homogeneous throughput: 1169.7529902010594 (2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 V100 + 1 P100)
+  Heterogeneous throughput: 703.8585336818948 (1 V100 + 2 2080Ti)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 3: workload = ResNetWorkload, steps finished = 0, assigned = ['V100']
+Rounds allocated:
+  Job 3: [0, 0, 1]
+GPU assignment:
+  Host V100: [3, 3]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 12915
+Priority matrix:
+  Job 3: [0, 0, 1.0]
+Allocation order:
+  job = 3, gpu = V100, priority = 1.0
+  job = 3, gpu = P100, priority = 0
+  job = 3, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 3:
+  Homogeneous throughput: 1169.7529902010594 (2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 V100 + 1 P100)
+  Heterogeneous throughput: 703.8585336818948 (1 V100 + 2 2080Ti)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 3: workload = ResNetWorkload, steps finished = 822, assigned = ['V100']
+Rounds allocated:
+  Job 3: [0, 0, 2]
+GPU assignment:
+  Host V100: [3, 3]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 13275
+Priority matrix:
+  Job 3: [0, 0, 0.5]
+Allocation order:
+  job = 3, gpu = V100, priority = 0.5
+  job = 3, gpu = P100, priority = 0
+  job = 3, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 3:
+  Homogeneous throughput: 1169.7529902010594 (2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 V100 + 1 P100)
+  Heterogeneous throughput: 703.8585336818948 (1 V100 + 2 2080Ti)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 3: workload = ResNetWorkload, steps finished = 1644, assigned = ['V100']
+Rounds allocated:
+  Job 3: [0, 0, 3]
+GPU assignment:
+  Host V100: [3, 3]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 13635
+Priority matrix:
+  Job 3: [0, 0, 0.3333333333333333]
+Allocation order:
+  job = 3, gpu = V100, priority = 0.3333333333333333
+  job = 3, gpu = P100, priority = 0
+  job = 3, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 3:
+  Homogeneous throughput: 1169.7529902010594 (2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 V100 + 1 P100)
+  Heterogeneous throughput: 703.8585336818948 (1 V100 + 2 2080Ti)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 3: workload = ResNetWorkload, steps finished = 2466, assigned = ['V100']
+Rounds allocated:
+  Job 3: [0, 0, 4]
+GPU assignment:
+  Host V100: [3, 3]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 3 finished at t = 13651
+===============================================
+* Round ended at t = 14011
+===============================================
+* Round ended at t = 14371
+===============================================
+* Round ended at t = 14731
+===============================================
+* Job 4 arrived at t = 15052
+Jobs = [4], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 4: [99.38954444576913, 73.66553896073958, 128.82255357459363]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 2, 0, 0] <= 8
+  [0, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0.39508542112508044, 0.29282939815254116, 0.5120851807223785] <= 0
+Result:
+  Min across all jobs = 0.512085180722544
+  Scaled and normalized effective throughputs = [0.51208518]
+  Allocation matrix X:
+  Job 4: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 4: [0, 0, inf]
+Allocation order:
+  job = 4, gpu = V100, priority = inf
+  job = 4, gpu = P100, priority = 0
+  job = 4, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 4:
+  Homogeneous throughput: 128.82255357459363 (2 V100)
+  Heterogeneous throughput: 73.66553896073958 (1 V100 + 1 P100)
+  Heterogeneous throughput: 99.38954444576913 (1 V100 + 1 2080Ti)
+Num events: 17
+Queued jobs:
+Running jobs:
+  Job 4: workload = BERTGlueWorkload, steps finished = 0, assigned = ['V100']
+Rounds allocated:
+  Job 4: [0, 0, 1]
+GPU assignment:
+  Host V100: [4, 4]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 4 finished at t = 15157
+===============================================
+* Round ended at t = 15517
+===============================================
+* Round ended at t = 15877
+===============================================
+* Round ended at t = 16237
+===============================================
+* Round ended at t = 16597
+===============================================
+* Round ended at t = 16957
+===============================================
+* Job 5 arrived at t = 17170
+Jobs = [5], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 5: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 3, 0, 0] <= 8
+  [0, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 3.184703955592469, 1.3789145133226888, 2.4979495162823313] <= 0
+Result:
+  Min across all jobs = 3.184703955478512
+  Scaled and normalized effective throughputs = [3.18470396]
+  Allocation matrix X:
+  Job 5: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 5: [inf, 0, 0]
+Allocation order:
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 5, gpu = V100, priority = 0
+  job = 5, gpu = P100, priority = 0
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 6980.47072514018 (3 2080Ti)
+  Heterogeneous throughput: 4665.240431160568 (1 2080Ti + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 1 P100)
+Num events: 16
+Queued jobs:
+Running jobs:
+  Job 5: workload = TransformerWorkload, steps finished = 0, assigned = ['2080Ti']
+Rounds allocated:
+  Job 5: [1, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [5, 5, 5, None, None, None, None, None]
+===============================================
+* Job 6 arrived at t = 17251
+Jobs = [5, 6], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 5: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+  Job 6: [99.38954444576913, 73.66553896073958, 128.82255357459363]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 3, 0, 0, 1, 0, 0] <= 8
+  [0, 0, 0, 0, 2, 0, 0, 1, 0] <= 8
+  [0, 0, 0, 0, 0, 2, 0, 0, 1] <= 2
+EQ Constraints:
+  [0, -1, 0, 3.184703955592469, 1.3789145133226888, 2.4979495162823313, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 0.19754271056254022, 0.14641469907627058, 0.25604259036118926] <= 0
+Result:
+  Min across all jobs = 0.25604258971674937
+  Scaled and normalized effective throughputs = [1.70177452 0.25604259]
+  Allocation matrix X:
+  Job 5: [0.28507, 0.27798, 0.16437]
+  Job 6: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 5: [inf, inf, inf]
+  Job 6: [0, 0, inf]
+Allocation order:
+  job = 6, gpu = V100, priority = inf
+  job = 5, gpu = V100, priority = inf
+  job = 5, gpu = P100, priority = inf
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 6, gpu = P100, priority = 0
+  job = 6, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 6:
+  Homogeneous throughput: 128.82255357459363 (1 V100)
+  Heterogeneous throughput: 68.25083700476371 (1 V100 + 1 V100)
+  Heterogeneous throughput: 94.02714237275787 (1 V100 + 1 P100)
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 4533.610907138116 (2 P100)
+  Heterogeneous throughput: 4533.610907138116 (1 P100 + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (1 P100 + 2 P100)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 6: workload = BERTGlueWorkload, steps finished = 0, assigned = ['V100']
+  Job 5: workload = TransformerWorkload, steps finished = 69, assigned = ['P100']
+Rounds allocated:
+  Job 5: [0, 1, 0]
+  Job 6: [0, 0, 1]
+GPU assignment:
+  Host V100: [6, None]
+  Host P100: [5, 5, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 6 finished at t = 17304
+Jobs = [5], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 5: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 3, 0, 0] <= 8
+  [0, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 3.184703955592469, 1.3789145133226888, 2.4979495162823313] <= 0
+Result:
+  Min across all jobs = 3.184703955478512
+  Scaled and normalized effective throughputs = [3.18470396]
+  Allocation matrix X:
+  Job 5: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 5: [inf, 0, 0]
+Allocation order:
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 5, gpu = V100, priority = 0
+  job = 5, gpu = P100, priority = 0
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 6980.47072514018 (3 2080Ti)
+  Heterogeneous throughput: 4665.240431160568 (1 2080Ti + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 1 P100)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 5: workload = TransformerWorkload, steps finished = 98, assigned = ['2080Ti']
+Rounds allocated:
+  Job 5: [1, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [5, 5, 5, None, None, None, None, None]
+===============================================
+* Job 7 arrived at t = 17427
+Jobs = [5, 7], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 5: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+  Job 7: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 3, 0, 0, 3, 0, 0] <= 8
+  [0, 0, 0, 0, 2, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 0, 2, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0, 3.184703955592469, 1.3789145133226888, 2.4979495162823313, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 0.31847039555924694, 0.13789145133226888, 0.24979495162823315] <= 0
+Result:
+  Min across all jobs = 0.3184703955321746
+  Scaled and normalized effective throughputs = [1.67654015 0.3184704 ]
+  Allocation matrix X:
+  Job 5: [0.23478, 0.28783, 0.21296]
+  Job 7: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 5: [inf, inf, inf]
+  Job 7: [inf, 0, 0]
+Allocation order:
+  job = 7, gpu = 2080Ti, priority = inf
+  job = 5, gpu = V100, priority = inf
+  job = 5, gpu = P100, priority = inf
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 7, gpu = V100, priority = 0
+  job = 7, gpu = P100, priority = 0
+Heterogeneous stats for job 7:
+  Homogeneous throughput: 6980.47072514018 (3 2080Ti)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 1 P100)
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 8212.786987939828 (2 V100)
+  Heterogeneous throughput: 4533.610907138116 (1 V100 + 1 P100)
+  Heterogeneous throughput: 4665.240431160568 (1 V100 + 2 2080Ti)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 7: workload = TransformerWorkload, steps finished = 0, assigned = ['2080Ti']
+  Job 5: workload = TransformerWorkload, steps finished = 202, assigned = ['V100']
+Rounds allocated:
+  Job 5: [0, 0, 1]
+  Job 7: [1, 0, 0]
+GPU assignment:
+  Host V100: [5, 5]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [7, 7, 7, None, None, None, None, None]
+===============================================
+* Job 8 arrived at t = 17591
+Jobs = [7, 5, 8], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 7: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+  Job 5: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+  Job 8: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0, 0, 0.31847039555924694, 0.13789145133226888, 0.24979495162823315, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 0, 3.184703955592469, 1.3789145133226888, 2.4979495162823313, 0, 0, 0] <= 0
+  [0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0.8312522687748765, 1.079747914056442, 0.1222499542921704] <= 0
+Result:
+  Min across all jobs = 0.318470393870898
+  Scaled and normalized effective throughputs = [0.31847039 1.54535705 0.86746852]
+  Allocation matrix X:
+  Job 7: [1.0, 0.0, 0.0]
+  Job 5: [0.18267, 0.29178, 0.22469]
+  Job 8: [0.30529, 0.55832, 0.08873]
+Priority matrix:
+  Job 7: [inf, 0, 0]
+  Job 5: [inf, inf, inf]
+  Job 8: [inf, inf, inf]
+Allocation order:
+  job = 8, gpu = V100, priority = inf
+  job = 8, gpu = P100, priority = inf
+  job = 8, gpu = 2080Ti, priority = inf
+  job = 5, gpu = V100, priority = inf
+  job = 5, gpu = P100, priority = inf
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 7, gpu = 2080Ti, priority = inf
+  job = 7, gpu = V100, priority = 0
+  job = 7, gpu = P100, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 2053.196746984957 (2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 V100 + 6 P100)
+  Heterogeneous throughput: 3490.2353625700903 (1 V100 + 5 2080Ti)
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 4533.610907138116 (2 P100)
+  Heterogeneous throughput: 4533.610907138116 (1 P100 + 2 2080Ti)
+Num events: 22
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 0, assigned = ['V100', 'P100']
+  Job 5: workload = TransformerWorkload, steps finished = 366, assigned = ['P100']
+  Job 7: workload = TransformerWorkload, steps finished = 139, assigned = ['2080Ti']
+Rounds allocated:
+  Job 7: [1, 0, 0]
+  Job 5: [0, 1, 0]
+  Job 8: [0, 0, 1]
+GPU assignment:
+  Host V100: [8, 8]
+  Host P100: [5, 5, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [7, 7, 7, None, None, None, None, None]
+===============================================
+* Round ended at t = 17951
+Priority matrix:
+  Job 7: [1.0, 0, 0]
+  Job 5: [inf, 0.29178, inf]
+  Job 8: [inf, inf, 0.08873]
+Allocation order:
+  job = 8, gpu = P100, priority = inf
+  job = 8, gpu = 2080Ti, priority = inf
+  job = 5, gpu = V100, priority = inf
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 7, gpu = 2080Ti, priority = 1.0
+  job = 5, gpu = P100, priority = 0.29178
+  job = 8, gpu = V100, priority = 0.08873
+  job = 7, gpu = V100, priority = 0
+  job = 7, gpu = P100, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (5 P100 + 4 2080Ti)
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 8212.786987939828 (2 V100)
+  Heterogeneous throughput: 4665.240431160568 (1 V100 + 2 2080Ti)
+Num events: 22
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 49, assigned = ['P100']
+  Job 5: workload = TransformerWorkload, steps finished = 565, assigned = ['V100']
+  Job 7: workload = TransformerWorkload, steps finished = 445, assigned = ['2080Ti']
+Rounds allocated:
+  Job 7: [2, 0, 0]
+  Job 5: [0, 1, 1]
+  Job 8: [0, 1, 1]
+GPU assignment:
+  Host V100: [5, 5]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [7, 7, 7, None, None, None, None, None]
+===============================================
+* Job 7 finished at t = 18016
+Jobs = [8, 5], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 8: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+  Job 5: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 8, 0, 0, 3, 0, 0] <= 8
+  [0, 0, 0, 0, 8, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 0, 2, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0, 0.8312522687748765, 1.079747914056442, 0.1222499542921704, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 3.184703955592469, 1.3789145133226888, 2.4979495162823313] <= 0
+Result:
+  Min across all jobs = 1.0797479140503945
+  Scaled and normalized effective throughputs = [1.07974791 2.08473808]
+  Allocation matrix X:
+  Job 8: [0.0, 1.0, 0.0]
+  Job 5: [0.40742, 0.0, 0.31515]
+Priority matrix:
+  Job 8: [0, inf, 0]
+  Job 5: [inf, 0, inf]
+Allocation order:
+  job = 5, gpu = V100, priority = inf
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 8, gpu = P100, priority = inf
+  job = 5, gpu = P100, priority = 0
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 8212.786987939828 (2 V100)
+  Heterogeneous throughput: 4665.240431160568 (1 V100 + 2 2080Ti)
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 22
+Queued jobs:
+Running jobs:
+  Job 5: workload = TransformerWorkload, steps finished = 630, assigned = ['V100']
+  Job 8: workload = TransformerWorkload, steps finished = 57, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 1, 0]
+  Job 5: [0, 0, 1]
+GPU assignment:
+  Host V100: [5, 5]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 18376
+Priority matrix:
+  Job 8: [0, 1.0, 0]
+  Job 5: [inf, 0, 0.31515]
+Allocation order:
+  job = 5, gpu = 2080Ti, priority = inf
+  job = 8, gpu = P100, priority = 1.0
+  job = 5, gpu = V100, priority = 0.31515
+  job = 5, gpu = P100, priority = 0
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 5:
+  Homogeneous throughput: 6980.47072514018 (3 2080Ti)
+  Heterogeneous throughput: 4665.240431160568 (1 2080Ti + 2 V100)
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (5 P100 + 4 2080Ti)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 5: workload = TransformerWorkload, steps finished = 990, assigned = ['2080Ti']
+  Job 8: workload = TransformerWorkload, steps finished = 106, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 2, 0]
+  Job 5: [1, 0, 1]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [5, 5, 5, None, None, None, None, None]
+===============================================
+* Job 5 finished at t = 18388
+Jobs = [8], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 8: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0.8312522687748765, 1.079747914056442, 0.1222499542921704] <= 0
+Result:
+  Min across all jobs = 1.0797479188640373
+  Scaled and normalized effective throughputs = [1.07974791]
+  Allocation matrix X:
+  Job 8: [0.0, 1.0, 0.0]
+Priority matrix:
+  Job 8: [0, inf, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = inf
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 107, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 1, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 18748
+Priority matrix:
+  Job 8: [0, 1.0, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 1.0
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 156, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 2, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 19108
+Priority matrix:
+  Job 8: [0, 0.5, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 0.5
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 205, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 3, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 19468
+Priority matrix:
+  Job 8: [0, 0.3333333333333333, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 0.3333333333333333
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 254, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 4, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 19828
+Priority matrix:
+  Job 8: [0, 0.25, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 0.25
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 303, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 5, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 20188
+Priority matrix:
+  Job 8: [0, 0.2, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 0.2
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 21
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 352, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 6, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 20548
+Priority matrix:
+  Job 8: [0, 0.16666666666666666, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 0.16666666666666666
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 22
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 401, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 7, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 20908
+Priority matrix:
+  Job 8: [0, 0.14285714285714285, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 0.14285714285714285
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 23
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 450, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 8, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 21268
+Priority matrix:
+  Job 8: [0, 0.125, 0]
+Allocation order:
+  job = 8, gpu = P100, priority = 0.125
+  job = 8, gpu = V100, priority = 0
+  job = 8, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 8:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 13
+Queued jobs:
+Running jobs:
+  Job 8: workload = TransformerWorkload, steps finished = 499, assigned = ['P100']
+Rounds allocated:
+  Job 8: [0, 9, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [8, 8, 8, 8, 8, 8, 8, 8]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 8 finished at t = 21276
+===============================================
+* Round ended at t = 21636
+===============================================
+* Round ended at t = 21996
+===============================================
+* Round ended at t = 22356
+===============================================
+* Round ended at t = 22716
+===============================================
+* Round ended at t = 23076
+===============================================
+* Round ended at t = 23436
+===============================================
+* Round ended at t = 23796
+===============================================
+* Round ended at t = 24156
+===============================================
+* Round ended at t = 24516
+===============================================
+* Round ended at t = 24876
+===============================================
+* Round ended at t = 25236
+===============================================
+* Round ended at t = 25596
+===============================================
+* Round ended at t = 25956
+===============================================
+* Round ended at t = 26316
+===============================================
+* Round ended at t = 26676
+===============================================
+* Round ended at t = 27036
+===============================================
+* Round ended at t = 27396
+===============================================
+* Round ended at t = 27756
+===============================================
+* Round ended at t = 28116
+===============================================
+* Round ended at t = 28476
+===============================================
+* Round ended at t = 28836
+===============================================
+* Round ended at t = 29196
+===============================================
+* Round ended at t = 29556
+===============================================
+* Round ended at t = 29916
+===============================================
+* Round ended at t = 30276
+===============================================
+* Round ended at t = 30636
+===============================================
+* Round ended at t = 30996
+===============================================
+* Round ended at t = 31356
+===============================================
+* Round ended at t = 31716
+===============================================
+* Round ended at t = 32076
+===============================================
+* Round ended at t = 32436
+===============================================
+* Round ended at t = 32796
+===============================================
+* Round ended at t = 33156
+===============================================
+* Round ended at t = 33516
+===============================================
+* Round ended at t = 33876
+===============================================
+* Round ended at t = 34236
+===============================================
+* Round ended at t = 34596
+===============================================
+* Round ended at t = 34956
+===============================================
+* Round ended at t = 35316
+===============================================
+* Round ended at t = 35676
+===============================================
+* Round ended at t = 36036
+===============================================
+* Round ended at t = 36396
+===============================================
+* Round ended at t = 36756
+===============================================
+* Round ended at t = 37116
+===============================================
+* Round ended at t = 37476
+===============================================
+* Round ended at t = 37836
+===============================================
+* Round ended at t = 38196
+===============================================
+* Round ended at t = 38556
+===============================================
+* Round ended at t = 38916
+===============================================
+* Round ended at t = 39276
+===============================================
+* Job 9 arrived at t = 39593
+Jobs = [9], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 9: [99.14704031250092, 73.48232934130863, 128.5816513374749]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 1, 0, 0] <= 8
+  [0, 0, 0, 1, 0] <= 8
+  [0, 0, 0, 0, 1] <= 2
+EQ Constraints:
+  [0, -1, 0.1974968379036232, 0.14637378625684785, 0.256129375839529] <= 0
+Result:
+  Min across all jobs = 0.2561293758398362
+  Scaled and normalized effective throughputs = [0.25612938]
+  Allocation matrix X:
+  Job 9: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 9: [0, 0, inf]
+Allocation order:
+  job = 9, gpu = V100, priority = inf
+  job = 9, gpu = P100, priority = 0
+  job = 9, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 9:
+  Homogeneous throughput: 128.5816513374749 (1 V100)
+  Heterogeneous throughput: 62.293108377548485 (1 V100 + 1 V100)
+  Heterogeneous throughput: 74.88006712652502 (1 V100 + 1 P100)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 9: workload = BERTGlueWorkload, steps finished = 0, assigned = ['V100']
+Rounds allocated:
+  Job 9: [0, 0, 1]
+GPU assignment:
+  Host V100: [9, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 39953
+Priority matrix:
+  Job 9: [0, 0, 1.0]
+Allocation order:
+  job = 9, gpu = V100, priority = 1.0
+  job = 9, gpu = P100, priority = 0
+  job = 9, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 9:
+  Homogeneous throughput: 128.5816513374749 (1 V100)
+  Heterogeneous throughput: 62.293108377548485 (1 V100 + 1 V100)
+  Heterogeneous throughput: 74.88006712652502 (1 V100 + 1 P100)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 9: workload = BERTGlueWorkload, steps finished = 2893, assigned = ['V100']
+Rounds allocated:
+  Job 9: [0, 0, 2]
+GPU assignment:
+  Host V100: [9, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 9 finished at t = 40258
+===============================================
+* Round ended at t = 40618
+===============================================
+* Round ended at t = 40978
+===============================================
+* Round ended at t = 41338
+===============================================
+* Round ended at t = 41698
+===============================================
+* Round ended at t = 42058
+===============================================
+* Round ended at t = 42418
+===============================================
+* Round ended at t = 42778
+===============================================
+* Round ended at t = 43138
+===============================================
+* Round ended at t = 43498
+===============================================
+* Round ended at t = 43858
+===============================================
+* Round ended at t = 44218
+===============================================
+* Round ended at t = 44578
+===============================================
+* Round ended at t = 44938
+===============================================
+* Round ended at t = 45298
+===============================================
+* Round ended at t = 45658
+===============================================
+* Round ended at t = 46018
+===============================================
+* Round ended at t = 46378
+===============================================
+* Round ended at t = 46738
+===============================================
+* Round ended at t = 47098
+===============================================
+* Round ended at t = 47458
+===============================================
+* Round ended at t = 47818
+===============================================
+* Round ended at t = 48178
+===============================================
+* Round ended at t = 48538
+===============================================
+* Round ended at t = 48898
+===============================================
+* Round ended at t = 49258
+===============================================
+* Round ended at t = 49618
+===============================================
+* Job 10 arrived at t = 49806
+Jobs = [10], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 10: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 8.312522687748764, 10.797479140564421, 1.222499542921704] <= 0
+Result:
+  Min across all jobs = 10.797479140534136
+  Scaled and normalized effective throughputs = [10.79747914]
+  Allocation matrix X:
+  Job 10: [0.0, 1.0, 0.0]
+Priority matrix:
+  Job 10: [0, inf, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = inf
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 11
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 0, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 1, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 50166
+Priority matrix:
+  Job 10: [0, 1.0, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 1.0
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 11
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 49, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 2, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 50526
+Priority matrix:
+  Job 10: [0, 0.5, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 0.5
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 98, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 3, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 50886
+Priority matrix:
+  Job 10: [0, 0.3333333333333333, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 0.3333333333333333
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 13
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 147, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 4, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 51246
+Priority matrix:
+  Job 10: [0, 0.25, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 0.25
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 14
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 196, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 5, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 51606
+Priority matrix:
+  Job 10: [0, 0.2, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 0.2
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 15
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 245, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 6, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 51966
+Priority matrix:
+  Job 10: [0, 0.16666666666666666, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 0.16666666666666666
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 16
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 294, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 7, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 52326
+Priority matrix:
+  Job 10: [0, 0.14285714285714285, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 0.14285714285714285
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 17
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 343, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 8, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 52686
+Priority matrix:
+  Job 10: [0, 0.125, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = 0.125
+  job = 10, gpu = V100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 392, assigned = ['P100']
+Rounds allocated:
+  Job 10: [0, 9, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 11 arrived at t = 52873
+Jobs = [10, 11], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 10: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+  Job 11: [351.9292668409474, 283.21693838612725, 292.43824755026486]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 8, 0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 0, 8, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 0, 2, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0, 8.312522687748764, 10.797479140564421, 1.222499542921704, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 1.8211392782388984, 1.4655714637982789, 0.37832231449070575] <= 0
+Result:
+  Min across all jobs = 1.8211392782053577
+  Scaled and normalized effective throughputs = [2.87854449 1.82113928]
+  Allocation matrix X:
+  Job 10: [0.0, 0.23186, 0.30678]
+  Job 11: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 10: [0, inf, inf]
+  Job 11: [inf, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = inf
+  job = 10, gpu = V100, priority = inf
+  job = 10, gpu = P100, priority = inf
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 2053.196746984957 (2 V100)
+  Heterogeneous throughput: 4533.610907138116 (1 V100 + 7 P100)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 0, assigned = ['2080Ti']
+  Job 10: workload = TransformerWorkload, steps finished = 417, assigned = ['V100', 'P100']
+Rounds allocated:
+  Job 10: [0, 0, 1]
+  Job 11: [1, 0, 0]
+GPU assignment:
+  Host V100: [10, None]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 53233
+Priority matrix:
+  Job 10: [0, inf, 0.30678]
+  Job 11: [1.0, 0, 0]
+Allocation order:
+  job = 10, gpu = P100, priority = inf
+  job = 11, gpu = 2080Ti, priority = 1.0
+  job = 10, gpu = V100, priority = 0.30678
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+  job = 10, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 10:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+Num events: 21
+Queued jobs:
+Running jobs:
+  Job 10: workload = TransformerWorkload, steps finished = 466, assigned = ['P100']
+  Job 11: workload = ResNetWorkload, steps finished = 61, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 10: [0, 1, 1]
+  Job 11: [2, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [10, 10, 10, 10, 10, 10, 10, 10]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Job 10 finished at t = 53479
+Jobs = [11], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 11: [351.9292668409474, 283.21693838612725, 292.43824755026486]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 1.8211392782388984, 1.4655714637982789, 0.37832231449070575] <= 0
+Result:
+  Min across all jobs = 1.821139278239859
+  Scaled and normalized effective throughputs = [1.82113928]
+  Allocation matrix X:
+  Job 11: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 11: [inf, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = inf
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 145, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [1, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 53839
+Priority matrix:
+  Job 11: [1.0, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 1.0
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 268, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [2, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 54199
+Priority matrix:
+  Job 11: [0.5, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 0.5
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 13
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 391, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [3, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 54559
+Priority matrix:
+  Job 11: [0.3333333333333333, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 0.3333333333333333
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 14
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 514, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [4, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 54919
+Priority matrix:
+  Job 11: [0.25, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 0.25
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 15
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 637, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [5, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 55279
+Priority matrix:
+  Job 11: [0.2, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 0.2
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 16
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 760, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [6, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 55639
+Priority matrix:
+  Job 11: [0.16666666666666666, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 0.16666666666666666
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 17
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 883, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [7, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 55999
+Priority matrix:
+  Job 11: [0.14285714285714285, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 0.14285714285714285
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 1006, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [8, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Round ended at t = 56359
+Priority matrix:
+  Job 11: [0.125, 0, 0]
+Allocation order:
+  job = 11, gpu = 2080Ti, priority = 0.125
+  job = 11, gpu = V100, priority = 0
+  job = 11, gpu = P100, priority = 0
+Heterogeneous stats for job 11:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 11: workload = ResNetWorkload, steps finished = 1129, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 11: [9, 0, 0]
+GPU assignment:
+  Host V100: [11, 11]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [11, 11, 11, 11, 11, 11, 11, 11]
+===============================================
+* Job 11 finished at t = 56712
+===============================================
+* Job 12 arrived at t = 56801
+Jobs = [12], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 12: [6980.47072514018, 4533.610907138116, 8212.786987939828]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 2, 0, 0] <= 8
+  [0, 0, 0, 1, 0] <= 8
+  [0, 0, 0, 0, 1] <= 2
+EQ Constraints:
+  [0, -1, 2.1231359703949795, 0.6894572566613444, 1.2489747581411657] <= 0
+Result:
+  Min across all jobs = 2.1231359694328633
+  Scaled and normalized effective throughputs = [2.12313597]
+  Allocation matrix X:
+  Job 12: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 12: [inf, 0, 0]
+Allocation order:
+  job = 12, gpu = 2080Ti, priority = inf
+  job = 12, gpu = V100, priority = 0
+  job = 12, gpu = P100, priority = 0
+Heterogeneous stats for job 12:
+  Homogeneous throughput: 6980.47072514018 (2 2080Ti)
+  Heterogeneous throughput: 4084.6234828171087 (1 2080Ti + 1 V100)
+  Heterogeneous throughput: 2324.2057979500296 (1 2080Ti + 1 P100)
+Num events: 10
+Queued jobs:
+Running jobs:
+  Job 12: workload = TransformerWorkload, steps finished = 0, assigned = ['2080Ti']
+Rounds allocated:
+  Job 12: [1, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [12, 12, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 57161
+Priority matrix:
+  Job 12: [1.0, 0, 0]
+Allocation order:
+  job = 12, gpu = 2080Ti, priority = 1.0
+  job = 12, gpu = V100, priority = 0
+  job = 12, gpu = P100, priority = 0
+Heterogeneous stats for job 12:
+  Homogeneous throughput: 6980.47072514018 (2 2080Ti)
+  Heterogeneous throughput: 4084.6234828171087 (1 2080Ti + 1 V100)
+  Heterogeneous throughput: 2324.2057979500296 (1 2080Ti + 1 P100)
+Num events: 10
+Queued jobs:
+Running jobs:
+  Job 12: workload = TransformerWorkload, steps finished = 613, assigned = ['2080Ti']
+Rounds allocated:
+  Job 12: [2, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [12, 12, None, None, None, None, None, None]
+===============================================
+* Job 12 finished at t = 57389
+===============================================
+* Round ended at t = 57749
+===============================================
+* Round ended at t = 58109
+===============================================
+* Round ended at t = 58469
+===============================================
+* Round ended at t = 58829
+===============================================
+* Round ended at t = 59189
+===============================================
+* Round ended at t = 59549
+===============================================
+* Round ended at t = 59909
+===============================================
+* Round ended at t = 60269
+===============================================
+* Round ended at t = 60629
+===============================================
+* Round ended at t = 60989
+===============================================
+* Round ended at t = 61349
+===============================================
+* Round ended at t = 61709
+===============================================
+* Round ended at t = 62069
+===============================================
+* Job 13 arrived at t = 62406
+Jobs = [13], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 13: [6980.47072514018, 4533.610907138116, 4106.393493969914]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 6, 0, 0] <= 8
+  [0, 0, 0, 4, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 1.6087663408059474, 0.6965643547453888, 0.31546237569199] <= 0
+Result:
+  Min across all jobs = 1.6087663407943587
+  Scaled and normalized effective throughputs = [1.60876634]
+  Allocation matrix X:
+  Job 13: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 13: [inf, 0, 0]
+Allocation order:
+  job = 13, gpu = 2080Ti, priority = inf
+  job = 13, gpu = V100, priority = 0
+  job = 13, gpu = P100, priority = 0
+Heterogeneous stats for job 13:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 8
+Queued jobs:
+Running jobs:
+  Job 13: workload = TransformerWorkload, steps finished = 0, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 13: [1, 0, 0]
+GPU assignment:
+  Host V100: [13, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [13, 13, 13, 13, None, None, None, None]
+===============================================
+* Round ended at t = 62766
+Priority matrix:
+  Job 13: [1.0, 0, 0]
+Allocation order:
+  job = 13, gpu = 2080Ti, priority = 1.0
+  job = 13, gpu = V100, priority = 0
+  job = 13, gpu = P100, priority = 0
+Heterogeneous stats for job 13:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 8
+Queued jobs:
+Running jobs:
+  Job 13: workload = TransformerWorkload, steps finished = 153, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 13: [2, 0, 0]
+GPU assignment:
+  Host V100: [13, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [13, 13, 13, 13, None, None, None, None]
+===============================================
+* Round ended at t = 63126
+Priority matrix:
+  Job 13: [0.5, 0, 0]
+Allocation order:
+  job = 13, gpu = 2080Ti, priority = 0.5
+  job = 13, gpu = V100, priority = 0
+  job = 13, gpu = P100, priority = 0
+Heterogeneous stats for job 13:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 9
+Queued jobs:
+Running jobs:
+  Job 13: workload = TransformerWorkload, steps finished = 306, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 13: [3, 0, 0]
+GPU assignment:
+  Host V100: [13, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [13, 13, 13, 13, None, None, None, None]
+===============================================
+* Round ended at t = 63486
+Priority matrix:
+  Job 13: [0.3333333333333333, 0, 0]
+Allocation order:
+  job = 13, gpu = 2080Ti, priority = 0.3333333333333333
+  job = 13, gpu = V100, priority = 0
+  job = 13, gpu = P100, priority = 0
+Heterogeneous stats for job 13:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 10
+Queued jobs:
+Running jobs:
+  Job 13: workload = TransformerWorkload, steps finished = 459, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 13: [4, 0, 0]
+GPU assignment:
+  Host V100: [13, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [13, 13, 13, 13, None, None, None, None]
+===============================================
+* Round ended at t = 63846
+Priority matrix:
+  Job 13: [0.25, 0, 0]
+Allocation order:
+  job = 13, gpu = 2080Ti, priority = 0.25
+  job = 13, gpu = V100, priority = 0
+  job = 13, gpu = P100, priority = 0
+Heterogeneous stats for job 13:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 11
+Queued jobs:
+Running jobs:
+  Job 13: workload = TransformerWorkload, steps finished = 612, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 13: [5, 0, 0]
+GPU assignment:
+  Host V100: [13, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [13, 13, 13, 13, None, None, None, None]
+===============================================
+* Round ended at t = 64206
+Priority matrix:
+  Job 13: [0.2, 0, 0]
+Allocation order:
+  job = 13, gpu = 2080Ti, priority = 0.2
+  job = 13, gpu = V100, priority = 0
+  job = 13, gpu = P100, priority = 0
+Heterogeneous stats for job 13:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 13: workload = TransformerWorkload, steps finished = 765, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 13: [6, 0, 0]
+GPU assignment:
+  Host V100: [13, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [13, 13, 13, 13, None, None, None, None]
+===============================================
+* Round ended at t = 64566
+Priority matrix:
+  Job 13: [0.16666666666666666, 0, 0]
+Allocation order:
+  job = 13, gpu = 2080Ti, priority = 0.16666666666666666
+  job = 13, gpu = V100, priority = 0
+  job = 13, gpu = P100, priority = 0
+Heterogeneous stats for job 13:
+  Homogeneous throughput: 6980.47072514018 (6 2080Ti)
+  Heterogeneous throughput: 6980.470725140181 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 3 P100)
+Num events: 13
+Queued jobs:
+Running jobs:
+  Job 13: workload = TransformerWorkload, steps finished = 918, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 13: [7, 0, 0]
+GPU assignment:
+  Host V100: [13, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [13, 13, 13, 13, None, None, None, None]
+===============================================
+* Job 13 finished at t = 64759
+===============================================
+* Round ended at t = 65119
+===============================================
+* Round ended at t = 65479
+===============================================
+* Round ended at t = 65839
+===============================================
+* Round ended at t = 66199
+===============================================
+* Round ended at t = 66559
+===============================================
+* Round ended at t = 66919
+===============================================
+* Round ended at t = 67279
+===============================================
+* Round ended at t = 67639
+===============================================
+* Round ended at t = 67999
+===============================================
+* Round ended at t = 68359
+===============================================
+* Round ended at t = 68719
+===============================================
+* Round ended at t = 69079
+===============================================
+* Job 14 arrived at t = 69207
+Jobs = [14], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 14: [703.8585336818948, 283.21693838612725, 584.8764951005297]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 6, 0, 0] <= 8
+  [0, 0, 0, 4, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 1.6119390249683923, 0.4324054845969876, 0.44648424937870895] <= 0
+Result:
+  Min across all jobs = 1.6119390249701895
+  Scaled and normalized effective throughputs = [1.61193902]
+  Allocation matrix X:
+  Job 14: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 14: [inf, 0, 0]
+Allocation order:
+  job = 14, gpu = 2080Ti, priority = inf
+  job = 14, gpu = V100, priority = 0
+  job = 14, gpu = P100, priority = 0
+Heterogeneous stats for job 14:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 7
+Queued jobs:
+Running jobs:
+  Job 14: workload = ResNetWorkload, steps finished = 0, assigned = ['2080Ti']
+Rounds allocated:
+  Job 14: [1, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [14, 14, 14, 14, 14, 14, None, None]
+===============================================
+* Round ended at t = 69567
+Priority matrix:
+  Job 14: [1.0, 0, 0]
+Allocation order:
+  job = 14, gpu = 2080Ti, priority = 1.0
+  job = 14, gpu = V100, priority = 0
+  job = 14, gpu = P100, priority = 0
+Heterogeneous stats for job 14:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 7
+Queued jobs:
+Running jobs:
+  Job 14: workload = ResNetWorkload, steps finished = 247, assigned = ['2080Ti']
+Rounds allocated:
+  Job 14: [2, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [14, 14, 14, 14, 14, 14, None, None]
+===============================================
+* Round ended at t = 69927
+Priority matrix:
+  Job 14: [0.5, 0, 0]
+Allocation order:
+  job = 14, gpu = 2080Ti, priority = 0.5
+  job = 14, gpu = V100, priority = 0
+  job = 14, gpu = P100, priority = 0
+Heterogeneous stats for job 14:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 8
+Queued jobs:
+Running jobs:
+  Job 14: workload = ResNetWorkload, steps finished = 494, assigned = ['2080Ti']
+Rounds allocated:
+  Job 14: [3, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [14, 14, 14, 14, 14, 14, None, None]
+===============================================
+* Round ended at t = 70287
+Priority matrix:
+  Job 14: [0.3333333333333333, 0, 0]
+Allocation order:
+  job = 14, gpu = 2080Ti, priority = 0.3333333333333333
+  job = 14, gpu = V100, priority = 0
+  job = 14, gpu = P100, priority = 0
+Heterogeneous stats for job 14:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 9
+Queued jobs:
+Running jobs:
+  Job 14: workload = ResNetWorkload, steps finished = 741, assigned = ['2080Ti']
+Rounds allocated:
+  Job 14: [4, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [14, 14, 14, 14, 14, 14, None, None]
+===============================================
+* Round ended at t = 70647
+Priority matrix:
+  Job 14: [0.25, 0, 0]
+Allocation order:
+  job = 14, gpu = 2080Ti, priority = 0.25
+  job = 14, gpu = V100, priority = 0
+  job = 14, gpu = P100, priority = 0
+Heterogeneous stats for job 14:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 10
+Queued jobs:
+Running jobs:
+  Job 14: workload = ResNetWorkload, steps finished = 988, assigned = ['2080Ti']
+Rounds allocated:
+  Job 14: [5, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [14, 14, 14, 14, 14, 14, None, None]
+===============================================
+* Round ended at t = 71007
+Priority matrix:
+  Job 14: [0.2, 0, 0]
+Allocation order:
+  job = 14, gpu = 2080Ti, priority = 0.2
+  job = 14, gpu = V100, priority = 0
+  job = 14, gpu = P100, priority = 0
+Heterogeneous stats for job 14:
+  Homogeneous throughput: 703.8585336818948 (6 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (4 2080Ti + 1 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 3 P100)
+Num events: 11
+Queued jobs:
+Running jobs:
+  Job 14: workload = ResNetWorkload, steps finished = 1235, assigned = ['2080Ti']
+Rounds allocated:
+  Job 14: [6, 0, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [14, 14, 14, 14, 14, 14, None, None]
+===============================================
+* Job 14 finished at t = 71031
+===============================================
+* Round ended at t = 71391
+===============================================
+* Round ended at t = 71751
+===============================================
+* Round ended at t = 72111
+===============================================
+* Job 15 arrived at t = 72451
+Jobs = [15], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 15: [351.9292668409474, 283.21693838612725, 292.43824755026486]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0.9105696391194492, 0.7327857318991394, 0.18916115724535287] <= 0
+Result:
+  Min across all jobs = 0.9105696391198282
+  Scaled and normalized effective throughputs = [0.91056964]
+  Allocation matrix X:
+  Job 15: [1.0, 0.0, 0.0]
+Priority matrix:
+  Job 15: [inf, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = inf
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 6
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 0, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [1, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 72811
+Priority matrix:
+  Job 15: [1.0, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 1.0
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 6
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 123, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [2, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 73171
+Priority matrix:
+  Job 15: [0.5, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.5
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 7
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 246, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [3, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 73531
+Priority matrix:
+  Job 15: [0.3333333333333333, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.3333333333333333
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 8
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 369, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [4, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 73891
+Priority matrix:
+  Job 15: [0.25, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.25
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 9
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 492, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [5, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 74251
+Priority matrix:
+  Job 15: [0.2, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.2
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 10
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 615, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [6, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 74611
+Priority matrix:
+  Job 15: [0.16666666666666666, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.16666666666666666
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 11
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 738, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [7, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 74971
+Priority matrix:
+  Job 15: [0.14285714285714285, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.14285714285714285
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 861, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [8, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 75331
+Priority matrix:
+  Job 15: [0.125, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.125
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 13
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 984, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [9, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 75691
+Priority matrix:
+  Job 15: [0.1111111111111111, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.1111111111111111
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 14
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 1107, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [10, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Round ended at t = 76051
+Priority matrix:
+  Job 15: [0.1, 0, 0]
+Allocation order:
+  job = 15, gpu = 2080Ti, priority = 0.1
+  job = 15, gpu = V100, priority = 0
+  job = 15, gpu = P100, priority = 0
+Heterogeneous stats for job 15:
+  Homogeneous throughput: 351.9292668409474 (8 2080Ti)
+  Heterogeneous throughput: 703.8585336818948 (8 2080Ti + 2 V100)
+  Heterogeneous throughput: 283.21693838612725 (1 2080Ti + 7 P100)
+Num events: 15
+Queued jobs:
+Running jobs:
+  Job 15: workload = ResNetWorkload, steps finished = 1230, assigned = ['2080Ti', 'V100']
+Rounds allocated:
+  Job 15: [11, 0, 0]
+GPU assignment:
+  Host V100: [15, 15]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [15, 15, 15, 15, 15, 15, 15, 15]
+===============================================
+* Job 15 finished at t = 76110
+===============================================
+* Job 16 arrived at t = 76357
+Jobs = [16], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 16: [99.38954444576913, 73.66553896073958, 128.82255357459363]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 2, 0, 0] <= 8
+  [0, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 1.975427105625402, 1.4641469907627058, 2.5604259036118924] <= 0
+Result:
+  Min across all jobs = 2.5604259035784422
+  Scaled and normalized effective throughputs = [2.5604259]
+  Allocation matrix X:
+  Job 16: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 16: [0, 0, inf]
+Allocation order:
+  job = 16, gpu = V100, priority = inf
+  job = 16, gpu = P100, priority = 0
+  job = 16, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 16:
+  Homogeneous throughput: 128.82255357459363 (2 V100)
+  Heterogeneous throughput: 73.66553896073958 (1 V100 + 1 P100)
+  Heterogeneous throughput: 99.38954444576913 (1 V100 + 1 2080Ti)
+Num events: 6
+Queued jobs:
+Running jobs:
+  Job 16: workload = BERTGlueWorkload, steps finished = 0, assigned = ['V100']
+Rounds allocated:
+  Job 16: [0, 0, 1]
+GPU assignment:
+  Host V100: [16, 16]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 16 finished at t = 76462
+===============================================
+* Round ended at t = 76822
+===============================================
+* Round ended at t = 77182
+===============================================
+* Round ended at t = 77542
+===============================================
+* Round ended at t = 77902
+===============================================
+* Round ended at t = 78262
+===============================================
+* Job 17 arrived at t = 78593
+Jobs = [17], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 17: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 8.312522687748764, 10.797479140564421, 1.222499542921704] <= 0
+Result:
+  Min across all jobs = 10.797479140534136
+  Scaled and normalized effective throughputs = [10.79747914]
+  Allocation matrix X:
+  Job 17: [0.0, 1.0, 0.0]
+Priority matrix:
+  Job 17: [0, inf, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = inf
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 4
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 0, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 1, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 78953
+Priority matrix:
+  Job 17: [0, 1.0, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 1.0
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 4
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 49, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 2, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 79313
+Priority matrix:
+  Job 17: [0, 0.5, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.5
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 5
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 98, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 3, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 79673
+Priority matrix:
+  Job 17: [0, 0.3333333333333333, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.3333333333333333
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 6
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 147, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 4, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 80033
+Priority matrix:
+  Job 17: [0, 0.25, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.25
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 7
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 196, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 5, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 80393
+Priority matrix:
+  Job 17: [0, 0.2, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.2
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 8
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 245, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 6, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 80753
+Priority matrix:
+  Job 17: [0, 0.16666666666666666, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.16666666666666666
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 9
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 294, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 7, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 81113
+Priority matrix:
+  Job 17: [0, 0.14285714285714285, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.14285714285714285
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 10
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 343, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 8, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 81473
+Priority matrix:
+  Job 17: [0, 0.125, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.125
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 11
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 392, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 9, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 81833
+Priority matrix:
+  Job 17: [0, 0.1111111111111111, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.1111111111111111
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 12
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 441, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 10, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 82193
+Priority matrix:
+  Job 17: [0, 0.1, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.1
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 13
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 490, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 11, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 82553
+Priority matrix:
+  Job 17: [0, 0.09090909090909091, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.09090909090909091
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 14
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 539, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 12, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 82913
+Priority matrix:
+  Job 17: [0, 0.08333333333333333, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.08333333333333333
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 15
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 588, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 13, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 18 arrived at t = 83155
+Jobs = [17, 18], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 17: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+  Job 18: [99.14704031250092, 73.48232934130863, 128.5816513374749]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 8, 0, 0, 1, 0, 0] <= 8
+  [0, 0, 0, 0, 8, 0, 0, 1, 0] <= 8
+  [0, 0, 0, 0, 0, 2, 0, 0, 1] <= 2
+EQ Constraints:
+  [0, -1, 0, 8.312522687748764, 10.797479140564421, 1.222499542921704, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 0.987484189518116, 0.7318689312842392, 1.2806468791976449] <= 0
+Result:
+  Min across all jobs = 1.280646879190527
+  Scaled and normalized effective throughputs = [3.71715268 1.28064688]
+  Allocation matrix X:
+  Job 17: [0.19287, 0.17733, 0.16297]
+  Job 18: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 17: [inf, inf, inf]
+  Job 18: [0, 0, inf]
+Allocation order:
+  job = 18, gpu = V100, priority = inf
+  job = 17, gpu = V100, priority = inf
+  job = 17, gpu = P100, priority = inf
+  job = 17, gpu = 2080Ti, priority = inf
+  job = 18, gpu = P100, priority = 0
+  job = 18, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 18:
+  Homogeneous throughput: 128.5816513374749 (1 V100)
+  Heterogeneous throughput: 74.88006712652502 (1 V100 + 1 V100)
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (7 P100 + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 17
+Queued jobs:
+Running jobs:
+  Job 18: workload = BERTGlueWorkload, steps finished = 0, assigned = ['V100']
+  Job 17: workload = TransformerWorkload, steps finished = 621, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 1, 0]
+  Job 18: [0, 0, 1]
+GPU assignment:
+  Host V100: [18, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 83515
+Priority matrix:
+  Job 17: [inf, 0.17733, inf]
+  Job 18: [0, 0, 1.0]
+Allocation order:
+  job = 17, gpu = V100, priority = inf
+  job = 17, gpu = 2080Ti, priority = inf
+  job = 18, gpu = V100, priority = 1.0
+  job = 17, gpu = P100, priority = 0.17733
+  job = 18, gpu = P100, priority = 0
+  job = 18, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 2053.196746984957 (2 V100)
+  Heterogeneous throughput: 4533.610907138116 (1 V100 + 7 P100)
+  Heterogeneous throughput: 6980.470725140181 (2 V100 + 8 2080Ti)
+Num events: 18
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 670, assigned = ['2080Ti', 'V100']
+  Job 18: workload = BERTGlueWorkload, steps finished = 2893, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 1, 1]
+  Job 18: [0, 1, 1]
+GPU assignment:
+  Host V100: [17, 17]
+  Host P100: [18, None, None, None, None, None, None, None]
+  Host 2080Ti: [17, 17, 17, 17, 17, 17, 17, 17]
+===============================================
+* Round ended at t = 83875
+Priority matrix:
+  Job 17: [inf, 0.17733, 0.16297]
+  Job 18: [0, 0, 1.0]
+Allocation order:
+  job = 17, gpu = 2080Ti, priority = inf
+  job = 18, gpu = V100, priority = 1.0
+  job = 17, gpu = P100, priority = 0.17733
+  job = 17, gpu = V100, priority = 0.16297
+  job = 18, gpu = P100, priority = 0
+  job = 18, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 3490.23536257009 (8 2080Ti)
+  Heterogeneous throughput: 4106.393493969914 (8 2080Ti + 1 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 2080Ti + 7 P100)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 746, assigned = ['2080Ti', 'P100']
+  Job 18: workload = BERTGlueWorkload, steps finished = 4546, assigned = ['V100']
+Rounds allocated:
+  Job 17: [1, 1, 1]
+  Job 18: [0, 1, 2]
+GPU assignment:
+  Host V100: [18, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, None]
+  Host 2080Ti: [17, 17, None, None, None, None, None, None]
+===============================================
+* Job 18 finished at t = 83974
+Jobs = [17], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 17: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 8.312522687748764, 10.797479140564421, 1.222499542921704] <= 0
+Result:
+  Min across all jobs = 10.797479140534136
+  Scaled and normalized effective throughputs = [10.79747914]
+  Allocation matrix X:
+  Job 17: [0.0, 1.0, 0.0]
+Priority matrix:
+  Job 17: [0, inf, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = inf
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 759, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 1, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 84334
+Priority matrix:
+  Job 17: [0, 1.0, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 1.0
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 19
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 808, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 2, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 84694
+Priority matrix:
+  Job 17: [0, 0.5, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.5
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 20
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 857, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 3, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 85054
+Priority matrix:
+  Job 17: [0, 0.3333333333333333, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 0.3333333333333333
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 21
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 906, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 4, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 19 arrived at t = 85065
+Jobs = [17, 19], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 17: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+  Job 19: [99.38954444576913, 73.66553896073958, 128.82255357459363]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 8, 0, 0, 2, 0, 0] <= 8
+  [0, 0, 0, 0, 8, 0, 0, 2, 0] <= 8
+  [0, 0, 0, 0, 0, 2, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 0, 8.312522687748764, 10.797479140564421, 1.222499542921704, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 0.19754271056254022, 0.14641469907627058, 0.25604259036118926] <= 0
+Result:
+  Min across all jobs = 0.2560425884292135
+  Scaled and normalized effective throughputs = [3.24638416 0.25604259]
+  Allocation matrix X:
+  Job 17: [0.18735, 0.15643, 0.0]
+  Job 19: [0.0, 0.0, 1.0]
+Priority matrix:
+  Job 17: [inf, inf, 0]
+  Job 19: [0, 0, inf]
+Allocation order:
+  job = 19, gpu = V100, priority = inf
+  job = 17, gpu = P100, priority = inf
+  job = 17, gpu = 2080Ti, priority = inf
+  job = 19, gpu = P100, priority = 0
+  job = 19, gpu = 2080Ti, priority = 0
+  job = 17, gpu = V100, priority = 0
+Heterogeneous stats for job 19:
+  Homogeneous throughput: 128.82255357459363 (2 V100)
+  Heterogeneous throughput: 99.38954444576913 (1 V100 + 1 2080Ti)
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 23
+Queued jobs:
+Running jobs:
+  Job 19: workload = BERTGlueWorkload, steps finished = 0, assigned = ['V100']
+  Job 17: workload = TransformerWorkload, steps finished = 907, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 1, 0]
+  Job 19: [0, 0, 1]
+GPU assignment:
+  Host V100: [19, 19]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 19 finished at t = 85118
+Jobs = [17], GPU types = ['2080Ti', 'P100', 'V100']
+Throughput matrix:
+  Job 17: [3490.23536257009, 4533.610907138116, 2053.196746984957]
+Objective vector = [-1, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0] <= 0
+  [0, 0, 1, 1, 1] <= 1
+  [0, 0, 8, 0, 0] <= 8
+  [0, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 2] <= 2
+EQ Constraints:
+  [0, -1, 8.312522687748764, 10.797479140564421, 1.222499542921704] <= 0
+Result:
+  Min across all jobs = 10.797479140534136
+  Scaled and normalized effective throughputs = [10.79747914]
+  Allocation matrix X:
+  Job 17: [0.0, 1.0, 0.0]
+Priority matrix:
+  Job 17: [0, inf, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = inf
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 23
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 914, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 1, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Round ended at t = 85478
+Priority matrix:
+  Job 17: [0, 1.0, 0]
+Allocation order:
+  job = 17, gpu = P100, priority = 1.0
+  job = 17, gpu = V100, priority = 0
+  job = 17, gpu = 2080Ti, priority = 0
+Heterogeneous stats for job 17:
+  Homogeneous throughput: 4533.610907138116 (8 P100)
+  Heterogeneous throughput: 4533.610907138116 (6 P100 + 2 V100)
+  Heterogeneous throughput: 4533.610907138116 (2 P100 + 8 2080Ti)
+Num events: 22
+Queued jobs:
+Running jobs:
+  Job 17: workload = TransformerWorkload, steps finished = 963, assigned = ['P100']
+Rounds allocated:
+  Job 17: [0, 2, 0]
+GPU assignment:
+  Host V100: [None, None]
+  Host P100: [17, 17, 17, 17, 17, 17, 17, 17]
+  Host 2080Ti: [None, None, None, None, None, None, None, None]
+===============================================
+* Job 17 finished at t = 85746
+===============================================
+Total time elapsed: 85746 seconds
+Average JCT: 1884.800 seconds
+Median JCT: 1157.000 seconds
+All JCT:
+  Job 0 = 219 seconds
+  Job 1 = 3647 seconds
+  Job 2 = 2353 seconds
+  Job 3 = 1096 seconds
+  Job 4 = 105 seconds
+  Job 5 = 1218 seconds
+  Job 6 = 53 seconds
+  Job 7 = 589 seconds
+  Job 8 = 3685 seconds
+  Job 9 = 665 seconds
+  Job 10 = 3673 seconds
+  Job 11 = 3839 seconds
+  Job 12 = 588 seconds
+  Job 13 = 2353 seconds
+  Job 14 = 1824 seconds
+  Job 15 = 3659 seconds
+  Job 16 = 105 seconds
+  Job 17 = 7153 seconds
+  Job 18 = 819 seconds
+  Job 19 = 53 seconds
+Allocation details:
+  Job 0: 
+    start = 1, end = 220, duration = 219, GPUs = 1 V100
+  Job 1: 
+    start = 1428, end = 5075, duration = 3647, GPUs = 6 2080Ti
+  Job 2: 
+    start = 8634, end = 10987, duration = 2353, GPUs = 4 2080Ti + 1 V100
+  Job 3: 
+    start = 12555, end = 13651, duration = 1096, GPUs = 2 V100
+  Job 4: 
+    start = 15052, end = 15157, duration = 105, GPUs = 2 V100
+  Job 5: 
+    start = 17170, end = 17251, duration = 81, GPUs = 3 2080Ti
+    start = 17251, end = 17304, duration = 53, GPUs = 2 P100
+    start = 17304, end = 17427, duration = 123, GPUs = 3 2080Ti
+    start = 17427, end = 17591, duration = 164, GPUs = 2 V100
+    start = 17591, end = 17951, duration = 360, GPUs = 2 P100
+    start = 17951, end = 18376, duration = 425, GPUs = 2 V100
+    start = 18376, end = 18388, duration = 12, GPUs = 3 2080Ti
+  Job 6: 
+    start = 17251, end = 17304, duration = 53, GPUs = 1 V100
+  Job 7: 
+    start = 17427, end = 18016, duration = 589, GPUs = 3 2080Ti
+  Job 8: 
+    start = 17591, end = 17951, duration = 360, GPUs = 6 P100 + 2 V100
+    start = 17951, end = 21276, duration = 3325, GPUs = 8 P100
+  Job 9: 
+    start = 39593, end = 40258, duration = 665, GPUs = 1 V100
+  Job 10: 
+    start = 49806, end = 52873, duration = 3067, GPUs = 8 P100
+    start = 52873, end = 53233, duration = 360, GPUs = 7 P100 + 1 V100
+    start = 53233, end = 53479, duration = 246, GPUs = 8 P100
+  Job 11: 
+    start = 52873, end = 53233, duration = 360, GPUs = 8 2080Ti
+    start = 53233, end = 56712, duration = 3479, GPUs = 8 2080Ti + 2 V100
+  Job 12: 
+    start = 56801, end = 57389, duration = 588, GPUs = 2 2080Ti
+  Job 13: 
+    start = 62406, end = 64759, duration = 2353, GPUs = 4 2080Ti + 1 V100
+  Job 14: 
+    start = 69207, end = 71031, duration = 1824, GPUs = 6 2080Ti
+  Job 15: 
+    start = 72451, end = 76110, duration = 3659, GPUs = 8 2080Ti + 2 V100
+  Job 16: 
+    start = 76357, end = 76462, duration = 105, GPUs = 2 V100
+  Job 17: 
+    start = 78593, end = 83515, duration = 4922, GPUs = 8 P100
+    start = 83515, end = 83875, duration = 360, GPUs = 8 2080Ti + 2 V100
+    start = 83875, end = 83974, duration = 99, GPUs = 2 2080Ti + 7 P100
+    start = 83974, end = 85746, duration = 1772, GPUs = 8 P100
+  Job 18: 
+    start = 83155, end = 83515, duration = 360, GPUs = 1 V100
+    start = 83515, end = 83875, duration = 360, GPUs = 1 P100
+    start = 83875, end = 83974, duration = 99, GPUs = 1 V100
+  Job 19: 
+    start = 85065, end = 85118, duration = 53, GPUs = 2 V100
+Saved plot to het-medium20_1jph-V100:2,P100:8,2080Ti:8.pdf
