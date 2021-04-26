@@ -55,6 +55,9 @@ def main():
   plt.xticks(fontsize=14)
   plt.yticks(fontsize=14)
   plt.savefig(output_file, bbox_inches="tight")
+  for i in range(len(jphs)):
+    print("%s jobs per hour => %.3g%% decrease" %\
+      (jphs[i], jct_decrease[i]))
   print("Saved to %s" % output_file)
 
 if __name__ == "__main__":
