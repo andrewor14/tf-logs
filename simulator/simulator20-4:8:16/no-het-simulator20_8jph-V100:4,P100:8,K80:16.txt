@@ -410,98 +410,12 @@ GPU assignment:
 * Job 8 finished at t = 2379
 ===============================================
 * Round ended at t = 2520
-Jobs = [5, 3, 1, 4, 2], GPU types = ['K80', 'P100', 'V100']
+Jobs = [5, 3, 4, 2], GPU types = ['K80', 'P100', 'V100']
 Throughput matrix:
   Job 5: [21927.810219611627, 36268.88725710493, 32851.14795175931]
   Job 3: [373.8130840275546, 589.3243116859167, 515.2902142983745]
-  Job 1: [373.8130840275546, 589.3243116859167, 515.2902142983745]
   Job 4: [21927.810219611627, 36268.88725710493, 32851.14795175931]
   Job 2: [1044.6757994143588, 2265.735507089018, 4679.011960804238]
-Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-Bounds = [(0, None), (0, None), (0, None), (0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
-LEQ Constraints:
-  [1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
-  [1, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
-  [1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
-  [1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
-  [1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
-  [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 1
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 1
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0] <= 1
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
-  [0, 0, 0, 0, 0, 0, 16, 0, 0, 16, 0, 0, 16, 0, 0, 16, 0, 0, 16, 0, 0] <= 16
-  [0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 0, 8, 0, 0, 8, 0, 0, 8, 0] <= 8
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 4, 0, 0, 4, 0, 0, 4, 0, 0, 4] <= 4
-EQ Constraints:
-  [0, -1, 0, 0, 0, 0, 2.3120478811729694, 1.9120788417872387, 0.8659486088131386, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
-  [0, 0, -1, 0, 0, 0, 0, 0, 0, 1.213656178484035, 0.9566774446500409, 0.41824723305397066, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
-  [0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 1.213656178484035, 0.9566774446500409, 0.41824723305397066, 0, 0, 0, 0, 0, 0] <= 0
-  [0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.1560239405864847, 0.9560394208936194, 0.4329743044065693, 0, 0, 0] <= 0
-  [0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.6276352709597721, 0.6806204947564551, 0.7027809348818294] <= 0
-Result:
-  Min across all jobs = 0.6323247703020489
-  Scaled and normalized effective throughputs = [0.63232478 0.63232477 0.63232477 0.63232477 0.63232478]
-  Allocation matrix X:
-  Job 5: [0.0, 0.30639, 0.05368]
-  Job 3: [0.5, 0.02665, 0.0]
-  Job 1: [0.5, 0.02665, 0.0]
-  Job 4: [0.0, 0.64031, 0.04658]
-  Job 2: [0.0, 0.0, 0.89975]
-Priority matrix:
-  Job 5: [0, inf, inf]
-  Job 3: [inf, inf, 0]
-  Job 1: [inf, inf, 0]
-  Job 4: [0, inf, inf]
-  Job 2: [0, 0, inf]
-Allocation order:
-  job = 2, gpu = V100, priority = inf
-  job = 4, gpu = V100, priority = inf
-  job = 4, gpu = P100, priority = inf
-  job = 1, gpu = P100, priority = inf
-  job = 1, gpu = K80, priority = inf
-  job = 3, gpu = P100, priority = inf
-  job = 3, gpu = K80, priority = inf
-  job = 5, gpu = V100, priority = inf
-  job = 5, gpu = P100, priority = inf
-  job = 2, gpu = P100, priority = 0
-  job = 2, gpu = K80, priority = 0
-  job = 4, gpu = K80, priority = 0
-  job = 1, gpu = V100, priority = 0
-  job = 3, gpu = V100, priority = 0
-  job = 5, gpu = K80, priority = 0
-Num events: 18
-Queued jobs:
-  Job 3: workload = BERTGlueWorkload
-  Job 5: workload = TransformerWorkload
-Running jobs:
-  Job 2: workload = ResNetWorkload, steps finished = 0, assigned = ['V100']
-  Job 4: workload = TransformerWorkload, steps finished = 341, assigned = ['P100']
-  Job 1: workload = BERTGlueWorkload, steps finished = 401, assigned = ['K80']
-Rounds allocated:
-  Job 5: [0, 0, 0]
-  Job 3: [0, 0, 0]
-  Job 1: [1, 0, 0]
-  Job 4: [0, 1, 0]
-  Job 2: [0, 0, 1]
-GPU assignment:
-  Host V100: [2, 2, 2, 2]
-  Host P100: [4, 4, 4, 4, 4, 4, 4, 4]
-  Host K80: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-===============================================
-* Job 1 finished at t = 2520
-===============================================
-* Job 2 finished at t = 2794
-===============================================
-* Job 9 arrived at t = 2815
-===============================================
-* Round ended at t = 2880
-Jobs = [4, 3, 5, 9], GPU types = ['K80', 'P100', 'V100']
-Throughput matrix:
-  Job 4: [21927.810219611627, 36268.88725710493, 32851.14795175931]
-  Job 3: [373.8130840275546, 589.3243116859167, 515.2902142983745]
-  Job 5: [21927.810219611627, 36268.88725710493, 32851.14795175931]
-  Job 9: [1044.6757994143588, 2265.735507089018, 4679.011960804238]
 Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 Bounds = [(0, None), (0, None), (0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
 LEQ Constraints:
@@ -517,96 +431,115 @@ LEQ Constraints:
   [0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 0, 8, 0, 0, 8, 0] <= 8
   [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 4, 0, 0, 4, 0, 0, 4] <= 4
 EQ Constraints:
-  [0, -1, 0, 0, 0, 1.1560239405864847, 0.9560394208936194, 0.4329743044065693, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [0, -1, 0, 0, 0, 2.3120478811729694, 1.9120788417872387, 0.8659486088131386, 0, 0, 0, 0, 0, 0, 0, 0, 0] <= 0
   [0, 0, -1, 0, 0, 0, 0, 0, 1.213656178484035, 0.9566774446500409, 0.41824723305397066, 0, 0, 0, 0, 0, 0] <= 0
-  [0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 2.3120478811729694, 1.9120788417872387, 0.8659486088131386, 0, 0, 0] <= 0
-  [0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.27635270959772, 6.806204947564551, 7.027809348818293] <= 0
+  [0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 1.1560239405864847, 0.9560394208936194, 0.4329743044065693, 0, 0, 0] <= 0
+  [0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.6276352709597721, 0.6806204947564551, 0.7027809348818294] <= 0
 Result:
-  Min across all jobs = 1.0099919599159901
-  Scaled and normalized effective throughputs = [1.00999196 1.00999196 1.00999196 1.00999197]
+  Min across all jobs = 0.7027809328944381
+  Scaled and normalized effective throughputs = [0.92193848 0.80792982 0.80004117 0.70278093]
   Allocation matrix X:
-  Job 4: [0.26978, 0.73022, 0.0]
-  Job 3: [0.73022, 0.12936, 0.0]
-  Job 5: [0.0, 0.14042, 0.85629]
-  Job 9: [0.0, 0.0, 0.14371]
+  Job 5: [0.19954, 0.24089, 0.0]
+  Job 3: [0.39414, 0.3445, 0.0]
+  Job 4: [0.38319, 0.37348, 0.0]
+  Job 2: [0.0, 0.0, 1.0]
 Priority matrix:
-  Job 4: [inf, inf, 0]
+  Job 5: [inf, inf, 0]
   Job 3: [inf, inf, 0]
-  Job 5: [0, inf, inf]
-  Job 9: [0, 0, inf]
+  Job 4: [inf, inf, 0]
+  Job 2: [0, 0, inf]
 Allocation order:
-  job = 9, gpu = V100, priority = inf
-  job = 5, gpu = V100, priority = inf
-  job = 5, gpu = P100, priority = inf
-  job = 3, gpu = P100, priority = inf
-  job = 3, gpu = K80, priority = inf
+  job = 2, gpu = V100, priority = inf
   job = 4, gpu = P100, priority = inf
   job = 4, gpu = K80, priority = inf
-  job = 9, gpu = P100, priority = 0
-  job = 9, gpu = K80, priority = 0
-  job = 5, gpu = K80, priority = 0
-  job = 3, gpu = V100, priority = 0
+  job = 3, gpu = P100, priority = inf
+  job = 3, gpu = K80, priority = inf
+  job = 5, gpu = P100, priority = inf
+  job = 5, gpu = K80, priority = inf
+  job = 2, gpu = P100, priority = 0
+  job = 2, gpu = K80, priority = 0
   job = 4, gpu = V100, priority = 0
-Num events: 16
+  job = 3, gpu = V100, priority = 0
+  job = 5, gpu = V100, priority = 0
+Num events: 19
 Queued jobs:
-  Job 4: workload = TransformerWorkload
+  Job 5: workload = TransformerWorkload
 Running jobs:
-  Job 9: workload = ResNetWorkload, steps finished = 0, assigned = ['V100']
-  Job 5: workload = TransformerWorkload, steps finished = 666, assigned = ['P100']
+  Job 2: workload = ResNetWorkload, steps finished = 0, assigned = ['V100']
+  Job 4: workload = TransformerWorkload, steps finished = 341, assigned = ['P100']
   Job 3: workload = BERTGlueWorkload, steps finished = 326, assigned = ['K80']
 Rounds allocated:
-  Job 4: [0, 0, 0]
+  Job 5: [0, 0, 0]
   Job 3: [1, 0, 0]
-  Job 5: [0, 1, 0]
+  Job 4: [0, 1, 0]
+  Job 2: [0, 0, 1]
+GPU assignment:
+  Host V100: [2, 2, 2, 2]
+  Host P100: [4, 4, 4, 4, 4, 4, 4, 4]
+  Host K80: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+===============================================
+* Job 1 finished at t = 2520
+===============================================
+* Job 3 finished at t = 2520
+===============================================
+* Job 2 finished at t = 2794
+===============================================
+* Job 9 arrived at t = 2815
+===============================================
+* Round ended at t = 2880
+Jobs = [4, 9], GPU types = ['K80', 'P100', 'V100']
+Throughput matrix:
+  Job 4: [21927.810219611627, 36268.88725710493, 32851.14795175931]
+  Job 9: [1044.6757994143588, 2265.735507089018, 4679.011960804238]
+Objective vector = [-1, 0, 0, 0, 0, 0, 0, 0, 0]
+Bounds = [(0, None), (0, None), (0, None), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1)]
+LEQ Constraints:
+  [1, -1, 0, 0, 0, 0, 0, 0, 0] <= 0
+  [1, 0, -1, 0, 0, 0, 0, 0, 0] <= 0
+  [0, 0, 0, 1, 1, 1, 0, 0, 0] <= 1
+  [0, 0, 0, 0, 0, 0, 1, 1, 1] <= 1
+  [0, 0, 0, 16, 0, 0, 16, 0, 0] <= 16
+  [0, 0, 0, 0, 8, 0, 0, 8, 0] <= 8
+  [0, 0, 0, 0, 0, 4, 0, 0, 4] <= 4
+EQ Constraints:
+  [0, -1, 0, 1.1560239405864847, 0.9560394208936194, 0.4329743044065693, 0, 0, 0] <= 0
+  [0, 0, -1, 0, 0, 0, 6.27635270959772, 6.806204947564551, 7.027809348818293] <= 0
+Result:
+  Min across all jobs = 1.1560239405196555
+  Scaled and normalized effective throughputs = [1.15602394 3.15238384]
+  Allocation matrix X:
+  Job 4: [1.0, 0.0, 0.0]
+  Job 9: [0.0, 0.28033, 0.17707]
+Priority matrix:
+  Job 4: [inf, 0, 0]
+  Job 9: [0, inf, inf]
+Allocation order:
+  job = 9, gpu = V100, priority = inf
+  job = 9, gpu = P100, priority = inf
+  job = 4, gpu = K80, priority = inf
+  job = 9, gpu = K80, priority = 0
+  job = 4, gpu = V100, priority = 0
+  job = 4, gpu = P100, priority = 0
+Num events: 16
+Queued jobs:
+Running jobs:
+  Job 9: workload = ResNetWorkload, steps finished = 0, assigned = ['V100']
+  Job 4: workload = TransformerWorkload, steps finished = 938, assigned = ['K80']
+Rounds allocated:
+  Job 4: [1, 0, 0]
   Job 9: [0, 0, 1]
 GPU assignment:
   Host V100: [9, 9, 9, 9]
-  Host P100: [5, 5, 5, 5, 5, 5, 5, 5]
-  Host K80: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  Host P100: [None, None, None, None, None, None, None, None]
+  Host K80: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
 ===============================================
 * Job 5 finished at t = 2880
 ===============================================
-* Job 3 finished at t = 2880
+* Job 4 finished at t = 3066
 ===============================================
 * Job 9 finished at t = 3154
 ===============================================
 * Round ended at t = 3240
-Jobs = [4], GPU types = ['K80', 'P100', 'V100']
-Throughput matrix:
-  Job 4: [21927.810219611627, 36268.88725710493, 32851.14795175931]
-Objective vector = [-1, 0, 0, 0, 0]
-Bounds = [(0, None), (0, None), (0, 1), (0, 1), (0, 1)]
-LEQ Constraints:
-  [1, -1, 0, 0, 0] <= 0
-  [0, 0, 1, 1, 1] <= 1
-  [0, 0, 16, 0, 0] <= 16
-  [0, 0, 0, 8, 0] <= 8
-  [0, 0, 0, 0, 4] <= 4
-EQ Constraints:
-  [0, -1, 1.1560239405864847, 0.9560394208936194, 0.4329743044065693] <= 0
-Result:
-  Min across all jobs = 1.1560239405869333
-  Scaled and normalized effective throughputs = [1.15602394]
-  Allocation matrix X:
-  Job 4: [1.0, 0.0, 0.0]
-Priority matrix:
-  Job 4: [inf, 0, 0]
-Allocation order:
-  job = 4, gpu = K80, priority = inf
-  job = 4, gpu = V100, priority = 0
-  job = 4, gpu = P100, priority = 0
-Num events: 13
-Queued jobs:
-Running jobs:
-  Job 4: workload = TransformerWorkload, steps finished = 938, assigned = ['K80']
-Rounds allocated:
-  Job 4: [1, 0, 0]
-GPU assignment:
-  Host V100: [None, None, None, None]
-  Host P100: [None, None, None, None, None, None, None, None]
-  Host K80: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
-===============================================
-* Job 4 finished at t = 3426
 ===============================================
 * Round ended at t = 3600
 ===============================================
@@ -1310,14 +1243,14 @@ GPU assignment:
 * Job 18 finished at t = 10944
 ===============================================
 Total time elapsed: 10944 seconds
-Average JCT: 1151.900 seconds
-Median JCT: 1004.000 seconds
+Average JCT: 1115.900 seconds
+Median JCT: 980.000 seconds
 All JCT:
   Job 0 = 1424 seconds
   Job 1 = 2150 seconds
   Job 2 = 1651 seconds
-  Job 3 = 1736 seconds
-  Job 4 = 2243 seconds
+  Job 3 = 1376 seconds
+  Job 4 = 1883 seconds
   Job 5 = 1692 seconds
   Job 6 = 406 seconds
   Job 7 = 326 seconds
@@ -1340,29 +1273,26 @@ Allocation details:
     start = 1080, end = 1425, duration = 345, GPUs = 8 P100
   Job 1: 
     start = 720, end = 1440, duration = 720, GPUs = 16 K80
-    start = 1440, end = 1800, duration = 360, GPUs = 16 K80
+    start = 1440, end = 1800, duration = 360, GPUs = None
     start = 1800, end = 2160, duration = 360, GPUs = 8 P100
-    start = 2160, end = 2520, duration = 360, GPUs = 8 P100
-    start = 2520, end = 2520, duration = 0, GPUs = 16 K80
+    start = 2160, end = 2520, duration = 360, GPUs = None
   Job 2: 
     start = 2520, end = 2794, duration = 274, GPUs = 4 V100
   Job 3: 
     start = 1440, end = 1800, duration = 360, GPUs = 16 K80
-    start = 1800, end = 2160, duration = 360, GPUs = 16 K80
+    start = 1800, end = 2160, duration = 360, GPUs = None
     start = 2160, end = 2520, duration = 360, GPUs = 8 P100
-    start = 2520, end = 2880, duration = 360, GPUs = 8 P100
-    start = 2880, end = 2880, duration = 0, GPUs = 16 K80
+    start = 2520, end = 2520, duration = 0, GPUs = 16 K80
   Job 4: 
     start = 1440, end = 1800, duration = 360, GPUs = 8 P100
-    start = 1800, end = 2160, duration = 360, GPUs = 8 P100
-    start = 2160, end = 2880, duration = 720, GPUs = 8 P100
-    start = 2880, end = 3240, duration = 360, GPUs = 8 P100
-    start = 3240, end = 3426, duration = 186, GPUs = 16 K80
+    start = 1800, end = 2520, duration = 720, GPUs = None
+    start = 2520, end = 2880, duration = 360, GPUs = 8 P100
+    start = 2880, end = 3066, duration = 186, GPUs = 16 K80
   Job 5: 
     start = 1440, end = 1800, duration = 360, GPUs = 4 V100
-    start = 1800, end = 2520, duration = 720, GPUs = 4 V100
-    start = 2520, end = 2880, duration = 360, GPUs = 4 V100
-    start = 2880, end = 2880, duration = 0, GPUs = 8 P100
+    start = 1800, end = 2160, duration = 360, GPUs = None
+    start = 2160, end = 2520, duration = 360, GPUs = 4 V100
+    start = 2520, end = 2880, duration = 360, GPUs = None
   Job 6: 
     start = 1800, end = 2074, duration = 274, GPUs = 4 V100
   Job 7: 
