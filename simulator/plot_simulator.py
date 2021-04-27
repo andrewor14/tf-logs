@@ -46,12 +46,12 @@ def main():
     jct_decrease.append((no_het - het) / no_het * 100)
 
   # Plot it
-  fig = plt.figure()
+  fig = plt.figure(figsize=(6.5, 2.5))
   ax = plt.axes()
   ax.plot(jphs, jct_decrease, linewidth=2, marker="x", markeredgewidth=3, markersize=8)
-  ax.set_ylabel("% decrease in average JCT", fontsize=16, labelpad=16)
-  ax.set_xlabel("Jobs per hour", fontsize=16, labelpad=16)
-  ax.set_ylim(ymin=min(jct_decrease + [0]))
+  ax.set_ylabel("% decrease in avg JCT", fontsize=16, labelpad=12)
+  ax.set_xlabel("Jobs per hour", fontsize=16, labelpad=12)
+  ax.set_ylim(ymin=min(jct_decrease + [0]) - 2, ymax=max(jct_decrease) * 1.1)
   plt.xticks(fontsize=14)
   plt.yticks(fontsize=14)
   plt.savefig(output_file, bbox_inches="tight")
