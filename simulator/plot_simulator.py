@@ -13,7 +13,7 @@ def main():
     sys.exit(1)
   log_dir = args[1]
   jph_filter = set([int(x) for x in args[2:]])
-  output_file = "out.pdf"
+  output_file = "%s.pdf" % log_dir.strip("/")
 
   # Parse average JCT from all logs
   het_average_jcts = []
@@ -34,30 +34,27 @@ def main():
   het_average_jcts.sort()
   no_het_average_jcts.sort()
 
-  # Calculate percent decrease
-  jphs = []
-  jct_decrease = []
-  for i in range(len(het_average_jcts)):
-    jph, no_het = no_het_average_jcts[i]
-    _, het = het_average_jcts[i]
-    if len(jph_filter) > 0 and jph not in jph_filter:
-      continue
-    jphs.append(jph)
-    jct_decrease.append((no_het - het) / no_het * 100)
-
   # Plot it
-  fig = plt.figure(figsize=(6.5, 2.5))
+  fig = plt.figure(figsize=(6.5, 2.75))
   ax = plt.axes()
-  ax.plot(jphs, jct_decrease, linewidth=2, marker="x", markeredgewidth=3, markersize=8)
-  ax.set_ylabel("% decrease in avg JCT", fontsize=16, labelpad=12)
+  jphs = [j for j, _ in het_average_jcts]
+  gavel = [jct for _, jct in no_het_average_jcts]
+  gavel_ht = [jct for _, jct in het_average_jcts]
+  percentage_decrease = [(gavel[i] - gavel_ht[i]) / gavel[i] * 100 for i in range(len(jphs))]
+  for i in [3]:
+    plt.annotate("-%.3g%%" % percentage_decrease[i], (jphs[i], gavel_ht[i]),
+      textcoords="offset points", xytext=(0,-18), ha='center', fontsize=10)
+  ax.plot(jphs, gavel, linewidth=2, marker="x", markeredgewidth=3, markersize=8, label="Gavel")
+  ax.plot(jphs, gavel_ht, linewidth=2, marker="x", markeredgewidth=3, markersize=8, label="Gavel + HT")
+  ax.set_ylabel("Avg JCT (s)", fontsize=16, labelpad=12)
   ax.set_xlabel("Jobs per hour", fontsize=16, labelpad=12)
-  ax.set_ylim(ymin=min(jct_decrease + [0]) - 2, ymax=max(jct_decrease) * 1.1)
+  ax.set_ylim(ymin=0, ymax=max(gavel) * 1.1)
+  ax.legend(loc="lower right", fontsize=14, ncol=2)
   plt.xticks(fontsize=14)
   plt.yticks(fontsize=14)
   plt.savefig(output_file, bbox_inches="tight")
   for i in range(len(jphs)):
-    print("%s jobs per hour => %.3g%% decrease" %\
-      (jphs[i], jct_decrease[i]))
+    print("%s jobs per hour => %.3g%% decrease" % (jphs[i], percentage_decrease[i]))
   print("Saved to %s" % output_file)
 
 if __name__ == "__main__":
