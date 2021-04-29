@@ -1,0 +1,408 @@
+My commit is b373920f Add script for experiments IJKL (/root/dev/models/deploy)
+
+==========================================================================
+git diff (/root/dev/models/deploy)
+--------------------------------------------------------------------------
+diff --git a/deploy/run_virtual_ijkl.sh b/deploy/run_virtual_ijkl.sh
+old mode 100644
+new mode 100755
+==========================================================================
+
+
+==========================================================================
+My environment variables:
+--------------------------------------------------------------------------
+CUDNN_VERSION=7.6.2.24-1+cuda10.1
+PMIX_ID=3430547457.0
+BERT_CONFIG_FILE=/root/dev/dataset/bert/uncased_L-12_H-768_A-12/bert_config.json
+LD_LIBRARY_PATH=/usr/local/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+OMPI_FIRST_RANKS=0
+MPI_HOSTS=8603225c1c76,b0ce6effc2dd,344e7e96a479,b565c4a09032
+OMPI_MCA_orte_top_session_dir=/tmp/ompi.8603225c1c76.0
+LOG_MEMORY_ENABLED=false
+PMIX_SYSTEM_TMPDIR=/tmp
+EVAL_BATCH_SIZE=4
+OMPI_MCA_orte_num_nodes=4
+OMPI_COMMAND=run_bert_glue.sh
+MODEL=bert
+LANG=C.UTF-8
+HFI_NO_BACKTRACE=1
+HOSTNAME=8603225c1c76
+OMPI_MCA_ess_base_vpid=0
+OLDPWD=/root
+OMPI_MCA_initial_wdir=/root/dev/models/deploy
+V100_CONTAINER1=8603225c1c76
+V100_CONTAINER2=b0ce6effc2dd
+ENVIRONMENT=docker
+TF_DIR=/root/dev/tensorflow
+USE_KERAS_COMPILE_FIT=true
+DATA_DIR=/root/dev/dataset/bert/finetuning
+HOST_FLAG=--host 8603225c1c76,b0ce6effc2dd,344e7e96a479,b565c4a09032
+OMPI_MCA_btl_tcp_if_exclude=lo,docker0,eth1
+DATASET=cifar10
+DTYPE=fp32
+NUM_CHECKPOINTS_TO_KEEP=5
+OMPI_COMM_WORLD_NODE_RANK=0
+NVIDIA_VISIBLE_DEVICES=all
+OMPI_MCA_orte_precondition_transports=92a78a8823131674-483c0f6da33a58ce
+BASE_DIR=/root/dev
+OMPI_MCA_orte_ess_node_rank=0
+OMPI_MCA_shmem_RUNTIME_QUERY_hint=mmap
+OMPI_COMM_WORLD_RANK=0
+LOG_STEPS=1
+PMIX_RANK=0
+OMPI_FILE_LOCATION=/tmp/ompi.8603225c1c76.0/pid.5995/0/0
+TRAIN_BATCH_SIZE=4
+NCCL_VERSION=2.4.7-1+cuda10.1
+OMPI_MCA_orte_local_daemon_uri=3430547456.0;tcp://10.0.1.6,172.18.0.3:42439
+GLUE_TASK=CoLA
+LEARNING_RATE=2e-5
+HOROVOD_GPU_OPERATIONS=NCCL
+PWD=/root/dev/models/deploy
+NUM_GPUS_PER_NODE=8
+HOME=/root
+ENABLE_XLA=true
+PMIX_SERVER_TMPDIR=/tmp/ompi.8603225c1c76.0/pid.5995
+RUN_SCRIPT=run_bert_glue.sh
+PMIX_PTL_MODULE=tcp,usock
+IPATH_NO_BACKTRACE=1
+JOB_NAME=bert-glue-virtual-l7-04_29_21_1619669036054
+OMPI_MCA_rmaps_base_oversubscribe=1
+P100_CONTAINER2=b565c4a09032
+P100_CONTAINER1=344e7e96a479
+OMPI_MCA_orte_launch=1
+CODE_DIR=/root/dev/models/official/nlp/bert
+OMPI_MCA_orte_tmpdir_base=/tmp
+LOG_DIR=/root/dev/logs
+TIMESTAMP=04_29_21_1619669036773
+MPI_HOST_FILE=/root/container_hosts/hosts.txt
+NUM_VIRTUAL_NODES_PER_DEVICE=1
+BERT_MODEL_NAME=uncased_L-12_H-768_A-12
+OMPI_APP_CTX_NUM_PROCS=4
+OMPI_MCA_orte_output_filename=/root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054
+LOG_FILE=/dev/stderr
+STEPS_PER_LOOP=1
+MODELS_DIR=/root/dev/models
+OMPI_MCA_orte_app_num=0
+PMIX_MCA_mca_base_component_show_load_errors=1
+NUM_NODES=4
+OMPI_MCA_pml=ob1
+PYTHON_COMMAND=/usr/bin/python3
+IN_DOCKER_CONTAINER=true
+BERT_MODEL_DIR=/root/dev/dataset/bert/uncased_L-12_H-768_A-12
+NUM_EPOCHS=1
+PMIX_BFROP_BUFFER_TYPE=PMIX_BFROP_BUFFER_NON_DESC
+MPI_HOME=/usr/local
+CHECKPOINT_NAME=bert_model.ckpt
+TERM=xterm
+CUDA_PKG_VERSION=10-1=10.1.243-1
+CUDA_VERSION=10.1.243
+SKIP_EVAL=true
+PMIX_DSTORE_ESH_BASE_PATH=/tmp/ompi.8603225c1c76.0/pid.5995/pmix_dstor_ds12_5995
+OMPI_MCA_hwloc_base_binding_policy=none
+OMPI_MCA_rmaps_base_mapping_policy=node
+PMIX_SERVER_URI3=3430547456.0;tcp4://127.0.0.1:52893
+PMIX_SERVER_URI2=3430547456.0;tcp4://127.0.0.1:52893
+NUM_STEPS=20
+OMPI_MCA_orte_hnp_uri=3430547456.0;tcp://10.0.1.6,172.18.0.3:42439
+TRAIN_DIR=/root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054
+OMPI_MCA_mpi_yield_when_idle=0
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+DEFAULT_NUM_GPUS_PER_NODE=8
+ENABLE_CHECKPOINTS=false
+DISTRIBUTION_STRATEGY=multi_worker_mirrored
+OMPI_COMM_WORLD_LOCAL_SIZE=1
+CUDA_VISIBLE_DEVICES=0
+OMPI_COMM_WORLD_SIZE=4
+SHLVL=4
+PYTHONPATH=:/root/dev/models:/root/dev/models
+OMPI_NUM_APP_CTX=1
+NVIDIA_REQUIRE_CUDA=cuda>=10.1 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411 brand=tesla,driver>=418,driver<419
+OMPI_MCA_pmix=^s1,s2,cray,isolated
+DEFAULT_DISTRIBUTION_STRATEGY=multi_worker_mirrored
+RUN_TAG=virtual-l7
+PMIX_SERVER_URI21=3430547456.0;tcp4://127.0.0.1:52893
+SAVED_CHECKPOINT_PATH=/root/dev/dataset/bert/uncased_L-12_H-768_A-12/bert_model.ckpt
+PMIX_DSTORE_21_BASE_PATH=/tmp/ompi.8603225c1c76.0/pid.5995/pmix_dstor_ds21_5995
+ENABLE_MONITOR_MEMORY=false
+CUBLAS_VERSION=10.1.0.105-1
+BATCH_SIZE=4
+PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PMIX_SECURITY_MODE=native
+OMPI_MCA_ess=^singleton
+NCCL_DEBUG=INFO
+PMIX_NAMESPACE=3430547457
+OMPI_MCA_orte_ess_num_procs=4
+NCCL_SOCKET_IFNAME=^lo,docker0,eth1
+OMPI_MCA_ess_base_jobid=3430547457
+OMPI_COMM_WORLD_LOCAL_RANK=0
+OMPI_UNIVERSE_SIZE=4
+OMPI_MCA_orte_jobfam_session_dir=/tmp/ompi.8603225c1c76.0/pid.5995
+DEFAULT_NUM_EPOCHS=1
+PMIX_GDS_MODULE=ds21,ds12,hash
+ENABLE_ELASTICITY=false
+NUM_GPUS=1
+OMPI_MCA_btl=^openib
+_=/usr/bin/printenv
+==========================================================================
+
+2021-04-29 04:03:56.988805: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+/usr/local/lib/python3.6/dist-packages/absl/flags/_validators.py:356: UserWarning: Flag --model_dir has a non-None default value; therefore, mark_flag_as_required will pass even if flag is not specified in the command line!
+  'command line!' % flag_name)
+I0429 04:03:59.520710 140604883777344 virtual_helper.py:221] Setting TF_CONFIG to {"cluster": {"worker": ["8603225c1c76:2222", "b0ce6effc2dd:2223", "344e7e96a479:2224", "b565c4a09032:2225"]}, "task": {"type": "worker", "index": 0}}
+WARNING:tensorflow:From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+W0429 04:03:59.521250 140604883777344 deprecation.py:339] From /root/dev/models/official/common/distribute_utils.py:144: _CollectiveAllReduceStrategyExperimental.__init__ (from tensorflow.python.distribute.collective_all_reduce_strategy) is deprecated and will be removed in a future version.
+Instructions for updating:
+use distribute.MultiWorkerMirroredStrategy instead
+2021-04-29 04:03:59.521860: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-29 04:03:59.521964: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-04-29 04:03:59.562481: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:03:59.562913: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-29 04:03:59.562941: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-29 04:03:59.565019: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-29 04:03:59.565123: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-29 04:03:59.567129: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-29 04:03:59.567562: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-29 04:03:59.569774: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-29 04:03:59.571039: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-29 04:03:59.575667: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-29 04:03:59.575823: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:03:59.576239: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:03:59.576576: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-29 04:03:59.577247: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-29 04:03:59.577940: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-29 04:03:59.578084: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:03:59.578445: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-29 04:03:59.578466: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-29 04:03:59.578492: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-29 04:03:59.578510: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-29 04:03:59.578522: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-29 04:03:59.578533: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-29 04:03:59.578545: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-29 04:03:59.578556: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-29 04:03:59.578567: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-29 04:03:59.578646: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:03:59.579077: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:03:59.579426: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-29 04:03:59.579479: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-29 04:04:55.806238: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-29 04:04:55.806277: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-29 04:04:55.806286: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-29 04:04:55.806536: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.806995: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.807369: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.807733: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14660 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:04.0, compute capability: 7.0)
+2021-04-29 04:04:55.808965: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-04-29 04:04:55.809147: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.809511: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:00:04.0 name: Tesla V100-SXM2-16GB computeCapability: 7.0
+coreClock: 1.53GHz coreCount: 80 deviceMemorySize: 15.75GiB deviceMemoryBandwidth: 836.37GiB/s
+2021-04-29 04:04:55.809539: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2021-04-29 04:04:55.809601: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+2021-04-29 04:04:55.809619: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.10
+2021-04-29 04:04:55.809631: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-04-29 04:04:55.809645: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-04-29 04:04:55.809656: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-04-29 04:04:55.809669: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.10
+2021-04-29 04:04:55.809681: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.7
+2021-04-29 04:04:55.809748: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.810126: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.810448: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-04-29 04:04:55.810475: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-29 04:04:55.810484: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-04-29 04:04:55.810490: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-04-29 04:04:55.810571: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.810934: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-04-29 04:04:55.811271: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:worker/replica:0/task:0/device:GPU:0 with 14660 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:04.0, compute capability: 7.0)
+2021-04-29 04:04:55.814906: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:301] Initialize GrpcChannelCache for job worker -> {0 -> 8603225c1c76:2222, 1 -> b0ce6effc2dd:2223, 2 -> 344e7e96a479:2224, 3 -> b565c4a09032:2225}
+2021-04-29 04:04:55.815266: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:411] Started server with target: grpc://8603225c1c76:2222
+INFO:tensorflow:Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:0/device:CPU:0', '/job:worker/replica:0/task:0/device:GPU:0']
+I0429 04:04:55.815819 140604883777344 collective_all_reduce_strategy.py:469] Enabled multi-worker collective ops with available devices: ['/job:worker/replica:0/task:0/device:CPU:0', '/job:worker/replica:0/task:0/device:GPU:0']
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:worker/task:0/device:GPU:0',)
+I0429 04:04:55.820296 140604883777344 mirrored_strategy.py:350] Using MirroredStrategy with devices ('/job:worker/task:0/device:GPU:0',)
+8603225c1c76:6025:6151 [0] NCCL INFO NET/Socket : Using [0]eth0:10.0.1.6<0>
+8603225c1c76:6025:6151 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
+
+8603225c1c76:6025:6151 [0] misc/ibvwrap.cc:63 NCCL WARN Failed to open libibverbs.so[.1]
+INFO:tensorflow:Waiting for the cluster, timeout = inf
+I0429 04:04:56.213886 140604883777344 collective_all_reduce_strategy.py:830] Waiting for the cluster, timeout = inf
+INFO:tensorflow:Cluster is ready.
+I0429 04:05:24.395822 140604883777344 collective_all_reduce_strategy.py:845] Cluster is ready.
+INFO:tensorflow:MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['8603225c1c76:2222', 'b0ce6effc2dd:2223', '344e7e96a479:2224', 'b565c4a09032:2225']}, task_type = 'worker', task_id = 0, num_workers = 4, local_devices = ('/job:worker/task:0/device:GPU:0',), communication = CommunicationImplementation.AUTO
+I0429 04:05:24.401150 140604883777344 collective_all_reduce_strategy.py:518] MultiWorkerMirroredStrategy with cluster_spec = {'worker': ['8603225c1c76:2222', 'b0ce6effc2dd:2223', '344e7e96a479:2224', 'b565c4a09032:2225']}, task_type = 'worker', task_id = 0, num_workers = 4, local_devices = ('/job:worker/task:0/device:GPU:0',), communication = CommunicationImplementation.AUTO
+2021-04-29 04:05:24.402807: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-04-29 04:05:24.402837: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-04-29 04:05:24.402896: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1365] Profiler found 1 GPUs
+2021-04-29 04:05:24.404757: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcupti.so.10.1
+2021-04-29 04:05:24.505671: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+2021-04-29 04:05:24.505737: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+I0429 04:05:24.505864 140604883777344 run_classifier.py:187] Training using TF 2.x Keras compile/fit API with distribution strategy.
+I0429 04:05:35.056010 140604883777344 optimization.py:89] using Adamw optimizer
+I0429 04:05:35.056298 140604883777344 optimization.py:142] gradient_clip_norm=1.000000
+WARNING:tensorflow:The argument `steps_per_execution` is no longer experimental. Pass `steps_per_execution` instead of `experimental_steps_per_execution`.
+W0429 04:05:35.833728 140604883777344 training.py:532] The argument `steps_per_execution` is no longer experimental. Pass `steps_per_execution` instead of `experimental_steps_per_execution`.
+2021-04-29 04:05:35.906353: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-04-29 04:05:35.906736: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2000160000 Hz
+INFO:tensorflow:Collective batch_all_reduce: 201 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:53.525402 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 201 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:54.261912 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:54.264183 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:54.268349 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:54.270522 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 201 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:59.078941 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 201 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:59.811904 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:59.814282 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:59.817834 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+INFO:tensorflow:Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+I0429 04:05:59.819888 140604883777344 cross_device_ops.py:1154] Collective batch_all_reduce: 1 all-reduces, num_devices = 1, group_size = 4, implementation = AUTO, num_packs = 1
+2021-04-29 04:06:05.865363: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fdfc4005f10 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-04-29 04:06:05.865411: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-16GB, Compute Capability 7.0
+2021-04-29 04:06:06.055373: I tensorflow/compiler/jit/xla_compilation_cache.cc:333] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Training on virtual node 1 / 1
+2021-04-29 04:06:06.901577: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.10
+ 1/20 [>.............................] - ETA: 17:58 - loss: 0.7458 - accuracy: 0.0000e+00I0429 04:06:32.711092 140604883777344 keras_utils.py:163] TimeHistory: 56.76 seconds, 0.07 examples/second between steps 0 and 1
+2021-04-29 04:06:33.225179: I tensorflow/core/profiler/lib/profiler_session.cc:136] Profiler session initializing.
+2021-04-29 04:06:33.225226: I tensorflow/core/profiler/lib/profiler_session.cc:155] Profiler session started.
+2021-04-29 04:06:33.226608: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1415] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+Training on virtual node 1 / 1
+ 2/20 [==>...........................] - ETA: 2:02 - loss: 0.7303 - accuracy: 0.1875     I0429 04:06:39.520587 140604883777344 keras_utils.py:163] TimeHistory: 6.30 seconds, 0.64 examples/second between steps 1 and 2
+2021-04-29 04:06:39.522854: I tensorflow/core/profiler/lib/profiler_session.cc:71] Profiler session collecting data.
+2021-04-29 04:06:39.532323: I tensorflow/core/profiler/internal/gpu/cupti_collector.cc:228]  GpuTracer has collected 0 callback api events and 0 activity events. 
+2021-04-29 04:06:39.536568: I tensorflow/core/profiler/lib/profiler_session.cc:172] Profiler session tear down.
+2021-04-29 04:06:39.541474: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39
+2021-04-29 04:06:39.544030: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for trace.json.gz to /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39/8603225c1c76.trace.json.gz
+2021-04-29 04:06:39.580253: I tensorflow/core/profiler/rpc/client/save_profile.cc:137] Creating directory: /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39
+2021-04-29 04:06:39.586634: I tensorflow/core/profiler/rpc/client/save_profile.cc:143] Dumped gzipped tool data for memory_profile.json.gz to /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39/8603225c1c76.memory_profile.json.gz
+2021-04-29 04:06:39.586984: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39Dumped tool data for xplane.pb to /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39/8603225c1c76.xplane.pb
+Dumped tool data for overview_page.pb to /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39/8603225c1c76.overview_page.pb
+Dumped tool data for input_pipeline.pb to /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39/8603225c1c76.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39/8603225c1c76.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /root/dev/logs/bert-glue-virtual-l7-04_29_21_1619669036054/summaries/train/plugins/profile/2021_04_29_04_06_39/8603225c1c76.kernel_stats.pb
+
+Training on virtual node 1 / 1
+ 3/20 [===>..........................] - ETA: 1:49 - loss: 0.7215 - accuracy: 0.2639I0429 04:06:45.589547 140604883777344 keras_utils.py:163] TimeHistory: 6.00 seconds, 0.67 examples/second between steps 2 and 3
+Training on virtual node 1 / 1
+ 4/20 [=====>........................] - ETA: 1:40 - loss: 0.7158 - accuracy: 0.3073I0429 04:06:51.559880 140604883777344 keras_utils.py:163] TimeHistory: 5.97 seconds, 0.67 examples/second between steps 3 and 4
+Training on virtual node 1 / 1
+ 5/20 [======>.......................] - ETA: 1:32 - loss: 0.7121 - accuracy: 0.3458I0429 04:06:57.508274 140604883777344 keras_utils.py:163] TimeHistory: 5.95 seconds, 0.67 examples/second between steps 4 and 5
+Training on virtual node 1 / 1
+ 6/20 [========>.....................] - ETA: 1:25 - loss: 0.7080 - accuracy: 0.3854I0429 04:07:03.383780 140604883777344 keras_utils.py:163] TimeHistory: 5.87 seconds, 0.68 examples/second between steps 5 and 6
+Training on virtual node 1 / 1
+ 7/20 [=========>....................] - ETA: 1:19 - loss: 0.7051 - accuracy: 0.4120I0429 04:07:09.313794 140604883777344 keras_utils.py:163] TimeHistory: 5.93 seconds, 0.67 examples/second between steps 6 and 7
+Training on virtual node 1 / 1
+ 8/20 [===========>..................] - ETA: 1:13 - loss: 0.7037 - accuracy: 0.4269I0429 04:07:15.349596 140604883777344 keras_utils.py:163] TimeHistory: 6.03 seconds, 0.66 examples/second between steps 7 and 8
+Training on virtual node 1 / 1
+ 9/20 [============>.................] - ETA: 1:06 - loss: 0.7022 - accuracy: 0.4350I0429 04:07:21.314110 140604883777344 keras_utils.py:163] TimeHistory: 5.96 seconds, 0.67 examples/second between steps 8 and 9
+Training on virtual node 1 / 1
+10/20 [==============>...............] - ETA: 1:00 - loss: 0.7009 - accuracy: 0.4415I0429 04:07:27.292079 140604883777344 keras_utils.py:163] TimeHistory: 5.98 seconds, 0.67 examples/second between steps 9 and 10
+Training on virtual node 1 / 1
+11/20 [===============>..............] - ETA: 54s - loss: 0.7004 - accuracy: 0.4448 I0429 04:07:33.306962 140604883777344 keras_utils.py:163] TimeHistory: 6.01 seconds, 0.67 examples/second between steps 10 and 11
+Training on virtual node 1 / 1
+12/20 [=================>............] - ETA: 48s - loss: 0.7000 - accuracy: 0.4494I0429 04:07:39.252760 140604883777344 keras_utils.py:163] TimeHistory: 5.94 seconds, 0.67 examples/second between steps 11 and 12
+Training on virtual node 1 / 1
+13/20 [==================>...........] - ETA: 42s - loss: 0.7001 - accuracy: 0.4518I0429 04:07:45.272937 140604883777344 keras_utils.py:163] TimeHistory: 6.02 seconds, 0.66 examples/second between steps 12 and 13
+Training on virtual node 1 / 1
+14/20 [====================>.........] - ETA: 36s - loss: 0.7000 - accuracy: 0.4552I0429 04:07:51.176775 140604883777344 keras_utils.py:163] TimeHistory: 5.90 seconds, 0.68 examples/second between steps 13 and 14
+Training on virtual node 1 / 1
+15/20 [=====================>........] - ETA: 30s - loss: 0.7000 - accuracy: 0.4582I0429 04:07:57.131820 140604883777344 keras_utils.py:163] TimeHistory: 5.95 seconds, 0.67 examples/second between steps 14 and 15
+Training on virtual node 1 / 1
+16/20 [=======================>......] - ETA: 24s - loss: 0.7000 - accuracy: 0.4608I0429 04:08:03.112837 140604883777344 keras_utils.py:163] TimeHistory: 5.98 seconds, 0.67 examples/second between steps 15 and 16
+Training on virtual node 1 / 1
+17/20 [========================>.....] - ETA: 18s - loss: 0.7005 - accuracy: 0.4614I0429 04:08:09.120157 140604883777344 keras_utils.py:163] TimeHistory: 6.01 seconds, 0.67 examples/second between steps 16 and 17
+Training on virtual node 1 / 1
+18/20 [==========================>...] - ETA: 12s - loss: 0.7009 - accuracy: 0.4628I0429 04:08:15.077282 140604883777344 keras_utils.py:163] TimeHistory: 5.96 seconds, 0.67 examples/second between steps 17 and 18
+Training on virtual node 1 / 1
+19/20 [===========================>..] - ETA: 6s - loss: 0.7011 - accuracy: 0.4654 I0429 04:08:20.964653 140604883777344 keras_utils.py:163] TimeHistory: 5.89 seconds, 0.68 examples/second between steps 18 and 19
+Training on virtual node 1 / 1
+20/20 [==============================] - ETA: 0s - loss: 0.7013 - accuracy: 0.4684I0429 04:08:26.834335 140604883777344 keras_utils.py:163] TimeHistory: 5.87 seconds, 0.68 examples/second between steps 19 and 20
+20/20 [==============================] - 171s 6s/step - loss: 0.7015 - accuracy: 0.4711
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax
+W0429 04:08:29.423864 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._dropout
+W0429 04:08:29.424051 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax
+W0429 04:08:29.424104 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._dropout
+W0429 04:08:29.424148 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax
+W0429 04:08:29.424239 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._dropout
+W0429 04:08:29.424286 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax
+W0429 04:08:29.424331 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._dropout
+W0429 04:08:29.424376 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax
+W0429 04:08:29.424425 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._dropout
+W0429 04:08:29.424470 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax
+W0429 04:08:29.424518 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._dropout
+W0429 04:08:29.424569 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax
+W0429 04:08:29.424618 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._dropout
+W0429 04:08:29.424665 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax
+W0429 04:08:29.424713 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._dropout
+W0429 04:08:29.424759 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax
+W0429 04:08:29.424812 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._dropout
+W0429 04:08:29.424861 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax
+W0429 04:08:29.424910 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._dropout
+W0429 04:08:29.424957 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax
+W0429 04:08:29.425007 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._dropout
+W0429 04:08:29.425055 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax
+W0429 04:08:29.425109 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._dropout
+W0429 04:08:29.425153 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._dropout
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425200 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-4._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425249 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-5._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425295 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-6._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425343 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-7._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425391 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-8._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425439 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-9._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425487 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-10._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425535 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-11._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425589 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-12._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425637 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-13._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425685 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-14._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax._mask_expansion_axes
+W0429 04:08:29.425729 140604883777344 util.py:161] Unresolved object in checkpoint: (root).model.layer_with_weights-15._attention_layer._masked_softmax._mask_expansion_axes
+WARNING:tensorflow:A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/guide/checkpoint#loading_mechanics for details.
+W0429 04:08:29.425778 140604883777344 util.py:169] A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/guide/checkpoint#loading_mechanics for details.
