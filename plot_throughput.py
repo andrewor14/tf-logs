@@ -24,7 +24,7 @@ def plot():
   width = 0.125
   i1 = list(range(len(v)))
   i2 = [x + width for x in i1]
-  i3 = [x + width for x in i2]
+  i3 = [x + width + 0.03 for x in i2]
   i4 = [x + width for x in i3[:2]]
   i5 = [x + width for x in i4]
   i6 = [x + width for x in i5]
@@ -36,7 +36,7 @@ def plot():
   # Plot the bars
   colors = iter(plt.get_cmap("Set2").colors)
   bars = []
-  ax.bar(i1, v, color=next(colors), width=width, edgecolor="white", label="2 V100 only", hatch="//")
+  b1 = ax.bar(i1, v, color=next(colors), width=width, edgecolor="white", label="2 V100 only", hatch="//")
   p_color = next(colors)
   ax.bar([i2[0]], [p[0]], color=p_color, width=width, edgecolor="white", label="2 P100 only", hatch="\\\\")
   ax.bar([i2[1]], [p[1]], color=p_color, width=width, edgecolor="white", label="4 P100 only", hatch=".")
@@ -47,9 +47,9 @@ def plot():
   b6 = ax.bar(i6, hd, color=next(colors), width=width, edgecolor="white")
 
   # Plot horizontal dotted line for comparison
-  plt.axhline(y=max(v[0], p[0]), xmin=0.075, xmax=0.325, color="black", linestyle='--')
-  plt.axhline(y=max(v[1], p[1]), xmin=0.4, xmax=0.7, color="black", linestyle='--')
-  plt.axhline(y=max(v[2], p[2]), xmin=0.775, xmax=0.925, color="black", linestyle='--')
+  plt.axhline(y=max(v[0], p[0]), xmin=0.075, xmax=0.335, color="black", linestyle='--')
+  plt.axhline(y=max(v[1], p[1]), xmin=0.395, xmax=0.705, color="black", linestyle='--')
+  plt.axhline(y=max(v[2], p[2]), xmin=0.76, xmax=0.925, color="black", linestyle='--')
 
   # Add improvement multiplier above the best bar for each group
   mult1 = max(ha[0], hb[0], hc[0], hd[0]) / max(v[0], p[0])
@@ -71,8 +71,10 @@ def plot():
   plt.text(b3.patches[1].get_x() + width + 0.03125, 100, "b", fontsize=12)
   plt.text(b3.patches[1].get_x() + 2 * width + 0.03125, 100, "c", fontsize=12)
   plt.text(b3.patches[1].get_x() + 3 * width + 0.03125, 100, "d", fontsize=12)
-  plt.xticks([0.375, 1.3125, 2.125], ["H1", "H2", "H3"], fontsize=16)
+  plt.xticks([b4.patches[0].get_x() + width/2, b5.patches[1].get_x(), b3.patches[2].get_x() + width/2],\
+    ["H1", "H2", "H3"], fontsize=16)
   plt.yticks(fontsize=16)
+  plt.tick_params(axis='x', which='both', bottom=False)
   plt.ylim(0, max(itertools.chain.from_iterable([v, p, ha, hb, hc, hd])) * 1.25)
   ax.set_ylabel("Throughput (img/s)", fontsize=16)
   ax.yaxis.set_label_coords(-0.2, 0.65)
