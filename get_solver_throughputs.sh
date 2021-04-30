@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export COMM="${COMM:=0.7664}"
+export COMM="${COMM:=1.06118506202}"
 
 cd ../models/virtual
 
