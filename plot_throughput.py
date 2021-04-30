@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot():
-  fig = plt.figure(figsize=(5.5, 3))
+  fig = plt.figure(figsize=(5.75, 3))
   ax = fig.add_subplot(1, 1, 1)
   ax.margins(0.1, 0)
   output_file = "het_throughputs.pdf"
@@ -64,11 +64,14 @@ def plot():
       "%.2fx" % mults[i], ha='center', va='bottom', fontsize=12)
 
   # Legends and labels
-  plt.text(b3.patches[0].get_x() - width * 2, -650, "H1(", fontsize=16)
-  plt.text(b5.patches[0].get_x() + width * 0.95, -650, ")", fontsize=16)
-  plt.text(b3.patches[1].get_x() - width * 2, -650, "H2(", fontsize=16)
-  plt.text(b6.patches[1].get_x() + width * 0.95, -650, ")", fontsize=16)
-  plt.xticks([0.25, 0.375, 0.5, 1.125, 1.25, 1.375, 1.5, 2.125], ["a", "b", "c", "a", "b", "c", "d", "H3"], fontsize=16)
+  plt.text(b3.patches[0].get_x() + 0.03125, 100, "a", fontsize=12)
+  plt.text(b3.patches[0].get_x() + width + 0.03125, 100, "b", fontsize=12)
+  plt.text(b3.patches[0].get_x() + 2 * width + 0.03125, 100, "c", fontsize=12)
+  plt.text(b3.patches[1].get_x() + 0.03125, 100, "a", fontsize=12)
+  plt.text(b3.patches[1].get_x() + width + 0.03125, 100, "b", fontsize=12)
+  plt.text(b3.patches[1].get_x() + 2 * width + 0.03125, 100, "c", fontsize=12)
+  plt.text(b3.patches[1].get_x() + 3 * width + 0.03125, 100, "d", fontsize=12)
+  plt.xticks([0.375, 1.3125, 2.125], ["H1", "H2", "H3"], fontsize=16)
   plt.yticks(fontsize=16)
   plt.ylim(0, max(itertools.chain.from_iterable([v, p, ha, hb, hc, hd])) * 1.25)
   ax.set_ylabel("Throughput (img/s)", fontsize=16)
