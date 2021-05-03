@@ -9,13 +9,13 @@ def plot(metric):
   output_file = "output/%s-microbenchmark.pdf" % metric
 
   if metric == "memory":
-    _tf = np.array([8.81, 8.66, 7.60]) # TODO: fix
-    _1vn = np.array([8.81, 8.66, 7.60]) / _tf
-    _2vn = np.array([8.90, 9.51, 8.93]) / _tf
-    _4vn = np.array([8.90, 9.64, 8.93]) / _tf
-    _8vn = np.array([8.90, 9.64, 8.93]) / _tf
-    _16vn = np.array([8.90, 9.69, 8.93]) / _tf
-    _32vn = np.array([8.90, 9.69, 8.93]) / _tf
+    _tf = np.array([8.6808, 8.4824, 7.2958])
+    _1vn = np.array([8.6395, 8.6498, 8.2182]) / _tf
+    _2vn = np.array([8.7417, 9.5076, 8.2182]) / _tf
+    _4vn = np.array([8.7417, 9.6465, 8.2181]) / _tf
+    _8vn = np.array([8.7417, 9.6876, 8.4781]) / _tf
+    _16vn = np.array([8.7417, 9.6876, 8.3816]) / _tf
+    _32vn = np.array([8.7417, 9.6876, 8.2810]) / _tf
     ylabel = "Norm. \npeak memory"
   elif metric == "throughput":
     _tf = np.array([675.812, 6914.6, 28.3777])
@@ -37,7 +37,7 @@ def plot(metric):
   p6 = [x + width for x in p5]
   
   if metric == "memory":
-    fig = plt.figure(figsize=(6, 2.75))
+    fig = plt.figure(figsize=(6, 2.5))
   else:
     fig = plt.figure(figsize=(6, 2))
   ax = fig.add_subplot(1, 1, 1)
@@ -54,10 +54,13 @@ def plot(metric):
  
   ax.set_ylabel(ylabel, fontsize=16, labelpad=15)
   plt.xticks([p + 2.5 * width for p in range(len(_2vn))], labels, fontsize=16)
-  plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], fontsize=14)
-  plt.ylim(0, 1.35)
   if metric == "memory":
     ax.legend(fontsize=12, loc='lower center', bbox_to_anchor=(0.5, 1.05), ncol=3)
+    plt.ylim(0, 1.35)
+    plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], fontsize=12)
+  else:
+    plt.ylim(0, 1.4)
+    plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4], fontsize=12)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file)
   print("Saved to %s" % output_file)

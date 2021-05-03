@@ -8,14 +8,14 @@ def main():
   labels = ["ResNet-50", "Transformer", "BERT-LARGE"]
   output_file = "output/overhead-microbenchmark.pdf"
 
-  _tf1 = np.array([675.812, 3790.81, 28.3777])
-  _tf2 = np.array([599.966, 5498.67, 20.2030])
-  _tf3 = np.array([541.12, 6423.41, 12.7027])
-  _tf4 = np.array([455.301, 6914.6, -1])
-  _vf1 = np.array([710.024, 3352.58, 27.1990]) / _tf1
-  _vf2 = np.array([622.701, 4988, 18.7252]) / _tf2
-  _vf3 = np.array([543.769, 6042.52, 11.3639]) / _tf3
-  _vf4 = np.array([438.61, 6726.52, 0]) / _tf4
+  _tf1 = np.array([675.812, 6914.6, 28.3777])
+  _tf2 = np.array([599.966, 6423.41, 20.2030])
+  _tf3 = np.array([541.12, 5498.67, 12.7027])
+  _tf4 = np.array([455.301, 3790.81, -1])
+  _vf1 = np.array([710.024, 6726.52, 27.1990]) / _tf1
+  _vf2 = np.array([622.701, 6042.52, 18.7252]) / _tf2
+  _vf3 = np.array([543.769, 4988, 11.3639]) / _tf3
+  _vf4 = np.array([438.61, 3352.58, 0]) / _tf4
   ylabel = "Norm. \nthroughput"
 
   p0 = np.arange(len(_vf1))
@@ -41,7 +41,7 @@ def main():
   ax.set_ylabel(ylabel, fontsize=16, labelpad=15)
 
   plt.xticks([p + 2.5 * width for p in range(len(_vf1))], labels, fontsize=16)
-  plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0], fontsize=14)
+  plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0], fontsize=12)
   ax.legend(fontsize=12, loc='lower center', bbox_to_anchor=(0.5, 1.05), ncol=2)
   plt.ylim(0, 1.2)
   fig.set_tight_layout({"pad": 1.5})
