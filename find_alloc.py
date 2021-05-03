@@ -43,12 +43,14 @@ def parse_memory_over_time(data_file):
   memory_used = []
   with open(data_file) as f:
     for line in f.readlines():
-      split = tuple(line.split(" "))
+      split = tuple(line.strip().split(" "))
       raw_timestamp = split[0]
       action = split[1].strip()
       if action == MARKER:
         continue
       num_bytes = split[2]
+      if len(split) < 4:
+        continue
       raw_timestamps.append(raw_timestamp)
       # Parse new memory usage
       current_memory = memory_used[-1] if len(memory_used) > 0 else 0
