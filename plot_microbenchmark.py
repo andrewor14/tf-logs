@@ -9,22 +9,22 @@ def plot(metric):
   output_file = "output/%s-microbenchmark.pdf" % metric
 
   if metric == "memory":
-    _1vn = np.array([8.81, 8.66, 7.60])
-    _2vn = np.array([8.90, 9.51, 8.93]) / _1vn
-    _4vn = np.array([8.90, 9.64, 8.93]) / _1vn
-    _8vn = np.array([8.90, 9.64, 8.93]) / _1vn
-    _16vn = np.array([8.90, 9.69, 8.93]) / _1vn
-    _32vn = np.array([8.90, 9.69, 8.93]) / _1vn
-    _1vn /= _1vn
+    _tf = np.array([8.81, 8.66, 7.60]) # TODO: fix
+    _1vn = np.array([8.81, 8.66, 7.60]) / _tf
+    _2vn = np.array([8.90, 9.51, 8.93]) / _tf
+    _4vn = np.array([8.90, 9.64, 8.93]) / _tf
+    _8vn = np.array([8.90, 9.64, 8.93]) / _tf
+    _16vn = np.array([8.90, 9.69, 8.93]) / _tf
+    _32vn = np.array([8.90, 9.69, 8.93]) / _tf
     ylabel = "Norm. \npeak memory"
   elif metric == "throughput":
-    _1vn = np.array([523.682, 6703.43, 22.4188])
-    _2vn = np.array([545.178, 6863.33, 25.1946]) / _1vn
-    _4vn = np.array([551.58, 6963.69, 27.4218]) / _1vn
-    _8vn = np.array([533.817, 7003.52, 28.5995]) / _1vn
-    _16vn = np.array([551.441, 7020.67, 28.8711]) / _1vn
-    _32vn = np.array([542.65, 7036.4, 29.4659]) / _1vn
-    _1vn /= _1vn
+    _tf = np.array([675.812, 6914.6, 28.3777])
+    _1vn = np.array([710.024, 6726.52, 27.1990]) / _tf
+    _2vn = np.array([725.396, 6854.53, 31.7647]) / _tf
+    _4vn = np.array([719.041, 6919.18, 34.65011]) / _tf
+    _8vn = np.array([722.736, 6959.5, 36.0466]) / _tf
+    _16vn = np.array([721.203, 6976.23, 36.9445]) / _tf
+    _32vn = np.array([715.372, 6991.22, 37.3013]) / _tf
     ylabel = "Norm. \nthroughput"
   else:
     raise ValueError("Unrecognized metric '%s'" % metric)
@@ -44,12 +44,12 @@ def plot(metric):
   ax.margins(0.1, 0)
 
   colors = iter(plt.get_cmap("Set3").colors[2:])
-  ax.bar(p1, _1vn, color=next(colors), width=width, edgecolor="white", label="TF", hatch="//")
-  ax.bar(p2, _2vn, color=next(colors), width=width, edgecolor="white", label="VF (2VN)")
-  ax.bar(p3, _4vn, color=next(colors), width=width, edgecolor="white", label="VF (4VN)")
-  ax.bar(p4, _8vn, color=next(colors), width=width, edgecolor="white", label="VF (8VN)")
-  ax.bar(p5, _16vn, color=next(colors), width=width, edgecolor="white", label="VF (16VN)")
-  ax.bar(p6, _32vn, color=next(colors), width=width, edgecolor="white", label="VF (32VN)")
+  ax.bar(p1, _1vn, color=next(colors), width=width, edgecolor="white", label="1VN")
+  ax.bar(p2, _2vn, color=next(colors), width=width, edgecolor="white", label="2VN")
+  ax.bar(p3, _4vn, color=next(colors), width=width, edgecolor="white", label="4VN")
+  ax.bar(p4, _8vn, color=next(colors), width=width, edgecolor="white", label="8VN")
+  ax.bar(p5, _16vn, color=next(colors), width=width, edgecolor="white", label="16VN")
+  ax.bar(p6, _32vn, color=next(colors), width=width, edgecolor="white", label="32VN")
   plt.axhline(y=1, color="black", linestyle='--')
  
   ax.set_ylabel(ylabel, fontsize=16, labelpad=15)
