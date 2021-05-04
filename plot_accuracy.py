@@ -59,7 +59,7 @@ def main():
       batch_size, num_vns = re.match("([0-9]+)bs_([0-9]+)vn.*", label).groups()
       num_gpus = ""
     if "2lines" in output_file:
-      vns = "no VN" if "baseline" in label else "%s VN" % num_vns
+      vns = "TensorFlow" if "baseline" in label else "VirtualFlow"
       return "Batch size %s %s (%s)" % (batch_size, num_gpus, vns)
     else:
       # This is for the eval, use VF and don't include batch size
@@ -79,8 +79,10 @@ def main():
     fig = plt.figure()
   ax = fig.add_subplot(1, 1, 1)
   label_font_size = 20 if "resnet-imagenet-V100" in data_files[0] else 24
-  ax.set_xlabel(xlabel, fontsize=label_font_size, labelpad=15)
-  ax.set_ylabel(ylabel, fontsize=label_font_size, labelpad=15)
+  label_font_size = 14 if "2lines" in output_file else label_font_size
+  labelpad = 12 if "2lines" in output_file else 15
+  ax.set_xlabel(xlabel, fontsize=label_font_size, labelpad=labelpad)
+  ax.set_ylabel(ylabel, fontsize=label_font_size, labelpad=labelpad)
 
   # Figure out colors
   color_cycle = plt.rcParams['axes.prop_cycle'].by_key()['color'] * 10
@@ -148,8 +150,9 @@ def main():
     lower = float(ylim.split(",")[0])
     upper = float(ylim.split(",")[1])
     plt.ylim(lower, upper)
-  plt.xticks(fontsize=16)
-  plt.yticks(fontsize=16)
+  ticks_font_size = 12 if "2lines" in output_file else 16
+  plt.xticks(fontsize=ticks_font_size)
+  plt.yticks(fontsize=ticks_font_size)
   plt.title(title, fontsize=label_font_size, pad=20)
   fig.set_tight_layout({"pad": 1.5})
   fig.savefig(output_file, bbox_inches="tight")

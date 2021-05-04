@@ -29,7 +29,8 @@ for glue_task in $GLUE_TASKS; do
   unset YLIM
   unset YLIM_FACTOR
   if [[ "$glue_task" == "RTE" ]]; then
-    OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-2lines.pdf" LEGEND_FONT_SIZE=16\
+    OUTPUT_FILE="${OUTPUT_FILE_PREFIX}-2lines.pdf" LEGEND_FONT_SIZE=14\
+      TITLE= YLABEL="Val. accuracy" FIGURE_SIZE=6,2.75\
       ./plot_accuracy.py "$DATA_FILE_PREFIX"4bs*vn_baseline.txt "$DATA_FILE_PREFIX"16bs*vn.txt
   fi
 done
